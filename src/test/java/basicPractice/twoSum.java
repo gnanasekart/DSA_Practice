@@ -1,7 +1,6 @@
 package basicPractice;
 
 import java.util.Arrays;
-
 import org.junit.Assert;
 import org.junit.Test;
 public class twoSum {
@@ -10,7 +9,7 @@ public class twoSum {
 	 * Given the input int array, find the sum of any two distinct indices of the matching given the target
 	 */
 
-	@Test  //+ve
+	//@Test  //+ve
 	public void example1(){
 		int nums[] = {2, 7, 11, 15};
 		int target = 9;
@@ -58,12 +57,47 @@ public class twoSum {
 				}
 			}
 		}
-		
-		
+
 		if(!bMatch)
 			throw new RuntimeException("there is no match");
-		
 		return nums;
 	}
 
+	@Test  
+	public void example4(){
+		int nums[] = {2, 7, 11, 15};
+		int target = 9;
+		//Assert.assertEquals(true,  Arrays.equals(twoSum_2pointer(nums, target), new int[] {0, 1}));
+		twoSum_2pointer(nums, target);
+
+	}
+
+	/*
+	 * pseudo code
+	 * 1. left -> 0, right -> nums.length-1;
+	 * 2. Loop through until left is smaller than right index
+	 *   a. sum both left and right index value
+	 *    - sum = k => return left and right
+	 *    - sum > k => increment left
+	 *    - sum < k => decrement right
+	 * this solution works only for ascending order of array.
+	 * 
+	 */
+
+	private void twoSum_2pointer(int[] nums, int target) {
+
+		int left = 0, right = nums.length-1;
+		boolean bFound = false;
+		while(left < right) {
+			int sum = nums[right] + nums[left];
+			if(sum == target) {
+				System.out.println(right+" "+left);
+				bFound = true;
+				break;
+			}else if(sum < target) left++;
+			else right--;
+		}
+		if(!bFound)
+			throw new RuntimeException("not found matches");
+	}
 }
