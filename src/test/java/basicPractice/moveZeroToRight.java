@@ -19,10 +19,11 @@ public class moveZeroToRight {
 				int temp = arr[right];
 				arr[right] = arr[left];
 				arr[left++] = temp;
+				Math.pow(2, 31);
 			}
 			right++;
-			System.out.println(Arrays.toString(arr));
+			//System.out.println(Arrays.toString(arr));
 		}
-		System.out.println(Arrays.toString(arr));
+		System.out.println(Math.pow(2, 31));
 	}
 }
