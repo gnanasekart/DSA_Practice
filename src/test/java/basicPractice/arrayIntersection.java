@@ -25,10 +25,22 @@ public class arrayIntersection {
 		arrayInter(val1, val2);
 	}
 
+	@Test
+	public void example3() {
+		int[] val1 = {9, 8, 6, 4, 1, 10};
+		int[] val2 = {1, 4, 6, 8, 9};
+		arrayInter(val1, val2);
+	}
 	/*
-	 * L == R -> L++, R++
-	 * L < R -> L++
-	 * L > R -> R++
+	intersection of two array in sorted order
+	if(left < arr1.length && right < arr2.length)
+	if left == right
+	   get the intersection value
+	   move both left++ and right++
+	if left < right
+	   move left++
+	if left > right
+	   move right--
 	 * 
 	 */
 

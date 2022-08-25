@@ -1,6 +1,7 @@
 package basicPractice;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Test;
@@ -34,6 +35,13 @@ public class RemoveTargetArray {
 		int target = 4;
 		BruteForce_removeTarget(nums, target);
 	}
+
+	@Test
+	public void example4(){
+		int[] nums = {5, 3, 2, 1, 2, 3};
+		int target = 3;
+		System.out.println(Arrays.toString(RemoveTargetArrayValue(nums, target)));
+	}
 	
 	/*
 	 * Psuedo code
@@ -46,12 +54,18 @@ public class RemoveTargetArray {
 	 */
 	
 	private void BruteForce_removeTarget(int[] nums, int target) {
+		//if(nums.length == 0) return nums;
+		
+		//O[n]
 		List<Integer> list = new ArrayList<Integer>();
 		
+		//single pass O[n]
 		for (int i = 0; i < nums.length; i++) {
 			list.add(nums[i]);
 		}
 		System.out.println();
+
+		//two pass O[n]
 		for (int i = 0; i < list.size(); i++) {
 			if(list.get(i) == target) {
 				list.remove(i);
@@ -72,6 +86,22 @@ public class RemoveTargetArray {
 		}
 		System.out.println(list);
 	}
+
+	//single pass - 1 for loop
+	//time comp = O[1]+O[n] = O[n]
+	//space comp = left - O[1], right - O[1], we using already available input - nums
+	//creating new array - O[n] 
+	//=> O[1]+O[1]+O[n] => O[n]
 	
-	
+	private int[] RemoveTargetArrayValue(int[] nums, int target){
+		int left = 0;
+		for(int right = 0; right < nums.length; right++){
+			if(nums[right] != target){
+				nums[left++] = nums[right];
+			}
+		}
+		return Arrays.copyOf(nums, left);
+	}
+
+
 }

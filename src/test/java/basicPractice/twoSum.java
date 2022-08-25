@@ -73,14 +73,13 @@ public class twoSum {
 	}
 
 	/*
-	 * pseudo code
+	 * pseudo code >> this solution works only for ascending order of array.
 	 * 1. left -> 0, right -> nums.length-1;
 	 * 2. Loop through until left is smaller than right index
 	 *   a. sum both left and right index value
 	 *    - sum = k => return left and right
 	 *    - sum > k => increment left
 	 *    - sum < k => decrement right
-	 * this solution works only for ascending order of array.
 	 * 
 	 */
 

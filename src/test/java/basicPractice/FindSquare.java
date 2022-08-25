@@ -33,6 +33,12 @@ public class FindSquare {
 		findSquare_bruteForce(nums);
 	}
 
+	@Test
+	public void example4(){
+		int[] nums = {-7, -5, 1, 4, 7};
+		absSqAndSort(nums);
+	}
+
 	/* pseudo code
 	 * 1. take the input array value
 	 * 2. traverse every element in the array by for loop
@@ -51,5 +57,22 @@ public class FindSquare {
 		Arrays.sort(nums);
 		System.out.println(Arrays.toString(nums));
 		return nums;
-	}	
+	}
+	
+	//{1, 16, 25, 49, 49}
+	private void absSqAndSort(int[] nums){
+		int left=0, right=nums.length-1;
+
+		while(left < right){
+			if((nums[Math.abs(nums[left])]) == (nums[Math.abs(nums[right])])){
+				int temp = nums[left];
+				nums[left] = nums[right--];
+				nums[right] = temp;
+			}else if(nums[Math.abs(nums[left])] < nums[Math.abs(nums[right])]){
+				right--;
+			}else {
+				left++;
+			}
+		}
+	}
 }
