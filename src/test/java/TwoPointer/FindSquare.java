@@ -1,4 +1,4 @@
-package basicPractice;
+package TwoPointer;
 
 import java.util.Arrays;
 import org.junit.Assert;
@@ -59,20 +59,35 @@ public class FindSquare {
 		return nums;
 	}
 	
-	//{1, 16, 25, 49, 49}
+
+	/*
+	 *  1. create a new array of same size and value
+		2. left=0, right=len-1;
+		3. insertIndex=len-1(bigger no at end)
+		4. while(left<=right)
+		 a. if left abs is smaller than right abs
+		  -> insert the square value of left in the insert index
+		 b. else insert the square value of right in the insert index
+
+		 time comp - mixed value - O[n/2]
+		 normal value like 1, 2, 3, 4, 5 - O[n]
+		 space comp = O[n]
+	 */
+
+	//{-7, -5, 1, 4, 7} = {1, 16, 25, 49, 49}
 	private void absSqAndSort(int[] nums){
 		int left=0, right=nums.length-1;
 
-		while(left < right){
-			if((nums[Math.abs(nums[left])]) == (nums[Math.abs(nums[right])])){
-				int temp = nums[left];
-				nums[left] = nums[right--];
-				nums[right] = temp;
-			}else if(nums[Math.abs(nums[left])] < nums[Math.abs(nums[right])]){
-				right--;
-			}else {
-				left++;
+		int[] arr = new int[nums.length];
+		int index = arr.length-1;
+
+		while(left<=right){
+			if(Math.abs(nums[left]) < Math.abs(nums[right])){
+				arr[index--] = nums[right]*nums[right--];
+			}else{
+				arr[index--] = nums[left]*nums[left++];
 			}
 		}
+		System.out.println(Arrays.toString(arr));
 	}
 }
