@@ -1,7 +1,5 @@
 package SlidingWindow;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 public class MaxSum {

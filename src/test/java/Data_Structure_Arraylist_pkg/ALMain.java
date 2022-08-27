@@ -6,7 +6,7 @@ public class ALMain
 {
 public static void main(String[] args)
 {
-	ArrayList<Employee> emp = new ArrayList<>();
+	ArrayList<Employee> emp = new ArrayList<Employee>();
 	
 	emp.add(new Employee("gnana", "sekar", 123));
 	emp.add(new Employee("gowri", "shankar", 345));

@@ -1,7 +1,7 @@
 package Data_Structure_Tree;
 public class BSTree
 {
-puiblic static Node search(Node root, int key)
+public static Node search(Node root, int key)
 {
 if(root == null || root.key == key)
 {
@@ -16,6 +16,7 @@ return search(root.right, int key);
 
 public static void main(String[] args)
 {
+	/*
 	           8
 		      /	\
             4    12
