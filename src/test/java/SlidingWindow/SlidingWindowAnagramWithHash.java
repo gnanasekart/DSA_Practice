@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
-public class SlidingWindowWithHash {
+public class SlidingWindowAnagramWithHash {
     @Test
     public void example1() {
         String s = "cbaebabacd";
@@ -54,6 +54,8 @@ public class SlidingWindowWithHash {
         }
     }
 
+    //time comp = O(N)
+    //space comp = O(m+n) => O(2m) => O(m)
     private void anagramWithSlidingWindow(String s, String p) {
         int sCount = s.length(), pCount = p.length();
 
