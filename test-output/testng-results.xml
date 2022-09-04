@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="35" started-at="2022-08-23T19:21:04 IST" finished-at="2022-08-23T19:21:05 IST">
+  <suite name="Default suite" duration-ms="98" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="35" started-at="2022-08-23T19:21:04 IST" finished-at="2022-08-23T19:21:05 IST">
-      <class name="basicPractice.FibonacciSeries">
-        <test-method status="PASS" signature="type1()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="type1" duration-ms="15" started-at="2022-08-23T19:21:04 IST" finished-at="2022-08-23T19:21:05 IST">
+    <test name="Default test" duration-ms="98" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
+      <class name="Stack.ValidateParanthesis">
+        <test-method status="PASS" signature="example1()[pri:0, instance:Stack.ValidateParanthesis@5bc79255]" name="example1" duration-ms="27" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- type1 -->
-        <test-method status="PASS" signature="startTimer()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="startTimer" is-config="true" duration-ms="0" started-at="2022-08-23T19:21:04 IST" finished-at="2022-08-23T19:21:04 IST">
+        </test-method> <!-- example1 -->
+        <test-method status="PASS" signature="example2()[pri:0, instance:Stack.ValidateParanthesis@5bc79255]" name="example2" duration-ms="2" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTimer -->
-        <test-method status="PASS" signature="endTimer()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="endTimer" is-config="true" duration-ms="0" started-at="2022-08-23T19:21:05 IST" finished-at="2022-08-23T19:21:05 IST">
+        </test-method> <!-- example2 -->
+        <test-method status="PASS" signature="example3()[pri:0, instance:Stack.ValidateParanthesis@5bc79255]" name="example3" duration-ms="1" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- endTimer -->
-        <test-method status="PASS" signature="startTimer()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="startTimer" is-config="true" duration-ms="0" started-at="2022-08-23T19:21:05 IST" finished-at="2022-08-23T19:21:05 IST">
+        </test-method> <!-- example3 -->
+        <test-method status="PASS" signature="example4()[pri:0, instance:Stack.ValidateParanthesis@5bc79255]" name="example4" duration-ms="1" started-at="2022-09-04T16:36:02 IST" finished-at="2022-09-04T16:36:02 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startTimer -->
-        <test-method status="PASS" signature="type2()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="type2" duration-ms="0" started-at="2022-08-23T19:21:05 IST" finished-at="2022-08-23T19:21:05 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- type2 -->
-        <test-method status="PASS" signature="endTimer()[pri:0, instance:basicPractice.FibonacciSeries@2758fe70]" name="endTimer" is-config="true" duration-ms="0" started-at="2022-08-23T19:21:05 IST" finished-at="2022-08-23T19:21:05 IST">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endTimer -->
-      </class> <!-- basicPractice.FibonacciSeries -->
+        </test-method> <!-- example4 -->
+      </class> <!-- Stack.ValidateParanthesis -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
