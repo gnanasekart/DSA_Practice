@@ -1,12 +1,12 @@
 package Data_Structure_Tree;
-Node
+public class Node
 {
-int key;
-Node left, right;
+	int key;
+	Node left, right;
 
-public node(int item)
-{
-key = item;
-left = right = null;
-}
+	public void node(int item)
+	{
+		key = item;
+		left = right = null;
+	}
 }

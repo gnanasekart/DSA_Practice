@@ -4,14 +4,14 @@ public class Mergesort
 	int[] arr;
 	int[] temparr;
 
-	void merge(int[] arr)
+	public void merge(int[] arr)
 	{
 		this.arr = arr;
 		this.temparr = new int[arr.length];
 		doMerge(0, arr.length-1);
 	}
 
-	void doMerge(int low, int high)
+	public void doMerge(int low, int high)
 	{
 		if(low < high)
 		{
@@ -26,7 +26,7 @@ public class Mergesort
 
 	//   4  1  7  3
 
-	void merge(int low, int middle, int high)
+	public void merge(int low, int middle, int high)
 	{
 		for (int a = low; a<= high; a++)
 		{
@@ -40,11 +40,7 @@ public class Mergesort
 				{
 					arr[k] = temparr[i];
 					i++;
-				}
-				i++;	
-
-				else
-				{
+				}else{
 					arr[k] = temparr[j];
 					j++;
 				}
@@ -62,7 +58,7 @@ public class Mergesort
 	public static void main(String[] args)
 	{
 		int[] arr= {4,1,7,3};
-		Mergesort.merge(arr);
+		new Mergesort().merge(arr);
 		System.out.println("after sorting");
 		for(int i = 0; i<arr.length; i++)
 		{

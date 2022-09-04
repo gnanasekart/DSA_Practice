@@ -44,7 +44,11 @@ public class ValidateParanthesis {
 			b. If the char does not exist -> push to the stack
 		4. Finally, return the boolean -> if the stack is empty -> true else false
 	 * 
+	 * 
+	 * time comp = O(n)
+	 * space comp = O(n) -- worst case if all bracket are open
 	 */
+	
 	private boolean isValid(String str) {
 		char[] ch = str.toCharArray();
 
@@ -56,15 +60,10 @@ public class ValidateParanthesis {
 		Stack<Character> stack = new Stack<Character>();
 
 		for (int i = 0; i < ch.length; i++) {
-			if(map.containsKey(ch[i])) {
-				if(stack.isEmpty() || stack.pop() != map.get(ch[i])) {
-					return false;
-				}else {
-					stack.push(ch[i]);
-				}
+			if(map.containsKey(ch[i]))
+				if(stack.isEmpty() || stack.pop() != map.get(ch[i])) return false;
+				else stack.push(ch[i]);
 			}
-		}
-		if (stack.isEmpty()) return true;
-		else return false;
+		return stack.isEmpty();
 	}
 }
