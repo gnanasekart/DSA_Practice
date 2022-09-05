@@ -1,33 +1,30 @@
 package Data_Structure_sorting;
+
+import org.testng.annotations.Test;
+
 public class Insertionsort
 {
-public static void sort(int[] arr)
-{
-int n = arr.length;
+	@Test
+	public void example1() {
+		int arr[]= {-2, 0, 12, -4, 13, 8, 11};
+		insertionSort(arr);
+	}
 
-for (int i = 1; i < n; i++)
-{
-for (int j = i; j > 0; j--)
-{
- if (arr[j] > arr[j-1])
-{
- int temp = arr[j];
- arr[j] = arr[j-1];
- arr[j-1] = temp;
-}}}}
+	private void insertionSort(int[] arr) {
+		int n = arr.length;
 
-public static void printing(int[] arr)
-{
-for(int i=0; i < arr.length; i++)
-{
-System.out.print(arr[i]+" ");
-}
-}
-
-public static void main(String[] args)
-{
-int arr[] = {6, 2, 1, 5, 4};
-Insertionsort.sort(arr);
-Insertionsort.printing(arr);
-}
+		for(int i=0; i<n; i++){
+			int pivot = arr[i];
+			int j=i-1;
+			
+			while(j>=0 && arr[j]>pivot) {
+				arr[j+1]=arr[j];
+				j--;
+			}
+			arr[j+1]=pivot;
+		}
+		for(int a: arr) {
+			System.out.print(a+" ");
+		}
+	}
 }

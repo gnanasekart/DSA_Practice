@@ -1,6 +1,20 @@
 package Data_Structure_sorting;
+
+import org.testng.annotations.Test;
+
 public class Mergesort
 {
+	@Test
+	public void example1() {
+		int arr[]= {-2, 0, 12, -4, 13, 8, 11};
+		mergeSort(arr);
+	}
+	
+	private void mergeSort(int[] arr2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	int[] arr;
 	int[] temparr;
 
@@ -52,17 +66,6 @@ public class Mergesort
 				k++;
 				i++;										   
 			}
-		}
-	}
-
-	public static void main(String[] args)
-	{
-		int[] arr= {4,1,7,3};
-		new Mergesort().merge(arr);
-		System.out.println("after sorting");
-		for(int i = 0; i<arr.length; i++)
-		{
-			System.out.print(arr[i]+ " ");
 		}
 	}
 }

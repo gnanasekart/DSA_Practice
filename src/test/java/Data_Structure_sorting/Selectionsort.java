@@ -1,41 +1,42 @@
 package Data_Structure_sorting;
+
+import org.testng.annotations.Test;
+
 public class Selectionsort
 {
-// index =  0  1  2  3  4
+	/*
+	 * Find the lowest and swap
+		Run time comp - O(n^2)
 
-// array =  4  3  5  2  1
+	 * Steps
+		1. take the pivot
+		2. Find the lowest in the right side array
+		3. Swap with the lowest
+		4. Continue step 2 and 3 for next pivot
+	 */
+	@Test
+	public void example1() {
+		int arr[]= {-2, 0, 12, -4, 13, 8, 11};
+		selectionSort(arr);
+	}
+	
+	@Test
+	public void example2() {
+		int arr[]= {4, 5, -6, 2, 1, -18};
+		selectionSort(arr);
+	}
 
-public static void sort(int[] arr)
-{
-int n = arr.length;
-for (int i=0; i<n-1; i++)
-{
-int mini = i;
-for (int j=i+1; j < n; j++)
-{
-if(arr[j] < arr[mini])   //arr[1] < arr[0] = 3 < 4
-{
-mini = j; //j=1
-int temp = arr[mini]; //temp = arr[1] = temp = 3
-arr[mini] = arr[i]; // arr[1] = 4
-arr[i] = temp; // arr[0] = 3
-}//  3 4 5 2 1 
-}}}
-
-public static void printing(int[] arr)
-{
-for (int i=0; i<arr.length; i++)
-{
-System.out.print(arr[i]+" ");
-}
-System.out.println();
-}
-
-public static void main(String[] args)
-{
-int[] arr = {4, 3, 5, 2, 1};
-Selectionsort.printing(arr);
-Selectionsort.sort(arr);
-Selectionsort.printing(arr);
-}
+	private void selectionSort(int[] arr) {
+		int n = arr.length;
+		for (int i=0; i<n; i++){
+			int mini = i;
+			for (int j=i+1; j<n; j++){
+				if(arr[mini] > arr[j]) mini = j; 
+			}
+			int temp = arr[mini]; 
+			arr[mini] = arr[i];
+			arr[i] = temp; 
+			System.out.print(arr[i]+" ");
+		}
+	}
 }
