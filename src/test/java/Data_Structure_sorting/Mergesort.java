@@ -7,14 +7,9 @@ public class Mergesort
 	@Test
 	public void example1() {
 		int arr[]= {-2, 0, 12, -4, 13, 8, 11};
-		mergeSort(arr);
+		merge(arr);
 	}
 	
-	private void mergeSort(int[] arr2) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	int[] arr;
 	int[] temparr;
 
