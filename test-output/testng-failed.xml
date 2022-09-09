@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="leetcodechallenge.LongestPalindrome">
+      <class name="HackerRankChallenge.Array.ArrayListPattern">
         <methods>
-          <include name="example"/>
+          <include name="example1"/>
         </methods>
-      </class> <!-- leetcodechallenge.LongestPalindrome -->
+      </class> <!-- HackerRankChallenge.Array.ArrayListPattern -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
