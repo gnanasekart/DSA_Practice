@@ -29,6 +29,5 @@ public class reverseString {
 			System.out.println(temp);
 		}
 		System.out.println(new String(ch));
-		
 	}
 }

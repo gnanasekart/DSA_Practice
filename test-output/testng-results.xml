@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-09T19:40:31 IST" name="Default suite" finished-at="2022-09-09T19:40:33 IST" duration-ms="1859">
+  <suite started-at="2022-09-10T12:50:37 IST" name="Default suite" finished-at="2022-09-10T12:55:47 IST" duration-ms="309978">
     <groups>
     </groups>
-    <test started-at="2022-09-09T19:40:31 IST" name="Default test" finished-at="2022-09-09T19:40:33 IST" duration-ms="1859">
-      <class name="HackerRankChallenge.Array.ArrayListManipulation">
-        <test-method signature="example1()[pri:0, instance:HackerRankChallenge.Array.ArrayListManipulation@4c309d4d]" started-at="2022-09-09T19:40:31 IST" name="example1" finished-at="2022-09-09T19:40:33 IST" duration-ms="1831" status="PASS">
+    <test started-at="2022-09-10T12:50:37 IST" name="Default test" finished-at="2022-09-10T12:55:47 IST" duration-ms="309978">
+      <class name="HackerRankChallenge.Array.MinimumSwaps">
+        <test-method signature="miniSwap()[pri:0, instance:HackerRankChallenge.Array.MinimumSwaps@38102d01]" started-at="2022-09-10T12:50:37 IST" name="miniSwap" finished-at="2022-09-10T12:55:47 IST" duration-ms="309925" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- example1 -->
-      </class> <!-- HackerRankChallenge.Array.ArrayListManipulation -->
+        </test-method> <!-- miniSwap -->
+      </class> <!-- HackerRankChallenge.Array.MinimumSwaps -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

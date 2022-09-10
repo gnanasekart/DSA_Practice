@@ -50,23 +50,4 @@ public class vovelSwap {
 		}
 		System.out.println(new String(c));
 	}
-
-	//@Test
-	public void example4() {
-		int[] arr = {3, 0, 4, 5, 0, 0, 1};
-		zeroSwap2Pointer(arr);
-	}
-
-	private void zeroSwap2Pointer(int[] arr) {
-		int left=0, right=1;
-
-		while(left > right) {
-
-			if(arr[right] == 0) {
-
-				int temp = arr[right];
-				arr[right++] = arr[left++];
-			}
-		}
-	}
 }

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class moveZeroToRight {
 
-	@Test
+	//@Test
 	public void example1() {
 		int[] value = { 3, 0, 4, 5, 0, 0, 1 };
 		moveZero(value);
@@ -15,11 +15,12 @@ public class moveZeroToRight {
 	@Test
 	public void example2() {
 		int[] value = { 3, 0, -1, 0, 4, 0, 5, 0, 0, 1 };
-		moveZero(value);
+		//moveZero(value);
 		movezeroOpps(value);
 	}
 
 	// maintain position
+	//@Test
 	private void moveZero(int[] arr) {
 		int left = 0, right = 0;
 		while (right < arr.length) {
@@ -45,7 +46,7 @@ public class moveZeroToRight {
 		while (left < right) {
 			if (arr[left] != 0 && arr[right] != 0) {
 				left++;
-			} else if (arr[right] != 0) {
+			} else if (arr[right] != 0 && arr[left] == 0) {
 				int temp = arr[right];
 				arr[right] = arr[left];
 				arr[left++] = temp;
