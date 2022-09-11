@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="HackerRankChallenge.Array.ArrayListPattern">
+      <class name="leetcodechallenge.Shortest_Distance_to_a_Character">
         <methods>
           <include name="example1"/>
         </methods>
-      </class> <!-- HackerRankChallenge.Array.ArrayListPattern -->
+      </class> <!-- leetcodechallenge.Shortest_Distance_to_a_Character -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

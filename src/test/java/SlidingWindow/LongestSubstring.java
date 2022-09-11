@@ -14,9 +14,9 @@ public class LongestSubstring {
 	public void example1() {
 		String s = "bacabcbb";
 		int k = 3;
-		//longestSubStringMap(s, k);
+		longestSubStringMap(s, k);
 		//longestSubStringSet(s);
-		lengthOfLongestSubstring(s);
+		//lengthOfLongestSubstring(s);
 	}
 
 	@Test

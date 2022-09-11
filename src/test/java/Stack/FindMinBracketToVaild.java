@@ -34,7 +34,6 @@ public class FindMinBracketToVaild {
 		//		map.put('}', '{');
 		//		map.put(')', '(');
 		//		map.put(']', '[');
-
 		//		Stack<Character> stack = new Stack<Character>();
 		//		
 		//		char[] ch = s.toCharArray();
@@ -45,7 +44,6 @@ public class FindMinBracketToVaild {
 		//				stack.pop();
 		//			else stack.push(ch[i]);
 		//		}
-
 		//return stack.size();
 
 		char[] ch = s.toCharArray();
