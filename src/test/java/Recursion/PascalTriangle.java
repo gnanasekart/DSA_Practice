@@ -3,27 +3,51 @@ package Recursion;
 import org.testng.annotations.Test;
 
 public class PascalTriangle {
-	
+    /*
+           1
+         1 + 1
+       1 + 2 + 1
+     1 + 3 + 3 + 1
+    1  4   6   4   1
+
+
+     */
+    @Test
+    public void example1() {
+        System.out.println(pascal(3, 2));
+    }
+
 	@Test
-	public void example1() {
-		pascal(5);
+	public void example2() {
+		printTriangle(5);
 	}
 
-	private void pascal(int k) {
-		
-		int left=1, right=1;
-		
-		for(int i=0; i<k; i++) {
-			for(int j=i+1; j<k; j++) {
-				int[][] arr = new int[i][j];
-				if(j==1) {
-					arr[i][j] = 1;
-				}else if(j > 1) {
-					 
-				}
-			}
-		}
-		
-	}
+    /*
+    1. Identify the simplest/smallest possible input(base case)
+    column (1) => 1
+    row = column => 1
 
+    2. Build test data to visualize (4,3) ==> (3,3) + (3,2)
+
+    3. Break harder cases into simpler cases
+
+    4. Generalize the pattern
+        row,column => pascal(row-1, column)+pascal(row-1, column-1)
+
+    5. Finally, write the code to combine the pattern.
+     */
+    private int pascal(int row, int column) {
+        if (column > row) throw new RuntimeException("invalid input");
+        if (column == 1 || column == row) return 1;
+        return pascal(row - 1, column) + pascal(row - 1, column - 1);
+    }
+
+    private void printTriangle(int row) {
+        for (int i = 1; i <= row; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(pascal(i, j) + " ");
+            }
+            System.out.println();
+        }
+    }
 }

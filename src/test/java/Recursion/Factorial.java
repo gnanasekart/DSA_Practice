@@ -13,15 +13,16 @@ public class Factorial {
 		5. Finally, write the code to combine the pattern.
 	 * 
 	 */
-	
-	@Test
-	public void example1() {
-		factorial(5);
-	}
 
-	private int factorial(int i) {
-		if(i==1) return 1;
-		int n = i*factorial(i);
-		return n;
-	}
+    @Test
+    public void example1() {
+        System.out.println(factorial(5));
+    }
+
+    private int factorial(int i) {
+        if (i == 1) return 1;
+
+        int n = i * factorial(i-1);
+        return n;
+    }
 }
