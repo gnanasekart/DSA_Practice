@@ -19,7 +19,18 @@ public class Factorial {
         System.out.println(factorial(5));
     }
 
+    @Test
+    public void example2() {
+        System.out.println(factorial(-2));
+    }
+
+    @Test
+    public void example3() {
+        System.out.println(factorial(5));
+    }
+
     private int factorial(int i) {
+        if(i<=0) return -1;
         if (i == 1) return 1;
 
         int n = i * factorial(i-1);

@@ -14,6 +14,11 @@ public class FibboncciSeries {
         fibprint(5);
     }
 
+    @Test
+    public void example3() {
+        System.out.println(fibboncciRecursive(-1));
+    }
+
     private int fibroncci(int n) {
         int fib = 0;
         int f1 = 0, f2 = 1;
@@ -29,11 +34,12 @@ public class FibboncciSeries {
 
     private void fibprint(int n) {
         for (int i = 0; i < n; i++) {
-            System.out.print(fibboncciRecursive(i)+" ");
+            System.out.print(fibboncciRecursive(i) + " ");
         }
     }
 
     private int fibboncciRecursive(int n) {
+        if (n < 0) return -1;
         if (n == 0) return 0;
         if (n == 1) return 1;
 
