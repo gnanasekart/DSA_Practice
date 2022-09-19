@@ -1,8 +1,8 @@
-package Data_Structure_Tree;
-public class BinaryNode
+package Tree.BinaryTree;
+public class BinaryNode1
 {
 	String value;
-	BinaryNode left, right;
+	BinaryNode1 left, right;
 	int height;
 
 	public void node(String item)
