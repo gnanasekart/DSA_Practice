@@ -1,4 +1,4 @@
-package Data_Structure_sorting;
+package Sorting;
 
 import org.testng.annotations.Test;
 
