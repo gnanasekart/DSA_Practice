@@ -5,4 +5,8 @@ public class AVLBinaryNode {
     int value;
     AVLBinaryNode left;
     AVLBinaryNode right;
+
+    AVLBinaryNode() {
+        this.height = 0;
+    }
 }
