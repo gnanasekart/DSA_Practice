@@ -4,7 +4,7 @@ public class HeapNode {
     int arr[];
     int sizeofArray;
 
-    HeapNode(int size) {
+    public HeapNode(int size) {
         arr = new int[size + 1];
         this.sizeofArray = 0;
         System.out.println("Created Successfully");
@@ -55,7 +55,7 @@ public class HeapNode {
         heapifyBottomToTop(parent, heapType);
     }
 
-    public void insert(int value, String typeHeap) {
+    public void insertInHeap(int value, String typeHeap) {
         arr[sizeofArray + 1] = value;
         sizeofArray++;
         heapifyBottomToTop(sizeofArray, typeHeap);
@@ -109,7 +109,7 @@ public class HeapNode {
         heapifyTopToBottom(swapChild, heapType);
     }
 
-    public int extractHeadOfBP(String heapType) {
+    public int extractHeadOfBinaryHeap(String heapType) {
         if (isEmpty()) return -1;
         else {
             int extractedValue = arr[1];
@@ -121,7 +121,7 @@ public class HeapNode {
     }
 
     // delete
-    public void deleteBH() {
+    public void deleteBinaryHeap() {
         arr = null;
         System.out.println("BH has been successfully deleted");
     }

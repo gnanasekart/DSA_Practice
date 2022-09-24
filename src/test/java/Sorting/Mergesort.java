@@ -2,65 +2,42 @@ package Sorting;
 
 import org.testng.annotations.Test;
 
-public class Mergesort
-{
-	@Test
-	public void example1() {
-		int arr[]= {-2, 0, 12, -4, 13, 8, 11};
-		merge(arr);
-	}
-	
-	int[] arr;
-	int[] temparr;
+public class Mergesort {
+    @Test
+    public void example1() {
+        int arr[] = {-2, 0, 12, -4, 13, 8, 11};
+        mergeSort(arr, 0, arr.length - 1);
+        printArray(arr);
+    }
 
-	public void merge(int[] arr)
-	{
-		this.arr = arr;
-		this.temparr = new int[arr.length];
-		doMerge(0, arr.length-1);
-	}
+    static void merge(int[] A, int left, int middle, int right) {
+        int[] leftTmpArray = new int[middle - left + 2];
+        int[] rightTmpArray = new int[right - middle + 1];
+        for (int i = 0; i <= middle - left; i++) leftTmpArray[i] = A[left + i];
+        for (int i = 0; i < right - middle; i++) rightTmpArray[i] = A[middle + 1 + i];
 
-	public void doMerge(int low, int high)
-	{
-		if(low < high)
-		{
-			int middle = low + (high - low)/2;
-			doMerge(low, middle);
-			doMerge(middle+1, high);
-			merge(low, middle, high);
-		}
-	}
+        leftTmpArray[middle - left + 1] = Integer.MAX_VALUE;
+        rightTmpArray[right - middle] = Integer.MAX_VALUE;
 
-	//   0  1  2  3
+        int i = 0, j = 0;
+        for (int k = left; k <= right; k++) {
+            if (leftTmpArray[i] < rightTmpArray[j]) A[k] = leftTmpArray[i++];
+            else A[k] = rightTmpArray[j++];
+        }
+    }
 
-	//   4  1  7  3
+	//time - O(nLogn)
+	//space - O(n)
+    public static void mergeSort(int[] Array, int left, int right) {
+        if (right > left) {
+            int m = (left + right) / 2;
+            mergeSort(Array, left, m);
+            mergeSort(Array, m + 1, right);
+            merge(Array, left, m, right);
+        }
+    }
 
-	public void merge(int low, int middle, int high)
-	{
-		for (int a = low; a<= high; a++)
-		{
-			temparr[a] = arr[a];
-			int i = low;
-			int j = middle + 1;
-			int k = low;
-			while(i <= middle && j <= high)
-			{
-				if(temparr[i] <= temparr[j])
-				{
-					arr[k] = temparr[i];
-					i++;
-				}else{
-					arr[k] = temparr[j];
-					j++;
-				}
-				k++;
-			}
-			while (i <= middle)
-			{
-				arr[k] = temparr[i];
-				k++;
-				i++;										   
-			}
-		}
-	}
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) System.out.print(array[i] + "  ");
+    }
 }
