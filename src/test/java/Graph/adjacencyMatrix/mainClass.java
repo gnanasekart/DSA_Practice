@@ -24,5 +24,9 @@ public class mainClass {
         g.UndirectedEdge(2, 3);
         g.UndirectedEdge(3, 4);
         System.out.print(g.toStrings());
+        //g.bfs();
+        //System.out.print(g.toStrings());
+        g.dfs();
+        //System.out.print(g.toStrings());
     }
 }
