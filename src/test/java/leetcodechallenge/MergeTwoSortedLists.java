@@ -2,8 +2,6 @@ package leetcodechallenge;
 
 import org.testng.annotations.Test;
 
-import SingleLinkedList.MergeLinkedList.Node;
-
 /**
  * Definition for singly-linked list.
  * public class ListNode {

@@ -16,9 +16,10 @@ public class twoSum {
 	public void example1(){
 		int nums[] = {2, 7, 11, 15};
 		int target = 9;
-		Assert.assertEquals(true,  Arrays.equals(twoSum_BruteForce(nums, target), new int[] {0, 1}));
+		//Assert.assertEquals(true,  Arrays.equals(twoSum_BruteForce(nums, target), new int[] {0, 1}));
 		//twoSum_BruteForce(nums, target);
-		twoSum_Map(nums, target);
+		twoSum_2pointer(nums, target);
+		//twoSum_Map(nums, target);
 		//output = {0, 1}
 	}
 
@@ -68,16 +69,21 @@ public class twoSum {
 		return nums;
 	}
 
-	//@Test
+	@Test
 	public void example4(){
-		int nums[] = {2, 11, 15, 7};
+		int nums[] = {2, 7,11, 15};
 		int target = 9;
 		//Assert.assertEquals(true,  Arrays.equals(twoSum_2pointer(nums, target), new int[] {0, 1}));
-		//twoSum_2pointer(nums, target);
-		twoSum_Map(nums, target);
-
+		twoSum_2pointer(nums, target);
+		//twoSum_Map(nums, target);
 	}
 
+	@org.testng.annotations.Test
+	public void example5() {
+		int[] num = {3, 2, 4};
+		int target = 6;
+		twoSum_Map(num, target);
+	}
 	/*
 	 * pseudo code >> this solution works only for ascending order of array.
 	 * 1. left -> 0, right -> nums.length-1;

@@ -1,9 +1,6 @@
 package Queue;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Queue;
-
 import org.testng.annotations.Test;
 
 public class QueueConcept {

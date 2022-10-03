@@ -1,7 +1,4 @@
 package HackerRankChallenge;
-import java.util.Arrays;
-import java.util.Scanner;
-
 import org.junit.Assert;
 import org.junit.Test;
 

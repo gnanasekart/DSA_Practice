@@ -1,7 +1,5 @@
 package leetcodechallenge;
 
-import java.util.Arrays;
-
 import org.testng.annotations.Test;
 
 public class First_Unique_Character_in_String {
