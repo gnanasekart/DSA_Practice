@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="leetcodechallenge.Group_Anagram">
+      <class name="LeetCode_Practice.Group_Anagram">
         <methods>
           <include name="test"/>
         </methods>
-      </class> <!-- leetcodechallenge.Group_Anagram -->
+      </class> <!-- LeetCode_Practice.Group_Anagram -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -6,12 +6,12 @@
     <groups>
     </groups>
     <test started-at="2022-09-16T20:54:18 IST" name="Default test" finished-at="2022-09-16T20:59:02 IST" duration-ms="283992">
-      <class name="leetcodechallenge.Word_pattern_FreshWks">
-        <test-method signature="example1()[pri:0, instance:leetcodechallenge.Word_pattern_FreshWks@37883b97]" started-at="2022-09-16T20:54:18 IST" name="example1" finished-at="2022-09-16T20:59:02 IST" duration-ms="283967" status="PASS">
+      <class name="LeetCode_Practice.Word_pattern_FreshWks">
+        <test-method signature="example1()[pri:0, instance:LeetCode_Practice.Word_pattern_FreshWks@37883b97]" started-at="2022-09-16T20:54:18 IST" name="example1" finished-at="2022-09-16T20:59:02 IST" duration-ms="283967" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- example1 -->
-      </class> <!-- leetcodechallenge.Word_pattern_FreshWks -->
+      </class> <!-- LeetCode_Practice.Word_pattern_FreshWks -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -39,6 +39,13 @@ k= 5   4   4   3   2   1   1   0
         System.out.println(missingInteger(arr, k));
     }
 
+    @Test
+    public void example3() {
+        int[] arr = {1,3,5,6};
+        int k = 5;
+        System.out.println(missingInteger(arr, k));
+    }
+
     private int missingInteger(int[] arr, int k) {
         int low = 0, high = arr.length - 1;
         while (low <= high) {
