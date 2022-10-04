@@ -1,12 +1,9 @@
-package leetcodechallenge;
+package LeetCode_Challenges;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
-
 public class P_LC_1_Two_Sum {
-
+//https://leetcode.com/problems/two-sum/
     @Test
     public void example1(){
         int[] num={2,7,11,15};
