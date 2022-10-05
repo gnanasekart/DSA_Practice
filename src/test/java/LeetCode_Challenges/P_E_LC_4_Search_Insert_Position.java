@@ -3,7 +3,7 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_LC_4_Search_Insert_Position {
+public class P_E_LC_4_Search_Insert_Position {
 //https://leetcode.com/problems/search-insert-position/
     @Test
     public void example1(){

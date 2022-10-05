@@ -3,10 +3,7 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class P_LC_5_Plus_One {
+public class P_E_LC_5_Plus_One {
 
     @Test
     public void example1(){

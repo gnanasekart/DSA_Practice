@@ -2,7 +2,7 @@ package LeetCode_Challenges;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-public class P_LC_1_Two_Sum {
+public class P_E_LC_1_Two_Sum {
 //https://leetcode.com/problems/two-sum/
     @Test
     public void example1(){

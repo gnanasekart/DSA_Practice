@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class P_LC_2_Remove_Dup_from_Sorted_Array {
+public class P_E_LC_2_Remove_Dup_from_Sorted_Array {
 //https://leetcode.com/problems/remove-duplicates-from-sorted-array/
     //0,0,1,1,1,2,2,3,3,4
 
@@ -53,6 +53,5 @@ public class P_LC_2_Remove_Dup_from_Sorted_Array {
 
     private int DuparrayStream(int[] arr){
        return (int) Arrays.stream(arr).distinct().count();
-
     }
 }

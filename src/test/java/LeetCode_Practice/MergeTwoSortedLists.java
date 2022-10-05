@@ -11,8 +11,6 @@ import org.testng.annotations.Test;
  * }
  */
 
-
-
 public class MergeTwoSortedLists {
 
 	@Test
