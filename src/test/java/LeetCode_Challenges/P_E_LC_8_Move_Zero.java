@@ -3,16 +3,15 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_E_LC_8_Remove_Zero {
+public class P_E_LC_8_Move_Zero {
 
     //https://leetcode.com/problems/move-zeroes/
 
     @Test
     public void example1() {
         int[] arr = {0, 1, 0, 3, 12};
-        Assert.assertEquals(removeZero(arr), new int[]{1, 3, 12, 0, 0});
+        Assert.assertEquals(removeZero2(arr), new int[]{1, 3, 12, 0, 0});
     }
-
     @Test
     public void example2() {
         int[] arr = {};
@@ -34,6 +33,26 @@ public class P_E_LC_8_Remove_Zero {
                 arr[left++] = arr[right];
                 arr[right++] = temp;
             }else left++;
+        }
+        return arr;
+    }
+
+    private int[] removeZero1(int[] arr) {
+    int i=0;
+    for(int n:arr)
+        if(n!=0) arr[i++]=n;
+    while(i<arr.length) arr[i++]=0;
+
+        return arr;
+    }
+
+    private int[] removeZero2(int[] arr) {
+        for(int i=0, j=0; i<arr.length; i++){
+            if(arr[i]!=0){
+                int temp=arr[j];
+                arr[j++]=arr[i];
+                arr[i]=temp;
+            }
         }
         return arr;
     }

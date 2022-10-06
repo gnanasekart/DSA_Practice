@@ -23,10 +23,12 @@ output = [1, 2, 3]
 
 	private Node removedups(Node node) {
 		if(node==null || node.next==null) return node;
+
 		Node curr = node.next;
 		Node prev = node;
 		while(curr!=null) {
-			if(prev.data==curr.data) prev.next = curr.next;
+			if(prev.data==curr.data)
+				prev.next = curr.next;
 			else prev=curr;
 			curr=curr.next;
 		}
