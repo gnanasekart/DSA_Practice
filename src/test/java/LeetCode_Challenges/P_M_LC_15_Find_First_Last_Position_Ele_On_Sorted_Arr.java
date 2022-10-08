@@ -19,7 +19,7 @@ public class P_M_LC_15_Find_First_Last_Position_Ele_On_Sorted_Arr {
     public void example2(){
         int[] nums={5,7,7,8,8,10};
         int k=6;
-        Assert.assertEquals(findTarget(nums, k), new int[]{-1,-1});
+        Assert.assertEquals(findTargetList(nums, k), new int[]{-1,-1});
     }
 
     @Test
@@ -33,7 +33,7 @@ public class P_M_LC_15_Find_First_Last_Position_Ele_On_Sorted_Arr {
     public void example4(){
         int[] nums={1};
         int k=1;
-        Assert.assertEquals(findTarget(nums, k), new int[]{0,0});
+        Assert.assertEquals(findTargetList(nums, k), new int[]{0,0});
     }
 
     private int[] findTarget(int[] nums, int k) {
@@ -78,5 +78,20 @@ public class P_M_LC_15_Find_First_Last_Position_Ele_On_Sorted_Arr {
             res[1] = list.get(list.size() - 1);
         }
         return res;
+    }
+
+    private int[] findTargetList(int[] nums, int target){
+        ArrayList<Integer> list = new ArrayList();
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]==target) list.add(i);
+        }
+
+        int[] arr = new int[]{-1, -1};
+        if(list.isEmpty()) return arr;
+        else{
+            arr[0]=list.get(0);
+            arr[1]=list.get(list.size()-1);
+        }
+        return arr;
     }
 }
