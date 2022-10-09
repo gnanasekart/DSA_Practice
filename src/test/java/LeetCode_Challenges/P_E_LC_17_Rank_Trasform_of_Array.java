@@ -13,26 +13,45 @@ public class P_E_LC_17_Rank_Trasform_of_Array {
         Assert.assertEquals(rankArrayValues(nums), new int[]{4,1,2,3});
     }
 
+    @Test
+    public void example2(){
+        int[] nums={100, 100, 100};
+        Assert.assertEquals(rankArrayValues(nums), new int[]{1,1,1});
+    }
+
+    @Test
+    public void example3(){
+        int[] nums={37,12,28,9,100,56,80,5,12};
+        Assert.assertEquals(rankArrayValues(nums), new int[]{5,3,4,2,8,6,7,1,3});
+    }
     private int[] rankArrayValues(int[] nums) {
 //        int[] temp= new int[nums.length];
 //        System.arraycopy(nums, 0, temp, 0, nums.length);
 
-        int[] temp = Arrays.copyOf(nums, nums.length);
+        //int[] temp = Arrays.copyOf(nums, nums.length);
 
-        for (int i = 0; i < temp.length; i++) {
-            for (int j = i + 1; j < temp.length; j++) {
-                if (temp[i] < temp[j])
-                    continue;
-                else
-                    temp[i] = temp[i]+temp[j];
-                    temp[j] = temp[i]-temp[j];
-                    temp[i] = temp[i]-temp[j];
-            }
-        }
+        int[] temp = nums.clone();
+        //O(N log N)
+        Arrays.sort(temp);
+
+        //O(n^2)
+//        for (int i = 0; i < temp.length; i++) {
+//            for (int j = i + 1; j < temp.length; j++) {
+//                if (temp[i] < temp[j])
+//                    continue;
+//                else
+//                    temp[i] = temp[i]+temp[j];
+//                    temp[j] = temp[i]-temp[j];
+//                    temp[i] = temp[i]-temp[j];
+//            }
+//        }
 
         Map<Integer, Integer> map =new HashMap<>();
-        for(int n=0; n<temp.length; n++)
-            map.put(temp[n], n+1);
+        int count=0;
+        for(int i: temp){
+            if(!map.containsKey(i)) map.put(i, count+1);
+            else map.put(i, map.get(i));
+        }
 
         for(int i=0; i<temp.length; i++)
             nums[i]=map.get(nums[i]);
