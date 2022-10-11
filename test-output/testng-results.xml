@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-16T20:54:18 IST" name="Default suite" finished-at="2022-09-16T20:59:02 IST" duration-ms="283992">
+  <suite started-at="2022-10-10T22:36:10 IST" name="Default suite" finished-at="2022-10-10T22:40:35 IST" duration-ms="265202">
     <groups>
     </groups>
-    <test started-at="2022-09-16T20:54:18 IST" name="Default test" finished-at="2022-09-16T20:59:02 IST" duration-ms="283992">
-      <class name="LeetCode_Practice.Word_pattern_FreshWks">
-        <test-method signature="example1()[pri:0, instance:LeetCode_Practice.Word_pattern_FreshWks@37883b97]" started-at="2022-09-16T20:54:18 IST" name="example1" finished-at="2022-09-16T20:59:02 IST" duration-ms="283967" status="PASS">
+    <test started-at="2022-10-10T22:36:10 IST" name="Default test" finished-at="2022-10-10T22:40:35 IST" duration-ms="265202">
+      <class name="LeetCode_Challenges.P_M_LC_18_Plates_Bwt_Candles">
+        <test-method signature="example1()[pri:0, instance:LeetCode_Challenges.P_M_LC_18_Plates_Bwt_Candles@6aaceffd]" started-at="2022-10-10T22:36:10 IST" name="example1" finished-at="2022-10-10T22:40:35 IST" duration-ms="265132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- example1 -->
-      </class> <!-- LeetCode_Practice.Word_pattern_FreshWks -->
+      </class> <!-- LeetCode_Challenges.P_M_LC_18_Plates_Bwt_Candles -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
