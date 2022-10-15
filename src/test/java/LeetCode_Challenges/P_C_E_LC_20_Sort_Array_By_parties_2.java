@@ -3,7 +3,7 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_E_LC_20_Sort_Array_By_parties_2 {
+public class P_C_E_LC_20_Sort_Array_By_parties_2 {
 /*
 https://leetcode.com/problems/sort-array-by-parity-ii/
 

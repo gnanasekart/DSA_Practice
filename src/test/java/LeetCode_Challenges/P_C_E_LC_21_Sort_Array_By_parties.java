@@ -3,7 +3,7 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_E_LC_21_Sort_Array_By_parties {
+public class P_C_E_LC_21_Sort_Array_By_parties {
 /*
 leetcode.com/problems/sort-array-by-parity/
 Given an integer array nums, move all the even integers at the
