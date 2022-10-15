@@ -27,37 +27,54 @@ public class twoSum {
         //1,4 2,3
     }
 
-    private int[] addTwo(int[] arr, int target) {
-        if (arr.length < 2) {
-            return new int[]{};
-        }
+    @Test
+    public void example4(){
+        int[] arr = {2,3,5,7,9};
+        int target=20;
+        Assert.assertEquals(addTwo(arr, target), new int[]{0,0});
+        //1,4 2,3
+    }
+
+    //for first index
+    private int[] addTwo1(int[] arr, int target) {
+        if (arr.length < 2) return new int[]{};
 
         int i = 0, j = 0;
         for (i = 0; i < arr.length; i++) {
             for (j = i + 1; j < arr.length; j++) {
                 int sum = arr[i] + arr[j];
-                if (sum == target) {
+                if (sum == target)
                     return new int[]{i,j};
-                }
             }
         }
         return new int[]{i,j};
     }
 
-    private int[] addTwolastindex(int[] arr, int target) {
-        if (arr.length < 2) {
-            return new int[]{};
-        }
+    /*
+    logic
+    1. check the input array is empty or less < 2 then return empty
+    2. create an array to store new index values
+    3. traversal in for loop to sum to different index values
+        - if => sum is equal to target then get the index values
+        - iterate the loop
+    4. return the final executed values
+     */
+
+    //for all cases
+    private int[] addTwo(int[] arr, int target) {
+        if (arr.length < 2) return new int[]{};
+
         int[] a = new int[2];
         int i = 0, j = 0;
         for (i = 0; i < arr.length; i++) {
             for (j = i + 1; j < arr.length; j++) {
                 int sum = arr[i] + arr[j];
                 if (sum == target) {
-                    return new int[]{i,j};
+                    a[0]=i;
+                    a[1]=j;
                 }
             }
         }
-        return new int[]{i,j};
+        return a;
     }
 }
