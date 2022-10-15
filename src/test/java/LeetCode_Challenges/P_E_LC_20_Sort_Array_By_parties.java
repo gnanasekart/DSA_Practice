@@ -1,11 +1,9 @@
-package sample;
+package LeetCode_Challenges;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-
-public class P_Sort_Array_By_parties {
+public class P_E_LC_20_Sort_Array_By_parties {
 
     @Test
     public void example1(){
@@ -28,7 +26,7 @@ public class P_Sort_Array_By_parties {
     @Test
     public void example4(){
         int[] arr = {3,1,2,2};
-        Assert.assertEquals(addTwo1(arr), new int[]{2,2,3,1});
+        Assert.assertEquals(addTwo(arr), new int[]{2,2,3,1});
     }
 
     @Test
@@ -58,24 +56,5 @@ public class P_Sort_Array_By_parties {
                if (arr[i] % 2 != 0) a[j++] = arr[i];
         return a;
     }
-
-    private int[] addTwo1(int[] arr) {
-        if (arr.length == 0) return new int[]{0};
-
-//        int j = arr.length - 1;
-        int[] a = new int[arr.length];
-
-        for (int j = arr.length - 1; j > 0; ){
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i] != 0) {
-                    int temp = arr[i];
-                    a = Arrays.copyOf(arr,arr.length);
-                    a[j--] = temp;
-                }
-            }
-    }
-        return a;
-        }
-
-    }
+}
 

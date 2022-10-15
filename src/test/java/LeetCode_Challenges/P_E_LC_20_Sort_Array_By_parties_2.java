@@ -1,11 +1,9 @@
-package sample;
+package LeetCode_Challenges;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-
-public class P_Sort_Array_By_parties_2 {
+public class P_E_LC_20_Sort_Array_By_parties_2 {
 /*
 Given an array of integers nums, half of the integers in nums are odd, and the other half are even.
 
