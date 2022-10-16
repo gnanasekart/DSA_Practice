@@ -3,6 +3,8 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class P_E_LC_22_Sort_Odd_Even_Indexes_Independently {
 /*
 https://leetcode.com/problems/sort-even-and-odd-indices-independently/
@@ -52,6 +54,18 @@ Thus, the array formed after rearranging the values is [2,3,4,1].
         Assert.assertEquals(sortindexes(arr), new int[]{});
     }
 
+    @Test
+    public void example6(){
+        int[] arr = {36,45,32,31,15,41,9,46,36,6,15,16,33,26,27,31,44,34};
+        Assert.assertEquals(sortindexes(arr), new int[]{9,46,15,45,15,41,27,34,32,31,33,31,36,26,36,16,44,6});
+    }
+
+    @Test
+    public void example4(){
+        int[] arr = {4,1,2,3};
+        Assert.assertEquals(sortindexes(arr), new int[]{2,3,4,1});
+    }
+
     /*
     logic
     for odd index sort array, similar for even by changing the index from odd to even
@@ -63,30 +77,40 @@ Thus, the array formed after rearranging the values is [2,3,4,1].
      */
 
     private int[] sortindexes(int[] arr) {
+try {
+    if (arr.length == 2) return arr;
+    int l = arr.length;
+    int[] a = new int[l];
+    //odd value sort
 
-        if(arr.length==2) return arr;
-        int l=arr.length;
-        int[] a = new int[l/2];
-        //odd value sort
-        for(int i=1, j=l/2-1; i<l; j--){
-            a[j]=arr[i];
-            i=i+2;
-        }
-        //insert in odd position
-        for(int i=1, j=0; i<l; j++){
-            arr[i]=a[j];
-            i=i+2;
-        }
-        //even value sort
-        for(int i=0, j=l/2-1; i<l; j--){
-            a[j]=arr[i];
-            i=i+2;
-        }
-        //insert in even position
-        for(int i=0, j=0; i<l; j++){
-            arr[i]=a[j];
-            i=i+2;
-        }
+//        Arrays.stream(arr)
+    for (int i = 1, j = 0; i < l; j++) {
+        a[j] = arr[i];
+        i = i + 2;
+    }
+    Arrays.sort(a);
+    //insert in odd position
+    for (int i = 1, j = a.length - 1; i < l; j--) {
+        arr[i] = a[j];
+        i = i + 2;
+    }
+    Arrays.fill(a,0);
+    //even value sort
+    for (int i = 0, j = 0; i < l; j++) {
+        a[j] = arr[i];
+        i = i + 2;
+    }
+
+    Arrays.sort(a);
+    //insert in even position
+    for (int i = 0, j = l/2; i < l; j++) {
+        arr[i] = a[j];
+        i = i + 2;
+    }
+
+    }catch(Exception e){
+        System.out.println(e.getMessage());
+    }
         return arr;
     }
     }

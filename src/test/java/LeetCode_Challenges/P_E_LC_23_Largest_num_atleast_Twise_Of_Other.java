@@ -37,6 +37,12 @@ The index of value 6 is 1, so we return 1.
     }
 
     @Test
+    public void example4(){
+        int[] arr = {4,1,2,3};
+        Assert.assertEquals(largestnumberTwise(arr), new int[]{2,3,4,1});
+    }
+
+    @Test
     public void example5(){
         int[] arr = {6,1,4,3,2,5};
         Assert.assertEquals(largestnumberTwise(arr), new int[]{2,5,4,3,6,1});
