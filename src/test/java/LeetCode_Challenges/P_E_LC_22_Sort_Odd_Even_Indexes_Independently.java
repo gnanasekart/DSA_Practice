@@ -62,13 +62,13 @@ Thus, the array formed after rearranging the values is [2,3,4,1].
 
     /*
     logic
-    for odd index sort array, similar for even by changing the index from odd to even
     1. Create a temp array with length
     2. get the odd position values in new array
     3. sort the new array values
     4. place the sorted array into existing array at odd position
     5. fill the array with zero to add even value in new temp array
-    6. return odd sorted array
+    again repeat step 2,3,4 for even position value
+    6. return the array
      */
 
     private int[] sortindexes(int[] arr) {

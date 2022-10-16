@@ -68,7 +68,13 @@ The index of value 6 is 1, so we return 1.
     @Test
     public void example8(){
         int[] nums = {0,0,2,1};
-        Assert.assertEquals(twiceNumber1(nums),1);
+        Assert.assertEquals(twiceNumber1(nums),2);
+    }
+
+    @Test
+    public void example9(){
+        int[] nums = {10,0,7,20,1};
+        Assert.assertEquals(twiceNumber1(nums),3);
     }
 
 /*
@@ -93,7 +99,7 @@ logic
         while (j < nums.length) {
             if (nums[i] < nums[j]) {
                 iValue = Math.max(iValue, j);
-                i++;
+                i=j;
             }
             j++;
         }
