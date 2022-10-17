@@ -3,6 +3,8 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class P_E_LC_8_Move_Zero {
 
     /*https://leetcode.com/problems/move-zeroes/
@@ -22,7 +24,7 @@ logic
     @Test
     public void example1() {
         int[] arr = {0, 1, 0, 3, 12};
-        Assert.assertEquals(removeZero(arr), new int[]{1, 3, 12, 0, 0});
+        Assert.assertEquals(removeZero3(arr), new int[]{1, 3, 12, 0, 0});
     }
 
     @Test
@@ -91,5 +93,28 @@ logic
             }
         }
         return arr;
+    }
+
+    private int[] removeZero3(int[] nums) {
+        int left=0,right=left+1 , k=right+1;
+        int temp;
+
+        while(left<nums.length-1)
+        {
+            if(nums[left]==0  ) {
+                temp=nums[left];
+                nums[left++]=nums[right];
+                nums[right++]=temp;
+            }
+            else if(nums[right]!=0)
+            {
+                right++;
+            }
+            else
+                left++;
+
+        }
+
+        return nums;
     }
 }

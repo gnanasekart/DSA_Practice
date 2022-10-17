@@ -52,7 +52,7 @@ private int[] reverseArray(int[] arr){
 
         int left=0, right=arr.length-1;
 
-        while(left<right){
+        while(left<right){ //=> O(n) or O(n/2)
             arr[left]= arr[left]+arr[right];
             arr[right]=arr[left]-arr[right];
             arr[left]=arr[left++]-arr[right--];

@@ -35,6 +35,8 @@ public class twoSum {
         //1,4 2,3
     }
 
+    //time = O(n^2)
+    //space = O(n) it create new int when for loop valid
     //for first index
     private int[] addTwo1(int[] arr, int target) {
         if (arr.length < 2) return new int[]{};

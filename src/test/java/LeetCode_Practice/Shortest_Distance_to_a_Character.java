@@ -31,7 +31,7 @@ h  e  l  l  e
 	 *
 	 */
 
-    //@Test
+    @Test
     public void example1() {
         String s = "loveleetcode";
         char c = 'e';
@@ -61,7 +61,8 @@ h  e  l  l  e
 
         for (int i = 0; i < arr.length; i++) {//O(n)
             if (ch[i] == c) arr[i] = 0;
-            else if (i > 0) arr[i] = Math.min(arr[i], arr[i - 1] + 1);
+            else if (i > 0)
+                arr[i] = Math.min(arr[i], arr[i - 1] + 1);
         }
 
         for (int i = arr.length - 1; i >= 0; i--) {//O(n)
