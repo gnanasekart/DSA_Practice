@@ -64,12 +64,14 @@ Output: [2]
 /*
 logic
 1. validate empty array and return array/empty
-2. create new array any one array merory length
+2. create new array any one array memory length
 3. Assign one pointer i variable to nums1 array - fast mover
 4. Assign another pointer j variable to nums2 array - slow mover
 5. traverse slow mover first index with fast mover index
-	- matches found => get the value, increment slow mover and break the loop
-6. Again continue the 5th step for another traversal to indenty till all element
+	- matches found => get the value, increment both
+	- if left < right means left++
+	- else right++
+6. Again continue the 5th step for another traversal to identity till all element
 7. return the newly created array
 */
 
