@@ -57,8 +57,8 @@ Output: [2]
     @Test
     public void example6(){
         int[] nums1={4,7,9,7,6,7};
-        int[] nums2={5,0,0,6,1,6,2,2,4};
-        Assert.assertEquals(targetArray(nums1, nums2), new int[]{6,4});
+        int[] nums2={5,0,0,6,1,6,2,4,9};
+        Assert.assertEquals(targetArray(nums1, nums2), new int[]{4,6,9});
     }
 
 /*
@@ -79,7 +79,8 @@ logic
     //space = O(n) - based on set size
     private int[] targetArray(int[] nums1, int[] nums2){
         if(nums1.length <0 || nums2.length <0) return new int[]{};
-
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
         Set<Integer> set = new HashSet();
 
         int left=0, right=0, index=0;
@@ -87,17 +88,15 @@ logic
             if(nums1[left] == nums2[right]){
                 set.add(nums2[right++]);
                 left++;
-            }else if(nums1[left] < nums2[right]){
+            }else if(nums1[left] < nums2[right])
                 left++;
-            }else {
-                right++;
-            }
+            else right++;
         }
 
         int[] arr = new int[set.size()];
-        for(Integer a: set){    //=>  O(n)
+        for(Integer a: set)    //=>  O(n)
             arr[index++]=a;
-        }
+
         return arr;
     }
 }
