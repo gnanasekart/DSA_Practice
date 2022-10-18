@@ -1,4 +1,4 @@
-package LeetCode_Challenges;
+package LeetCode_Daily_Practice;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -41,7 +41,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         Assert.assertEquals(shortestChar(s, c), output);
     }
 
-    @Test
+    //@Test
     public void example3() {
         String s = "mad";
         char c = 'e';
@@ -98,20 +98,20 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 
         int[] answer = new int[str.length()];
         char[] ch = str.toCharArray();
-        for(int i=0; i<ch.length; i++){ //=> O(n)
-            if(ch[i]==c) {
-                answer[i]=0;
-                ischpresent=true;
-            }else answer[i]=ch.length;
-        }
+//        for(int i=0; i<ch.length; i++){ //=> O(n)
+//            if(ch[i]==c) {
+//                answer[i]=0;
+//                ischpresent=true;
+//            }else answer[i]=ch.length;
+//        }
 
-    if(ischpresent) {
+    //if(ischpresent) {
         int left = 0, right = 0;
-        while (left < ch.length - 1) {//O(n)
+        while (left<ch.length-1) {//O(n)
             if (ch[right] != c) right++;
             else if (ch[right] == c) {
                 if (left < right) {
-                    answer[left] = Math.min(ch[left], Math.abs(left - right));
+                    answer[left] = Math.abs(left - right);
                     left++;
                 } else {
                     left = right;
@@ -134,7 +134,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
                 }
             }
         }
-    }
+    //}
         return answer;
     }
     }

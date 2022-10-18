@@ -77,13 +77,15 @@ Logic
 - return the entire string after reverse
 */
 
+    //time = O(n)+O(n) = O(n)
+    //space = O(1)+O(n) = O(n) = do we consider str and sub as additional space ?
     private String prefixReverse(String w, char ch){
         if(ch==' ') return "";
 
         int i=0;
         String str="", sub="";
 
-        while(i<w.length()){
+        while(i<w.length()){ //=> O(n)
             if(w.charAt(i)==ch){
                 sub=w.trim().substring(0, i+1);
                 str+=stringReverse(sub)+w.substring(i+1, w.length());
@@ -95,10 +97,10 @@ Logic
     }
 
     public String stringReverse(String str){
-        char[] c = str.toCharArray();
+        char[] c = str.toCharArray();   //=> O(n)
         int left=0, right=str.length()-1;
         char temp;
-        while(left<str.length() && right>0)
+        while(left<str.length() && right>0)//=> O(n/2) = O(n)
         {
             if(left<right){
                 temp=c[left];

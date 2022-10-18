@@ -60,7 +60,7 @@ public class P_O18_2_N_Double_Exist {
 
     @Test
     public void example6(){
-        int[] arr={-2,0,10,-19,4,6,-8};
+        int[] arr={-2,10,-19,4,6,-8};
         Assert.assertEquals(nDoubleExist(arr), false);
     }
 
