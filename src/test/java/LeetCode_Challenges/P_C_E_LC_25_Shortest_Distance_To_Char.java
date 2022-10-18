@@ -104,6 +104,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
                 ischpresent=true;
             }else answer[i]=ch.length;
         }
+
     if(ischpresent) {
         int left = 0, right = 0;
         while (left < ch.length - 1) {//O(n)

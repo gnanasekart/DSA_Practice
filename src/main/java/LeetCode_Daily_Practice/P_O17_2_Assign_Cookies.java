@@ -84,16 +84,18 @@ logic
     private int assignCookies(int[] child, int[] size){
 
         if(child.length<1 && size.length<1) return 0;
-//        Arrays.sort(child);
-//        Arrays.sort(size);
+        Arrays.sort(child);
+        Arrays.sort(size);
         int count=0;
-        int left=0, right=0;
-        while(left<child.length || right<size.length){
+        int left=0, right=size.length-1;
+        while(left<child.length && right<size.length){
             if(size[right]>=child[left]){
                 count++;
-                right++;
-            }
-            left++;
+                right--;
+            }else{
+                left++;
+                }
+
         }
         return count;
     }
