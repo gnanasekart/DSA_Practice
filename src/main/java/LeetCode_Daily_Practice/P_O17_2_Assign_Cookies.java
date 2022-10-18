@@ -73,25 +73,27 @@ and output the maximum number.
 
 /*
 logic
-else if(child[left]!=size[right]){
-                left++;
-            }
-1.
+1. check if cookie array is empty or not
+2. consider two array with two pointer
+3. traversal cookie array to each child to match size of cookie >= child can content
+	- if child can content then get the count and move next
+	- else move to next cookie
+4. then return the content cookie count
 */
 
     private int assignCookies(int[] child, int[] size){
 
         if(child.length<1 && size.length<1) return 0;
-        Arrays.sort(child);
-        Arrays.sort(size);
+//        Arrays.sort(child);
+//        Arrays.sort(size);
         int count=0;
         int left=0, right=0;
-        while(left<child.length && right<size.length){
+        while(left<child.length || right<size.length){
             if(size[right]>=child[left]){
                 count++;
                 right++;
             }
-                left++;
+            left++;
         }
         return count;
     }
