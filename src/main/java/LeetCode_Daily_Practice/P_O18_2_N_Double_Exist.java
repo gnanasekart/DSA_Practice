@@ -60,8 +60,14 @@ public class P_O18_2_N_Double_Exist {
 
     @Test
     public void example6(){
-        int[] arr={-2,10,-19,4,6,-8};
+        int[] arr={-2,0,10,-19,4,6,-8};
         Assert.assertEquals(nDoubleExist(arr), false);
+    }
+
+    @Test
+    public void example7(){
+        int[] arr={0,0};
+        Assert.assertEquals(nDoubleExist(arr), true);
     }
 
 /*
@@ -73,15 +79,21 @@ logic-
 	- else return default response
 */
 
+    //time = O(n)+O(n) => O(n)
+    //space = O(n) = based on map
     private boolean nDoubleExist(int[] arr){
         if(arr.length<2) return false;
         boolean isDouble=false;
-
+        int zero=0;
         Map<Integer, Integer> map = new HashMap();
-        for(int a: arr) map.put((2*a), a);
+        for(int a: arr) // => O(n)
+            if(a!=0) map.put((2*a), a);
+            else zero++;
+
+            if(zero>=2) return true;
 
         int i=0;
-        while(i<arr.length)
+        while(i<arr.length) //=> O(n)
             if(map.containsKey(arr[i++]))
                 return true;
 

@@ -87,15 +87,13 @@ logic
         Arrays.sort(child);
         Arrays.sort(size);
         int count=0;
-        int left=0, right=size.length-1;
-        while(left<child.length && right<size.length){
-            if(size[right]>=child[left]){
+        int left=0, right=0;
+        while(left<child.length){
+            if(size[right]>=child[left] && right<size.length){
                 count++;
-                right--;
-            }else{
-                left++;
-                }
-
+                right++;
+            }
+            left++;
         }
         return count;
     }
