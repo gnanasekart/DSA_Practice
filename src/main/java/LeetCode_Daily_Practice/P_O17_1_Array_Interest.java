@@ -10,6 +10,7 @@ import java.util.Set;
 public class P_O17_1_Array_Interest {
 
     /*
+    leetcode.com/problems/intersection-of-two-arrays/submissions/
 Given two integer arrays nums1 and nums2, return an array of their intersection.
 Each element in the result must be unique and you may return the result in any order.
 Example 1:

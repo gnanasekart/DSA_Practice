@@ -10,6 +10,7 @@ import java.util.Set;
 public class P_O17_2_Assign_Cookies {
 
     /*
+    leetcode.com/problems/assign-cookies/
 Assume you are an awesome parent and want to give your children some cookies.
 But, you should give each child at most one cookie.
 
@@ -81,13 +82,16 @@ else if(child[left]!=size[right]){
     private int assignCookies(int[] child, int[] size){
 
         if(child.length<1 && size.length<1) return 0;
+        Arrays.sort(child);
+        Arrays.sort(size);
         int count=0;
         int left=0, right=0;
         while(left<child.length && right<size.length){
             if(size[right]>=child[left]){
                 count++;
                 right++;
-            }else left++;
+            }
+                left++;
         }
         return count;
     }
