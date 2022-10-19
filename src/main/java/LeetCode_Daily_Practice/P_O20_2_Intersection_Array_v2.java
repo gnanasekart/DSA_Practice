@@ -68,9 +68,8 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
     private int[] intersectArrayMaxAppear(int[] n1, int[] n2){
         if(n1.length<1 && n2.length<1) return new int[]{};
         int left=0, right=0;
-        Arrays.sort(n1);
-        Arrays.sort(n2);
-        //ArrayList<Integer> list = new ArrayList<>();
+//        Arrays.sort(n1);
+//        Arrays.sort(n2);
         Map<Integer, Integer> map= new HashMap<>();
         int count=0;
         while( left<n1.length && right<n2.length){

@@ -60,11 +60,23 @@ public class P_O21_3_Merge_Sort_Array {
         int n=0;
         Assert.assertEquals(sortAndMerge(nums1,m,nums2,n), new int[]{1});
     }
-
+/*
+- check if nums1 array is empty means assign nums2 value to nums1
+- consider two pointer for two array
+- start comparing last value from both the array
+- if both value equals then assign the value to last index of nums1 array and decrement
+- if nums1 < nums2 then assign nums2 value
+- else assign nums1
+- return nums1
+ */
 
     private int[] sortAndMerge(int[] nums1, int m, int[] nums2, int n){
 
         int k=m+n-1, i=m-1, j=n-1;
+
+        while(j>=0)
+            nums1[k--]=nums2[j--];
+
         while(i>=0 && j>=0){
             if(nums1[i]==nums2[j])
                 nums1[k--]=nums2[j--];
@@ -73,9 +85,6 @@ public class P_O21_3_Merge_Sort_Array {
             else
                 nums1[k--]=nums2[j--];
         }
-
-        while(j>=0)
-            nums1[k--]=nums2[j--];
         return nums1;
     }
 }
