@@ -39,7 +39,7 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
     public void example2(){
         int[] nums1={4,9,5};
         int[] nums2={9,4,9,8,4};
-        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{9,4});
+        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{4,9});
     }
 
     @Test
@@ -67,29 +67,30 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
 
     private int[] intersectArrayMaxAppear(int[] n1, int[] n2){
         if(n1.length<1 && n2.length<1) return new int[]{};
-        int left=0, right=0;
-//        Arrays.sort(n1);
-//        Arrays.sort(n2);
-        Map<Integer, Integer> map= new HashMap<>();
+        int left=0, right=0, i=1;;
+        Arrays.sort(n1);
+        Arrays.sort(n2);
+        HashMap<Integer, Integer> map= new HashMap<>();
         int count=0;
         while( left<n1.length && right<n2.length){
-            if(n1[left]==n2[right]){
+            if(n1[left] < n2[right]){
+                left++;
+            }else if(n1[left] > n2[right]){
+                right++;
+            }else {
                 if(!map.containsKey(n1[left])){
                     map.put(n1[left], map.getOrDefault(n1[left], 0)+1);
                     left=0;
                     right++;
-                }
-            }else if(n1[left]<n2[right]){
-                right++;
-            }else {
-                left++;
+                }else
+                    left++;
             }
         }
 
         int[] arr=new int[map.size()];
-        int i=0;
+        int j=0;
         for(Map.Entry<Integer, Integer> a: map.entrySet())
-            arr[i++]=a.getKey();
+            arr[j++]=a.getKey();
 
         return arr;
     }
