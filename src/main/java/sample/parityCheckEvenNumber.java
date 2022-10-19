@@ -13,16 +13,9 @@ public class parityCheckEvenNumber {
     }
 
     @Test
-    public void example7(){
-        int[] arr={1,2,3,4,5,6,6,5,4,3,2,1};
-        int[] out={2,2,4,4,6,6,5,5,3,3,1,1};
-        Assert.assertEquals(swapTwoPointer(arr), out);
-    }
-
-    @Test
     public void example2(){
         int[] arr={2,4,6,8};
-        int[] out={8,6,4,2};
+        int[] out={2,4,6,8};
         Assert.assertEquals(swapTwoPointer(arr), out);
     }
 
@@ -54,6 +47,13 @@ public class parityCheckEvenNumber {
         Assert.assertEquals(swapTwoPointer(arr), out);
     }
 
+    @Test
+    public void example7(){
+        int[] arr={1,2,3,4,5,6,6,5,3,3,2,1};
+        int[] out={2,2,6,4,6,5,3,5,3,3,1,1};
+        Assert.assertEquals(swapTwoPointer(arr), out);
+    }
+
 /*
 1. take two pointers left and right
 2. left is slow mover
@@ -67,11 +67,14 @@ public class parityCheckEvenNumber {
         int left=0, right=arr.length-1;
 
         while(left<right){
-            if(arr[right]%2==0){
+            if(arr[right]%2==0 && arr[left]%2!=0){
                 arr[left]= arr[left]+arr[right];
                 arr[right]=arr[left]-arr[right];
                 arr[left]=arr[left++]-arr[right--];
-            }else right--;
+            } else if (arr[right]%2 != 0)
+                right--;
+            else
+                left++;
         }
         return arr;
     }

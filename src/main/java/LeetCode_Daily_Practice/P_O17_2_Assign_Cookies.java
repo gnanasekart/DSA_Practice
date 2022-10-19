@@ -2,11 +2,7 @@ package LeetCode_Daily_Practice;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-
 public class P_O17_2_Assign_Cookies {
 
     /*
@@ -81,20 +77,33 @@ logic
 4. then return the content cookie count
 */
 
-    private int assignCookies(int[] child, int[] size){
-
+    private int assignCookies1(int[] child, int[] size){
         if(child.length<1 && size.length<1) return 0;
-        Arrays.sort(child);
-        Arrays.sort(size);
+//        Arrays.sort(child);
+//        Arrays.sort(size);
         int count=0;
-        int left=0, right=0;
-        while(left<child.length){
-            if(size[right]>=child[left] && right<size.length){
+        int left=0, right=size.length-1;
+        while(left<child.length-1){
+            if(size[right]>=child[left] && right>0){
                 count++;
-                right++;
+                right--;
             }
             left++;
         }
         return count;
     }
+
+
+    private int assignCookies(int[] child, int[] size) {
+        Arrays.sort(child);
+        Arrays.sort(size);
+        int i=0, j=0;
+        while(i<child.length && j<size.length){
+            if(size[j]>=child[i])
+                i++;
+            j++;
+        }
+    return i;
+    }
+
 }

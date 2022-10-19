@@ -3,11 +3,9 @@ package LeetCode_Daily_Practice;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-
 public class P_C_E_LC_25_Shortest_Distance_To_Char {
     /*
-
+    https://leetcode.com/problems/shortest-distance-to-a-character/
     Given a string s and a character c that occurs in s,
     return an array of integers answers where answer.length == s.length
     and answer[i] is the distance from index i to the closest occurrence of character c in s.
@@ -92,20 +90,20 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 
     //time = O(1)+O(n)+O(n)+O(n)=O(3n) => O(n)
     //space = O(n) = additionally space created for answer array
-    private int[] shortestChar(String str, char c) {
+    private int[] shortestChar1(String str, char c) {
         boolean ischpresent=false;
         if (str.length() == 0) return new int[]{};//O(1)
 
         int[] answer = new int[str.length()];
         char[] ch = str.toCharArray();
-//        for(int i=0; i<ch.length; i++){ //=> O(n)
-//            if(ch[i]==c) {
-//                answer[i]=0;
-//                ischpresent=true;
-//            }else answer[i]=ch.length;
-//        }
+        for(int i=0; i<ch.length; i++){ //=> O(n)
+            if(ch[i]==c) {
+                answer[i]=0;
+                ischpresent=true;
+            }else answer[i]=ch.length;
+        }
 
-    //if(ischpresent) {
+    if(ischpresent) {
         int left = 0, right = 0;
         while (left<ch.length-1) {//O(n)
             if (ch[right] != c) right++;
@@ -134,7 +132,23 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
                 }
             }
         }
-    //}
+    }
         return answer;
+    }
+
+    public int[] shortestChar(String S, char C) {
+        int n = S.length();
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (S.charAt(i) != C)
+                res[i] = n;
+        }
+        for (int i = 1; i < n; i++) {
+            res[i] = Math.min(res[i], res[i - 1] + 1);
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            res[i] = Math.min(res[i], res[i + 1] + 1);
+        }
+        return res;
     }
     }
