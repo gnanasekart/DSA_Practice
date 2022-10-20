@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O21_3_Merge_Sort_Array {
+public class P_O19_3_Merge_Sort_Array {
 /*
     https://leetcode.com/problems/merge-sorted-array/
 

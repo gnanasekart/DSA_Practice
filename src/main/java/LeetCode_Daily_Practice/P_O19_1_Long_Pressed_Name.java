@@ -18,48 +18,61 @@ Constraints:
 name and typed consist of only lowercase English letters.
     */
 
-@Test
-public void example1(){
-String name="alex";
-String typed="aaleex";
-Assert.assertEquals(longPress(name, typed), true);
-}
-
-@Test
-public void example2(){
-String name="saeed";
-String typed="ssaaedd";
-Assert.assertEquals(longPress(name, typed), false);
-}
-
-@Test
-public void example3(){
-String name="saeed";
-String typed="saaeeed";
-Assert.assertEquals(longPress(name, typed), true);
-}
-
-@Test
-public void example4(){
-String name="saeed";
-String typed="s";
-Assert.assertEquals(longPress(name, typed), false);
-}
-
-@Test
-public void example5(){
-String name="sad";
-String typed="ssaadd";
-Assert.assertEquals(longPress(name, typed), true);
-}
+	@Test
+	public void example1() {
+		String name = "alex";
+		String typed = "aaleex";
+		Assert.assertEquals(longPress(name, typed), true);
+	}
 
 	@Test
-	public void example6(){
-		String name="alex";
-		String typed="aaleexa";
+	public void example2() {
+		String name = "saeed";
+		String typed = "ssaaedd";
 		Assert.assertEquals(longPress(name, typed), false);
 	}
 
+	@Test
+	public void example3() {
+		String name = "saeed";
+		String typed = "saaeeed";
+		Assert.assertEquals(longPress(name, typed), true);
+	}
+
+	@Test
+	public void example4() {
+		String name = "saeed";
+		String typed = "s";
+		Assert.assertEquals(longPress(name, typed), false);
+	}
+
+	@Test
+	public void example5() {
+		String name = "sad";
+		String typed = "ssaadd";
+		Assert.assertEquals(longPress(name, typed), true);
+	}
+
+	@Test
+	public void example6() {
+		String name = "alex";
+		String typed = "aaleexa";
+		Assert.assertEquals(longPress(name, typed), false);
+	}
+
+	@Test
+	public void example7() {
+		String name = "alex";
+		String typed = "aaleexeex";
+		Assert.assertEquals(longPress(name, typed), false);
+	}
+
+	@Test
+	public void example8() {
+		String name = "alex";
+		String typed = "aaleelx";
+		Assert.assertEquals(longPress(name, typed), false);
+	}
 /*
 - check condition name is <= typed means return true
 - also check if both char array last length != then return false
@@ -73,29 +86,94 @@ Assert.assertEquals(longPress(name, typed), true);
 	- else return true
 */
 
-private boolean longPress(String name, String typed){
-	if(name.length() <= typed.length()/2) return true;
-	boolean isLongPressed=false;
-	char[] n=name.toCharArray();
-	char[] t=typed.toCharArray();
+	private boolean longPress(String name, String typed){
+		if(name.length() <= typed.length()/2) return true;
+		boolean isLongPressed=false;
+		char[] n=name.toCharArray();
+		char[] t=typed.toCharArray();
 
-	if(n[n.length-1] != t[t.length-1]) return false;
+		if(n[n.length-1] != t[t.length-1]) return false;
 
-	int left=0, right=0, count=0;
-	while(left<n.length && right<t.length){
-	    count=0;
-		if(n[left]==t[right]){
-			count++;
-			isLongPressed=true;
-			if(count>2)
-				return true;
-		left++;
+		int left=0, right=0, count=0;
+		while(left<n.length && right<t.length){
+			count=0;
+			if(n[left]==t[right]){
+				count++;
+				isLongPressed=true;
+				if(count>2)
+					return true;
+				left++;
+			}
+			right++;
 		}
-		right++;
+		if(left<name.length() && right==typed.length())
+			return false;
+		else return isLongPressed;
 	}
-	if(left<name.length() && right==typed.length())
-    	return false;
-	else return isLongPressed;
-}
+
+	private boolean longPress1(String name, String typed) {
+
+//		if (typed.length() < name.length()) return true;
+//		else if (name.charAt(0) != typed.charAt(0)) return false;
+
+		boolean isLongPressed = false;
+		char[] n = name.toCharArray();
+		char[] t = typed.toCharArray();
+
+		if (n[n.length - 1] != t[t.length - 1]) return false;
+
+		int left = 0, right = 0, count = 0;
+		while (left < n.length && right < t.length) {
+			count = 0;
+			if (n[left] == t[right]) {
+				count++;
+				isLongPressed = true;
+				if (count > 2)
+					return true;
+				left++;
+				right++;
+			} else if (t[right]==t[right-1]) {
+				right++;
+			}
+			return false;
+		}
+
+		if (left < name.length() && right == typed.length())
+			return false;
+		else if (left == name.length() && right < typed.length()) {
+			while (right != typed.length()) {
+				if (typed.charAt(right) == typed.charAt(right - 1))
+					right++;
+				else
+					return false;
+			}
+		} else
+			return isLongPressed;
+	return isLongPressed;
+	}
+
+	private boolean longPress2(String name, String typed) {
+		if (name.charAt(0) != typed.charAt(0)) return false;
+
+		char[] n = name.toCharArray();
+		char[] t = typed.toCharArray();
+
+		int left = 0, right = 0, count = 0;
+		while (left < t.length) {
+			count = 0;
+			if (n[left] == t[right]) {
+				count++;
+				if (count > 2) {
+					return true;
+				}
+				left++;
+				right++;
+			} else if (t[right]==t[right-1]) {
+				right++;
+			}
+			return false;
+		}
+		return right==name.length();
+	}
 }
 

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P_O20_2_Intersection_Array_v2 {
+public class P_O19_2_Intersection_Array_v2 {
 
     /*
 https://leetcode.com/problems/intersection-of-two-arrays-ii/
@@ -62,36 +62,67 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
 - consider two pointers for both the array
 - if both the array value matches then add into arraylist
 - else increment one array pointer
-- return the arraylist to array
+- return the arraylist from new array
 */
 
-    private int[] intersectArrayMaxAppear(int[] n1, int[] n2){
+    //time = O(n)+O(n)+O(nlog n)+O(nlog n) =
+    //space = O(n)arraylist + O(n)array => O(n)
+    private int[] intersectArrayMaxAppear1(int[] n1, int[] n2){
         if(n1.length<1 && n2.length<1) return new int[]{};
         int left=0, right=0, i=1;;
-        Arrays.sort(n1);
-        Arrays.sort(n2);
-        HashMap<Integer, Integer> map= new HashMap<>();
-        int count=0;
-        while( left<n1.length && right<n2.length){
-            if(n1[left] < n2[right]){
+        Arrays.sort(n1);//O(nlog n)
+        Arrays.sort(n2);//O(nlog n)
+
+        ArrayList<Integer> list = new ArrayList<>();
+        while( left<n1.length && right<n2.length){//=> O(n)
+            if(n1[left] < n2[right]) left++;
+            else if(n1[left] > n2[right]) right++;
+            else {
+                list.add(n1[left]);
                 left++;
-            }else if(n1[left] > n2[right]){
                 right++;
-            }else {
-                if(!map.containsKey(n1[left])){
-                    map.put(n1[left], map.getOrDefault(n1[left], 0)+1);
-                    left=0;
-                    right++;
-                }else
-                    left++;
             }
         }
 
-        int[] arr=new int[map.size()];
+        int[] arr=new int[list.size()];
         int j=0;
-        for(Map.Entry<Integer, Integer> a: map.entrySet())
-            arr[j++]=a.getKey();
+        for(Integer a: list)//=>O(n)
+            arr[j++]=a;
+        return arr;
+    }
 
+    //time = O(n)+O(n)+O(n)+O(nlog n)+O(nlog n) =
+    //space = O(n)arraylist +O(n)hashmap + O(n)array => O(n)
+    private int[] intersectArrayMaxAppear(int[] n1, int[] n2){
+        if(n1.length<1 && n2.length<1) return new int[]{};
+        int left=0, right=0, i=1;;
+        Arrays.sort(n1);//O(nlog n)
+        Arrays.sort(n2);//O(nlog n)
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer> list = new ArrayList<>();
+
+        while( left<n1.length && right<n2.length){//=>O(n)
+            if(n1[left] < n2[right]) left++;
+            else if(n1[left] > n2[right]) right++;
+            else {
+                map.put(n1[left], map.getOrDefault(n1[left], 0)+1);
+                left++;
+                right++;
+            }
+        }
+
+        for(int l: n2){//O(n)
+            if(map.containsKey(l) && map.get(l)>0){
+                list.add(l);
+                map.put(l, map.get(l)-1);
+            }
+        }
+
+        int[] arr=new int[list.size()];
+        int j=0;
+        for(Integer a: list)//=>O(n)
+            arr[j++]=a;
         return arr;
     }
 }
