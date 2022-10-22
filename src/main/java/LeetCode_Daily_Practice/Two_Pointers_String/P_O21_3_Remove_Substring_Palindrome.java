@@ -54,8 +54,8 @@ public class P_O21_3_Remove_Substring_Palindrome {
 4. continue till the array end
 */
     private int subStringPal(String word) {
-        if (word.length() < 2) return word.length();
-        if (word.equals(reverseWord(word))) return 1;
+        if (word.length() < 1) return 0;
+        else if (word.equals(reverseWord(word))) return 1;
         else return 2;
     }
 
@@ -74,5 +74,17 @@ public class P_O21_3_Remove_Substring_Palindrome {
             }
         }
         return String.valueOf(ch);
+    }
+
+    public int removePalindromeSub(String word) {
+        int left=0, right=word.length()-1;
+        if (word.length() < 1) return 0;
+        while(left<right){
+            if(word.charAt(left)==word.charAt(right)){
+                left++;
+                right--;
+            }else return 2;
+        }
+        return 1;
     }
 }

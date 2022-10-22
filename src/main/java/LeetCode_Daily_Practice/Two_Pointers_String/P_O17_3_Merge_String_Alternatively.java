@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice;
+package LeetCode_Daily_Practice.Two_Pointers_String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
