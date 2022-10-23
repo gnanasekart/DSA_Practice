@@ -51,9 +51,9 @@ public class assessmnt {
 
     private int maxVovel(String s, int k) {
         if (s.length() < k) return 0;
-        int maxi = 0;
-        for (int i = 0; i < s.length();) {
-            for (int j = i + k; j < s.length(); j++;) {
+        int maxi = 0;int i=0;
+        for (; i < s.length();) {
+            for (int j = i + k; j < s.length(); j++,i++) {
                 String sub = s.substring(i, j);
                 maxi = Math.max(maxi, isvovel(sub));
             }
