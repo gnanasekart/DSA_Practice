@@ -17,7 +17,7 @@ public class assessmnt {
     public void example1() {
         String s = "workaattech";
         int k = 3;
-        Assert.assertEquals(maxVovel(s, k), 2);
+        Assert.assertEquals(maxVovelSW(s, k), 2);
     }
 
     @Test
@@ -58,6 +58,18 @@ public class assessmnt {
                 maxi = Math.max(maxi, isvovel(sub));
             }
         }
+        return maxi;
+    }
+
+    private int maxVovelSW(String s, int k) {
+        if (s.length() < k) return 0;
+        int maxi = 0;int i=k;
+
+        while(i<s.length()){
+                String sub = s.substring(i-k+1, i);
+                maxi = Math.max(maxi, isvovel(sub));
+                i++;
+            }
         return maxi;
     }
 
