@@ -8,7 +8,11 @@ public class sample {
        // System.gc();
         ArrayList<Integer> list = new ArrayList<>();
         list.add(4);
-        list.add(2);
         list.add(-1);
+        list.get(1);
+        list.add(2,5);
+
+        list.remove(1);
+
     }
 }
