@@ -52,13 +52,13 @@ public class assessmnt {
     private int maxVovel(String s, int k) {
         if (s.length() < k) return 0;
         int maxi = 0;int i=0;
-        for (; i < s.length();) {
+        for (; i < s.length();i++) {
             for (int j = i + k; j < s.length(); j++,i++) {
                 String sub = s.substring(i, j);
                 maxi = Math.max(maxi, isvovel(sub));
             }
         }
-        return 1;
+        return maxi;
     }
 
     public int isvovel(String str) {
