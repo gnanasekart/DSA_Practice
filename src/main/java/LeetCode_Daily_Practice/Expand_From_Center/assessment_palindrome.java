@@ -1,4 +1,4 @@
-package sample;
+package LeetCode_Daily_Practice.Expand_From_Center;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,32 +6,32 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class assessmntpalindrom {
+public class assessment_palindrome {
 
     @Test
     public void example1() {
         String s = "RADAR";
-        Assert.assertEquals(isPalindrome(s), true);
+        Assert.assertEquals(isPalindromeGS(s), true);
     }
 
     @Test
     public void example2() {
         String s = "a";
-        Assert.assertEquals(isPalindrome(s), true);
+        Assert.assertEquals(isPalindromeGS(s), true);
     }
 
     @Test
     public void example3() {
         String s = "madammadam";
 
-        Assert.assertEquals(isPalindrome(s),true);
+        Assert.assertEquals(isPalindromeGS(s),true);
     }
 
     @Test
     public void example4() {
         String s = "";
 
-        Assert.assertEquals(isPalindrome(s), false);
+        Assert.assertEquals(isPalindromeGS(s), false);
     }
 
 	/*
@@ -54,34 +54,18 @@ public class assessmntpalindrom {
                 break;
         }
         return ispal;
-}
-
-
-    private boolean isPalindrome1(String s) {
-        if (s.length() < 2)
-            return true;
-        if(s.length()<1)
-            return false;
-        boolean ispal = false;
-
-        if(reverseWord(s).equals(s)){
-            return true;
-        }
-        return false;
     }
 
+    private boolean isPalindromeGS(String s){
+        if(s.length()<1) return false;
+        //s=radar
+        int left=s.length()/2 - s.length()%2; //2-1 = 1
+        int right=s.length()/2 + s.length()%2;//2+1 = 3
 
-    public String reverseWord(String word){
-        char[] ch = word.trim().toCharArray();
-        char c;
-        int left=0, right=word.length()-1;
-        while(left<right){
-            if(ch[left]>=65 && ch[right]<=90 && ch[left]>=90 && ch[right]<=122){
-                c=ch[left];
-                ch[left++]=ch[right];
-                ch[right--]=c;
-            }
-        }
-        return String.valueOf(ch);
+        if(left == right) left--;
+
+        while(left>=0)
+            if(s.charAt(left--) != s.charAt(right++)) return false;
+        return true;
     }
 }

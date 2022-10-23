@@ -1,5 +1,6 @@
-package sample;
+package LeetCode_Daily_Practice.Two_pointer_Grow_Shrink;
 
+import io.cucumber.java.it.Ma;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -57,30 +58,32 @@ try coding another solution of which the time complexity is O(n log(n)).
     public void example5(){
         int[] nums={5,1,3,5,10,7,4,9,2,8};
         int k=15;
-        Assert.assertEquals(minSubarray(nums, k), 3);
+        Assert.assertEquals(minSubarray(nums, k), 2);
     }
 
 /*
-0. check for single number occurance
-		- if present return count as 1
-            - else move to next condition
-1. consider sliding window
-2. sum the first and second value and match with target
-	- if it matchs then capture the array
-	- else iterate the pointer
-3. return the arrays length
+logic
+1. consider the two pointer grow and shrink method
+2. two pointer points at same place
+3. if sum < k value then one pointer move right direction and sum every index value
+4. if sum >=k then left pointer decrement its value with sum
+    - calculate the index different as min value
+5. Again if the sum < k value then sum with right value until condition breaks
+6. if min value is still in default value then return o
+
 */
     private int minSubarray(int[] nums, int k){
 
-        int l=0, r=0, distance=0, sum=0;
+        int l=0, r=0, distance=Integer.MAX_VALUE, sum=0;
+
         while(l<nums.length){
-            if(sum<k && r<nums.length)
-                sum+=nums[r++];
+            if(sum<k && r<nums.length) sum+=nums[r++];
             else if(sum>=k){
                 sum-=nums[l];
-                distance=r-l;
+                distance= Math.min(distance, r-l);
                 l++;
-            }else break;
+            } else if (distance==Integer.MAX_VALUE) return 0;
+             else break;
         }
         return distance;
     }
