@@ -9,83 +9,105 @@ Given a string s, return true if the s can be palindrome
 after deleting at most one character from it.
 
 Constraints:
-1 <= s.length <= 105
+1 <= s.length <= 10^5
 s consists of lowercase English letters.
  */
 public class assessment_palindrome_2 {
 
+
+
     @Test
     public void example1() {
         String s = "aba";
-        Assert.assertEquals(palindrome(s), true);
+        Assert.assertEquals(isPalindrome(s),true);
     }
 
     @Test
     public void example2() {
         String s = "abca";
-        Assert.assertEquals(palindrome(s), true);
+        Assert.assertEquals(isPalindrome(s),true);
     }
 
     @Test
     public void example3() {
         String s = "abc";
-        Assert.assertEquals(palindrome(s),false);
+        Assert.assertEquals(isPalindrome(s),false);
     }
-
     @Test
     public void example4() {
-        String s = "a";
-        Assert.assertEquals(palindrome(s), true);
+        String s = "abccbda";
+        Assert.assertEquals(isPalindrome(s),true);
     }
-
     @Test
     public void example5() {
-        String s = "deeee";
-        Assert.assertEquals(palindrome(s), true);
+        String s = "acd";
+        Assert.assertEquals(isPalindrome(s),false);
     }
-
+    @Test
+    public void example6() {
+        String s = "bba";
+        Assert.assertEquals(isPalindrome(s),true);
+    }
+    @Test
+    public void example7() {
+        String s = "ccc";
+        Assert.assertEquals(isPalindrome(s),true);
+    }
 /*
-1. consider two pointer from left and right
-2. if start equals to end char means start++ and end--
-            3. if not concat the string 0 to left and right to end.length()-1
-            4. concat the string and validate as palindrome
-	- if palindrome return true
-            - else false
+1. first concat the string from 0 to left and right to length - validate
+    second concat the string from 0 to left and right to length and validate
+2. if the validation returns palindrome then return true
+3. else return false validation
 */
-    private boolean palindrome(String s){
-        int left=0, right=s.length()-1;
-        if(isPalindrome(s)){
-            return true;
-        }
-        String str="";
+  //approach 1
+    private boolean isPalindrome1(String s) {
+        if(s.length()<2) return true;
+        if(palindrome(s)) return true;
         boolean ispal=false;
+        int left=0, right=s.length()-1;
 
         while(left<s.length() && right>0){
-            if(s.charAt(left)==s.charAt(right)){
-                left++;
-                right--;
-            }else if(s.charAt(left)!=s.charAt(right)){
-                str+=s.substring(0,left)+s.substring(right,s.length());
-                if(isPalindrome(str)){
-                    return true;
-                }else return false;
-            }
-        }
-        return ispal;
-        }
-
-        private boolean isPalindrome(String s) {
-       // if(s.length()<2) return true;
-            int left = 0, right = s.length()-1 ;
-            boolean ispal = false;
-            while (left < right) {
-                if (s.charAt(left) == s.charAt(right)) {
+            while(left<right){
+                String str="", str1="";
+                if(s.charAt(left) == s.charAt(right)){
                     left++;
                     right--;
-                    ispal = true;
-                } else
-                    break;
+                    ispal=true;
+                }else{
+                    str+=s.substring(0, left+1)+s.substring(right+1,s.length());
+                    str1+=s.substring(0, left)+s.substring(right,s.length());
+                    if (palindrome(str) || palindrome(str1)) return true;
+                    else ispal=false;
+                }
             }
-            return ispal;
+            left++;
+            right++;
+        }
+        return ispal;
+    }
+
+    //approach 2
+    private boolean isPalindrome(String s) {
+        if(s.length()<2) return true;
+        if(palindrome(s)) return true;
+         int left=0, right=1;
+        while (left < s.length() && right<=s.length()) {
+            String str = "", str1="";
+            str += s.substring(0, left++) + s.substring(right++, s.length());
+            if (palindrome(str) || palindrome(str1)) return true;
+        }
+        return false;
+    }
+
+        private boolean palindrome(String s){
+            if(s.isEmpty()) return false;
+            int left=s.length()/2 - s.length()%2;
+            int right=s.length()/2 + s.length()%2;
+
+            if(left == right) left--;
+
+            while(left>=0)
+                if(s.charAt(left--) != s.charAt(right++)) return false;
+            return true;
         }
 }

@@ -10,8 +10,8 @@ public class assessment_palindrome {
 
     @Test
     public void example1() {
-        String s = "RADAR";
-        Assert.assertEquals(isPalindromeEvenOdd(s), true);
+        String s = "RAAR";
+        Assert.assertEquals(isPalindromeGS(s), true);
     }
 
     @Test
