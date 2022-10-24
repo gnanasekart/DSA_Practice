@@ -27,7 +27,7 @@ s consist of only digits and English letters.
         Assert.assertEquals(LongestSubStringPal(s), "rrrr");
     }
 
-    @Test
+    //@Test
     public void example3(){
         String s = "m1a1m";
         Assert.assertEquals(LongestSubStringPal(s), "1a1");
@@ -39,10 +39,10 @@ s consist of only digits and English letters.
         Assert.assertEquals(LongestSubStringPal(s), "a");
     }
 
-    //@Test
+    @Test
     public void example5(){
-        String s = "a232f";
-        Assert.assertEquals(LongestSubStringPal(s), "232");
+        String s = "aacabdkacaa";
+        Assert.assertEquals(LongestSubStringPal(s), "aca");
     }
 
     @Test
@@ -88,12 +88,13 @@ s consist of only digits and English letters.
         if(str.length()<1) return "";
         if(str.length()<2) return str;
 
-        int len=str.length()-1, left=0, right=len;
+        int len=str.length(), left=0, right=len;
         String sub="";
         while (left<str.length() && right<=str.length()) {
             while (right<=str.length()) {
                 sub = str.substring(left, right);
-                if (isPalindrome(sub)) return sub;
+                if (isPalindrome(sub))
+                    return sub;
                 else {
                     left++;
                     right++;
@@ -106,41 +107,21 @@ s consist of only digits and English letters.
         return "";
     }
 
-    public boolean isPalindrome(String s){
-        if(s.length()<2) return true;
-        int left = 0, right = s.length()-1 ;
-        while (left < right) {
-            if (s.charAt(left) == s.charAt(right)) {
-                left++;
-                right--;
-                return true;
-            } else break;
+    public boolean isPalindrome(String s) {
+        if (s.length() < 2) return true;
+        boolean ispal=false;
+        int left = 0, right = s.length() - 1;
+        while (left < s.length() && right < s.length()) {
+            while (left < right) {
+                if (s.charAt(left) == s.charAt(right)) {
+                    left++;
+                    right--;
+                    ispal=true;
+                } else return ispal=false;
+            }
+            break;
         }
-    return false;
+        return ispal;
     }
 
-
-//    private String LongestSubStringPal1(String str){
-//        if(str.length()<1) return "";
-//        if(str.length()<2) return str;
-//        if(str.length()==2) {
-//            if(str.charAt(0)==str.charAt(1)){
-//                return str;
-//            }else return String.valueOf(str.charAt(0));
-//        }
-//
-//        int left=0, right=0;
-//        String sub="";
-//        while(left < str.length()){
-//            right=left+2;
-//            while(left<right && right <=str.length()){
-//                sub=str.substring(left, right);
-//
-//                if(isPalindrome(sub)) return sub;
-//                else if(!(isPalindrome(sub))) right++;
-//            }
-//            left++;
-//        }
-//        return "";
-//    }
 }
