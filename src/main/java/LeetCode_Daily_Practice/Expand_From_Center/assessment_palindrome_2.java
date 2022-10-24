@@ -13,10 +13,6 @@ Constraints:
 s consists of lowercase English letters.
  */
 public class assessment_palindrome_2 {
-    /*
-    leetcode.com/problems/valid-palindrome-ii/
-    Given a string s, return true if the s can be palindrome after deleting at most one character from it.
-     */
 
     @Test
     public void example1() {
