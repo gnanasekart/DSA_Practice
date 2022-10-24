@@ -72,7 +72,7 @@ s consist of only digits and English letters.
     @Test
     public void example10(){
         String s = "bbb";
-        Assert.assertEquals(LongestSubStringPal(s), "bb");
+        Assert.assertEquals(LongestSubStringPal(s), "bbb");
     }
 /*
 1. check if str.length<1 then return str
