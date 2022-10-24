@@ -48,7 +48,7 @@ s consist of only digits and English letters.
     @Test
     public void example6(){
         String s = "cdbb";
-        Assert.assertEquals(LongestSubStringPal(s), "bb");
+        Assert.assertEquals(longestPalindrome(s), "bb");
     }
 
     @Test
@@ -86,15 +86,12 @@ s consist of only digits and English letters.
 
     private String LongestSubStringPal(String str){
         if(str.length()<1) return "";
-        if(str.length()<2) return str;
-
         int len=str.length(), left=0, right=len;
         String sub="";
-        while (left<str.length() && right<=str.length()) {
+        while (left<str.length()) {
             while (right<=str.length()) {
                 sub = str.substring(left, right);
-                if (isPalindrome(sub))
-                    return sub;
+                if (isPalindrome(sub)) return sub;
                 else {
                     left++;
                     right++;
@@ -107,21 +104,15 @@ s consist of only digits and English letters.
         return "";
     }
 
-    public boolean isPalindrome(String s) {
-        if (s.length() < 2) return true;
-        boolean ispal=false;
-        int left = 0, right = s.length() - 1;
-        while (left < s.length() && right < s.length()) {
-            while (left < right) {
-                if (s.charAt(left) == s.charAt(right)) {
-                    left++;
-                    right--;
-                    ispal=true;
-                } else return ispal=false;
-            }
-            break;
-        }
-        return ispal;
+    private boolean isPalindrome(String s){
+        int left=s.length()/2 - s.length()%2;
+        int right=s.length()/2 + s.length()%2;
+
+        if(left == right) left--;
+
+        while(left>=0)
+            if(s.charAt(left--) != s.charAt(right++)) return false;
+        return true;
     }
 
 }
