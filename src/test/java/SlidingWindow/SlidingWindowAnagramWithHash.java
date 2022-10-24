@@ -75,8 +75,8 @@ public class SlidingWindowAnagramWithHash {
             if (j >= pCount) {
                 char ch = s.charAt(j - pCount);
 
-                //inside sMap if it is one occurence means it will remove
-                //if it is more than once then it will -1 occurance
+                //inside sMap if it is one occurrence means it will remove
+                //if it is more than once then it will -1 occurrence
                 if (sMap.get(ch) == 1) {
                     sMap.remove(ch);
                 } else {
