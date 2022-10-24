@@ -11,7 +11,7 @@ public class assessment_palindrome {
     @Test
     public void example1() {
         String s = "RADAR";
-        Assert.assertEquals(isPalindromeGS(s), true);
+        Assert.assertEquals(isPalindromeEvenOdd(s), true);
     }
 
     @Test
@@ -61,6 +61,25 @@ public class assessment_palindrome {
         //s=radar
         int left=s.length()/2 - s.length()%2; //2-1 = 1
         int right=s.length()/2 + s.length()%2;//2+1 = 3
+
+        if(left == right) left--;
+
+        while(left>=0)
+            if(s.charAt(left--) != s.charAt(right++)) return false;
+        return true;
+    }
+
+    private boolean isPalindromeEvenOdd(String s){
+        if(s.length()<1) return false;
+        int left=0, right=0;
+
+        if(s.length()%2==0){
+            left=s.length()/2-1;
+            right=s.length()/2;
+        }else{
+            left=s.length()/2-1;
+            right=s.length()/2+1;
+        }
 
         if(left == right) left--;
 
