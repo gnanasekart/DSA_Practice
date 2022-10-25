@@ -116,6 +116,7 @@ s consist of only digits and English letters.
     }
 //-----------------------------------------------------------------------
 
+    //LC solution
     private int lo, maxLen;
     public String longestPalindrome(String s) {
         int len = s.length();

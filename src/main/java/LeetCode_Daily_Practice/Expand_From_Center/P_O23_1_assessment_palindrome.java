@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class assessment_palindrome {
+public class P_O23_1_assessment_palindrome {
 
     @Test
     public void example1() {

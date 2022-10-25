@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class assessment_Minimum_Size_Subarray_Sum {
+public class PO23_3_Minimum_Size_Subarray_Sum {
 /*
 leetcode.com/problems/minimum-size-subarray-sum/
 

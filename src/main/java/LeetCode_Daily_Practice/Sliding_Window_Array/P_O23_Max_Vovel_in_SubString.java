@@ -1,4 +1,4 @@
-package sample;
+package LeetCode_Daily_Practice.Sliding_Window_Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class assessmnt {
+public class P_O23_Max_Vovel_in_SubString {
     /*
     Given a string s and a number k, find the maximum number of vowels in substring of size k.
     String: "workaattech"

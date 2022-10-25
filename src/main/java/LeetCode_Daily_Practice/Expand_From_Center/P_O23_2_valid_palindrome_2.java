@@ -12,7 +12,7 @@ Constraints:
 1 <= s.length <= 10^5
 s consists of lowercase English letters.
  */
-public class assessment_palindrome_2 {
+public class P_O23_2_valid_palindrome_2 {
 
     @Test
     public void example1() {
@@ -43,12 +43,18 @@ public class assessment_palindrome_2 {
     }
     @Test
     public void example6() {
-        String s = "bba";
+        String s = "deeee";
         Assert.assertEquals(isPalindrome(s),true);
     }
     @Test
     public void example7() {
         String s = "ccc";
+        Assert.assertEquals(isPalindrome(s),true);
+    }
+
+    @Test
+    public void example8() {
+        String s = "bba";
         Assert.assertEquals(isPalindrome(s),true);
     }
 /*
@@ -60,52 +66,53 @@ public class assessment_palindrome_2 {
   //approach 1
     private boolean isPalindrome1(String s) {
         if(s.length()<2) return true;
-        if(palindrome(s)) return true;
-        boolean ispal=false;
         int left=0, right=s.length()-1;
 
-        while(left<s.length() && right>0){
             while(left<right){
-                String str="", str1="";
                 if(s.charAt(left) == s.charAt(right)){
-                    left++;
-                    right--;
-                    ispal=true;
-                }else{
-                    str+=s.substring(0, left+1)+s.substring(right+1,s.length());
-                    str1+=s.substring(0, left)+s.substring(right,s.length());
-                    if (palindrome(str) || palindrome(str1)) return true;
-                    else ispal=false;
-                }
+                    left++; right--;
+                }else return palindrome(s, left+1, right) || palindrome(s, left, right-1);
             }
-            left++;
+        return true;
+    }
+
+    //approach 2 - inprogress
+    private boolean isPalindrome(String s) {
+    int left=s.length()/2 - s.length()%2;
+    int right=s.length()/2 + s.length()%2;
+    boolean ispal=false;
+    while(left>=0 && right<s.length()){
+        if(s.charAt(left) == s.charAt(right)){
+            left--;
             right++;
+        }else if(s.charAt(left--) != s.charAt(right++)){
+            while(s.charAt(left) == s.charAt(right)){
+                left--;
+                right++;
+                ispal=true;
+            }
         }
         return ispal;
     }
+//    while(s.charAt(left) == s.charAt(right)){
+//        left--;
+//        right++;
+//    }
+//    if(s.charAt(left) != s.charAt(right)){
+//        if(left<right) {
+//            while(s.charAt(left--) == s.charAt(right++)) {
+//                continue;
+//            }
+//        }
+//    }
 
-    //approach 2
-    private boolean isPalindrome(String s) {
-        if(s.length()<2) return true;
-        if(palindrome(s)) return true;
-         int left=0, right=1;
-        while (left < s.length() && right<=s.length()) {
-            String str = "", str1="";
-            str += s.substring(0, left++) + s.substring(right++, s.length());
-            if (palindrome(str) || palindrome(str1)) return true;
-        }
         return false;
     }
 
-        private boolean palindrome(String s){
-            if(s.isEmpty()) return false;
-            int left=s.length()/2 - s.length()%2;
-            int right=s.length()/2 + s.length()%2;
-
-            if(left == right) left--;
-
-            while(left>=0)
-                if(s.charAt(left--) != s.charAt(right++)) return false;
+        public boolean palindrome(String s, int left, int right){
+            while(left<right)
+                if(s.charAt(left++) != s.charAt(right--))
+                    return false;
             return true;
         }
 }

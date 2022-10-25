@@ -1,9 +1,9 @@
-package sample;
+package LeetCode_Daily_Practice.Two_Pointers_Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class parityCheckEvenNumber {
+public class P_O15_Parity_Check_Even_Num {
 
     @Test
     public void example1(){
