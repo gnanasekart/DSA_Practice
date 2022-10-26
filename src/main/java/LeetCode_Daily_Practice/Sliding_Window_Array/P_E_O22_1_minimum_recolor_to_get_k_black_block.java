@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 //https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/
 
-public class P_O22_1_minimum_recolor_to_get_k_black_block {
+public class P_E_O22_1_minimum_recolor_to_get_k_black_block {
     @Test
     public void example2() {
        String s = "WBBWWBBWBW";

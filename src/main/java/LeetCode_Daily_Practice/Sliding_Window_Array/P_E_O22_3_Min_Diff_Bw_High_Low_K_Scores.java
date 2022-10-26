@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.Arrays;
 
-public class P_O22_3_Min_Diff_Bw_High_Low_K_Scores {
+public class P_E_O22_3_Min_Diff_Bw_High_Low_K_Scores {
 /*
 leetcode.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
 

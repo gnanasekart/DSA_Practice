@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 //https://leetcode.com/problems/maximum-average-subarray-i/
-public class P_O22_2_Maximum_average_Subarray {
+public class P_E_O22_2_Maximum_average_Subarray {
     @Test
     public void example1() {
         int[] arr = {1, 5, 2, 3, 7, 1};
