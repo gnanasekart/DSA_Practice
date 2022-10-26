@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O15_Parity_Check_Even_Num {
+public class P_E_O15_Parity_Check_Even_Num {
 
     @Test
     public void example1(){
@@ -57,10 +57,26 @@ public class P_O15_Parity_Check_Even_Num {
 /*
 1. take two pointers left and right
 2. left is slow mover
-3. right pointer will check even values if it is not right--
-4. if right is even then swap with left value and right--, left++
+3. right pointer will check even values if it is not even then right--
+4. else if right is even then swap with left value and right--, left++
+5. else then left++
 5. return array
 */
+
+    private int[] swapBruteForce(int[] arr){
+        if(arr.length<2) return arr;
+        for(int left=0, right=arr.length-1; left<right;) {
+            if(arr[right]%2==0 && arr[left]%2!=0){
+                arr[left]= arr[left]+arr[right];
+                arr[right]=arr[left]-arr[right];
+                arr[left]=arr[left++]-arr[right--];
+            } else if (arr[right]%2 != 0)
+                right--;
+            else
+                left++;
+        }
+        return arr;
+    }
 
     private int[] swapTwoPointer(int[] arr){
         if(arr.length<2) return arr;

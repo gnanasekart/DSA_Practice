@@ -3,7 +3,7 @@ package sample;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Sumneigbourvalue {
+public class P_O16_Sum_Neigbour_Value {
 
     @Test
     public void example1(){
@@ -53,6 +53,16 @@ public class Sumneigbourvalue {
         Assert.assertEquals(addIndex(arr), new int[]{});
     }
 
+    /*
+(n-m+1)*m => n*m complexity
+logic
+1. create an array with size array-1
+2. assume to use one iteration to sum add one index with adjacent index in array
+3. use two/three values using one loop and store the sum value in new array
+4. once loop end reach then return the value
+
+*/
+
     private int[] addIndex(int[] arr) {
         if(arr.length==0) return new int[]{};
 
@@ -72,16 +82,4 @@ public class Sumneigbourvalue {
         }
         return a;
     }
-
-/*
-(n-m+1)*m => n*m complexity
-logic
-1. create an array with size array-1
-2. assume to use one iteration to sum add one index with adjacent index in array
-3. use two/three values using one loop and store the sum value in new array
-4. once loop end reach then return the value
-
-*/
-
-
 }

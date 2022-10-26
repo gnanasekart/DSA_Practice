@@ -3,7 +3,7 @@ package sample;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class twoSum {
+public class P_O17_Two_Sum {
 
     @Test
     public void example1(){

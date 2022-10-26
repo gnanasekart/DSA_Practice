@@ -1,9 +1,9 @@
-package sample;
+package LeetCode_Daily_Practice.Expand_From_Center;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O24_Longest_Substring_Palindrome {
+public class P_M_O24_Longest_Substring_Palindrome {
 /*
 leetcode.com/problems/longest-palindromic-substring/
 Given a string s, return the longest palindromic substring in s.
@@ -13,8 +13,6 @@ A string is called a palindrome string if the reverse of that string
 1 <= s.length <= 1000
 s consist of only digits and English letters.
  */
-
-
     @Test
     public void example1() {
         String s = "babad";
@@ -90,6 +88,7 @@ left=right-k+1	0	0	1	0	1	2	0	1	2	3
 
 */
 
+    //brute force approach with while loop
     private String LongestSubStringPal(String str) {
         if (str.length() < 1) return "";
         int k = str.length(), right = 0, left = 0;

@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P_O19_2_Intersection_Array_v2 {
+public class P_E_O19_2_Intersection_Array_v2 {
 
     /*
 https://leetcode.com/problems/intersection-of-two-arrays-ii/
@@ -123,6 +123,25 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
         int j=0;
         for(Integer a: list)//=>O(n)
             arr[j++]=a;
+        return arr;
+    }
+
+
+    public int[] intersectArrayMaxAppearBF(int[] nums1, int[] nums2) {
+        ArrayList<Integer>l=new ArrayList<>();
+        for(int i=0;i<nums1.length;i++){
+            for(int j=0;j<nums2.length;j++){
+                if(nums1[i]==nums2[j]){
+                    l.add(nums2[j]);
+                    nums2[j]=Integer.MAX_VALUE;
+                    break;
+                }
+            }
+        }
+        int k=0;
+        int arr[]= new int [l.size()];
+        for(int m: l)
+            arr[k++]=m;
         return arr;
     }
 }

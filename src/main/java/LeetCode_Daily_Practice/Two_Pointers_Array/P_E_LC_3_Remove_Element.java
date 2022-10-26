@@ -52,7 +52,14 @@ the input array in-place with O(1) extra memory.
         int k=1;
         Assert.assertEquals(removeElement1(nums, k), 4);
     }
-
+/*
+logic -
+1. check the array length not to be zero
+2. iterate every index and compare with k value
+3, if k values not matches then swap to new index from 0
+4. if k value matches means does not swap
+5. return the new index value
+ */
     //time - O(n)
     //space - O(1) by using existing memory
     private int removeElement(int[] nums, int k) {
@@ -71,7 +78,7 @@ the input array in-place with O(1) extra memory.
         if(nums.length == 0) return 0;
 
         int index=0;
-        for(int i=0; i<nums.length; i++)
+        for(int i=0; i<nums.length; i++)//O(n)
           if(nums[i]!=k) nums[index++]=nums[i];
         return index;
     }

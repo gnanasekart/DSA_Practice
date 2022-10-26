@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.util.Arrays;
-public class P_O17_2_Assign_Cookies {
+public class P_E_O17_2_Assign_Cookies {
 
     /*
     leetcode.com/problems/assign-cookies/
@@ -77,24 +77,8 @@ logic
 4. then return the content cookie count
 */
 
-    private int assignCookies1(int[] child, int[] size){
-        if(child.length<1 && size.length<1) return 0;
-//        Arrays.sort(child);
-//        Arrays.sort(size);
-        int count=0;
-        int left=0, right=size.length-1;
-        while(left<child.length-1){
-            if(size[right]>=child[left] && right>0){
-                count++;
-                right--;
-            }
-            left++;
-        }
-        return count;
-    }
-
-
     private int assignCookies(int[] child, int[] size) {
+        if(child.length<1 && size.length<1) return 0;
         Arrays.sort(child);
         Arrays.sort(size);
         int i=0, j=0;
@@ -105,5 +89,4 @@ logic
         }
     return i;
     }
-
 }

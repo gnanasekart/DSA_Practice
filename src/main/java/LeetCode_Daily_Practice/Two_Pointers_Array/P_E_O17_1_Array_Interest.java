@@ -7,12 +7,12 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class P_O17_1_Array_Interest {
+public class P_E_O17_1_Array_Interest {
 
     /*
     leetcode.com/problems/intersection-of-two-arrays/submissions/
 Given two integer arrays nums1 and nums2, return an array of their intersection.
-Each element in the result must be unique and you may return the result in any order.
+Each element in the result must be unique, and you may return the result in any order.
 Example 1:
 
 Input: nums1 = [1,2,2,1], nums2 = [2,2]
@@ -76,6 +76,25 @@ logic
 7. return the newly created array
 */
 
+    public int[] intersectionBruteForce(int[] nums1, int[] nums2) {
+        HashSet<Integer> set = new HashSet();
+
+        for(int itr = 0; itr < nums1.length; itr++){
+            for(int jtr = 0; jtr < nums2.length; jtr++){
+                if(nums1[itr] == nums2[jtr]){
+                    set.add(nums1[itr]);
+                    break;
+                }
+            }
+        }
+
+        int[] arr = new int[set.size()];
+        int jtr = 0;
+        for (int itr : set)
+            arr[jtr++] = itr;
+
+        return arr;
+    }
     //time = O(n)+O(n) = O(2n) = O(n)
     //space = O(n) - based on set size
     private int[] targetArray(int[] nums1, int[] nums2){

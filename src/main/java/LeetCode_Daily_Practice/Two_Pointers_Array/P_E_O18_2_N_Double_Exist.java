@@ -4,9 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
-public class P_O18_2_N_Double_Exist {
+public class P_E_O18_2_N_Double_Exist {
     /*
     leetcode.com/problems/check-if-n-and-its-double-exist/
     Given an array arr of integers, check if there exist two indices i
@@ -79,6 +81,17 @@ logic-
 	- else return default response
 */
 
+    public boolean nDoubleExistBruteForce(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                if (i != j && arr[i] == 2 * arr[j])
+                    return true;
+
+        return false;
+    }
+
     //time = O(n)+O(n) => O(n)
     //space = O(n) = based on map
     private boolean nDoubleExist(int[] arr){
@@ -92,11 +105,23 @@ logic-
 
             if(zero>=2) return true;
 
-        int i=0;
-        while(i<arr.length) //=> O(n)
-            if(map.containsKey(arr[i++]))
-                return true;
+             //=> O(n)
+            for(int i=0; i<arr.length; i++) {
+                if (map.containsKey(arr[i]))
+                    return true;
+            }
 
         return isDouble;
+    }
+
+    public boolean nDoubleExistHashset(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        for (int i : arr) {
+            if (set.contains(i * 2) || (i % 2 == 0 && set.contains(i / 2)))
+                return true;
+
+            set.add(i);
+        }
+        return false;
     }
 }

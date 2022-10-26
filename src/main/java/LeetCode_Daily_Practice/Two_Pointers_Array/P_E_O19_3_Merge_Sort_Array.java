@@ -3,7 +3,9 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O19_3_Merge_Sort_Array {
+import java.util.Arrays;
+
+public class P_E_O19_3_Merge_Sort_Array {
 /*
     https://leetcode.com/problems/merge-sorted-array/
 
@@ -69,6 +71,12 @@ public class P_O19_3_Merge_Sort_Array {
 - else assign nums1
 - return nums1
  */
+
+    public void sortAndMergeBF(int[] nums1, int m, int[] nums2, int n) {
+        for(int i=0; i<n; i++,m++)
+            nums1[m]=nums2[i];
+        Arrays.sort(nums1);
+    }
 
     private int[] sortAndMerge(int[] nums1, int m, int[] nums2, int n){
 

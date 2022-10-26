@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O20_2_Flipping_an_Image {
+public class P_E_O20_2_Flipping_an_Image {
 /*
     leetcode.com/problems/flipping-an-image/
 

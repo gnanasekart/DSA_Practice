@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class P_O23_1_assessment_palindrome {
+public class P_O23_1_Palindrome {
 
     @Test
     public void example1() {
@@ -24,7 +24,7 @@ public class P_O23_1_assessment_palindrome {
     public void example3() {
         String s = "madammadam";
 
-        Assert.assertEquals(isPalindromeGS(s),true);
+        Assert.assertEquals(isPalindromeBF(s),true);
     }
 
     @Test
@@ -41,6 +41,19 @@ public class P_O23_1_assessment_palindrome {
     if equal it is valid palindrome string then return true
     if not return false
 */
+
+    private boolean isPalindromeBF(String s) {
+        boolean ispal = false;
+        for(int left=0, right=s.length()-1; left<right; left++){
+            if (s.charAt(left) == s.charAt(right)) {
+                left++;
+                right--;
+                ispal = true;
+            } else
+                break;
+        }
+        return ispal;
+    }
 
     private boolean isPalindrome(String s) {
         int left = 0, right = s.length()-1 ;

@@ -3,7 +3,7 @@ package sample;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class reverseTwoPointers {
+public class P_O17_ReverseTwoPointers {
 
     @Test
     public void example1(){

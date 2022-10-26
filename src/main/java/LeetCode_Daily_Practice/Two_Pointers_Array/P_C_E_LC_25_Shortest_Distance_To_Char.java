@@ -88,6 +88,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 6. then return the answer array
 */
 
+
     //time = O(1)+O(n)+O(n)+O(n)=O(3n) => O(n)
     //space = O(n) = additionally space created for answer array
     private int[] shortestChar1(String str, char c) {

@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_O25_Subarray_Prod_Less_Than_K {
+public class P_M_O25_Subarray_Prod_Less_Than_K {
 
     @Test
     public void ex1(){

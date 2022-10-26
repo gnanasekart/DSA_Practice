@@ -24,7 +24,7 @@ logic
     @Test
     public void example1() {
         int[] arr = {0, 1, 0, 3, 12};
-        Assert.assertEquals(removeZero3(arr), new int[]{1, 3, 12, 0, 0});
+        Assert.assertEquals(removeZero2(arr), new int[]{1, 3, 12, 0, 0});
     }
 
     @Test
@@ -85,36 +85,14 @@ logic
     }
 
     private int[] removeZero2(int[] arr) {
+        int temp=0;
         for(int i=0, j=0; i<arr.length; i++){//=> O(n)
             if(arr[i]!=0){  //=> O(1)
-                int temp=arr[j];
+                temp=arr[j];
                 arr[j++]=arr[i];
                 arr[i]=temp;
             }
         }
         return arr;
-    }
-
-    private int[] removeZero3(int[] nums) {
-        int left=0,right=left+1 , k=right+1;
-        int temp;
-
-        while(left<nums.length-1)
-        {
-            if(nums[left]==0  ) {
-                temp=nums[left];
-                nums[left++]=nums[right];
-                nums[right++]=temp;
-            }
-            else if(nums[right]!=0)
-            {
-                right++;
-            }
-            else
-                left++;
-
-        }
-
-        return nums;
     }
 }
