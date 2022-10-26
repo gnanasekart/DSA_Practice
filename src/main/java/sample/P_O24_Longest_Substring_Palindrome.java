@@ -3,7 +3,7 @@ package sample;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class assessment_Longest_Substring_Palindrome {
+public class P_O24_Longest_Substring_Palindrome {
 /*
 leetcode.com/problems/longest-palindromic-substring/
 Given a string s, return the longest palindromic substring in s.
@@ -16,61 +16,61 @@ s consist of only digits and English letters.
 
 
     @Test
-    public void example1(){
+    public void example1() {
         String s = "babad";
-        Assert.assertEquals(LongestSubStringPal(s), "bab");
+        Assert.assertEquals(longestPalindrome(s), "bab");
     }
 
     @Test
-    public void example2(){
+    public void example2() {
         String s = "wooorrrrk";
         Assert.assertEquals(LongestSubStringPal(s), "rrrr");
     }
 
     //@Test
-    public void example3(){
+    public void example3() {
         String s = "m1a1m";
-        Assert.assertEquals(LongestSubStringPal(s), "1a1");
+        Assert.assertEquals(LongestSubStringPal(s), "m1a1m");
     }
 
     @Test
-    public void example4(){
+    public void example4() {
         String s = "a";
         Assert.assertEquals(LongestSubStringPal(s), "a");
     }
 
     @Test
-    public void example5(){
+    public void example5() {
         String s = "aacabdkacaa";
         Assert.assertEquals(LongestSubStringPal(s), "aca");
     }
 
     @Test
-    public void example6(){
+    public void example6() {
         String s = "cdbb";
         Assert.assertEquals(longestPalindrome(s), "bb");
     }
 
     @Test
-    public void example7(){
-        String s = "ac";
+    public void example7() {
+        String s = "aeiou";
         Assert.assertEquals(LongestSubStringPal(s), "a");
     }
 
     @Test
-    public void example8(){
+    public void example8() {
         String s = "bb";
         Assert.assertEquals(LongestSubStringPal(s), "bb");
     }
 
     @Test
-    public void example9(){
+    public void example9() {
         String s = "abb";
         Assert.assertEquals(LongestSubStringPal(s), "bb");
     }
 
     @Test
-    public void example10(){
+    public void example10() {
         String s = "bbb";
         Assert.assertEquals(LongestSubStringPal(s), "bbb");
     }
@@ -82,52 +82,52 @@ s consist of only digits and English letters.
 5. else increment in right side
 6. if reaches the end of iteration, then increment left
 7. then revisit from left to right
+
+k	    	    5	4		3			2
+right= k-1	    4	3	4	2	3	4	1	2	3	4
+left=right-k+1	0	0	1	0	1	2	0	1	2	3
+
+
 */
 
-    private String LongestSubStringPal(String str){
-        if(str.length()<1) return "";
-        int len=str.length(), left=0, right=len;
-        String sub="";
-        while (left<str.length()) {
-            while (right<=str.length()) {
-                sub = str.substring(left, right);
+    private String LongestSubStringPal(String str) {
+        if (str.length() < 1) return "";
+        int k = str.length(), right = 0, left = 0;
+        String sub = "";
+        while (left < str.length()) {
+            right = k - 1;
+            left = right - k + 1;
+            while (right < str.length()) {
+                sub = str.substring(left++, right++ + 1);
                 if (isPalindrome(sub)) return sub;
-                else {
-                    left++;
-                    right++;
-                }
             }
-            len--;
-            left=0;
-            right=len;
+            k--;
         }
         return "";
     }
+    private boolean isPalindrome(String s) {
+        int left = s.length() / 2 - s.length() % 2;
+        int right = s.length() / 2 + s.length() % 2;
 
-    private boolean isPalindrome(String s){
-        int left=s.length()/2 - s.length()%2;
-        int right=s.length()/2 + s.length()%2;
+        if (left == right) left--;
 
-        if(left == right) left--;
-
-        while(left>=0)
-            if(s.charAt(left--) != s.charAt(right++)) return false;
+        while (left >= 0)
+            if (s.charAt(left--) != s.charAt(right++)) return false;
         return true;
     }
 //-----------------------------------------------------------------------
 
     //LC solution
-    private int lo, maxLen;
-    public String longestPalindrome(String s) {
-        int len = s.length();
-        if (len < 2)
-            return s;
+    private int start, end;
 
-        for (int i = 0; i < len-1; i++) {
-            extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
-            extendPalindrome(s, i, i+1); //assume even length.
+    public String longestPalindrome(String s) {
+        if (s.length() < 2) return s;
+
+        for (int i = 0; i < s.length() - 1; i++) {
+            extendPalindrome(s, i, i);
+            extendPalindrome(s, i, i + 1);
         }
-        return s.substring(lo, lo + maxLen);
+        return s.substring(start, start + end);
     }
 
     private void extendPalindrome(String s, int j, int k) {
@@ -135,9 +135,9 @@ s consist of only digits and English letters.
             j--;
             k++;
         }
-        if (maxLen < k - j - 1) {
-            lo = j + 1;
-            maxLen = k - j - 1;
+        if (end < k - j - 1) {
+            start = j + 1;
+            end = k - j - 1;
         }
     }
 }

@@ -40,7 +40,33 @@ public class P_O25_Subarray_Prod_Less_Than_K {
         Assert.assertEquals(SubArrayProd(w1, k), 18);
     }
 
-    private int SubArrayProd(int[] w, int k){
+    private int SubArrayProd(int[] w, int target){
+        if(w.length<2 && w[0]<target) return 1;
+
+        int k= w.length, right=k-1, left=right-k+1, count=0, sum=1, leftIndex=1;
+
+        while(left<w.length && right>0){
+            while(right<=w.length){
+
+                while(left<right && sum<target)
+                    sum=sum*w[left++];
+
+                if(sum<target)
+                    count++;
+
+                left=leftIndex++;
+                right++;
+                sum=1;
+            }
+            leftIndex=1;
+            left=0;
+            right=--k;
+        }
+        return count;
+    }
+
+
+    private int SubArrayProd1(int[] w, int k){
         if(w.length<2 && w[0]<k) return 1;
 
         int left=0, len= w.length, right=len, count=0, sum=1, leftIndex=1;
@@ -48,10 +74,11 @@ public class P_O25_Subarray_Prod_Less_Than_K {
         while(left<w.length && right>0){
             while(right<=w.length){
 
-                while(left<right)
+                while(left<right && sum<k)
                     sum=sum*w[left++];
 
-                if(sum<k) count++;
+                if(sum<k)
+                    count++;
 
                 left=leftIndex++;
                 right++;
