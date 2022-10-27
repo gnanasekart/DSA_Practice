@@ -129,14 +129,14 @@ left=right-k+1	0	0	1	0	1	2	0	1	2	3
         return s.substring(start, start + end);
     }
 
-    private void extendPalindrome(String s, int j, int k) {
-        while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
-            j--;
-            k++;
+    private void extendPalindrome(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        if (end < k - j - 1) {
-            start = j + 1;
-            end = k - j - 1;
+        if (end < right - left - 1) {
+            start = left + 1;
+            end = right - left - 1;
         }
     }
 }

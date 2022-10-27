@@ -8,6 +8,11 @@ public class P_M_O26_Max_Consecutive_1_III {
     leetcode.com/problems/max-consecutive-ones-iii/
     Given a binary array nums and an integer k, return the maximum
     number of consecutive 1's in the array if you can flip at most k 0's.
+
+    Constraints:
+1 <= nums.length <= 105
+nums[i] is either 0 or 1.
+0 <= k <= nums.length
 */
     @Test
     public void example1(){
@@ -82,59 +87,19 @@ public class P_M_O26_Max_Consecutive_1_III {
 7. once reaches the end then return the max value
 */
 
+    public int maxOne(int[] num, int k) {
+        int max=1, zero=0;
+        for (int i = 0, left=0; i < num.length; i++) {
+            if (num[i] == 1) continue;
+            if (num[i] == 0) zero++;
 
+            while (zero>k ) {
+                if(num[left] == 0) k--;
 
-
-    private int zero, count, max, out;
-    public int maxOne(int[] num, int k){
-
-        for(int i=0; i<num.length; i++){
-            zero =k;
-            for(int j=i; j<num.length; j++){
-
-                if(num[j]==1) {
-                    count++;
-                    //zero--;
-                }
-                //else if(num[j]==0 && count>1 && k!=0)
-
-//                }else if(num[j]==0 && zero>0){
-//                    num[j]=1;
-//                    count++;
-//                    zero--;
-                }
+                left++;
             }
-
+            max=Math.max(max, i-left+1);
+        }
         return max;
     }
-
-
-//    private int maxOne1(int[] arr, int k){
-//         int i, j, zero, count, max, outOfBox;
-//            int[] num = arr.clone();
-////        for(int i=0; i<num.length; i++){
-//        //zero =k;
-//        for(i=0; i<num.length; i++) {
-//            //count = 0;
-//            zero = k;
-//            for (j = i; j < num.length; j++) {
-//                if(outOfBox>=k) count=0;
-//
-//                if (num[j] == 1)
-//                    count++;
-//               // else if (num[j]==0 && num[j+1]==1 || num[j+1]==1 && num[j]==0) {
-//                else if (num[j]==0 && num[j+1]==1 || num[j+1]==1 && num[j]==0) {
-//                    if (zero > 0) {
-//                        num[j] = 1;
-//                        count++;
-//                        zero--;
-//                    }
-//                }else {
-//                    outOfBox++;
-//                }
-//                if (count>max) max=count;
-//            }
-//        }
-//        return max;
-//    }
 }

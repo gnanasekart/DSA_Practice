@@ -74,6 +74,7 @@ public class P_E_1_O25_Two_String_Arr_are_Equal {
 
     // LC Solution
     private boolean stringconcat1(String[] w1, String[] w2){
+
         return String.join("", w1).equals(String.join("", w2));
     }
 }

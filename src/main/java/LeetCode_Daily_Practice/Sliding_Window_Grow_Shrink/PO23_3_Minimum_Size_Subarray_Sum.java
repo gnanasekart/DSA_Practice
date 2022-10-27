@@ -1,11 +1,7 @@
-package LeetCode_Daily_Practice.Two_pointer_Grow_Shrink;
+package LeetCode_Daily_Practice.Sliding_Window_Grow_Shrink;
 
-import io.cucumber.java.it.Ma;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class PO23_3_Minimum_Size_Subarray_Sum {
 /*

@@ -1,18 +1,16 @@
 package sample;
-
-import java.util.ArrayList;
-
 public class sample {
 
     public static void main(String[] args) {
-       // System.gc();
-        ArrayList<Integer> list = new ArrayList<>();
-        list.add(4);
-        list.add(-1);
-        list.get(1);
-        list.add(2,5);
-
-        list.remove(1);
-
+         String a = "ABCDCDC";
+         String b = "CDC";
+         String str = "";
+        int count=0;
+        int left=b.length()-1, right=left-b.length()+1;
+         while(right<a.length()){
+             if(b.equals(a.substring(left, right++)))
+                 count++;
+         }
+         System.out.println(count);
     }
 }
