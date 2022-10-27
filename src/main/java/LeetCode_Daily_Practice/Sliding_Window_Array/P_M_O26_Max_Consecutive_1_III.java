@@ -87,15 +87,15 @@ nums[i] is either 0 or 1.
 7. once reaches the end then return the max value
 */
 
+    private int left, max,i;
     public int maxOne(int[] num, int k) {
-        int max=1, zero=0;
+        int max=1;
         for (int i = 0, left=0; i < num.length; i++) {
             if (num[i] == 1) continue;
-            if (num[i] == 0) zero++;
+            if (num[i] == 0) k++;
 
-            while (zero>k ) {
-                if(num[left] == 0) k--;
-
+            while (k < 0 ) {
+                if(num[left] == 0) k++;
                 left++;
             }
             max=Math.max(max, i-left+1);
