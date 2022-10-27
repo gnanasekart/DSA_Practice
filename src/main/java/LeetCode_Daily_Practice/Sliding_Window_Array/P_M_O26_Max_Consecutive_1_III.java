@@ -79,12 +79,12 @@ nums[i] is either 0 or 1.
 
     /*
 1. consider first iteration start with i=0 till the array end
-2. if i==1 then count the length
-3. if i!=1 then change the value, increment count and move next
-4. in between if get count zero more than k
-5. get the count as max value
-6. reset the count and reassign default k value
-7. once reaches the end then return the max value
+2. if i==1 then continue or increment count
+3. if i==0 then decrement k and move next
+4. in between k<0 then check for left value ==0
+5. then increment k and left
+6. get the maximum difference between left and right as max value
+6. once reaches the end then return the max value
 */
 
     private int left, max,i;
@@ -92,10 +92,12 @@ nums[i] is either 0 or 1.
         int max=1;
         for (int i = 0, left=0; i < num.length; i++) {
             if (num[i] == 1) continue;
-            if (num[i] == 0) k++;
+            if (num[i] == 0) k--;
 
-            while (k < 0 ) {
-                if(num[left] == 0) k++;
+            while (k < 0 && left<=i) {
+                if(num[left] == 0)
+                    k++;
+
                 left++;
             }
             max=Math.max(max, i-left+1);
