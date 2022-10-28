@@ -30,48 +30,34 @@ nums[i] is either 0 or 1.
 
     @Test
     public void example3(){
-        int[] num={0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
+        int[] num={0,0,1,1,0,1,1,1,1,0,1,1,1,0,1,1,0,0,0};
         int k=0;
         Assert.assertEquals(maxOne(num, k), 4);
     }
 
-    //@Test
-    public void example4(){
-        int[] num={0,0,1,1,0,1,1,1,0,1,1,0,0,0,1,1};
-        int k=3;
-        Assert.assertEquals(maxOne(num, k), 4);
-    }
-
     @Test
-    public void example5(){
+    public void example4(){
         int[] num={0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
         int k=8;
         Assert.assertEquals(maxOne(num, k), num.length);
     }
 
     @Test
-    public void example6(){
-        int[] num={1,1,1,0,0,0,1,1,1,1,0};
-        int k=10;
-        Assert.assertEquals(maxOne(num, k), num.length);
-    }
-
-    @Test
-    public void example7(){
+    public void example5(){
         int[] num={1,1,1};
         int k=1;
         Assert.assertEquals(maxOne(num, k), 3);
     }
 
     @Test
-    public void example8(){
+    public void example6(){
         int[] num={0};
         int k=0;
         Assert.assertEquals(maxOne(num, k), 0);
     }
 
     @Test
-    public void example9(){
+    public void example7(){
         int[] num={0};
         int k=1;
         Assert.assertEquals(maxOne(num, k), 1);
@@ -87,18 +73,32 @@ nums[i] is either 0 or 1.
 6. once reaches the end then return the max value
 */
 
-    private int left, max,i;
+//    public int maxOne1(int[] num, int k) {
+//        int max=Integer.MIN_VALUE;
+//        for (int i = 0; i < num.length;i++) {
+//            int  zero=k;
+//            for(int j=i; j < num.length; j++) {
+//                if (num[j] == 1) continue;
+//                if (num[j] == 0) {
+//                    if(>0){
+//                        zero--;
+//                    }else break;
+//                }
+//                max=Math.max(max, i-j+1);
+//            }
+//        }
+//        return max;
+//    }
+
     public int maxOne(int[] num, int k) {
-        int max=1;
+        int max=0, zero=0;
         for (int i = 0, left=0; i < num.length; i++) {
-            if (num[i] == 1) continue;
-            if (num[i] == 0) k--;
+           // if (num[i] == 1) continue;
+            if (num[i] == 0) zero++;
 
-            while (k < 0 && left<=i) {
-                if(num[left] == 0)
-                    k++;
-
-                left++;
+            while(zero>k) {
+                if(num[left++] == 0)
+                    zero--;
             }
             max=Math.max(max, i-left+1);
         }
