@@ -86,7 +86,30 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
                 return max;
         }
 
-    private int prodSubArray(int[] num){
+    private int prodSubArray(int[] num) {
+        if(num.length==1) return num[0];
+        int sum=1, max=Integer.MIN_VALUE, right=0, left=0;
+
+        for(int k=num.length; k>0; k--) {
+            right = k - 1;
+            left = right - k + 1;
+            while(right < num.length) {
+                if (left <= right) {
+                    sum *= num[left++];
+                    max = sum > max ? sum : max;
+                }else {
+                    right++;
+                    sum = 1;
+                    left = right - k + 1;
+                }
+            }
+        }
+        return max;
+    }
+
+
+
+    private int prodSubArray2(int[] num){
         if(num.length==1) return num[0];
         int sum=1, max=Integer.MIN_VALUE, value=0, left=0;
         for(int i=0; i<num.length; i++){

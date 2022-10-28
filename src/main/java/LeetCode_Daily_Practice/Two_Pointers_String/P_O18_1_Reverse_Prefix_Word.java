@@ -77,6 +77,26 @@ Logic
 - return the entire string after reverse
 */
 
+    private String prefixReverseBF(String w, char ch){
+        String str="";
+        int chIndex=0;
+        for (int i = 0; i < w.length(); i++) {
+            if(w.charAt(i)==ch){
+                chIndex=i;
+                break;
+            }
+        }
+        char[] c = new char[w.length()];
+
+        for (int i = 0; i <= chIndex; i++)
+            c[i] = w.charAt(chIndex-i);
+
+        for (int i = chIndex+1; i < w.length(); i++)
+            c[i]=w.charAt(i);
+
+        return String.valueOf(c);
+    }
+
     //time = O(n)+O(n) = O(n)
     //space = O(1)+O(n) = O(n) = do we consider str and sub as additional space ?
     private String prefixReverse(String w, char ch){

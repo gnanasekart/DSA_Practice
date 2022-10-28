@@ -4,12 +4,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class P_M_O25_Subarray_Prod_Less_Than_K {
+/*
+leetcode.com/problems/subarray-product-less-than-k/
 
+ */
     @Test
     public void ex1(){
         int[] w1 = {10,5,2,6};
         int k = 100;
-        Assert.assertEquals(subArraymethod2(w1, k), 8);
+        Assert.assertEquals(subArraysu(w1, k), 8);
     }
 
     @Test
@@ -23,28 +26,28 @@ public class P_M_O25_Subarray_Prod_Less_Than_K {
     public void ex3(){
         int[] w1 = {1,1,1,1,1,1};
         int k = 2;
-        Assert.assertEquals(SubArrayProd(w1, k), 21);
+        Assert.assertEquals(subArraysu(w1, k), 21);
     }
 
     @Test
     public void ex4(){
         int[] w1 = {10};
         int k = 100;
-        Assert.assertEquals(SubArrayProd(w1, k), 1);
+        Assert.assertEquals(subArraysu(w1, k), 1);
     }
 
     @Test
     public void ex5(){
         int[] w1 = {10,9,10,4,3,8,3,3,6,2,10,10,9,3};
         int k = 19;
-        Assert.assertEquals(SubArrayProd(w1, k), 18);
+        Assert.assertEquals(subArraysu(w1, k), 18);
     }
 
     @Test
     public void ex6(){
         int[] w={57,44,92,28,66,60,37,33,52,38,29,76,8,75,22};
         int k=18;
-        Assert.assertEquals(subArraymethod2(w,k), 1);
+        Assert.assertEquals(subArraysu(w,k), 1);
     }
 
     @Test
@@ -91,9 +94,11 @@ public class P_M_O25_Subarray_Prod_Less_Than_K {
         while(left<w.length && right>0){
             while(right<=w.length){
 
-                while(left<right && sum<k) sum=sum*w[left++];
+                while(left<right && sum<k)
+                    sum=sum*w[left++];
 
-                if(sum<k) count++;
+                if(sum<k)
+                    count++;
 
                 left=leftIndex++;
                 right++;
@@ -106,6 +111,7 @@ public class P_M_O25_Subarray_Prod_Less_Than_K {
         return count;
     }
 
+    //not working
     private int subArraymethod2(int[] w, int k){
         if(w.length<2 && w[0]<k) return 1;
 
@@ -121,6 +127,21 @@ public class P_M_O25_Subarray_Prod_Less_Than_K {
 
                 left++;
             }
+        }
+        return count;
+    }
+
+    public int subArraysu(int[] nums, int k){
+        int left = 0, right = 0, mul = 1, count = 0;
+        while (right < nums.length) {
+            mul = mul * nums[right];
+
+            while (left < nums.length && mul >= k)
+                mul = mul / nums[left++];
+
+            if (mul < k)
+                count += right - left + 1;
+            right++;
         }
         return count;
     }

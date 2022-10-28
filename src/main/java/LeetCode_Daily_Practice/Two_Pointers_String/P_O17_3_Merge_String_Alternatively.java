@@ -31,7 +31,7 @@ merged: a p b q c r
     public void example1(){
         String w1="abc";
         String w2="pqr";
-        Assert.assertEquals(mergeStrings(w1,w2), "apbqcr");
+        Assert.assertEquals(mergeStringsBF(w1,w2), "apbqcr");
     }
 
     @Test
@@ -52,7 +52,7 @@ merged: a p b q c r
     public void example4(){
         String w1="z";
         String w2="";
-        Assert.assertEquals(mergeStrings(w1,w2), "z");
+        Assert.assertEquals(mergeStringsBF(w1,w2), "z");
     }
 
 /*
@@ -64,6 +64,20 @@ logic
 - then append additional string to new array
 - return new array
 */
+
+private String mergeStringsBF(String w1, String w2){
+    String str="";
+    for (int i=0, j=0; i < w1.length()+w2.length();i++, j++) {
+        if(i<w1.length()){
+            str+=w1.charAt(i);
+        }
+
+        if(j<w2.length()){
+            str+=w2.charAt(j);
+        }
+    }
+    return str;
+}
 
     private String mergeStrings(String w1, String w2){
         if(w1.isEmpty() && w2.isEmpty()) return w1;

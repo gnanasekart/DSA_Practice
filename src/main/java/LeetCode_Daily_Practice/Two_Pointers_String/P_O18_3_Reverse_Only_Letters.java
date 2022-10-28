@@ -62,6 +62,24 @@ logic-
 - finally return new array
 */
 
+    private String reverseLetterBF(String str){
+        char[] ch = str.toCharArray();
+        int i=0, j=str.length()-1;
+        char temp;
+        String ss = "abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
+        while(i<j){
+            if(!ss.contains(String.valueOf(ch[i]))) i++;
+            else if(!ss.contains(String.valueOf(ch[j]))) j--;
+            else{
+                temp = ch[i];
+                ch[i]= ch[j];
+                ch[j] = temp;
+                i++;j--;
+            }
+        }
+        return String.valueOf(ch);
+    }
+
     //time=O(n)
     //space=O(n) new char array created
     private String reverseLetter(String str){
