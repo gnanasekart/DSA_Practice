@@ -36,9 +36,9 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
         Assert.assertEquals(prodSubArray(num), 8);
     }
 
-    @Test
+    //@Test
     public void example4(){
-        int[] num={10,10,10,10,10,10,10,10,10,10};
+        int[] num={10,10,10,10,10,10,1,10,10,10,0,10,10,10};
         Assert.assertEquals(prodSubArray(num), 2147483647);
     }
 
@@ -53,6 +53,18 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
         int[] num={-1, -2};
         Assert.assertEquals(prodSubArray(num), 2);
     }
+
+    @Test
+    public void example7(){
+        int[] num={2,3,-2,8};
+        Assert.assertEquals(prodSubArray(num), 8);
+    }
+
+    @Test
+    public void example8(){
+        int[] num={0, 2};
+        Assert.assertEquals(prodSubArray(num), 2);
+    }
 /*
 1. consider two loop i=length
         2. second loop j=(i-1)-i+1 till the end of length
@@ -60,25 +72,34 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
         4. sum every loop and store the sum in max value
         5. return the max value of sum which is less than 2^32
 */
-private int prodSubArray(int[] num){
-        if(num.length==1) return num[0];
-        int sum=1, max=0;
-
-        for(int i=1, j=i; i< num.length; i++){
-            //for(int j=num.length-i; j<num.length-1; j++){
-
-                while(j>=0){
-                    sum=sum*num[j--];
+        private int prodSubArray1(int[] num){
+                if(num.length==1) return num[0];
+                int sum=1, max=Integer.MIN_VALUE;
+                for(int i=0; i<num.length; i++){
+                    for(int j=i; j<num.length; j++){
+                        sum=sum*num[j];
+                        System.out.println(sum);
+                        max=Math.max(max, sum);
+                    }
+                    sum=1;
                 }
-                max=Math.max(max, sum);
-            sum=1;
+                return max;
+        }
+
+    private int prodSubArray(int[] num){
+        if(num.length==1) return num[0];
+        int sum=1, max=Integer.MIN_VALUE;
+        for(int i=0; i<num.length; i++){
+                sum=sum*num[i];
+                int value=sum;
+                max = sum>max ? sum : max;
+                int left=0;
+                while(left<i && value!=0){
+                    if(num[left]!=0)
+                        value=value/num[left++];
+                    max=value>max ? value:max;
             }
-
-
-
-        if(max < 2147483647){
+        }
         return max;
-        }
-        return 2147483647;
-        }
+    }
 }

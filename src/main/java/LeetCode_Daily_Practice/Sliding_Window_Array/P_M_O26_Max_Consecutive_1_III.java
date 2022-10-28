@@ -58,9 +58,9 @@ nums[i] is either 0 or 1.
 
     @Test
     public void example7(){
-        int[] num={0};
-        int k=1;
-        Assert.assertEquals(maxOne(num, k), 1);
+        int[] num={0,0,0};
+        int k=0;
+        Assert.assertEquals(maxOne(num, k), 0);
     }
 
     /*
@@ -90,7 +90,7 @@ nums[i] is either 0 or 1.
 //        return max;
 //    }
 
-    public int maxOne(int[] num, int k) {
+    public int maxOne1(int[] num, int k) {
         int max=0, zero=0;
         for (int i = 0, left=0; i < num.length; i++) {
            // if (num[i] == 1) continue;
@@ -101,6 +101,23 @@ nums[i] is either 0 or 1.
                     zero--;
             }
             max=Math.max(max, i-left+1);
+        }
+        return max;
+    }
+
+    public int maxOne(int[] num, int k) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0, left = 0; i < num.length; i++) {
+            //if (num[i] == 1) continue;
+            if (num[i] == 0) k--;
+
+            while (k < 0 ) {
+                if (num[left] == 0)
+                    k++;
+
+                left++;
+            }
+            max = Math.max(max, i - left + 1);
         }
         return max;
     }

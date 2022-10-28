@@ -47,6 +47,12 @@ public class P_M_O25_Subarray_Prod_Less_Than_K {
         Assert.assertEquals(subArraymethod2(w,k), 1);
     }
 
+    @Test
+    public void ex7(){
+        int[] w1 = {10,5,2,6};
+        //Assert.assertEquals(subArraymethod2(w1), 8);
+    }
+
     /*
 1. start iterating from i=0
 2. get the first prod value

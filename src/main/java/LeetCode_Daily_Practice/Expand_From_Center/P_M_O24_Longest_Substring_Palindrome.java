@@ -123,8 +123,8 @@ left=right-k+1	0	0	1	0	1	2	0	1	2	3
         if (s.length() < 2) return s;
 
         for (int i = 0; i < s.length() - 1; i++) {
-            extendPalindrome(s, i, i);
-            extendPalindrome(s, i, i + 1);
+            extendPalindrome(s, i, i);//1
+            extendPalindrome(s, i, i + 1);//0
         }
         return s.substring(start, start + end);
     }
