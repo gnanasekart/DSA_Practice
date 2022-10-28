@@ -88,12 +88,12 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
 
     private int prodSubArray(int[] num){
         if(num.length==1) return num[0];
-        int sum=1, max=Integer.MIN_VALUE;
+        int sum=1, max=Integer.MIN_VALUE, value=0, left=0;
         for(int i=0; i<num.length; i++){
                 sum=sum*num[i];
-                int value=sum;
+                value=sum;
                 max = sum>max ? sum : max;
-                int left=0;
+                left=0;
                 while(left<i && value!=0){
                     if(num[left]!=0)
                         value=value/num[left++];
