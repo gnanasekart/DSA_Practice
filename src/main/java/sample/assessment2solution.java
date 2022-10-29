@@ -3,7 +3,7 @@ package sample;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class assessment2 {
+public class assessment2solution {
 
 /*
 https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
@@ -61,20 +61,18 @@ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public int[] targetSum(int[] num, int target) {
 
         int[] arr = new int[2];
-        int  right=0;
+        int  left=0, right=num.length-1;
+        int sum=0;
+        while(left<right) {
+                sum = num[left] + num[right];
 
-        for(int left=0; left<num.length; left++){
-            while(right<num.length){
-
-                if(left!=right && num[left]+num[right]==target){
-                    arr[0]=left+1;
-                    arr[1]=right+1;
+                if (sum > target) right--;
+                else if (sum == target) {
+                    arr[0] = left + 1;
+                    arr[1] = right + 1;
                     break;
-                }else if( num[left]+num[right]!=target) {
-                    right++;
-                }
+                } else left++;
             }
-        }
         return arr;
     }
 }
