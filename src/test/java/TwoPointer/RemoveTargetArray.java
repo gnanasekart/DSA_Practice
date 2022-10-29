@@ -102,6 +102,4 @@ public class RemoveTargetArray {
 		}
 		return Arrays.copyOf(nums, left);
 	}
-
-
 }

@@ -80,14 +80,57 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 
 
 /*
-1. if array is empty return empty array
-2. create new array with same string
-2. consider two traversal from left to right and another one is right to left
-2. first traversal
-    -
-6. then return the answer array
+1. create an empty array for storing shortest distance
+2. consider 3 iteration for assigning the value
+    - First loop from 0 to len assign the c value if arr[i]==c as 0 and assign len =0
+        if not match assigned higher value greater than arr length as ++len
+    - second loop start from len to 0
+        - assign arr[i]==c as 0, len=0
+        - else assign the min value by comparing actual value in array and ++len
+3. return the new array
 */
 
+    //brute force approach
+    private int[] shortestDisatanceBF(String s, char c){
+
+        int[] ans=new int[s.length()];
+        int prev=s.length();
+        for(int i=0; i<s.length(); i++){//13,14,15,0,1,0,0,1,2,3,4,0
+            if(s.charAt(i)==c){
+                prev=0;
+                ans[i]=0;
+            }else{
+                ans[i]=++prev;
+            }
+        }
+        prev=s.length();
+        for(int i=s.length()-1; i>=0; i--){
+            if(s.charAt(i)==c){
+                prev=0;
+                ans[i]=Math.min(ans[i], 0);//13,14,15,0,1,0,0,1,2,3,4,0
+            }else{
+                ans[i]=Math.min(ans[i], ++prev);//3,2,1,0,1,0,0,1,2,2,1,0
+            }
+        }
+        return ans;
+    }
+
+    //best approach
+    public int[] shortestChar(String S, char C) {
+        int n = S.length();
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (S.charAt(i) != C)
+                res[i] = n;
+        }
+        for (int i = 1; i < n; i++) {
+            res[i] = Math.min(res[i], res[i - 1] + 1);
+        }
+        for (int i = n - 2; i >= 0; i--) {
+            res[i] = Math.min(res[i], res[i + 1] + 1);
+        }
+        return res;
+    }
 
     //time = O(1)+O(n)+O(n)+O(n)=O(3n) => O(n)
     //space = O(n) = additionally space created for answer array
@@ -135,21 +178,5 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         }
     }
         return answer;
-    }
-
-    public int[] shortestChar(String S, char C) {
-        int n = S.length();
-        int[] res = new int[n];
-        for (int i = 0; i < n; i++) {
-            if (S.charAt(i) != C)
-                res[i] = n;
-        }
-        for (int i = 1; i < n; i++) {
-            res[i] = Math.min(res[i], res[i - 1] + 1);
-        }
-        for (int i = n - 2; i >= 0; i--) {
-            res[i] = Math.min(res[i], res[i + 1] + 1);
-        }
-        return res;
     }
     }

@@ -55,23 +55,37 @@ nums[i] is either 0 or 1.
 /*
 Brute force
 1. A single loop start from 0 to array length
-2. if i vlaue is 1 then getting the count
+2. if i value is 1 then getting the count
 3. if i value is 0 for first time then decrementing 0 value
 4. if reaching to the second zero value then exit the loop
 
 */
 
     private int longestSubarrayone(int[] num){
+        int count=0, left=0, right=0, max=Integer.MIN_VALUE;
+        int zero=1;
         if(num.length==1) return 0;
-        int k=1, count=0;
-        for(int i=0; i<num.length; i++){
-            if(num[i]==1) count++;
-            else if(num[i]==0){
-                if(k>0){
-                    k--;
-                }else break;
+
+        for(left=0; left<num.length; left++) {
+            count=0;
+            zero = 1;
+            for(right=left; right<num.length; right++) {
+                if (num[right] == 0) {
+                    if (zero > 0) {
+                        zero--;
+                    } else {
+                        max =count>max?count:max;
+                        count = 0;
+                        zero = 1;
+                    }
+                } else if (num[right] == 1) {
+                    count++;
+                    max =count>max?count:max;
+                }
             }
         }
-        return count;
+
+        if(num.length==max) return max-1;
+        else return max;
     }
 }
