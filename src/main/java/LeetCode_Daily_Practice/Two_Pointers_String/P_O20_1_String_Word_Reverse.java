@@ -8,7 +8,8 @@ public class P_O20_1_String_Word_Reverse {
 /*
 leetcode.com/problems/reverse-words-in-a-string-iii/
 
-Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+Given a string s, reverse the order of characters in each word within
+ a sentence while still preserving whitespace and initial word order.
 
 Constraints:
 
@@ -95,6 +96,29 @@ public void example6(){
             }
         }
         return String.valueOf(ch);
+    }
+
+    private String reverseBF(String word){
+        String[] words = word.split(" ");
+         StringBuilder rs = new StringBuilder();
+         for(String w : words){
+             StringBuilder rw = new StringBuilder();
+             for(int i = word.length()- 1; i >= 0; i--){
+                 rs.append(w.charAt(i));
+                 }
+             rs.append(rw).append(" ");
+         }
+         return rs.toString().trim();
+    }
+
+    private String reverseSB(String word) {
+        String[] words = word.split(" ");
+        StringBuilder rs = new StringBuilder();
+        for(String w : words){
+            StringBuilder rw = new StringBuilder(w).reverse();
+            rs.append(rw).append(" ");
+        }
+        return rs.toString().trim();
     }
 
 }

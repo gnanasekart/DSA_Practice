@@ -2,7 +2,18 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-//https://leetcode.com/problems/maximum-average-subarray-i/
+/*
+https://leetcode.com/problems/maximum-average-subarray-i/
+You are given an integer array nums consisting of n elements, and an integer k.
+
+Find a contiguous subarray whose length is equal to k that has the maximum average value
+and return this value. Any answer with a calculation error less than 10^-5 will be accepted.
+
+Constraints:
+n == nums.length
+1 <= k <= n <= 105
+-104 <= nums[i] <= 104
+ */
 public class P_E_O22_2_Maximum_average_Subarray {
     @Test
     public void example1() {
@@ -36,7 +47,7 @@ public class P_E_O22_2_Maximum_average_Subarray {
     public void example5() {
         int[] arr = {7,4,5,8,8,3,9,8,7,6};
         int k = 7;
-        Assert.assertEquals(sumvalue1(arr, k), 7.00000);
+        Assert.assertEquals(sumvalueBF(arr, k), 7.00000);
     }
     /*
     1. Start with two pointer array
@@ -79,5 +90,20 @@ public class P_E_O22_2_Maximum_average_Subarray {
             max = Math.max(max, newmax/k);
         }
         return max;
+    }
+
+    private double sumvalueBF(int[] arr, int k) {
+        double max=Double.MAX_VALUE, newmax=0.0;
+
+        for (int i = 0; i < k; i++) {
+            newmax+=arr[i];
+        }
+        max=newmax;
+        int p=k;
+        for (int i = p; i < arr.length; i++) {
+            newmax=newmax-arr[i-k]+arr[i];
+            max=newmax>max? max:newmax;
+        }
+        return newmax/k;
     }
 }

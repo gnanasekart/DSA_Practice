@@ -34,7 +34,7 @@ public class P_O23_2_valid_palindrome_2 {
     @Test
     public void example4() {
         String s = "abccbda";
-        Assert.assertEquals(isPalindrome(s),true);
+        Assert.assertEquals(isPalindrome1(s),true);
     }
     @Test
     public void example5() {
@@ -55,7 +55,7 @@ public class P_O23_2_valid_palindrome_2 {
     @Test
     public void example8() {
         String s = "bba";
-        Assert.assertEquals(isPalindromFB(s),true);
+        Assert.assertEquals(isPalindromBF(s),true);
     }
 /*
 1. first concat the string from 0 to left and right to length - validate
@@ -64,7 +64,7 @@ public class P_O23_2_valid_palindrome_2 {
 3. else return false validation
 */
   //brute force approach
-private boolean isPalindromFB(String s) {
+private boolean isPalindromBF(String s) {
     if(s.length()<2) return true;
     for(int left=0, right=s.length()-1; left<right; ){
         if(s.charAt(left) == s.charAt(right)){

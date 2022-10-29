@@ -18,14 +18,14 @@ nums[i] is either 0 or 1.
     public void example1(){
         int[] num={1,1,1,0,0,0,1,1,1,1,0};
         int k=2;
-        Assert.assertEquals(maxOne(num, k), 6);
+        Assert.assertEquals(maxOneTwoPointer(num, k), 6);
     }
 
     @Test
     public void example2(){
         int[] num={0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
         int k=3;
-        Assert.assertEquals(maxOne(num, k), 10);
+        Assert.assertEquals(maxOneTwoPointer(num, k), 10);
     }
 
     @Test
@@ -65,35 +65,33 @@ nums[i] is either 0 or 1.
 
     /*
 1. consider first iteration start with i=0 till the array end
-2. if i==1 then continue or increment count
-3. if i==0 then decrement k and move next
-4. in between k<0 then check for left value ==0
-5. then increment k and left
-6. get the maximum difference between left and right as max value
+2. if i==0 then decrement k and move next
+3. in between k<0 then check for left value ==0
+4. then increment k and left
+5. get the maximum difference between left and right as max value
 6. once reaches the end then return the max value
 */
 
-//    public int maxOne1(int[] num, int k) {
-//        int max=Integer.MIN_VALUE;
-//        for (int i = 0; i < num.length;i++) {
-//            int  zero=k;
-//            for(int j=i; j < num.length; j++) {
-//                if (num[j] == 1) continue;
-//                if (num[j] == 0) {
-//                    if(>0){
-//                        zero--;
-//                    }else break;
-//                }
-//                max=Math.max(max, i-j+1);
-//            }
-//        }
-//        return max;
-//    }
+    public int maxOneBF(int[] num, int k) {
+        int max=Integer.MIN_VALUE;
+        for (int i = 0; i < num.length;i++) {
+            int  zero=k;
+            for(int j=i; j < num.length; j++) {
+                if (num[j] == 1) continue;
+                if (num[j] == 0) {
+                    if(zero>0){
+                        zero--;
+                    }else break;
+                }
+                max=Math.max(max, i-j+1);
+            }
+        }
+        return max;
+    }
 
     public int maxOne1(int[] num, int k) {
         int max=0, zero=0;
         for (int i = 0, left=0; i < num.length; i++) {
-           // if (num[i] == 1) continue;
             if (num[i] == 0) zero++;
 
             while(zero>k) {
@@ -108,16 +106,28 @@ nums[i] is either 0 or 1.
     public int maxOne(int[] num, int k) {
         int max = Integer.MIN_VALUE;
         for (int i = 0, left = 0; i < num.length; i++) {
-            //if (num[i] == 1) continue;
             if (num[i] == 0) k--;
 
-            while (k < 0 ) {
+            while (k < 0) {
                 if (num[left] == 0)
                     k++;
-
                 left++;
             }
             max = Math.max(max, i - left + 1);
+        }
+        return max;
+    }
+
+    public int maxOneTwoPointer(int[] num, int k){
+        int left=0, right=0, max=Integer.MIN_VALUE;
+        int lastZeroIdx=-1;
+        while(right<=num.length){
+            if(num[right]==0){
+                left=lastZeroIdx+1;
+                lastZeroIdx=right;
+            }
+            max=Math.max(max, right-left+1);
+            right++;
         }
         return max;
     }

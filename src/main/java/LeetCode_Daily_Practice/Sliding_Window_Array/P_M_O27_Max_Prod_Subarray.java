@@ -67,10 +67,10 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
     }
 /*
 1. consider two loop i=length
-        2. second loop j=(i-1)-i+1 till the end of length
-        3. check the condition if sum >= 0
-        4. sum every loop and store the sum in max value
-        5. return the max value of sum which is less than 2^32
+2. second loop j=(i-1)-i+1 till the end of length
+3. check the condition if sum >= 0
+4. sum every loop and store the sum in max value
+5. return the max value of sum which is less than 2^32
 */
         private int prodSubArray1(int[] num){
                 if(num.length==1) return num[0];
@@ -86,6 +86,7 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
                 return max;
         }
 
+    //two pointers
     private int prodSubArray(int[] num) {
         if(num.length==1) return num[0];
         int sum=1, max=Integer.MIN_VALUE, right=0, left=0;
@@ -107,8 +108,7 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
         return max;
     }
 
-
-
+    //not working for zero cases
     private int prodSubArray2(int[] num){
         if(num.length==1) return num[0];
         int sum=1, max=Integer.MIN_VALUE, value=0, left=0;

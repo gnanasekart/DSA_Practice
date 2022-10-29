@@ -47,8 +47,9 @@ Return the minimum possible difference.
 
 /*
 1. consider two pointer from left to right
-2. check condition for value > 1
-3. find the difference between two index and get the min value
+2. check condition for value <= 1
+3. find the difference between two index
+4. index p=k-1, right =p-k+1 and get the min value
 4. return min value
 
 3. sort the array and find the difference between two index an get the min value
@@ -71,10 +72,9 @@ Return the minimum possible difference.
     }
 
     private int kScoreWS1(int[] arr, int k){
-        int i=0, min=Integer.MAX_VALUE;
-        while(i<arr.length)
-            min=Math.min(min, Math.abs((arr.length-k+1) - arr[i++]));
-
+        int min=Integer.MAX_VALUE;
+        for(int i=0; i<arr.length; i++)
+            min=Math.min(min, Math.abs((arr.length-k+1) - arr[i]));
         return min;
     }
 }

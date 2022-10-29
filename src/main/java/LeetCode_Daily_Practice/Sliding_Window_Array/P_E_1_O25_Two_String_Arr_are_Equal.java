@@ -39,7 +39,7 @@ public class P_E_1_O25_Two_String_Arr_are_Equal {
     public void ex4(){
         String[] w1 = {"abcd", "efg"};
         String[] w2 = {"a","b","c"," ","de","fg"," "};
-        Assert.assertEquals(stringconcat1(w1, w2), true);
+        Assert.assertEquals(stringconcat(w1, w2), true);
     }
 
     @Test
@@ -56,7 +56,7 @@ public class P_E_1_O25_Two_String_Arr_are_Equal {
         Assert.assertEquals(stringconcat(w1, w2), true);
     }
 
-    private boolean stringconcat(String[] w1, String[] w2){
+    private boolean stringconcatBF(String[] w1, String[] w2){
         if(w1.length<1 || w2.length<1) return false;
         int left=0;
         String s1="", s2="";
@@ -73,7 +73,7 @@ public class P_E_1_O25_Two_String_Arr_are_Equal {
     }
 
     // LC Solution
-    private boolean stringconcat1(String[] w1, String[] w2){
+    private boolean stringconcat(String[] w1, String[] w2){
 
         return String.join("", w1).equals(String.join("", w2));
     }

@@ -46,7 +46,7 @@ public class P_E_O23_Max_Vovel_in_SubString {
 2. verify it is vovel
 	- count vovel
 	- if not continue
-            3. return the max count
+3. return the max count
 */
 
     private int maxVovel(String s, int k) {

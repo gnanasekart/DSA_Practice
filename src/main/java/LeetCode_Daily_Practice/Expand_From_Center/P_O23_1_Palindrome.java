@@ -100,4 +100,21 @@ public class P_O23_1_Palindrome {
             if(s.charAt(left--) != s.charAt(right++)) return false;
         return true;
     }
+
+    public boolean palindrome(String s, int left, int right){
+        while(left<right)
+            if(s.charAt(left++) != s.charAt(right--))
+                return false;
+        return true;
+    }
+
+    public boolean isPalindromeby2(String s) {
+        int n = s.length();
+        for (int i = 0; i < n / 2; ++i) {
+            int j = n - i - 1;
+            if (s.charAt(i) != s.charAt(j))
+                return false;
+        }
+        return true;
+    }
 }
