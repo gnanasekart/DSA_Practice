@@ -66,7 +66,7 @@ public class P_E_O20_2_Flipping_an_Image {
 1. traversal to get the first array 0,0 to n*n
 2. first reverse the digit position in place
 3. then change the operator sign in place
-4. return the fliped image array
+4. return the flipped image array
 */
 
     private int[][] flipImage(int[][] image){
