@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 public class assessment2 {
 
 /*
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     logic-
             1. consider two pointer left and right
 2. left will be slow pointer and right will be fast pointer
