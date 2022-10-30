@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Three_Pointers_Dutch_Flag;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Acending_3_Pointers {
+public class Dutch_Flag_3_Pointers {
     @Test
     public void example1() {
         int[] arr = {1, 2, 0, 1, 2};
