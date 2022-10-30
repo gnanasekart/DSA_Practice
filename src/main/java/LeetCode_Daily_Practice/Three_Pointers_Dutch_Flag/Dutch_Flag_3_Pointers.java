@@ -17,6 +17,12 @@ public class Dutch_Flag_3_Pointers {
     }
 
     @Test
+    public void example6() {
+        int[] arr = {0,1,1,2,0};
+        Assert.assertEquals(dutchFlagAscending(arr), new int[]{0,0,1,1,2});
+    }
+
+    @Test
     public void example2() {
         int[] arr = {1, 2, 0, 1, 2};
         Assert.assertEquals(dutchFlagDecending(arr), new int[]{2,2,1,1,0});
@@ -26,6 +32,18 @@ public class Dutch_Flag_3_Pointers {
     public void example4() {
         int[] arr = {2,0,2,1,1,0};
         Assert.assertEquals(dutchFlagDecending(arr), new int[]{2,2,1,1,0,0});
+    }
+
+    @Test
+    public void example5() {
+        int[] arr = {0,1,1,2,0};
+        Assert.assertEquals(dutchFlagDecending(arr), new int[]{2,1,1,0,0});
+    }
+
+    @Test
+    public void example7() {
+        int[] arr = {0,0,1,1,0,1,2};
+        Assert.assertEquals(dutchFlagDecending(arr), new int[]{2,1,1,1,0,0,0});
     }
 
     /*

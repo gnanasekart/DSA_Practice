@@ -25,7 +25,7 @@ nums[i] is either 0 or 1.
     public void example2(){
         int[] num={0,0,1,1,0,0,1,1,1,0,1,1,0,0,0,1,1,1,1};
         int k=3;
-        Assert.assertEquals(maxOneTwoPointer(num, k), 10);
+        Assert.assertEquals(maXOneSlidingWindow(num, k), 10);
     }
 
     @Test
@@ -130,5 +130,17 @@ nums[i] is either 0 or 1.
             right++;
         }
         return max;
+    }
+
+    public int maXOneSlidingWindow(int[] num, int k){
+        int left=0, right=0;
+        while(right<num.length){
+                k-=(num[right++]==0)?1:0;
+
+            if(k<0){
+                k+=(num[left++]==0)?1:0;
+            }
+        }
+        return right-left;
     }
 }

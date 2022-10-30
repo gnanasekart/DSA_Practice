@@ -25,13 +25,13 @@ nums[i] is either 0 or 1.
     @Test
     public void example2(){
         int[] num={0,1,1,1,0,1,1,0,1};
-        Assert.assertEquals(longestSubarrayone(num), 5);
+        Assert.assertEquals(maXOneSlidingWindow(num), 5);
     }
 
     @Test
     public void example3(){
         int[] num={1,1,1};
-        Assert.assertEquals(longestSubarrayone(num), 2);
+        Assert.assertEquals(longestSubarrayoneSD(num), 2);
     }
 
     @Test
@@ -43,13 +43,13 @@ nums[i] is either 0 or 1.
     @Test
     public void example5(){
         int[] num={0,0,0,0};
-        Assert.assertEquals(longestSubarrayone(num), 0);
+        Assert.assertEquals(maXOneSlidingWindow(num), 0);
     }
 
     @Test
     public void example6(){
         int[] num={0,0,1,0,0};
-        Assert.assertEquals(longestSubarrayone(num), 1);
+        Assert.assertEquals(maXOneSlidingWindow(num), 1);
     }
 
 /*
@@ -88,4 +88,31 @@ Brute force
         if(num.length==max) return max-1;
         else return max;
     }
+
+    private int longestSubarrayoneSD(int[] num){
+        int max = Integer.MIN_VALUE;
+        int k=1;
+        for (int i = 0, left = 0; i < num.length; i++) {
+            if (num[i] == 0) k--;
+
+            while (k < 0) {
+                if (num[left] == 0)
+                    k++;
+                left++;
+            }
+            max = Math.max(max, i - left);
+        }
+        return max;
+    }
+
+    public int maXOneSlidingWindow(int[] num){
+        int left=0, right=0, k=1;
+        while(right<num.length){
+            k-=(num[right++]==0)?1:0;
+
+            if(k<0) k+=(num[left++]==0)?1:0;
+        }
+        return right-left-1;
+    }
+
 }
