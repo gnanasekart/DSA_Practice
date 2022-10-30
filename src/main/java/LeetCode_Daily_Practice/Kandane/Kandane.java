@@ -24,7 +24,7 @@ public class Kandane {
     @Test
     public void example1(){
         int[] arr = {-2,1,-3,4,-1,2,1,-5,4};
-        Assert.assertEquals(KandeneAlgo(arr), 6);
+        Assert.assertEquals(KandeneAlgo1(arr), 6);
     }
 
     private int KandeneAlgo(int[] arr) {
@@ -36,6 +36,15 @@ public class Kandane {
 
             if(sum>0)
                 max=sum>max?sum:max;
+        }
+        return max;
+    }
+
+    private int KandeneAlgo1(int[] arr) {
+        int max=Integer.MIN_VALUE;
+        for (int i = 1; i < arr.length; i++) {
+           arr[i]=Math.max(arr[i], arr[i]+arr[i-1]);
+           max=Math.max(arr[i], max);
         }
         return max;
     }
