@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Kandane;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Kandane {
+public class P_O29_Kandane {
 
     /*
     Kadane Algorithm;

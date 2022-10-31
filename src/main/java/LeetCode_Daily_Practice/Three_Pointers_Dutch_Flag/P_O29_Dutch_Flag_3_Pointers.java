@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Three_Pointers_Dutch_Flag;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Dutch_Flag_3_Pointers {
+public class P_O29_Dutch_Flag_3_Pointers {
     @Test
     public void example1() {
         int[] arr = {1, 2, 0, 1, 2};
@@ -80,7 +80,7 @@ Condition
 2.If the arr[middle] is 2, swap middle and high values and high++ pointer
 3.If the arr[middle] is 1, decrement middle pointer
 4.If the arr[middle] is 0, swap middle and low values and low--, middle-- pointer
-5.Break the loop when high<=middle or when middle > high
+5.Break the loop when middle>=high
  */
     private int[] dutchFlagDecending(int[] arr) {
         int high = 0, middle = arr.length-1, low = arr.length-1;

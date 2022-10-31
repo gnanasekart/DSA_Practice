@@ -5,7 +5,10 @@ import org.testng.annotations.Test;
 
 public class assessment1 {
 
-//https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/
+/*
+https://leetcode.com/problems/convert-integer-to-the-sum-of-two-no-zero-integers/
+
+ */
 @Test
 public void example1(){
 int n =2;

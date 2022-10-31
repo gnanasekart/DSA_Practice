@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Sliding_Window_Grow_Shrink;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class PO23_3_Minimum_Size_Subarray_Sum {
+public class P_O23_3_Minimum_Size_Subarray_Sum {
 /*
 leetcode.com/problems/minimum-size-subarray-sum/
 
@@ -13,14 +13,13 @@ of which the sum is greater than or equal to target. If there is no such subarra
 return 0 instead.
 
 Constraints:
-1 <= target <= 109
-1 <= nums.length <= 105
-1 <= nums[i] <= 104
+1 <= target <= 10^9
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^4
 
 Follow up: If you have figured out the O(n) solution,
 try coding another solution of which the time complexity is O(n log(n)).
  */
-
 
     @Test
     public void example1(){
