@@ -1,4 +1,4 @@
-package sample;
+package LeetCode_Daily_Practice.Collection;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 
-public class assess {
+public class P_030_Anagram {
 
     @Test
     public void example1(){
@@ -23,6 +23,19 @@ public class assess {
         Assert.assertEquals(anagram(a, b), true);
     }
 
+    //https://leetcode.com/problems/valid-anagram/
+
+    private boolean anagramHashMap(String a, String b){
+
+            HashMap<Character, Integer> map1 = new HashMap<>();
+            HashMap<Character, Integer> map2 = new HashMap<>();
+            for(int i=0; i<a.length(); i++){
+                map1.put(a.charAt(i), map1.getOrDefault(a.charAt(i), 0)+1);
+                map2.put(b.charAt(i), map2.getOrDefault(b.charAt(i), 0)+1);
+            }
+
+            return false;
+    }
     private boolean anagram(String a, String b) {
         char[] aa = a.toCharArray();
         char[] bb = b.toCharArray();

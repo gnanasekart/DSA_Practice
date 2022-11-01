@@ -3,8 +3,8 @@ package LeetCode_Daily_Practice.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_O30_Most_Common_Word {
     /*
@@ -67,8 +67,8 @@ logic
 
     private String commonWord(String para, String[] words) {
         if (para.length() < 1) return para;
-        int max= Integer.MIN_VALUE;
-        String maxWord="";
+        final int[] max = {Integer.MIN_VALUE};
+        final String[] maxWord = {""};
 
         String[] parawords = para.toLowerCase().split("[!?',;. ]");
 
@@ -79,16 +79,26 @@ logic
                 map.put(s, map.getOrDefault(s, 0) + 1);
             }
         }
-        for(String word: words)
-            map.remove(word);
+        List<String> list = Arrays.asList(words);
+        Arrays.stream(words).forEach(word -> map.remove(word));
 
-        for (Map.Entry<String, Integer> entry : map.entrySet()){
-           if(entry.getValue()>max){
-               max= entry.getValue();
-               maxWord= entry.getKey();
-           }
-        }
-    return maxWord;
+
+        Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getValue();
+//        for (Map.Entry<String, Integer> entry : map.entrySet()){
+//           if(entry.getValue()> max[0]){
+//               max[0] = entry.getValue();
+//               maxWord[0] = entry.getKey();
+//           }
+//        }
+
+       List l =   map.entrySet().stream().filter(entry -> entry.getValue()>max[0])
+               .map(entry -> {
+                max[0] = entry.getValue();
+                maxWord[0] = entry.getKey();
+            return maxWord[0];
+        }).distinct().collect(Collectors.toList());
+       System.out.println(l.toString());
+    return l.get(0).toString();
     }
 }
 

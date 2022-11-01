@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class P_E_O30_No_of_Good_Pairs {
 
@@ -67,7 +68,6 @@ Constraints:
         int sum=0;
         HashMap<Integer, Integer> map = new HashMap<>();
         Arrays.stream(nums).forEach(n -> map.put(n, map.getOrDefault(n, 0)+1));
-
         for(Map.Entry<Integer, Integer> m : map.entrySet()){
             if(m.getValue()>1){
                 int n=m.getValue();
