@@ -1,4 +1,8 @@
 package sample;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class sample {
 
     public static void main(String[] args) {
@@ -21,19 +25,27 @@ public class sample {
 //                 count++;
 //         }
 //         System.out.println(count);
-        int[] aa = {1,2,0,1,2};
-        int left=0, right=1;
-        while(left<aa.length&&right<aa.length){
-            if(aa[left]<aa[right]){
-                right++;
-            }else if(aa[left]>aa[right]){
-                int temp = aa[left];
-                aa[left++]= aa[right];
-                aa[right++]=temp;
-            }else left++;
+//        int[] aa = {1,2,0,1,2};
+//        int left=0, right=1;
+//        while(left<aa.length&&right<aa.length){
+//            if(aa[left]<aa[right]){
+//                right++;
+//            }else if(aa[left]>aa[right]){
+//                int temp = aa[left];
+//                aa[left++]= aa[right];
+//                aa[right++]=temp;
+//            }else left++;
+//        }
+
+
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for(int i=0; i<5; i++){
+            map.put(i, i+1);
         }
-
-
+        for(Map.Entry<Integer, Integer> i: map.entrySet()){
+            map.get(i);
+        }
 
     }
 }

@@ -29,7 +29,7 @@ s and t consist of any valid ascii character.
     public void example1() {
         String s = "egg";
         String t = "add";
-        Assert.assertEquals(isomorphic(s, t), true);
+        Assert.assertEquals(isomorphic1(s, t), true);
     }
 
     @Test
@@ -71,6 +71,13 @@ s and t consist of any valid ascii character.
     public void example7() {
         String s = "bbbaaaba";
         String t = "aaabbbba";
+        Assert.assertEquals(isIsomorphic(s, t), false);
+    }
+
+    @Test
+    public void example8() {
+        String s = "geg";
+        String t = "add";
         Assert.assertEquals(isomorphic(s, t), false);
     }
 
@@ -112,13 +119,33 @@ s and t consist of any valid ascii character.
         Map<Character, Character> map2 = new HashMap();
         for (int i = 0; i < s.length(); i++) {
             map1.put(s.charAt(i), t.charAt(i));
-            map2.put(t.charAt(i), s.charAt(i));
+            if(map1.get(s.charAt(i)) == t.charAt(i))
+                map2.put(t.charAt(i), s.charAt(i));
+            else return false;
         }
 
-        for (int j = 0; j < s.length(); j++) {
-            //if(s.charAt(j) == map2.get(t.charAt(j)) && t.charAt(j) == map1.get(s.charAt(j))){
-            if (map1.get(s.charAt(j)) == map2.get(t.charAt(j)))//m1(f) == m2()
+//        for (int j = 0; j < s.length(); j++) {
+//            //if(s.charAt(j) == map2.get(t.charAt(j)) && t.charAt(j) == map1.get(s.charAt(j))){
+//            if (map1.get(s.charAt(j)) == map2.get(t.charAt(j)))//m1(f) == m2()
+//                return false;
+//        }
+        return true;
+    }
+
+    public boolean isIsomorphic(String s, String t) {
+        int[] sMap=new int[128];
+        int[] tMap=new int[128];
+        char sChar,tChar;
+
+        for(int i=s.length()-1;i>=0;i--){
+            sChar = s.charAt(i);
+            tChar = t.charAt(i);
+
+            if(sMap[sChar]!=tMap[tChar])
                 return false;
+
+            sMap[sChar] = i+1;
+            tMap[tChar] = i+1;
         }
         return true;
     }
