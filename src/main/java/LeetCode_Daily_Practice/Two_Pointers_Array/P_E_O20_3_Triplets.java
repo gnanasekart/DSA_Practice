@@ -3,6 +3,7 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class P_E_O20_3_Triplets {
@@ -29,21 +30,21 @@ public class P_E_O20_3_Triplets {
     public void example1(){
         int[] arr={0,1,4,6,7,10};
         int diff=3;
-        Assert.assertEquals(tripletBF(arr, diff), 2);
+        Assert.assertEquals(tripletHashSet(arr, diff), 2);
     }
 
     @Test
     public void example2(){
         int[] arr={4,5,6,7,8,9};
         int diff=2;
-        Assert.assertEquals(tripletBF(arr, diff), 2);
+        Assert.assertEquals(tripletHashSet(arr, diff), 2);
     }
 
     @Test
     public void example3(){
         int[] arr={4,5,6,7,8};
         int diff=1;
-        Assert.assertEquals(tripletBF(arr, diff), 3);
+        Assert.assertEquals(tripletHashSet(arr, diff), 3);
     }
 /*
 1. consider three variable i,j,k for different loops
@@ -84,13 +85,12 @@ public class P_E_O20_3_Triplets {
 
         HashMap<Integer,Integer> map=new HashMap<>();
 
-        for(int i=0;i<arr.length;i++)
-            map.put(arr[i],1);
+        Arrays.stream(arr).forEach(a -> map.put(a,1));
 
-        for(int i=0;i<arr.length;i++)
-            if(map.containsKey(arr[i]+diff) && map.containsKey(arr[i]+2*diff))
+        for(int i=0;i<arr.length;i++) {
+            if (map.containsKey(arr[i] + diff) && map.containsKey(arr[i] + 2 * diff))
                 count++;
-
+        }
         return count;
     }
 }
