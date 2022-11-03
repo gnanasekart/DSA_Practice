@@ -77,8 +77,8 @@ s and t consist of any valid ascii character.
     @Test
     public void example8() {
         String s = "geg";
-        String t = "add";
-        Assert.assertEquals(isomorphic(s, t), false);
+        String t = "adg";
+        Assert.assertEquals(isIsomorphic(s, t), false);
     }
 
     @Test
@@ -141,19 +141,20 @@ s and t consist of any valid ascii character.
     }
 
     public boolean isIsomorphic(String s, String t) {
-        int[] sMap = new int[128];
-        int[] tMap = new int[128];
+        int[] sMap = new int[26];
+        int[] tMap = new int[26];
         char sChar, tChar;
 
         for (int i = s.length() - 1; i >= 0; i--) {
             sChar = s.charAt(i);
             tChar = t.charAt(i);
 
-            if (sMap[sChar] != tMap[tChar])
+            if (sMap[sChar-'a'] != tMap[tChar-'a']){
                 return false;
+            }
 
-            sMap[sChar] = i + 1;
-            tMap[tChar] = i + 1;
+            sMap[sChar-'a'] = i + 1;
+            tMap[tChar-'a'] = i + 1;
         }
         return true;
     }

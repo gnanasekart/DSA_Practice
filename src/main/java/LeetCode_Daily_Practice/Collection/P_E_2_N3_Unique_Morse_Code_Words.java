@@ -54,7 +54,7 @@ PseudoCode
 2. get the word from words array
 3. find the char value from map
 4. concat the char value for all the char in string
-5. Add the conceited word code into set
+5. Add the conceited code into set
 6. return the size
 */
 

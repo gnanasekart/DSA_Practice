@@ -44,7 +44,7 @@ public class FindSquare {
 	 * 2. traverse every element in the array by for loop
 	 * 3. once the square is completed for particular number then continue with another number
 	 * 4. collect the element in a list
-	 * 5. sort the element in non decreasing order
+	 * 5. sort the element in non-decreasing order
 	 * 6. if the array is empty means return error
 	 * 7. Finally, return the list
 	 * 

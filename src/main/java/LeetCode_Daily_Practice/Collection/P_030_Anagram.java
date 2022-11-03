@@ -49,8 +49,9 @@ public class P_030_Anagram {
             map2.put(d, map2.getOrDefault(d, 0)+1);
         }
 
-
-
+//--------------------------------------------------------------------------
+       // String a = "anagram";
+       // String b = "nagaram";
         int[] c = new int[26];
         for (int i = 0; i < a.length(); i++) {
             c[a.charAt(i) - 'a']++;
