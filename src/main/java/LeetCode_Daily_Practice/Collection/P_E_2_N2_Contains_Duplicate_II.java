@@ -3,9 +3,7 @@ package LeetCode_Daily_Practice.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class P_E_2_N2_Contains_Duplicate_II {
     /*
@@ -20,44 +18,44 @@ Constraints:
 */
     @Test
     public void example1() {
-        int[] s = {1, 2, 3, 1};
+        int[] s = {3, 2, 1, 1};
         int k = 3;
-        Assert.assertEquals(containsDuplicateHM(s, k), true);
+        Assert.assertEquals(containsDuplicateHS(s, k), true);
     }
 
     @Test
     public void example2() {
         int[] s = {1, 0, 1, 1};
         int k = 1;
-        Assert.assertEquals(containsDuplicateHM(s, k), true);
+        Assert.assertEquals(containsDuplicateHS(s, k), true);
     }
 
     @Test
     public void example3() {
         int[] s = {1, 2, 3, 1, 2, 3};
         int k = 2;
-        Assert.assertEquals(containsDuplicateHM(s, k), false);
+        Assert.assertEquals(containsDuplicateHS(s, k), false);
     }
 
     @Test
     public void example4() {
         int[] s = {-3, -2, -6, -1, -2};
         int k = 5;
-        Assert.assertEquals(containsDuplicateHM(s, k), true);
+        Assert.assertEquals(containsDuplicateHS(s, k), true);
     }
 
     @Test
     public void example5() {
         int[] s = {3, 3};
         int k = 0;
-        Assert.assertEquals(containsDuplicateHM(s, k), false);
+        Assert.assertEquals(containsDuplicateHS(s, k), false);
     }
 
     @Test
     public void example6() {
         int[] s = {3};
         int k = 0;
-        Assert.assertEquals(containsDuplicateHM(s, k), false);
+        Assert.assertEquals(containsDuplicateHS(s, k), false);
     }
 
 /*
@@ -90,14 +88,31 @@ PseudoCode
 
     private boolean containsDuplicateHM(int[] s, int k) {
         if (s.length < 2) return false;
-        int j=0;
         Map<Integer, Integer> map = new HashMap<>();
         for(int i=0; i<s.length; i++){
-            if(map.containsKey(s[i])){
-                j=map.get(s[i]);
-                if(s[i]==s[j] && Math.abs(j-i) <= k) return true;
-                else map.put(s[i], i);
-            }else map.put(s[i], i);
+            if(map.containsKey(s[i]) && Math.abs(map.get(s[i])-i) <= k)
+                return true;
+            else map.put(s[i], i);
+        }
+        return false;
+    }
+
+    private boolean containsDuplicateHS(int[] s, int k) {
+        if (s.length < 2 || k==0) return false;
+        int j=0;
+
+        Set<Integer> set = new HashSet<>();
+        for(int i=0; i<s.length; i++){
+            if(i>k){
+                //set.remove(j++);
+                set.remove(i-k-1);
+            }
+
+            if(set.contains(s[i])) return true;
+            else set.add(s[i]);
+
+//            if(!set.add(s[i]))
+//                return true;
         }
         return false;
     }

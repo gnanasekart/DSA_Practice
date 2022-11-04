@@ -25,14 +25,14 @@ All the characters of jewels are unique.
     public void example1() {
         String j = "aA";
         String s = "aAAbbbb";
-        Assert.assertEquals(uniqueStones(j, s), 3);
+        Assert.assertEquals(UniqueStonesRegex(j, s), 3);
     }
 
     @Test
     public void example2() {
         String j = "aAbC";
         String s = "aAAbbbb";
-        Assert.assertEquals(uniqueStones(j, s), 7);
+        Assert.assertEquals(UniqueStonesRegex(j, s), 7);
     }
 
     @Test
@@ -57,6 +57,17 @@ PseudoCode
 4. return the sum value
 */
 
+    private int uniqueStonesBF(String j, String s) {
+        int count=0;
+        for (int i = 0; i < j.length(); i++) {
+            for (int k = 0; k < s.length(); k++) {
+                if(j.charAt(i) == s.charAt(k))
+                    count++;
+            }
+        }
+        return count;
+    }
+
     private int uniqueStones(String j, String s) {
         if (j.length() < 1 || s.length() < 1) return 0;
         if (j.length() == 1 && j.charAt(0) == s.charAt(0)) return 1;
@@ -64,16 +75,58 @@ PseudoCode
         Map<Character, Integer> map = new HashMap();
 
         int i = 0, sum = 0, l = 0;
-        while (i < s.length()) {
+        while (i < s.length())
             map.put(s.charAt(i), map.getOrDefault(s.charAt(i++), 0) + 1);
-        }
 
         while (l < j.length()) {
-            if (map.containsKey(j.charAt(l))) {
+            if (map.containsKey(j.charAt(l)))
                 sum += map.get(j.charAt(l));
-            }
             l++;
         }
         return sum;
+    }
+
+    //using indexOf
+    private int uniqueStonesIndexOf(String j, String s) {
+        int num=0;
+        for(Character st : s.toCharArray()){
+            //if(j.indexOf(st) != -1)
+              if(j.contains(st.toString()))
+                  num++;
+        }
+        return num;
+    }
+
+    private int UniqueStonesASCII(String j, String s){
+        int[] ch = new int[58];
+       for(char c: j.toCharArray()){
+           ch[c-'A']++;
+       }
+       int count=0;
+       for(char st: s.toCharArray()){
+           if(ch[st-'A'] != 0){
+               count++;
+           }
+       }
+
+//       for(char st : s.toCharArray()){
+//           if(ch[st-'A'] > 0)
+//               count+=ch[st-'A'];
+//       }
+       return count;
+    }
+
+    private int UniqueStonesReplace(String j, String s){
+        String stonec = s;
+
+        for(Character jj: j.toCharArray()){
+            stonec.replace(jj.toString(), "");
+        }
+        return s.length()-j.length();
+    }
+
+    private int UniqueStonesRegex(String j, String s){
+        int count = s.replaceAll("[^"+j+"]", "").length();
+        return count;
     }
 }

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 public class P_E_2_N3_Unique_Morse_Code_Words {
    /*
@@ -27,25 +28,25 @@ public class P_E_2_N3_Unique_Morse_Code_Words {
     @Test
     public void example1(){
         String[] s = {"gin","zen","gig","msg"};
-        Assert.assertEquals(morseCode(s), 2);
+        Assert.assertEquals(morseCodeHashMap(s), 2);
     }
 
     @Test
     public void example2(){
         String[] s = {"a"};
-        Assert.assertEquals(morseCode(s), 1);
+        Assert.assertEquals(morseCodeStream(s), 1);
     }
 
     @Test
     public void example3(){
         String[] s = {""};
-        Assert.assertEquals(morseCode(s), 0);
+        Assert.assertEquals(morseCodeStream(s), 0);
     }
 
-    @Test
+    //@Test
     public void example4(){
         String[] s = {""};
-        Assert.assertEquals(morseCode(s), 3);
+        Assert.assertEquals(morseCodeStream(s), 3);
     }
 
 /*
@@ -58,10 +59,11 @@ PseudoCode
 6. return the size
 */
 
-    private int morseCode(String[] s){
-        if(s.length<1 ||s[0].length()<1) return 0;
-        String[] code = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",
+    String[] code = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",
                 ".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    //using HashMap and Set
+    private int morseCodeMap_Set(String[] s){
+        if(s.length<1 ||s[0].length()<1) return 0;
         Map<Character, String> codeMap = new HashMap();
         Set<String> set = new HashSet();
         for(char i=97; i<=122; i++)
@@ -77,5 +79,49 @@ PseudoCode
             set.add(encoding);
         }
         return set.size();
+    }
+
+    //using Set
+    private int morseCodeSet(String[] s){
+        if(s.length<1 ||s[0].length()<1) return 0;
+        Set<String> set = new HashSet();
+        String encoding="";
+        for(String word: s){
+            encoding="";
+            int j=0;
+            while(j<word.length())
+                encoding+= code[word.charAt(j++)];
+            set.add(encoding);
+        }
+        return set.size();
+    }
+
+    private int morseCodeStream(String[] words){
+        if(words.length<1 ||words[0].length()<1) return 0;
+
+        return (int)Arrays.stream(words)
+                        .map(word -> word.chars().mapToObj(ch -> code[ch - 'a'])
+                        .collect(Collectors.joining()))
+                        .distinct().count();
+    }
+
+    private int morseCodeHashMap(String[] s){
+        if(s.length<1 ||s[0].length()<1) return 0;
+
+        Map<String, Integer> map = new HashMap<>();
+        String encoding="";
+        for(String word: s){
+            encoding="";
+            int j=0;
+            while(j<word.length())
+                encoding+= code[word.charAt(j++)-'a'];
+
+            map.put(encoding, 1);
+
+            //for arraylist
+//            if(!list.contains(encoding))
+//                list.add(encoding);
+        }
+        return map.size();
     }
 }
