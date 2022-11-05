@@ -4,9 +4,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class P_E_1_N4_Colors_And_Rods {
-    /*
     /*
 https://leetcode.com/problems/rings-and-rods/
 
@@ -38,27 +40,27 @@ rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
 */
 
     @Test
-    public void example1(){
-        String ring="B0R0G0R9R0B0G0";
-        Assert.assertEquals(ringandRods(ring), 1);
+    public void example1() {
+        String ring = "B0R0G0R9R0B0G0";
+        Assert.assertEquals(ringandRodsHM(ring), 1);
     }
 
     @Test
-    public void example2(){
-        String ring="G4";
-        Assert.assertEquals(ringandRods(ring), 0);
+    public void example2() {
+        String ring = "G4";
+        Assert.assertEquals(ringandRodsHM(ring), 0);
     }
 
     @Test
-    public void example3(){
-        String ring="B0R1G2";
-        Assert.assertEquals(ringandRods(ring), 0);
+    public void example3() {
+        String ring = "B0R1G2";
+        Assert.assertEquals(ringandRodsHM(ring), 0);
     }
 
     @Test
-    public void example4(){
-        String ring="B0B0B0G0G0G0R0";
-        Assert.assertEquals(ringandRods(ring), 1);
+    public void example4() {
+        String ring = "B0B0B0G0G0G0R0";
+        Assert.assertEquals(ringandRodsHM(ring), 1);
     }
 
 /*
@@ -75,24 +77,55 @@ base condition
 6. return the number of rod with count 3
 */
 
-    private int ringandRods(String ring){
-        if(!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0))) return 0;
-        if(ring.length()%2!=0 || ring.length() <5) return 0;
+    private int ringandRods(String ring) {
+        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0))) return 0;
+        if (ring.length() % 2 != 0 || ring.length() < 5) return 0;
 
         String[] str = new String[10];
         Arrays.fill(str, "".toString());
-        int count=0, i=0, index=0;
-        String s="";
+        int count = 0, i = 0, index = 0;
+        String s = "";
 
-        while(i<ring.length()){
+        while (i < ring.length()) {
             s = String.valueOf(ring.charAt(i));
-            index = Integer.parseInt(String.valueOf(ring.charAt(i+1)));
-            if(!str[index].contains(s))
-                str[index]+=s;
-            i=i+2;
+            index = ring.charAt(i + 1) - '0';
+            if (!str[index].contains(s))
+                str[index] += s;
+            i = i + 2;
         }
-        for(String word: str){
-            if(word.length()==3)
+        for (String word : str) {
+            if (word.length() == 3)
+                count++;
+        }
+        return count;
+    }
+
+    private int ringandRodsHM(String ring) {
+        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0))) return 0;
+        if (ring.length() % 2 != 0 || ring.length() < 5) return 0;
+        Map<Integer, String> map = new HashMap<>();
+
+        //for set concept
+        //Map<Integer, Set<String>> mapset = new HashMap<>();
+
+        int count = 0, i = 0, index = 0;
+        String s = "";
+
+        while (i < ring.length()) {
+            s = String.valueOf(ring.charAt(i));
+            index = ring.charAt(i + 1) - '0';
+
+            if (map.containsKey(index)) {
+                if (!map.get(index).contains(s)) {
+                    s += map.get(index);
+                    map.put(index, s);
+                }
+            }else
+                map.put(index, s);
+            i = i + 2;
+        }
+        for (Map.Entry<Integer, String> word : map.entrySet()) {
+            if (word.getValue().length()==3)
                 count++;
         }
         return count;
