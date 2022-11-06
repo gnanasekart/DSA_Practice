@@ -43,9 +43,10 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
     public void example3() {
         String s = "mad";
         char c = 'e';
-        int[] output = {3,3,3};
+        int[] output = {3, 3, 3};
         Assert.assertEquals(shortestChar(s, c), output);
     }
+
     @Test
     public void example4() {
         String s = "";
@@ -62,25 +63,25 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         Assert.assertEquals(shortestChar(s, c), output);
     }
 
-    //@Test
+    @Test
     public void example6() {
-        String s = "madmadmadmademadmama";
+        String s = "lovelett";
         char c = 'e';
-        int[] output = {12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5, 6, 7};
-        Assert.assertEquals(shortestChar(s, c), output);
+        int[] output = {3, 2, 1, 0, 1, 0, 1, 2};
+        Assert.assertEquals(shortestDisatanceBF(s, c), output);
     }
 
     @Test
     public void example7() {
         String s = "abaa";
         char c = 'b';
-        int[] output = {1,0,1,2};
+        int[] output = {1, 0, 1, 2};
         Assert.assertEquals(shortestChar(s, c), output);
     }
 
 
 /*
-1. create an empty array for storing shortest distance
+1. create an empty array for storing the shortest distance
 2. consider 3 iteration for assigning the value
     - First loop from 0 to len assign the c value if arr[i]==c as 0 and assign len =0
         if not match assigned higher value greater than arr length as ++len
@@ -91,25 +92,25 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 */
 
     //brute force approach
-    private int[] shortestDisatanceBF(String s, char c){
+    private int[] shortestDisatanceBF(String s, char c) {
 
-        int[] ans=new int[s.length()];
-        int prev=s.length();
-        for(int i=0; i<s.length(); i++){//13,14,15,0,1,0,0,1,2,3,4,0
-            if(s.charAt(i)==c){
-                prev=0;
-                ans[i]=0;
-            }else{
-                ans[i]=++prev;
+        int[] ans = new int[s.length()];
+        int prev = s.length();
+        for (int i = 0; i < s.length(); i++) {//13,14,15,0,1,0,0,1,2,3,4,0
+            if (s.charAt(i) == c) {
+                prev = 0;
+                ans[i] = 0;
+            } else {
+                ans[i] = ++prev;
             }
         }
-        prev=s.length();
-        for(int i=s.length()-1; i>=0; i--){
-            if(s.charAt(i)==c){
-                prev=0;
-                ans[i]=Math.min(ans[i], 0);//13,14,15,0,1,0,0,1,2,3,4,0
-            }else{
-                ans[i]=Math.min(ans[i], ++prev);//3,2,1,0,1,0,0,1,2,2,1,0
+        prev = s.length();
+        for (int i = s.length() - 1; i >= 0; i--) {
+            if (s.charAt(i) == c) {
+                prev = 0;
+                ans[i] = Math.min(ans[i], 0);//13,14,15,0,1,0,0,1,2,3,4,0
+            } else {
+                ans[i] = Math.min(ans[i], ++prev);//3,2,1,0,1,0,0,1,2,2,1,0
             }
         }
         return ans;
@@ -135,48 +136,48 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
     //time = O(1)+O(n)+O(n)+O(n)=O(3n) => O(n)
     //space = O(n) = additionally space created for answer array
     private int[] shortestChar1(String str, char c) {
-        boolean ischpresent=false;
+        boolean ischpresent = false;
         if (str.length() == 0) return new int[]{};//O(1)
 
         int[] answer = new int[str.length()];
         char[] ch = str.toCharArray();
-        for(int i=0; i<ch.length; i++){ //=> O(n)
-            if(ch[i]==c) {
-                answer[i]=0;
-                ischpresent=true;
-            }else answer[i]=ch.length;
+        for (int i = 0; i < ch.length; i++) { //=> O(n)
+            if (ch[i] == c) {
+                answer[i] = 0;
+                ischpresent = true;
+            } else answer[i] = ch.length;
         }
 
-    if(ischpresent) {
-        int left = 0, right = 0;
-        while (left<ch.length-1) {//O(n)
-            if (ch[right] != c) right++;
-            else if (ch[right] == c) {
-                if (left < right) {
-                    answer[left] = Math.abs(left - right);
-                    left++;
-                } else {
-                    left = right;
-                    left++;
-                    right++;
+        if (ischpresent) {
+            int left = 0, right = 0;
+            while (left < ch.length - 1 && right <= ch.length - 1) {//O(n)
+                if (ch[right] != c) right++;
+                else if (ch[right] == c) {
+                    if (left < right) {
+                        answer[left] = Math.abs(left - right);
+                        left++;
+                    } else {
+                        left = right;
+                        left++;
+                        right++;
+                    }
+                }
+            }
+            right = right - 1;
+            while (right >= 0) { //O(n)
+                if (ch[right] != c) right--;
+                else if (ch[right] == c) {
+                    if (right < left) {
+                        answer[left] = Math.min(answer[left], Math.abs(left - right));
+                        left--;
+                    } else {
+                        left = right;
+                        left--;
+                        right--;
+                    }
                 }
             }
         }
-
-        while (right >= 0) { //O(n)
-            if (ch[right] != c) right--;
-            else if (ch[right] == c) {
-                if (right < left) {
-                    answer[left] = Math.min(answer[left], Math.abs(left - right));
-                    left--;
-                } else {
-                    left = right;
-                    left--;
-                    right--;
-                }
-            }
-        }
-    }
         return answer;
     }
-    }
+}

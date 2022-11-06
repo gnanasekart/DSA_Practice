@@ -78,7 +78,7 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
                 for(int i=0; i<num.length; i++){
                     for(int j=i; j<num.length; j++){
                         sum=sum*num[j];
-                        System.out.println(sum);
+                        //System.out.println(sum);
                         max=Math.max(max, sum);
                     }
                     sum=1;

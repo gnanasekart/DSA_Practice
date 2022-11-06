@@ -64,7 +64,7 @@ name and typed consist of only lowercase English letters.
 	public void example7() {
 		String name = "alex";
 		String typed = "aaleexeex";
-		Assert.assertEquals(longPress3(name, typed), false);
+		Assert.assertEquals(longPress4(name, typed), false);
 	}
 
 	@Test

@@ -3,10 +3,7 @@ package LeetCode_Daily_Practice.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class P_E_1_N4_Colors_And_Rods {
     /*
@@ -42,7 +39,7 @@ rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
     @Test
     public void example1() {
         String ring = "B0R0G0R9R0B0G0";
-        Assert.assertEquals(ringandRodsHM(ring), 1);
+        Assert.assertEquals(ringandRodsString(ring), 1);
     }
 
     @Test
@@ -54,7 +51,7 @@ rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
     @Test
     public void example3() {
         String ring = "B0R1G2";
-        Assert.assertEquals(ringandRodsHM(ring), 0);
+        Assert.assertEquals(ringandRodsSet(ring), 0);
     }
 
     @Test
@@ -83,10 +80,10 @@ base condition
 
         String[] str = new String[10];
         Arrays.fill(str, "".toString());
-        int count = 0, i = 0, index = 0;
+        int count = 0, index = 0;
         String s = "";
 
-        while (i < ring.length()) {
+        for(int i=0; i<ring.length(); i+=2){
             s = String.valueOf(ring.charAt(i));
             index = ring.charAt(i + 1) - '0';
             if (!str[index].contains(s))
@@ -115,10 +112,12 @@ base condition
             s = String.valueOf(ring.charAt(i));
             index = ring.charAt(i + 1) - '0';
 
+            //map.put(index, map.getOrDefault(index, "")+s);
             if (map.containsKey(index)) {
                 if (!map.get(index).contains(s)) {
                     s += map.get(index);
                     map.put(index, s);
+
                 }
             }else
                 map.put(index, s);
@@ -127,6 +126,35 @@ base condition
         for (Map.Entry<Integer, String> word : map.entrySet()) {
             if (word.getValue().length()==3)
                 count++;
+        }
+        return count;
+    }
+
+    private int ringandRodsSet(String ring) {
+        Set<Integer> r= new HashSet<>(), g=new HashSet<>(), b=new HashSet<>();
+        int count=0;
+        for(int i=0; i<ring.length(); i+=2){
+            if(ring.charAt(i)=='B')
+                b.add(ring.charAt(i+1)-'0');
+            else if (ring.charAt(i)=='G')
+                g.add(ring.charAt(i+1)-'0');
+            else
+                r.add(ring.charAt(i+1)-'0');
+            }
+
+        for(int i=0; i<ring.length();i++){
+            if(r.contains(i) && b.contains(i) && g.contains(i))
+                count++;
+        }
+        return count;
+    }
+
+    private int ringandRodsString(String ring) {
+        int count=0;
+        for (int i = 0; i < ring.length(); i++) {
+            if(ring.contains("B"+String.valueOf(i)) && ring.contains("G"+String.valueOf(i)) && ring.contains("R"+String.valueOf(i))){
+                count++;
+            }
         }
         return count;
     }

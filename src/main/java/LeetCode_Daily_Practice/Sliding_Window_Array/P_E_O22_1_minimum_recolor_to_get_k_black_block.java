@@ -22,7 +22,7 @@ public class P_E_O22_1_minimum_recolor_to_get_k_black_block {
     public void example2() {
        String s = "WBBWWBBWBW";
         int k = 7;
-        Assert.assertEquals(changeColor1(s, k), 3);
+        Assert.assertEquals(changeColor(s, k), 3);
     }
 
     @Test
@@ -81,7 +81,7 @@ public class P_E_O22_1_minimum_recolor_to_get_k_black_block {
 
         int result=Integer.MAX_VALUE;
         int n=blocks.length();
-        //i+k-1   ->  Maintain Window of Size k
+        //i+k-1 -> Maintain Window of Size k
         for(int i=0;i+k-1<n;i++){
             int requiredBlackBlock=0;
             //Get the currentWindow requiredBlackBlock

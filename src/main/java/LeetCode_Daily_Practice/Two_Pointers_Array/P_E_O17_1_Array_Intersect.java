@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class P_E_O17_1_Array_Interest {
+public class P_E_O17_1_Array_Intersect {
 
     /*
     leetcode.com/problems/intersection-of-two-arrays/submissions/

@@ -50,10 +50,8 @@ Return the minimum possible difference.
 2. check condition for value <= 1
 3. find the difference between two index
 4. index p=k-1, right =p-k+1 and get the min value
-4. return min value
+5. return min value
 
-3. sort the array and find the difference between two index an get the min value
-4. return the min value
 */
 
 

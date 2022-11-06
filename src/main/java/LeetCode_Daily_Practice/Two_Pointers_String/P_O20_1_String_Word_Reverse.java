@@ -13,7 +13,7 @@ Given a string s, reverse the order of characters in each word within
 
 Constraints:
 
-1 <= s.length <= 5 * 104
+1 <= s.length <= 5 * 10^4
 s contains printable ASCII characters.
 s does not contain any leading or trailing spaces.
 There is at least one word in s.
@@ -67,7 +67,7 @@ public void example6(){
 3. iterate every word and reverse its position
 4. Concat the reverse word in a string with single space
 5. return the conceited new string
- */
+*/
 
     //time=O(n)
     //space=O(1)

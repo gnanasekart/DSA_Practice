@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 public class P_E_O23_Max_Vovel_in_SubString {
     /*
-    Given a string s and a number k, find the maximum number of vowels in substring of size k.
+    Given a string s and a number k, find the maximum number of vowels in substring
+    of size k.
     String: "workaattech"
     k: 3
 */
@@ -51,7 +52,7 @@ public class P_E_O23_Max_Vovel_in_SubString {
 
     private int maxVovel(String s, int k) {
         if (s.length() < k) return 0;
-        int maxi = 0;int i=0;
+        int maxi = 0, i=0;
         for (; i < s.length();i++) {
             for (int j = i + k; j < s.length(); j++,i++) {
                 String sub = s.substring(i, j);

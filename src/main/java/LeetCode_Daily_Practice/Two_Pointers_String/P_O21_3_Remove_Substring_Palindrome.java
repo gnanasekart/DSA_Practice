@@ -17,10 +17,13 @@ public class P_O21_3_Remove_Substring_Palindrome {
 
     A string is called palindrome if is one that reads the same backward as well as forward.
 
-            Constraints:
-
-            1 <= s.length <= 1000
+    Constraints:
+    1 <= s.length <= 1000
     s[i] is either 'a' or 'b'.
+
+Input: s = "baabb"
+Explanation: "baabb" -> "b" -> "".
+Remove palindromic subsequence "baab" then "b".
 */
     @Test
     public void example1(){

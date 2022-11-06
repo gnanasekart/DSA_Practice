@@ -11,8 +11,8 @@ and return this value. Any answer with a calculation error less than 10^-5 will 
 
 Constraints:
 n == nums.length
-1 <= k <= n <= 105
--104 <= nums[i] <= 104
+1 <= k <= n <= 10^5
+-10^4 <= nums[i] <= 10^4
  */
 public class P_E_O22_2_Maximum_average_Subarray {
     @Test

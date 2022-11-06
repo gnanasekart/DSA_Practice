@@ -47,14 +47,14 @@ cannot load all elements into the memory at once?
     public void example3(){
         int[] nums1={4,9,5,3,2,1};
         int[] nums2={6,7,8};
-        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{});
+        Assert.assertEquals(intersectArrayMaxAppearBF(nums1, nums2), new int[]{});
     }
 
     @Test
     public void example4(){
         int[] nums1={2,2,2,2,2,2,4};
         int[] nums2={1,4};
-        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{4});
+        Assert.assertEquals(intersectArrayMaxAppearBF(nums1, nums2), new int[]{4});
     }
 
 /*
@@ -134,7 +134,7 @@ cannot load all elements into the memory at once?
             for(int j=0;j<nums2.length;j++){
                 if(nums1[i]==nums2[j]){
                     l.add(nums2[j]);
-                    nums2[j]=Integer.MAX_VALUE;
+                    //nums2[j]=Integer.MAX_VALUE;
                     break;
                 }
             }
