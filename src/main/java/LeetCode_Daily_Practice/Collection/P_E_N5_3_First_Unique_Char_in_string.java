@@ -47,14 +47,29 @@ public class P_E_N5_3_First_Unique_Char_in_string {
         Assert.assertEquals(nonrepeating(s), 0);
     }
 
+
+    //Brute force
+    public int nonrepeating(String s){
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = 0; j < s.length(); j++) {
+                if(i!=j && s.charAt(i)==s.charAt(j)){
+                    break;
+                } else if (j==s.length()-1) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
     /*
 1. start the char from i=0
 2. get the i index value and concat the string and check for consist
 3. if it consists or return index
 4. else it returns -1
 */
-
-    public int nonrepeatingBF(String s){
+//Using IndexOf
+    public int nonrepeatingIndexOf(String s){
         if(s.length()<1) return -1;
         if(s.length()==1) return 0;
         String str = "";
@@ -77,9 +92,9 @@ public class P_E_N5_3_First_Unique_Char_in_string {
     1. In first loop collect all char to map with occurrence
     2. In second loop check for first map value as 1 and return i value
     3. if not found then return -1
-     */
+    */
 
-    public int nonrepeating(String s){
+    public int nonrepeatingHashMap(String s){
         if(s.length()<1) return -1;
         if(s.length()==1) return 0;
 
@@ -92,6 +107,32 @@ public class P_E_N5_3_First_Unique_Char_in_string {
             len[i] = map.get(s.charAt(i));
             if (len[i] == 1)
                 return i;
+        }
+        return -1;
+    }
+
+    //Using LastIndexOf and indexOf
+    public int nonrepeatingLastIndexOf(String s){
+        int min = Integer.MAX_VALUE;
+        int index=0;
+        for(char c: s.toCharArray()){
+            index=s.indexOf(c);
+            if(index!=-1 && index == s.lastIndexOf(c)){
+                min = index < min ? index:min;
+            }
+        }
+        return min==Integer.MAX_VALUE ? -1: min;
+    }
+
+    //using ASCII
+    public int nonrepeatingASCII(String s){
+       int[] ch = new int[26];
+        for(char c: s.toCharArray())
+            ch[c - 'a']++;
+
+        for(int c=0; c<ch.length; c++) {
+            if (ch[c] == 1)
+                return c;
         }
         return -1;
     }
