@@ -81,7 +81,7 @@ for which 0 <= i < j < dominoes.length, and dominoes[i] is equivalent to dominoe
 		return count;
 	}
 
-	public int dominoesArrayMulti10(int[][] dominoes) {
+	public int dominoesArray(int[][] dominoes) {
 		int ans = 0;
 
 		Map<Integer, Integer> map = new HashMap<>();
@@ -98,7 +98,7 @@ for which 0 <= i < j < dominoes.length, and dominoes[i] is equivalent to dominoe
 		return ans;
 	}
 
-	public int dominoesArray(int[][] dominoes) {
+	public int dominoesArray2darray(int[][] dominoes) {
 		// using the 10 by 10 table due to dominoes range [1,9]
 		int [][] table = new int[10][10];
 

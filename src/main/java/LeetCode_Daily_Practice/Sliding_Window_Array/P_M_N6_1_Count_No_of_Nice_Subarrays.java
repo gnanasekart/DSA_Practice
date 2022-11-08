@@ -3,6 +3,9 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class P_M_N6_1_Count_No_of_Nice_Subarrays {
     /*
     leetcode.com/problems/count-number-of-nice-subarrays/
@@ -54,6 +57,27 @@ Constraints:
             }
         }
         return m;
+    }
+
+    public int countnicesubarrayPrefixSum(int[] nums, int k) {
+        int count=0, sum=0,j=0;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = nums[i]%2==1 ? 1 : 0;
+        }
+
+       // map.put(0,1);
+
+
+        while(j< nums.length){
+            sum+=nums[j++];
+            if(sum==k) count++;
+            if(map.containsKey(sum-k)){
+                count+=map.get(sum-k);
+            }
+            map.put(sum, map.getOrDefault(sum, 0)+1);
+        }
+        return count;
     }
 
 
