@@ -24,14 +24,14 @@ Constrains
     public void ex1() {
         int[] nums = {1, 1, 1};
         int k = 2;
-        Assert.assertEquals(subarraysum(nums, k), 2);
+        Assert.assertEquals(subarraySum(nums, k), 2);
     }
 
     @Test
     public void ex2() {
         int[] nums = {1, 2, 3};
         int k = 3;
-        Assert.assertEquals(subarraysum(nums, k), 2);
+        Assert.assertEquals(subarraySum(nums, k), 2);
     }
 
 
@@ -47,7 +47,7 @@ Constrains
     public void ex4() {
         int[] nums = {-5, -4, -3, -2, -1, 0, 1, 2};
         int k = 2;
-        Assert.assertEquals(subarraysum(nums, k), 1);
+        Assert.assertEquals(subarraysum(nums, k), 2);
     }
 
     @Test
@@ -72,6 +72,26 @@ Constrains
                 sum += num[i];
             }
         }
+        return count;
+    }
+
+
+    public int subarraySum(int[] arr, int target){
+        int count=0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0,1);
+        int sum=0, key=0, value=0;
+        for(int i=0; i<arr.length; i++){
+            sum+=arr[i];
+            key=sum-target;
+            if(map.containsKey(key)){
+                value=map.get(key);
+                count+=value;
+            }else{
+                map.put(sum, map.getOrDefault(sum, 0)+1);
+            }
+        }
+
         return count;
     }
 
