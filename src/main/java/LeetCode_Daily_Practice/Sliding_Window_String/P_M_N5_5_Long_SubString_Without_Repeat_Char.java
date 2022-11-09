@@ -3,7 +3,9 @@ package LeetCode_Daily_Practice.Sliding_Window_String;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class P_M_N5_5_Long_SubString_Without_Repeat_Char {
@@ -111,20 +113,40 @@ Explanation: The answer is "abc", with the length of 3.
         if (s.length() == 1) return 1;
 
         int max = Integer.MIN_VALUE;
-        int left=0, right=0, len = 0;
+        int left = 0, right = 0, len = 0;
 
         Set<Character> set = new HashSet();
 
-        while(right<s.length()){
+        while (right < s.length()) {
 
-            if(set.contains(s.charAt(right)))
+            if (set.contains(s.charAt(right)))
                 set.remove(s.charAt(left++));
             else set.add(s.charAt(right++));
 
-            len = right-left;
-            max=len>max?len:max;
+            len = right - left;
+            max = len > max ? len : max;
 
         }
         return max;
     }
-}
+
+    //debug
+      public int lengthOfLongestSubstringMAp(String s) {
+
+            int left = 0, right = 0, len = 0;
+
+            Map<Character, Integer> map = new HashMap();
+
+            while (right < s.length()) {
+                if (map.containsKey(s.charAt(right))) {
+                    System.out.println("map = " + map);
+                    left = Math.max(map.get(s.charAt(right)) + 1, left);
+                }
+
+                map.put(s.charAt(right), right);
+                len = Math.max(left, right - left + 1);
+                right++;
+            }
+            return len;
+        }
+    }
