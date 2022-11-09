@@ -51,6 +51,18 @@ Explanation: The answer is "abc", with the length of 3.
         Assert.assertEquals(nonrepeatString(s), 3);
     }
 
+    @Test
+    public void ex7() {
+        String s = "abcaabcdba";
+        Assert.assertEquals(nonrepeatString(s), 4);
+    }
+
+    @Test
+    public void ex8() {
+        String s = "abcdefghcc";
+        Assert.assertEquals(nonrepeatString(s), 8);
+    }
+
 
     /*
     base condition
@@ -88,6 +100,30 @@ Explanation: The answer is "abc", with the length of 3.
                 set.clear();
                 right++;
             }
+        }
+        return max;
+    }
+
+    //time O(2n)
+    //space O(n)
+    public int lengthOfLongestSubstring(String s) {
+        if (s.length() < 1) return 0;
+        if (s.length() == 1) return 1;
+
+        int max = Integer.MIN_VALUE;
+        int left=0, right=0, len = 0;
+
+        Set<Character> set = new HashSet();
+
+        while(right<s.length()){
+
+            if(set.contains(s.charAt(right)))
+                set.remove(s.charAt(left++));
+            else set.add(s.charAt(right++));
+
+            len = right-left;
+            max=len>max?len:max;
+
         }
         return max;
     }
