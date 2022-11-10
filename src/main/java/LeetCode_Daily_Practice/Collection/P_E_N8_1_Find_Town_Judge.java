@@ -3,9 +3,7 @@ package LeetCode_Daily_Practice.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class P_E_N8_1_Find_Town_Judge {
     /*
@@ -74,6 +72,13 @@ ai != bi
     public void ex6() {
         int[][] trust = {};
         int n = 1;
+        Assert.assertEquals(townJudge(trust, n), 1);
+    }
+
+    @Test
+    public void ex8() {
+        int[][] trust = {};
+        int n = 2;
         Assert.assertEquals(townJudge(trust, n), -1);
     }
 
@@ -83,6 +88,9 @@ ai != bi
         int n = 3;
         Assert.assertEquals(townJudge(trust, n), -1);
     }
+
+
+
 
 /*
 pseudocode
@@ -95,7 +103,7 @@ pseudocode
 6. else return -1
 */
 
-    public int townJudge(int[][] trust, int n) {
+    public int townJudge1(int[][] trust, int n) {
         if(n<1) return -1;
         if(trust.length <= 0) return -1;
 
@@ -112,17 +120,49 @@ pseudocode
         return -1;
     }
 
-    public int townJudge1(int[][] trust, int n) {
-        if (n < 1) return -1;
-        if (trust.length <= 0) return 1;
-        for (int i = 0; i < trust.length; i++) {
-            for (int j = 0; j < trust.length; j++) {
-                System.out.println(i+" - "+j);
-                if (trust[i][1] != trust[j][0]) {
-                    return trust[i][1];
+
+    public int townJudge(int[][] trust, int n) {
+        if(trust.length==0 && n==1) return 1;
+//        Map<Integer, Integer> map = new HashMap();
+//        int key=0, key2=0;
+//        for(int[] t : trust){
+//            key=t[0];
+//
+//            map.put(key, map.getOrDefault(key, 0) -1);
+//            //System.out.println("map1 = "+map);
+//        }
+//
+//        for(int[] t : trust){
+//            key2=t[1];
+//            map.put(key2, map.getOrDefault(key2, 0) +1);
+//           // System.out.println("map2 = "+map);
+//        }
+//
+//        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+//            if(entry.getValue()==n-1){
+//                return entry.getKey();
+//            }
+//        }
+//        return -1;
+
+        int judge=0;
+        Map<Integer, Integer> map = new HashMap();
+        for(int[] t : trust){
+            map.put(t[1], map.getOrDefault(t[1], 0)+1);
+        }
+        int isJudge=-1;
+        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
+            if(entry.getValue()==n-1){
+                int key = entry.getKey();
+                for(int[] t : trust){
+                    if(t[0]==key){
+                        break;
+                    }else
+                        isJudge=entry.getKey();
                 }
             }
         }
-        return -1;
+        return isJudge;
     }
 }
+

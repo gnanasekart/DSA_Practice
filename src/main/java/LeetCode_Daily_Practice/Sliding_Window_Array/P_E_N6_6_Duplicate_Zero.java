@@ -43,8 +43,8 @@ Constraints:
 
     @Test
     public void ex4() {
-        int[] arr = {0,0,0,0,0,0,0};
-        Assert.assertEquals(DuplicateZero(arr), new int[]{0,0,0,0,0,0,0});
+        int[] arr = {0, 0, 0, 0, 0, 0, 0};
+        Assert.assertEquals(DuplicateZero(arr), new int[]{0, 0, 0, 0, 0, 0, 0});
     }
 
     @Test
@@ -61,8 +61,14 @@ Constraints:
 
     @Test
     public void ex7() {
-        int[] arr = {0,1,7,6,0,2,0,7};
-        Assert.assertEquals(DuplicateZero(arr), new int[]{0,0,1,7,6,0,0,2});
+        int[] arr = {0, 1, 7, 6, 0, 2, 0, 7};
+        Assert.assertEquals(DuplicateZero(arr), new int[]{0, 0, 1, 7, 6, 0, 0, 2});
+    }
+
+    @Test
+    public void ex8() {
+        int[] arr = {8,4,5,0,0,0,0,7};
+        Assert.assertEquals(DuplicateZero(arr), new int[]{8,4,5,0,0,0,0,0});
     }
     //[0,1,7,6,0,2,0,7]
 
@@ -78,26 +84,29 @@ Constraints:
 8. once reach start point then stop the process
 */
     public int[] DuplicateZero(int[] arr) {
-        //if (arr.length == 1) return new int[]{0};
-        int right = 0, count = 0, left = 1, n = arr.length - 1;
+        int zero = 0, n = 0, i = arr.length - 1;
+        for (int a : arr) {
+            if (a == 0) zero++;
+        }
 
-        while (right < arr.length && left > 0) {
+        n = arr.length + zero;
 
-            while(count < arr.length) {
-                if (arr[right++] != 0) {
-                    count++;
-                } else {
-                    count += 2;
-                }
-                left = right-1;
-            }
+        while (n > arr.length) {
+            n = (arr[i] == 0) ? n - 2 : n - 1;
+            i--;
+        }
+        //System.out.println(n);
+        n = n== arr.length-1 ? n:n - 1;
+        while (n >0) {
 
-            if (arr[left] != 0) {
-                arr[n--] = arr[left--];
+
+            if (arr[i] == 0) {
+                arr[n--] = arr[i];
+                arr[n--] = arr[i--];
             } else {
-                arr[n--] = arr[left];
-                arr[n--] = arr[left--];
+                arr[n--] = arr[i--];
             }
+            //System.out.println(Arrays.toString(arr));
         }
         return arr;
     }

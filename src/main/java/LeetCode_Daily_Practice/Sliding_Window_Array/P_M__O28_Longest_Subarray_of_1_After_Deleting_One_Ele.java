@@ -12,7 +12,7 @@ Return the size of the longest non-empty subarray containing only 1's
 in the resulting array. Return 0 if there is no such subarray.
 
 Constraints:
-1 <= nums.length <= 105
+1 <= nums.length <= 10^5
 nums[i] is either 0 or 1.
 */
 
@@ -25,7 +25,7 @@ nums[i] is either 0 or 1.
     @Test
     public void example2(){
         int[] num={0,1,1,1,0,1,1,0,1};
-        Assert.assertEquals(maXOneSlidingWindow(num), 5);
+        Assert.assertEquals(longestSubarrayone(num), 5);
     }
 
     @Test
@@ -61,6 +61,7 @@ Brute force
 
 */
 
+    //mine - debug
     private int longestSubarrayone(int[] num){
         int count=0, left=0, right=0, max=Integer.MIN_VALUE;
         int zero=1;
@@ -89,6 +90,7 @@ Brute force
         else return max;
     }
 
+    //sliding window
     private int longestSubarrayoneSD(int[] num){
         int max = Integer.MIN_VALUE;
         int k=1;
