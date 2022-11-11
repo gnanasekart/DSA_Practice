@@ -3,7 +3,7 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class P_M__O28_Longest_Subarray_of_1_After_Deleting_One_Ele {
+public class P_M_O28_2_Longest_Subarray_of_1_After_Deleting_One_Ele {
     /*
 leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/
 

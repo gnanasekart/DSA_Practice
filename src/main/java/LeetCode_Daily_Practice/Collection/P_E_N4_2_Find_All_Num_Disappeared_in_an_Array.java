@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class P_E_2_N4_Find_All_Num_Disappeared_in_an_Array {
+public class P_E_N4_2_Find_All_Num_Disappeared_in_an_Array {
     /*
 https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
 

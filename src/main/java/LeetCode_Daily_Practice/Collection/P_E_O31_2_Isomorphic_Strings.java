@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P_E_2_O31_Isomorphic_Strings {
+public class P_E_O31_2_Isomorphic_Strings {
     /*
 https://leetcode.com/problems/isomorphic-strings/
 Given two strings s and t, determine if they are isomorphic.

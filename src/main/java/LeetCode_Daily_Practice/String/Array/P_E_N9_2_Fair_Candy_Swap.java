@@ -1,5 +1,12 @@
 package LeetCode_Daily_Practice.String.Array;
 
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class P_E_N9_2_Fair_Candy_Swap {
     /*
 leetcode.com/problems/fair-candy-swap/
@@ -23,6 +30,72 @@ Constraints:
 Alice and Bob have a different total number of candies.
 There will be at least one valid answer for the given input.
 */
+
+    @Test
+    public void ex1(){
+        int[] a = {1,1};//2, 4 = 6/a[i].length = 3    //   3-2 = 1,   4-2 = 2
+        int[] b = {2,2};
+        Assert.assertEquals(candyBox(a, b), new int[]{1,2});
+    }
+
+    @Test
+    public void ex2(){
+        int[] a = {1,2};//3,5 = 8/2 = 4  // 4-3=1, 5-3 =2
+        int[] b = {2,3};
+        Assert.assertEquals(candyBox(a, b), new int[]{1,2});
+    }
+
+    @Test
+    public void ex3(){
+        int[] a = {2};//2, 4 = 6/2 = 3 // 3-2 = 1,   3-0 = 3
+        int[] b = {1,3};
+        Assert.assertEquals(candyBox(a, b), new int[]{2,3});
+    }
+
+    @Test
+    public void ex4(){
+        int[] a = {1,2,5};
+        int[] b = {2,4};
+        Assert.assertEquals(candyBox(a, b), new int[]{1,2});
+    }
+
+    public int[] candyBox(int[] aa, int[] bb){
+        //if(aa.length<1 || bb.length<1) return new int[]{};
+
+        Set<Integer> set = new HashSet<>();
+        int suma=0, sumb=0, diff=0;
+
+        for(int a : aa) suma+=a;
+
+        for(int b : bb) sumb+=b;
+
+        Arrays.stream(bb).forEach(b -> set.add(b));
+        //diff = (sumb-suma)/2;
+
+        for (int i =0 ; i<aa.length-1; i++) {
+            for (int j = 0; j<bb.length-1; j++) {
+
+                 if(suma-aa[i]+bb[j] == sumb-bb[j]+aa[i]){
+                     return new int[]{aa[i], bb[j]};
+                 }
+            }
+        }
+        return aa;
+    }
+
+    public int[] candyBox1(int[] A, int[] B) {
+        int sa=0,sb=0;
+        for(int i=0;i<A.length;i++)
+            sa+=A[i];
+        for(int i=0;i<B.length;i++)
+            sb+=B[i];
+        int diff=(sa-sb)/2;
+        for(int i=0;i<A.length;i++)
+            for(int j=0;j<B.length;j++)
+                if(A[i]-B[j]==diff)
+                    return new int[]{A[i],B[j]};
+        return null;
+    }
 
 
 }

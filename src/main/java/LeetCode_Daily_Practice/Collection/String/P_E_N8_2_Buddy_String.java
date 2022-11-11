@@ -61,6 +61,19 @@ public class P_E_N8_2_Buddy_String {
         Assert.assertEquals(buddyStrings(s, goal), false);
     }
 
+    /*
+    pseudocode
+    1. check for condition if s and goal length
+    2. check if any one string is empty
+    3. if both the string is equals means
+        - check if it is distinct by adding the char in to set
+        - compare the size of set and string length and return true if less or false if equals
+    4. if both the string is not equals
+        - get the index of two different occurrence char and cross verify
+        - if count different occurrence is > 2 count means return false
+    5. return the status
+
+     */
     public boolean buddyStrings(String ss, String goal) {
         if(ss.length() != goal.length()) return false;
         if(ss.isEmpty() || goal.isEmpty()) return false;

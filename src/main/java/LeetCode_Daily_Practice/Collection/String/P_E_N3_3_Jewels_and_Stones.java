@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P_E_3_N3_Jewels_and_Stones {
+public class P_E_N3_3_Jewels_and_Stones {
     /*
     https://leetcode.com/problems/jewels-and-stones/description/
 

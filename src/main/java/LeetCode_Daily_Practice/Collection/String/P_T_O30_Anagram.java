@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 
 
-public class P_030_Anagram {
+public class P_T_O30_Anagram {
 
     @Test
     public void example1(){

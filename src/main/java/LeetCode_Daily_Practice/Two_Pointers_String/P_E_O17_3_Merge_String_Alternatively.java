@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
-public class P_O17_3_Merge_String_Alternatively {
+public class P_E_O17_3_Merge_String_Alternatively {
 
 
 /*

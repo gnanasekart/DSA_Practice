@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class P_E_O30_Most_Common_Word {
+public class P_E_O30_1_Most_Common_Word {
     /*
 https://leetcode.com/problems/most-common-word/description/
 

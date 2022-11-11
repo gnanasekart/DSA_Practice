@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class P_E_O30_No_of_Good_Pairs {
+public class P_E_O30_2_No_of_Good_Pairs {
 
     /*
 leetcode.com/problems/number-of-good-pairs/

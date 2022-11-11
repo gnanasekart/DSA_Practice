@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class P_E_1_N4_Colors_And_Rods {
+public class P_E_N4_1_Colors_And_Rods {
     /*
 https://leetcode.com/problems/rings-and-rods/
 

@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class P_E_1_O31_Destination_City {
+public class P_E_O31_1_Destination_City {
     /*
 https://leetcode.com/problems/destination-city/
 

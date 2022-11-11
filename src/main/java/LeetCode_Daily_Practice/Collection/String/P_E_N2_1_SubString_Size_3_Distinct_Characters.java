@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-public class P_E_1_N2_SubString_Size_3_Distinct_Characters {
+public class P_E_N2_1_SubString_Size_3_Distinct_Characters {
     /*
     https://leetcode.com/problems/substrings-of-size-three-with-distinct-characters/
 
