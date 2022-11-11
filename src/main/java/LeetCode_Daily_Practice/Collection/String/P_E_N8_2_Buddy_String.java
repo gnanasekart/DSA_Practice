@@ -1,10 +1,7 @@
-package LeetCode_Daily_Practice.String.Array;
+package LeetCode_Daily_Practice.Collection.String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
