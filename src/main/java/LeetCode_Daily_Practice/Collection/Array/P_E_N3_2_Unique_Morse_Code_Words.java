@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-public class P_E_2_N3_Unique_Morse_Code_Words {
+public class P_E_N3_2_Unique_Morse_Code_Words {
    /*
     leetcode.com/problems/unique-morse-code-words/description/
 

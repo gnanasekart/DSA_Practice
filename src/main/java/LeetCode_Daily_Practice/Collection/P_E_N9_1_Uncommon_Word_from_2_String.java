@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_N9_1_Uncommon_Word_from_2_String {
     /*
@@ -54,19 +55,19 @@ All the words in s1 and s2 are separated by a single space.
     public void ex5() {
         String s1 = "a b c d e";
         String s2 = "e s a f b";
-        Assert.assertEquals(uncommonWords(s1, s2), new String[]{"c","s","d","f"});
+        Assert.assertEquals(uncommonWords(s1, s2), new String[]{"c", "s", "d", "f"});
     }
 
-/*
-pseudocode
-1. check the length should be < 1
-2. split the string using single space to array of string
-3. adding the both string into map with occurrence
-4. get the string with value less than 2 as uncommon words
-5. return the list
+    /*
+    pseudocode
+    1. check the length should be < 1
+    2. split the string using single space to array of string
+    3. adding the both string into map with occurrence
+    4. get the string with value less than 2 as uncommon words
+    5. return the list
 
-*/
-    public String[] uncommonWords(String s1, String s2) {
+    */
+    public String[] uncommonWordsMap(String s1, String s2) {
 
         if (s1.length() < 1 || s2.length() < 1) return new String[]{};
         Map<String, Integer> map = new HashMap();
@@ -79,8 +80,47 @@ pseudocode
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             if (entry.getValue() == 1)
-                list.add(entry.getKey());
+                list.add(entry.getKey());//here we can use set also
         }
         return list.toArray(new String[0]);
+    }
+
+    //string builder
+    public String[] uncommonWordsSB(String s1, String s2) {
+
+        if (s1.length() < 1 || s2.length() < 1) return new String[]{};
+        Map<String, Integer> map = new HashMap();
+        List<String> list = new ArrayList<>();
+        for (String one : s1.split(" "))
+            map.put(one, map.getOrDefault(one, 0) + 1);
+
+        for (String two : s2.split(" "))
+            map.put(two, map.getOrDefault(two, 0) + 1);
+        StringBuilder sb = new StringBuilder();
+
+        for(String s : map.keySet()){
+            if(map.get(s)==1){
+                sb=sb.append(s+" ");
+            }
+        }
+        if(sb.toString().equals(""))
+            return new String[]{};
+        return sb.toString().trim().split(" ");
+    }
+
+    //map in stream
+    public String[] uncommonWords(String s1, String s2) {
+        if (s1.length() < 1 || s2.length() < 1) return new String[]{};
+        String[] s = (s1+" "+s2).split(" ");
+        List<String> list = new ArrayList<>();
+
+
+       Map<String, Long> map = Arrays.stream(s)
+               .collect(Collectors.groupingBy(key -> key, Collectors.counting()));
+       for(String k :map.keySet())
+           if(map.get(k)==1)
+               list.add(k);
+
+       return list.toArray(new String[0]);
     }
 }

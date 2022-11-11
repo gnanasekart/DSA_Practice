@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class P_E_3_N2_Majority_Element {
+public class P_E_N2_3_Majority_Element {
     /*
     leetcode.com/problems/contains-duplicate-ii/
 

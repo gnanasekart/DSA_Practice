@@ -9,13 +9,17 @@ public class P_E_1_N4_Colors_And_Rods {
     /*
 https://leetcode.com/problems/rings-and-rods/
 
-There are n rings and each ring is either red, green, or blue. The rings are distributed across ten rods labeled from 0 to 9.
+There are n rings and each ring is either red, green, or blue.
+The rings are distributed across ten rods labeled from 0 to 9.
 
-You are given a string rings of length 2n that describes the n rings that are placed onto the rods. Every two characters in rings forms a color-position pair that is used to describe each ring where:
+You are given a string rings of length 2n that describes the n rings
+that are placed onto the rods. Every two characters in rings forms a color-position pair
+that is used to describe each ring where:
 
 The first character of the ith pair denotes the ith ring's color ('R', 'G', 'B').
-The second character of the ith pair denotes the rod that the ith ring is placed on ('0' to '9').
-For example, "R3G2B1" describes n == 3 rings: a red ring placed onto the rod labeled 3, a green ring placed onto the rod labeled 2, and a blue ring placed onto the rod labeled 1.
+The second character of the ith pair denotes the rod that the ith ring is placed on ('0'to'9').
+For example, "R3G2B1" describes n == 3 rings: a red ring placed onto the rod labeled 3,
+a green ring placed onto the rod labeled 2, and a blue ring placed onto the rod labeled 1.
 
 Return the number of rods that have all three colors of rings on them.
 
@@ -75,7 +79,8 @@ base condition
 */
 
     private int ringandRods(String ring) {
-        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0))) return 0;
+        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0)))
+            return 0;
         if (ring.length() % 2 != 0 || ring.length() < 5) return 0;
 
         String[] str = new String[10];
@@ -98,7 +103,8 @@ base condition
     }
 
     private int ringandRodsHM(String ring) {
-        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0))) return 0;
+        if (!Character.isDigit(ring.charAt(1)) && !Character.isLetter(ring.charAt(0)))
+            return 0;
         if (ring.length() % 2 != 0 || ring.length() < 5) return 0;
         Map<Integer, String> map = new HashMap<>();
 
@@ -152,7 +158,9 @@ base condition
     private int ringandRodsString(String ring) {
         int count=0;
         for (int i = 0; i < ring.length(); i++) {
-            if(ring.contains("B"+String.valueOf(i)) && ring.contains("G"+String.valueOf(i)) && ring.contains("R"+String.valueOf(i))){
+            if(ring.contains("B"+String.valueOf(i)) &&
+                    ring.contains("G"+String.valueOf(i)) &&
+                        ring.contains("R"+String.valueOf(i))){
                 count++;
             }
         }

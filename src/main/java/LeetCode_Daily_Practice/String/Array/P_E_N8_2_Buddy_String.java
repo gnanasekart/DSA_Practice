@@ -11,9 +11,11 @@ public class P_E_N8_2_Buddy_String {
     /*
     https://leetcode.com/problems/buddy-strings/
 
-    Given two strings s and goal, return true if you can swap two letters in s so the result is equal to goal, otherwise, return false.
+    Given two strings s and goal, return true if you can swap two letters in s
+    so the result is equal to goal, otherwise, return false.
 
-    Swapping letters is defined as taking two indices i and j (0-indexed) such that i != j and swapping the characters at s[i] and s[j].
+    Swapping letters is defined as taking two indices i and j (0-indexed) such that i != j
+    and swapping the characters at s[i] and s[j].
 
     For example, swapping at indices 0 and 2 in "abcd" results in "cbad".
 
@@ -27,7 +29,8 @@ public class P_E_N8_2_Buddy_String {
 
     Input: s = "ab", goal = "ab"
     Output: false
-    Explanation: The only letters you can swap are s[0] = 'a' and s[1] = 'b', which results in "ba" != goal.
+    Explanation: The only letters you can swap are s[0] = 'a' and s[1] = 'b',
+    which results in "ba" != goal.
 
     Example 3:
 

@@ -1,11 +1,11 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class P_E_1_N1_Most_Common_Char<Charater> {
+public class P_E_1_N1_Most_Common_Char {
     /*
 https://leetcode.com/problems/find-common-characters/
 

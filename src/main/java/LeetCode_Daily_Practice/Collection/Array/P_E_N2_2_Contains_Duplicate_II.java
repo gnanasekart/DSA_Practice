@@ -1,11 +1,12 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class P_E_2_N2_Contains_Duplicate_II {
+public class P_E_N2_2_Contains_Duplicate_II {
     /*
     leetcode.com/problems/contains-duplicate-ii/
 
