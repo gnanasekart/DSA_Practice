@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.*;
 
-public class P_E_1_N1_Most_Common_Char {
+public class P_E_N1_1_Most_Common_Char {
     /*
 https://leetcode.com/problems/find-common-characters/
 
@@ -89,3 +89,7 @@ pseudocode
         return list;
     }
 }
+
+
+
+

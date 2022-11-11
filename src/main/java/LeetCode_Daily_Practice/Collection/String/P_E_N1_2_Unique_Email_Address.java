@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.HashSet;
 import java.util.Set;
 
-public class P_E_2_N1_Unique_Email_Address {
+public class P_E_N1_2_Unique_Email_Address {
    /*
     leetcode.com/problems/unique-email-addresses/
 
