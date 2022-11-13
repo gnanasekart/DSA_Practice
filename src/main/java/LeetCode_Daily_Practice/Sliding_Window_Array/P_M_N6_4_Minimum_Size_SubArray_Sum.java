@@ -3,6 +3,8 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.*;
+
 public class P_M_N6_4_Minimum_Size_SubArray_Sum {
     /*
    https://leetcode.com/problems/minimum-size-subarray-sum/
@@ -25,24 +27,24 @@ Constraints:
     public void ex(){
         int[] nums = {2,3,1,2,4,3};
         int k=7;
-        Assert.assertEquals(minSubArrayLen(nums, k), 2);
+        Assert.assertEquals(minSubArraySum(nums, k), 2);
     }
 
     @Test
     public void ex1(){
-        int[] nums = {2,4,6};
-        int k=1;
-        Assert.assertEquals(minSubArrayLen(nums, k), 0);
+        int[] nums = {1,4,4};
+        int k=4;
+        Assert.assertEquals(minSubArraySum(nums, k), 1);
     }
 
     @Test
     public void ex2(){
         int[] nums = {2,2,2,1,2,2,1,2,2,2};
         int k=2;
-        Assert.assertEquals(minSubArrayLen(nums, k), 16);
+        Assert.assertEquals(minSubArraySum(nums, k), 16);
     }
 
-    public int minSubArrayLen(int[] nums, int target) {
+    public int minSubArraySum(int[] nums, int target) {
         int sum=0, min=Integer.MAX_VALUE, arrlen=0;
         for(int i=0; i<nums.length; i++){
             sum=0;

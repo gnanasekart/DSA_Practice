@@ -59,47 +59,4 @@ Constraints:
         return count;
     }
 
-
-//    public int minSubArrayLen(int[] nums, int target) {
-//        int sum=0, min=Integer.MAX_VALUE, arrlen=0;
-//        int left=0, right=0;
-//
-//        while(right<nums.length){
-//            sum+=nums[right++];
-//            while(sum>=target){
-//                sum+=nums[right++];
-//            }
-//
-//            min=right-left+1;
-//
-//            while(right<nums.length){
-//                sum-=nums[left];
-//                sum+=nums[right];
-//                if(sum>=target){
-//                    arrlen=right-left+1;
-//                    min=Math.min(min, arrlen);
-//                }
-//            }
-//
-//        }
-//        return min==Integer.MAX_VALUE ? 0 : min;
-//    }
-
-//    public int minSubArrayLen1(int[] nums, int target) {
-//        int sum=0, min=Integer.MAX_VALUE, arrlen=0;
-//        for(int i=0; i<nums.length; i++){
-//            sum=0;
-//            for(int j=i; j<nums.length; j++){
-//
-//                sum+=nums[j];
-//                if(sum>=target){
-//                    arrlen=j-i+1;
-//                    min=Math.min(min, arrlen);
-//                    System.out.println(min);
-//                    break;
-//                }
-//            }
-//        }
-//        return min==Integer.MAX_VALUE ? 0 : min;
-//    }
 }
