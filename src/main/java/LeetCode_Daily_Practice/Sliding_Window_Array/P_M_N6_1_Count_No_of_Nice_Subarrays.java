@@ -32,21 +32,21 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
     public void ex(){
         int[] nums = {1,1,2,1,1};
         int k=3;
-        Assert.assertEquals(countnicesubarray(nums, k), 2);
+        Assert.assertEquals(countinuesubarray(nums, k), 2);
     }
 
     @Test
     public void ex1(){
         int[] nums = {2,4,6};
         int k=1;
-        Assert.assertEquals(countnicesubarray(nums, k), 0);
+        Assert.assertEquals(countinuesubarray(nums, k), 0);
     }
 
     @Test
     public void ex2(){
         int[] nums = {2,2,2,1,2,2,1,2,2,2};
         int k=2;
-        Assert.assertEquals(numberOfSubarrays1(nums, k), 16);
+        Assert.assertEquals(countinuesubarray(nums, k), 16);
     }
 
     /*
@@ -60,7 +60,7 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
      */
 
     //BF time limit exceed
-    public int countnicesubarray(int[] nums, int k) {
+    public int countinuesubarrayBF(int[] nums, int k) {
         int m=0, count=0;
         for(int i=0; i<nums.length; i++){
                 count=0;
@@ -111,10 +111,10 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
         return count;
     }
 
-    //
-    public int numberOfSubarray(int[] nums, int k) {
+    //2 pointers
+    public int countinuesubarray2Pointers(int[] nums, int k) {
         int oddCount=0, odd=0, totalOddCount=0;
-        int right=0, left=0, sum=0;
+        int right=0, left=0;
 
         while(right<nums.length){
             if(nums[right++]%2!=0){
@@ -123,13 +123,27 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
             }
             while(odd==k){
                 oddCount++;
-                if(nums[left++]%2!=0){
+                if(nums[left++]%2!=0)
                     odd--;
-                }
             }
             totalOddCount+=oddCount;
         }
         return totalOddCount;
+    }
+
+    public int countinuesubarray(int[] nums, int k) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int count = 0;
+        int res = 0;
+        map.put(0,1);
+
+        for(int i = 0;i<nums.length ; i++){
+            if( nums[i]%2 != 0 )
+                count++;
+            res += map.getOrDefault( count - k , 0 );
+            map.put( count , map.getOrDefault( count , 0 ) + 1 );
+        }
+        return res;
     }
 
     //notworking
@@ -148,20 +162,6 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
                 res+=sumCount[prefixSum[prev-k]];
             }
             sumCount[prefixSum[i]]++;
-        }
-        return res;
-    }
-
-    public int numberOfSubarrays1(int[] nums, int k) {
-        HashMap<Integer,Integer> map = new HashMap<>();
-        int count = 0;
-        int res = 0;
-        map.put(0,1);
-
-        for(int i = 0;i<nums.length ; i++){
-            if( nums[i]%2 != 0 ) count++;
-            res += map.getOrDefault( count - k , 0 );
-            map.put( count , map.getOrDefault( count , 0 ) + 1 );
         }
         return res;
     }

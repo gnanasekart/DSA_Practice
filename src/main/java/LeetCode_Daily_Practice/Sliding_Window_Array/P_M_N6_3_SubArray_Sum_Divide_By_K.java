@@ -35,6 +35,13 @@ Constraints:
         Assert.assertEquals(subArrayDividK(nums, k), 0);
     }
 
+    @Test
+    public void ex2(){
+        int[] nums = {-5,-4,-3,-2,-1,0,1,2,3,4,5};
+        int k=3;
+        Assert.assertEquals(subArrayDividK(nums, k), 0);
+    }
+
 
     public int subArrayDividK(int[] nums, int k) {
         int sum=0, count=0;
@@ -42,8 +49,9 @@ Constraints:
             sum=0;
             for(int j=i; j<nums.length; j++){
                 sum+=nums[j];
-                System.out.println(sum);
+
                 if(sum%k==0){
+                    System.out.println( sum);
                     count++;
                 }
             }

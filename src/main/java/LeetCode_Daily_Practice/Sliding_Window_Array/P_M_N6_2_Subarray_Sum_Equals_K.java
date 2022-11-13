@@ -25,14 +25,14 @@ Constrains
     public void ex1() {
         int[] nums = {1, 1, 1};
         int k = 2;
-        Assert.assertEquals(subarraySum(nums, k), 2);
+        Assert.assertEquals(subarraysum(nums, k), 2);
     }
 
     @Test
     public void ex2() {
         int[] nums = {1, 2, 3};
         int k = 3;
-        Assert.assertEquals(subarraySum(nums, k), 2);
+        Assert.assertEquals(subarraySumq(nums, k), 2);
     }
 
 
@@ -58,11 +58,18 @@ Constrains
         Assert.assertEquals(subarraysum(nums, k), 1);
     }
 
-    public int subarraysum1(int[] num, int k) {
+    @Test
+    public void ex6() {
+        int[] nums = {1, 2, 1, 2, 1};
+        int k = 3;
+        Assert.assertEquals(subarraysum(nums, k), 4);
+    }
+
+    public int subarraysumbf(int[] num, int k) {
         if (num.length < 1) return 0;
         int count = 0, sum = 0;
         for (int i = 0; i < num.length; i++) {
-            sum=0;
+            sum = 0;
             for (int j = i; j < num.length; j++) {
                 if (i == j) {
                     sum = num[i];
@@ -76,40 +83,47 @@ Constrains
         return count;
     }
 
-
-    public int subarraySum(int[] arr, int target){
-        int count=0;
+    public int subarraysum1(int[] num, int k) {
+        int sum = 0, psum = 0, count = 0, value = 0;
         Map<Integer, Integer> map = new HashMap<>();
-        map.put(0,1);
-        int sum=0, key=0, value=0;
-        for(int i=0; i<arr.length; i++){
-            sum+=arr[i];
-            key=sum-target;
-            if(map.containsKey(key)){
-                value=map.get(key);
-                count+=value;
-            }else{
-                map.put(sum, map.getOrDefault(sum, 0)+1);
-            }
+        //map.put(0, 1);
+        for (int i = 0; i < num.length; i++) {
+            sum += num[i];
+            psum = sum - k;
+            if (sum == k) count++;
+            if (map.containsKey(psum)) count += map.get(psum);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
-
         return count;
     }
 
+    public int subarraysum(int[] arr, int k) {
+        int left = 0, right = 0, sum = 0, count = 0;
 
-    public int subarraysum(int[] num, int k) {
-
-        Map<Integer, Integer> map = new HashMap();
-        int sum = 0, count = 0;
-
-        map.put(0, 1);
-        for (int i = 0; i < num.length; i++) {
-            sum += num[i];
-            int check = sum-k;
-            if (map.containsKey(check)) {
-                count += map.get(check);
+        while (left < arr.length) {
+            if (right < arr.length && sum < k) {
+                sum += arr[right++];
+            } else if (sum >= k) {
+                count++;
+                sum -= arr[left++];
             }
-            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+
+    public int subarraySumq(int[] arr, int k) {
+
+        int[] sum = new int[arr.length + 1];
+        for (int i = 1; i < sum.length; i++) {
+            sum[i] = sum[i - 1] + arr[i - 1];
+        }
+        int count=0;
+        for (int i = 0; i < sum.length; i++) {
+            for (int j = i+1; j < sum.length; j++) {
+                if(sum[j]-sum[i]==k){
+                    count++;
+                }
+            }
         }
         return count;
     }

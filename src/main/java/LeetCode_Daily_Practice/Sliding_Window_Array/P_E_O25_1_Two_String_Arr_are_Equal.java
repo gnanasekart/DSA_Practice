@@ -5,8 +5,9 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
-public class P_E_1_O25_Two_String_Arr_are_Equal {
+public class P_E_O25_1_Two_String_Arr_are_Equal {
     /*
     leetcode.com/problems/check-if-two-string-arrays-are-equivalent/
     Given two string arrays word1 and word2, return true if the two arrays
