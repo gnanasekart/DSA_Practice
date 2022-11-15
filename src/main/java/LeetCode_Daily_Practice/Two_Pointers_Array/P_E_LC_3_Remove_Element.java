@@ -22,7 +22,7 @@ the input array in-place with O(1) extra memory.
     public void example1(){
         int[] nums={0,1,2,2,3,0,4,2};
         int k=2;
-        Assert.assertEquals(removeElement(nums, k), 5);
+        Assert.assertEquals(removeElement1(nums, k), 5);
     }
 
     @Test
@@ -43,7 +43,7 @@ the input array in-place with O(1) extra memory.
     public void example4(){
         int[] nums={3,2,2,3};
         int k=2;
-        Assert.assertEquals(removeElement(nums, k), 2);
+        Assert.assertEquals(removeElement1(nums, k), 2);
     }
 
     @Test
@@ -74,13 +74,28 @@ logic -
         return right;
     }
 
-    private int removeElement1(int[] nums, int k) {
+    private int removeElement2(int[] nums, int k) {
         if(nums.length == 0) return 0;
 
-        int index=0;
-        for(int i=0; i<nums.length; i++)//O(n)
-          if(nums[i]!=k)
-              nums[index++]=nums[i];
+        int index=nums.length;
+        for(int i=0; i<index; i++)//O(n)
+          if(nums[i]==k) {
+              nums[i--] = nums[--index];
+          }
         return index;
+    }
+//3 2 2 3
+    private int removeElement1(int[] nums, int k) {
+        int left=0, right=nums.length-1;
+        while(left<=right){
+            if(nums[left]==k && nums[right]==k){
+                right--;
+            }else if(nums[left]==k && nums[right]!=k){
+                nums[left++]=nums[right--];
+            }else{
+                left++;
+            }
+        }
+        return left;
     }
 }
