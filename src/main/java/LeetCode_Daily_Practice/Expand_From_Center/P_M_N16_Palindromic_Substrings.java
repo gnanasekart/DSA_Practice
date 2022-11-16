@@ -31,7 +31,7 @@ A substring is a contiguous sequence of characters within the string.
     @Test
     public void example4(){
         String s = "asdfgggg";
-        Assert.assertEquals(palSubstringCount(s), 3);
+        Assert.assertEquals(palSubstringCount(s), 14);
     }
 
 //    private int palStringCount2p(String s){
