@@ -58,32 +58,23 @@ A substring is a contiguous sequence of characters within the string.
      */
 
 //abc
-    private int start, end;
+    private int start, end, ind;
     private int palSubstringCount(String s) {
         if(s.length()==1) return 1;
-        int count=0;
         for(int i=0; i<s.length(); i++){
-             count+=isplan(s, i, i);
-             count+=isplan(s, i, i+1);
+             isplan(s, i, i);
+             isplan(s, i, i+1);
         }
-        return count;
+        return ind;
     }
 
-    public int isplan(String s, int left, int right){
+    public void isplan(String s, int left, int right){
         int count=0;
         while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
             left--;
             right++;
+            ind++;
         }
-
-        if(end<right-left-1){
-            start=left+1;
-            end=right-left-1;
-        }
-        if(ispal(s.substring(start, start+end))){
-            count=1;
-        }
-    return count;
     }
 
 
