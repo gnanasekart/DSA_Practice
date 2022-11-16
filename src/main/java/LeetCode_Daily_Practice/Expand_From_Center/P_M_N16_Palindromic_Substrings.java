@@ -34,49 +34,15 @@ A substring is a contiguous sequence of characters within the string.
         Assert.assertEquals(palSubstringCount(s), 14);
     }
 
-//    private int palStringCount2p(String s){
-//        if(s.length()<=1) return s.length();
-//        int count=0;
-//        for(int i=0; i<s.length(); i++){
-//            for (int j = i+1; j <= s.length(); j++) {
-//                if(ispal(s.substring(i,j))){
-//                    System.out.println(s.substring(i,j));
-//                    count++;
-//                }
-//            }
-//        }
-//        return count;
-//    }
-
-    /*
-    1. start iterating from 0 to length
-    2. pass the even and odd value for iterate from center
-    3. identify the start and end points
-    4. check the two points are valid palindrome
-    5. get the valid palindrome count
-    6. return count;
-     */
-
-//abc
-    private int start, end, ind;
-    private int palSubstringCount(String s) {
-        if(s.length()==1) return 1;
-        for(int i=0; i<s.length(); i++){
-             isplan(s, i, i);
-             isplan(s, i, i+1);
-        }
-        return ind;
-    }
-
-    public void isplan(String s, int left, int right){
+    private int palStringCount2p(String s){
+        if(s.length()<=1) return s.length();
         int count=0;
-        while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
-            left--;
-            right++;
-            ind++;
+        for(int i=0; i<s.length(); i++){
+            for (int j = i+1; j <= s.length(); j++)
+                if(ispal(s.substring(i,j))) count++;
         }
+        return count;
     }
-
 
     public boolean ispal(String s){
 
@@ -88,10 +54,35 @@ A substring is a contiguous sequence of characters within the string.
             if(s.charAt(left) == s.charAt(right)){
                 left++;
                 right--;
-            }else{
+            }else
                 return false;
-            }
         }
         return true;
+    }
+
+    /*
+    1. start iterating from 0 to length
+    2. pass the even and odd value for iterate from center
+    3. for every valid char iterate the pointers
+    4. get the valid palindrome char count
+    5. return count;
+     */
+
+    private int ind;
+    private int palSubstringCount(String s) {
+        if(s.length()==1) return 1;
+        for(int i=0; i<s.length(); i++){
+             isplan(s, i, i);
+             isplan(s, i, i+1);
+        }
+        return ind;
+    }
+
+    public void isplan(String s, int left, int right){
+        while(left>=0 && right<s.length() && s.charAt(left)==s.charAt(right)){
+            left--;
+            right++;
+            ind++;
+        }
     }
 }
