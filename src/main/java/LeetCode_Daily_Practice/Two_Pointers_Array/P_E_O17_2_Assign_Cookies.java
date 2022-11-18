@@ -66,13 +66,6 @@ Constraints:
     }
 
     @Test
-    public void example6(){
-        int[] g={1,2,2,3};
-        int[] s={1,2,3};
-        Assert.assertEquals(assignCookies(g, s), 3);
-    }
-
-    @Test
     public void example7(){
         int[] g={10,9,8,7};
         int[] s={5,6,7,8};

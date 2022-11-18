@@ -3,6 +3,10 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class P_C_E_LC_25_Shortest_Distance_To_Char {
     /*
     https://leetcode.com/problems/shortest-distance-to-a-character/
@@ -28,7 +32,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         String s = "loveleetcode";
         char c = 'e';
         int[] output = {3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0};
-        Assert.assertEquals(shortestChar(s, c), output);
+        Assert.assertEquals(shortestToChar(s, c), output);
     }
 
     @Test
@@ -97,7 +101,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         int[] ans = new int[s.length()];
         int prev = s.length();
         for (int i = 0; i < s.length(); i++) {//13,14,15,0,1,0,0,1,2,3,4,0
-            if (s.charAt(i) == c) {
+        if (s.charAt(i) == c) {
                 prev = 0;
                 ans[i] = 0;
             } else {
@@ -179,5 +183,60 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
             }
         }
         return answer;
+    }
+
+
+    //devasena
+    public int[] findshortestDistance(String s, char c) {
+        int n = s.length();
+        int[] output = new int[s.length()];
+        int position = -n;
+
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == c) position = i;
+            output[i] = i - position;
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            if (s.charAt(i) == c) position = i;
+            output[i] = Math.min(output[i], Math.abs(i - position));
+        }
+        return output;
+    }
+
+    //LC solution
+    public int[] shortestToChar1(String s, char c) {
+        int[] ans = new int[s.length()];
+
+        for (int i = 0, j = 0; i < ans.length; i++) {
+            if (i == 0) j = s.indexOf(c);
+            if (i > j && s.indexOf(c, i) >= 0 &&
+                    Math.abs(j - i) > Math.abs(s.indexOf(c, i) - i)) {
+                j = s.indexOf(c, i);
+            }
+            ans[i] = Math.abs(j - i);
+        }
+
+        return ans;
+    }
+
+    public int[] shortestToChar(String s, char c) {
+        List list = new ArrayList();
+        list.add(-10000);
+        for (int i = 0; i < s.length(); i++)
+            if (s.charAt(i) == c) list.add(i);
+        list.add(Integer.MAX_VALUE);
+        int[] res = new int[s.length()];
+        int p1 = (int) list.get(0);
+        int p2 = (int) list.get(1);
+        int k = 2;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) != c) res[i] = Math.min(i - p1, p2 - i);
+            else {
+                p1 = p2;
+                p2 = (int) list.get(k++);
+            }
+        }
+        return res;
     }
 }

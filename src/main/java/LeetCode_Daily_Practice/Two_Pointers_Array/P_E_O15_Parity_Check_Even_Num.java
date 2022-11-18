@@ -9,7 +9,7 @@ public class P_E_O15_Parity_Check_Even_Num {
     public void example1(){
         int[] arr={3,1,2,4,6,5};
         int[] out={6,4,2,1,3,5};
-        Assert.assertEquals(swapTwoPointer(arr), out);
+        Assert.assertEquals(parityCheckSwap(arr), out);
     }
 
     @Test
@@ -91,6 +91,19 @@ public class P_E_O15_Parity_Check_Even_Num {
                 right--;
             else
                 left++;
+        }
+        return arr;
+    }
+
+    //order of any display is different
+    private int[] parityCheckSwap(int[] arr){
+        int j=0;
+        for(int i=0; i<arr.length; i++){
+            if(arr[i]%2==0){
+                arr[i]=arr[i]+arr[j];
+                arr[j]=arr[i]-arr[j];
+                arr[i]=arr[i]-arr[j++];
+            }
         }
         return arr;
     }

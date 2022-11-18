@@ -3,14 +3,13 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_O17_1_Array_Intersect {
 
     /*
-    leetcode.com/problems/intersection-of-two-arrays/submissions/
+    leetcode.com/problems/intersection-of-two-arrays/
 Given two integer arrays nums1 and nums2, return an array of their intersection.
 Each element in the result must be unique, and you may return the result in any order.
 Example 1:
@@ -98,7 +97,7 @@ logic
 
     //time = O(n)+O(n) = O(2n) = O(n)
     //space = O(n) - based on set size
-    private int[] targetArray(int[] nums1, int[] nums2){
+    private int[] targetArraySet(int[] nums1, int[] nums2){
         if(nums1.length <0 || nums2.length <0) return new int[]{};
         Arrays.sort(nums1);
         Arrays.sort(nums2);
@@ -109,15 +108,56 @@ logic
             if(nums1[left] == nums2[right]){
                 set.add(nums2[right++]);
                 left++;
-            }else if(nums1[left] < nums2[right])
-                left++;
+            }else if(nums1[left] < nums2[right]) left++;
             else right++;
         }
 
-        int[] arr = new int[set.size()];
-        for(Integer a: set)    //=>  O(n)
-            arr[index++]=a;
+        return set.stream().mapToInt(n -> n).toArray();
+    }
 
-        return arr;
+    //without hashset
+    private int[] targetArray(int[] nums1, int[] nums2){
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        List<Integer> list = new ArrayList<>();
+        int left=0, right=0, prev=Integer.MIN_VALUE;
+        while(left<nums1.length && right<nums2.length){
+            if(nums1[left]==prev){
+                left++;
+                continue;
+            }
+            if(nums2[right]==prev){
+                right++;
+                continue;
+            }
+
+            if(nums1[left]==nums2[right]){
+                list.add(nums1[left]);
+                prev=nums1[left];
+                left++;
+                right++;
+                continue;
+            }
+
+            if(nums1[left]<nums2[right]){
+                left++;
+                continue;
+            }
+
+            if(nums1[left] > nums2[right]){
+                right++;
+                continue;
+            }
+        }
+
+        return list.stream().mapToInt(n->n).toArray();
+    }
+
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1=Arrays.stream(nums1).mapToObj(n -> n).collect(Collectors.toSet());
+        Set<Integer> set2 = Arrays.stream(nums2).mapToObj(n -> n).collect(Collectors.toSet());
+        set1.retainAll(set2);
+        return set1.stream().mapToInt(n -> n).toArray();
     }
 }
