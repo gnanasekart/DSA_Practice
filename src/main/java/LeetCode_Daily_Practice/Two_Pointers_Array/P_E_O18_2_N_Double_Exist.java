@@ -3,10 +3,8 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_O18_2_N_Double_Exist {
     /*
@@ -96,25 +94,17 @@ logic-
     //space = O(n) = based on map
     private boolean nDoubleExist(int[] arr){
         if(arr.length<2) return false;
-        boolean isDouble=false;
-        int zero=0;
         Map<Integer, Integer> map = new HashMap();
-        for(int a: arr) // => O(n)
-            if(a!=0) map.put((2*a), a);
-            else zero++;
-
-            if(zero>=2) return true;
-
-             //=> O(n)
-            for(int i=0; i<arr.length; i++) {
-                if (map.containsKey(arr[i]))
-                    return true;
-            }
-
-        return isDouble;
+        for(int a: arr) { // => O(n)
+            if(map.containsKey(a*2) || (map.containsKey(a/2) && a%2==0)){
+                return true;
+            }else
+                map.put(a, 1);
+        }
+        return false;
     }
 
-    public boolean nDoubleExistHashset(int[] arr) {
+    public boolean nDoubleExistHashset1(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
             if (set.contains(i * 2) || (i % 2 == 0 && set.contains(i / 2)))
@@ -124,4 +114,19 @@ logic-
         }
         return false;
     }
+
+    public boolean nDoubleExistHashset2(int[] arr) {
+        Set<Integer> set = new HashSet<>();
+        for (int i : arr) {
+            if(set.contains(i))
+                return true;
+
+            set.add(i*2);
+
+            if(i%2==0)
+                set.add(i/2);
+        }
+        return false;
+    }
+
 }
