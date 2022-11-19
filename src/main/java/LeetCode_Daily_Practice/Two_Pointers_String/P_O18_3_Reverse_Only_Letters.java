@@ -45,6 +45,7 @@ public class P_O18_3_Reverse_Only_Letters {
     public void example4(){
         String s="!@#d#@!";
         Assert.assertEquals(reverseLetter(s), "!@#d#@!");
+        Character.isAlphabetic('a');
     }
 
     @Test
@@ -82,26 +83,31 @@ logic-
 
     //time=O(n)
     //space=O(n) new char array created
-    private String reverseLetter(String str){
-
-        if(str.isEmpty()) return "";
-
-        char[] s = str.toCharArray();
-
-        int left=0, right=str.length()-1;
-        char c;
-
-        while(left<right){ //O(n/2) + O(n/2) => O(n)
-            if(Character.isAlphabetic(s[left]) && Character.isAlphabetic(s[right])){
-                c = s[left];
-                s[left++] = s[right];
-                s[right--] = c;
-            }else if(!Character.isAlphabetic(s[left]))
+    private String reverseLetter(String s){
+        int left=0, right=s.length()-1;
+        char[] c = s.toCharArray();
+        char temp;
+        while(left<right){
+            if(isalpha(c[left]) && (isalpha(c[right]))){
+                temp=c[left];
+                c[left++]=c[right];
+                c[right--]=temp;
+            }else if(!isalpha(c[left])){
                 left++;
-            else
+                continue;
+            }else
                 right--;
-            }
-            return new String(s);
+            continue;
+        }
+        return new String(c);
+    }
+
+    //instead of Character.isAlphabetic() method
+    public boolean isalpha(char c){
+        if(c>='a' && c<='z' && c>='A' && c<='Z'){
+            return true;
+        }
+        return false;
     }
     }
 

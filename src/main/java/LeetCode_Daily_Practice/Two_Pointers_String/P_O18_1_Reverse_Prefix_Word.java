@@ -36,7 +36,7 @@ ch is a lowercase English letter.
     public void example1(){
         String word="abcdefd";
         char ch='d';
-        Assert.assertEquals(prefixReverse(word, ch), "dcbaefd");
+        Assert.assertEquals(prefixReverse2Pointer(word, ch), "dcbaefd");
     }
 
     @Test
@@ -79,13 +79,7 @@ Logic
 
     private String prefixReverseBF(String w, char ch){
         String str="";
-        int chIndex=0;
-        for (int i = 0; i < w.length(); i++) {
-            if(w.charAt(i)==ch){
-                chIndex=i;
-                break;
-            }
-        }
+        int chIndex=w.indexOf(ch);
         char[] c = new char[w.length()];
 
         for (int i = 0; i <= chIndex; i++)
@@ -101,19 +95,9 @@ Logic
     //space = O(1)+O(n) = O(n) = do we consider str and sub as additional space ?
     private String prefixReverse(String w, char ch){
         if(ch==' ') return "";
-
-        int i=0;
-        String str="", sub="";
-
-        while(i<w.length()){ //=> O(n)
-            if(w.charAt(i)==ch){
-                sub=w.trim().substring(0, i+1);
-                str+=stringReverse(sub)+w.substring(i+1, w.length());
-                return str;
-            }
-            i++;
-        }
-        return w;
+        int ind = w.indexOf(ch);
+        StringBuffer sb = new StringBuffer(w.substring(0, ind+1));
+        return sb.reverse().append(w.substring(ind+1, w.length())).toString();
     }
 
     public String stringReverse(String str){
@@ -132,4 +116,25 @@ Logic
         }
         return new String(c);
     }
+
+
+    //2 pointer
+    private String prefixReverse2Pointer(String w, char ch){
+        int start=0, end=0;
+        char t;
+        char[] c = w.toCharArray();
+        while(end<w.length()){
+            if(c[end]==ch){//end=w.indexOf(ch);
+                while(start<end){
+                    t=c[start];
+                    c[start++]=c[end];
+                    c[end--]=t;
+                }
+                break;
+            }
+            end++;
+        }
+        return new String(c);
+    }
+
 }

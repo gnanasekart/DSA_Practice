@@ -3,10 +3,8 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_O19_2_Intersection_Array_v2 {
 
@@ -33,7 +31,14 @@ cannot load all elements into the memory at once?
     public void example1(){
         int[] nums1={1,2,2,1};
         int[] nums2={2,2};
-        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{2,2});
+        Assert.assertEquals(intersectArrayMaxAppear1(nums1, nums2), new int[]{2,2});
+    }
+
+    @Test
+    public void example5(){
+        int[] nums1={1,2,2,1,2};
+        int[] nums2={2,2,2};
+        Assert.assertEquals(intersectArrayMaxAppear1(nums1, nums2), new int[]{2,2,2});
     }
 
     @Test
@@ -70,7 +75,7 @@ cannot load all elements into the memory at once?
     //space = O(n)arraylist + O(n)array => O(n)
     private int[] intersectArrayMaxAppear1(int[] n1, int[] n2){
         if(n1.length<1 && n2.length<1) return new int[]{};
-        int left=0, right=0, i=1;;
+        int left=0, right=0, i=0;
         Arrays.sort(n1);//O(nlog n)
         Arrays.sort(n2);//O(nlog n)
 
@@ -79,17 +84,14 @@ cannot load all elements into the memory at once?
             if(n1[left] < n2[right]) left++;
             else if(n1[left] > n2[right]) right++;
             else {
-                list.add(n1[left]);
+               // list.add(n1[left]);//extra space
+                n1[i++]=n1[left]; //in space
                 left++;
                 right++;
             }
         }
-
-        int[] arr=new int[list.size()];
-        int j=0;
-        for(Integer a: list)//=>O(n)
-            arr[j++]=a;
-        return arr;
+            return Arrays.copyOfRange(n1, 0, i);
+//        return list.stream().mapToInt(n->n).toArray();
     }
 
     //time = O(n)+O(n)+O(n)+O(nlog n)+O(nlog n) =

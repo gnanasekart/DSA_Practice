@@ -22,56 +22,56 @@ name and typed consist of only lowercase English letters.
 	public void example1() {
 		String name = "alex";
 		String typed = "aaleex";
-		Assert.assertEquals(longPress(name, typed), true);
+		Assert.assertEquals(longPress5(name, typed), true);
 	}
 
 	@Test
 	public void example2() {
 		String name = "saeed";
 		String typed = "ssaaedd";
-		Assert.assertEquals(longPress2(name, typed), false);
+		Assert.assertEquals(longPress5(name, typed), false);
 	}
 
 	@Test
 	public void example3() {
 		String name = "saeed";
 		String typed = "saaeeed";
-		Assert.assertEquals(longPress(name, typed), true);
+		Assert.assertEquals(longPress5(name, typed), true);
 	}
 
 	@Test
 	public void example4() {
 		String name = "saeed";
 		String typed = "s";
-		Assert.assertEquals(longPress(name, typed), false);
+		Assert.assertEquals(longPress5(name, typed), false);
 	}
 
 	@Test
 	public void example5() {
 		String name = "sad";
 		String typed = "ssaadd";
-		Assert.assertEquals(longPress(name, typed), true);
+		Assert.assertEquals(longPress5(name, typed), true);
 	}
 
 	@Test
 	public void example6() {
 		String name = "alex";
 		String typed = "aaleexa";
-		Assert.assertEquals(longPress3(name, typed), false);
+		Assert.assertEquals(longPress5(name, typed), false);
 	}
 
 	@Test
 	public void example7() {
 		String name = "alex";
 		String typed = "aaleexeex";
-		Assert.assertEquals(longPress4(name, typed), false);
+		Assert.assertEquals(longPress5(name, typed), false);
 	}
 
 	@Test
 	public void example8() {
 		String name = "alex";
 		String typed = "aaleelx";
-		Assert.assertEquals(longPress2(name, typed), false);
+		Assert.assertEquals(longPress5(name, typed), false);
 	}
 /*
 - check condition name is <= typed means return true
@@ -112,47 +112,39 @@ name and typed consist of only lowercase English letters.
 		else return isLongPressed;
 	}
 
-	private boolean longPress2(String name, String typed) {
-		if (name.charAt(0) != typed.charAt(0)) return false;
-
-		char[] n = name.toCharArray();
-		char[] t = typed.toCharArray();
-
-		int left = 1, right = 1, count = 0;
-		while (left < t.length) {
-			count = 0;
-			if (n[left] == t[right]) {
-				count++;
-				if (count > 2) {
-					return true;
-				}
-				left++;
-				right++;
-			} else if (t[right]==t[right-1]) {
-				right++;
-			}
-			return false;
-		}
-		return right==name.length();
-	}
-
 	//best solution
 	private boolean longPress3(String name, String typed){
+		if(name.charAt(0)!=typed.charAt(0)) return false;
+
 		int left=0, right=0;
 		while(left<name.length() && right<typed.length()){
 			if(name.charAt(left) == typed.charAt(right)){
 				left++;
 				right++;
-			} else if (right==0 || typed.charAt(right) != typed.charAt(right-1)) {
-				return false;
-			}
-			right++;
+			} else if (right==0 || typed.charAt(right) == typed.charAt(right-1)) {
+				right++;
+			}else return false;
 		}
+
+		if(left==name.length() && right==typed.length())
+			return true;
+
+		if(left!=name.length() && right==typed.length())
+			return false;
+
+		if(left==name.length() && right!=typed.length()) {
+			while(right<typed.length()) {
+				if(typed.charAt(right)!=typed.charAt(right-1))
+					return false;
+				right++;
+			}
+		}
+
 		return left==name.length();
 	}
 
 	//best solution
-	private boolean longPress4(String name, String typed){
+	private boolean longPress2(String name, String typed){
 		if(name.length()>typed.length()) return false;
 		int i=0; int j=0;
 		while(i<name.length() && j<typed.length()){
@@ -169,6 +161,21 @@ name and typed consist of only lowercase English letters.
 			j++;
 		}
 		return i==name.length();
+	}
+
+	private boolean longPress5(String name, String typed){
+		if (name.charAt(0) != typed.charAt(0)) return false;
+		int i = 1;
+		int j = 1;
+		while (j < typed.length()) {
+			if (i < name.length() && typed.charAt(j) == name.charAt(i)) {
+				i++;
+				j++;
+			}
+			else if (typed.charAt(j) == name.charAt(i - 1)) j++;
+			else return false;
+		}
+		return i == name.length();
 	}
 }
 
