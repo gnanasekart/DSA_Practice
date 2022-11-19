@@ -3,13 +3,11 @@ package LeetCode_Daily_Practice.Two_Pointers_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
 import java.util.function.IntConsumer;
+import java.util.stream.Collectors;
 
 public class P_E_O20_3_Triplets {
     /*
@@ -63,7 +61,26 @@ public class P_E_O20_3_Triplets {
     5. return the number of occurrence
 
     */
+
     private int tripletBF(int[] arr, int diff) {
+        if (arr.length < 3) return 0;
+
+        int count = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i+1; j < arr.length; j++) {
+                for (int k = j + 1; k < arr.length; k++) {
+                    if (arr[j]-arr[i]==diff && arr[k]-arr[j]==diff) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+
+    private int triplet(int[] arr, int diff) {
         if (arr.length < 3) return 0;
 
         int count = 0;
@@ -87,8 +104,7 @@ public class P_E_O20_3_Triplets {
 
     private int tripletTwoPointer(int[] arr, int diff) {
         if (arr.length < 3) return 0;
-        int count = 0;
-        int left = 0, right = 0;
+        int count = 0, left = 0, right = 0;
         for (int i = 0; i < arr.length; i++) {
             left = i + 1;
             right = arr.length - 1;
@@ -99,10 +115,6 @@ public class P_E_O20_3_Triplets {
                     right--;
                 } else if (arr[left] - arr[i] != diff) left++;
                 else if ((arr[right] - arr[left] != diff)) right--;
-                else {
-                    left++;
-                    right++;
-                }
             }
         }
         return count;
@@ -110,9 +122,7 @@ public class P_E_O20_3_Triplets {
 
     public int tripletHashMap(int[] arr, int diff) {
         int count = 0;
-
         HashMap<Integer, Integer> map = new HashMap<>();
-
         Arrays.stream(arr).forEach(a -> map.put(a, 1));
 
         for (int i = 0; i < arr.length; i++) {

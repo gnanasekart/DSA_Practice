@@ -24,7 +24,7 @@ All the words in s are separated by a single space.
 public void example1(){
     String s="Let's take LeetCode contest";
     String out ="s'teL ekat edoCteeL tsetnoc";
-    Assert.assertEquals(wordReverse(s), out);
+    Assert.assertEquals(reverseWords(s), out);
 }
 
 @Test
@@ -120,5 +120,33 @@ public void example6(){
         }
         return rs.toString().trim();
     }
+
+    public String reverseWords(String s) {
+        if(s.length()<2) return s;
+
+        StringBuilder sb = new StringBuilder();
+        for(String word: s.trim().split(" ")){
+            String rev = reverse(word);
+            //System.out.println(reverse(word));
+            sb=sb.append(rev).append(" ");
+        }
+        return sb.toString();
+    }
+
+    public static String reverse(String word){
+        if(word.length()==1) return word;
+
+        int left=0, right=word.length()-1;
+        char[] c = word.toCharArray();
+        char temp;
+        while(left<right){
+            temp=c[left];
+            c[left++]=c[right];
+            c[right--]=temp;
+        }
+        // System.out.println(new String(c));
+        return new String(c);
+    }
+
 
 }

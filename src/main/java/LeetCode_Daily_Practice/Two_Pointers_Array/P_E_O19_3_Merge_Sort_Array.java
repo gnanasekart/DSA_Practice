@@ -27,7 +27,7 @@ public class P_E_O19_3_Merge_Sort_Array {
     nums2.length == n
     0 <= m, n <= 200
     1 <= m + n <= 200
-    -109 <= nums1[i], nums2[j] <= 109
+    -10^9 <= nums1[i], nums2[j] <= 10^9
 */
 
     @Test
@@ -61,7 +61,7 @@ public class P_E_O19_3_Merge_Sort_Array {
     public void example4(){
         int[] nums1={1};
         int m=1;
-        int[] nums2={};
+        int[] nums2={0};
         int n=0;
         Assert.assertEquals(sortAndMerge(nums1,m,nums2,n), new int[]{1});
     }
@@ -82,20 +82,18 @@ public class P_E_O19_3_Merge_Sort_Array {
     }
 
     private int[] sortAndMerge(int[] nums1, int m, int[] nums2, int n){
-
         int k=m+n-1, i=m-1, j=n-1;
+        while(i>=0 && j>=0){
+            nums1[k--]=nums1[i]>nums2[j]?nums1[i--]:nums2[j--];
+
+//            if(nums1[i]==nums2[j]) nums1[k--]=nums2[j--];
+//            else if(nums1[i]>nums2[j]) nums1[k--]=nums1[i--];
+//            else nums1[k--]=nums2[j--];
+        }
 
         while(j>=0)
             nums1[k--]=nums2[j--];
 
-        while(i>=0 && j>=0){
-            if(nums1[i]==nums2[j])
-                nums1[k--]=nums2[j--];
-            else if(nums1[i]>nums2[j])
-                nums1[k--]=nums1[i--];
-            else
-                nums1[k--]=nums2[j--];
-        }
         return nums1;
     }
 }

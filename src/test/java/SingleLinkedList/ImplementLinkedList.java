@@ -11,7 +11,7 @@ public class ImplementLinkedList {
         implement.addNode(20);
         implement.addNode(25);
         implement.insertAtStart(5);
-        implement.display();
+       // implement.display();
         implement.insertAt(2, 15);
         //implement.delete(20);
         implement.display();
