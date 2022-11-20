@@ -47,6 +47,20 @@ public class ImplementLinkedList {
         return head;
     }
 
+    //    public void addNode(int data){
+//        Node node = new Node();
+//        node.data=data;
+//        node.next=null;
+//
+//        if(head==null) head=node;
+//        else {
+//            while (head.next!=null){
+//                head=head.next;
+//            }
+//            head.next=node;
+//        }
+//    }
+
     Node insertAtStart(int data){
         Node newNode = new Node(data);
         newNode.data=data;
@@ -70,20 +84,6 @@ public class ImplementLinkedList {
 
        // return head;
     }
-
-//    public void addNode(int data){
-//        Node node = new Node();
-//        node.data=data;
-//        node.next=null;
-//
-//        if(head==null) head=node;
-//        else {
-//            while (head.next!=null){
-//                head=head.next;
-//            }
-//            head.next=node;
-//        }
-//    }
 
     public void delete(int data) {
         if (head == null) System.out.println("List empty");

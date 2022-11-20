@@ -1,36 +1,35 @@
-package sample;
+package LeetCode_Daily_Practice.Linked_List.Doubly_LL.List;
 
-public class Node {
-    int data;
-    Node head;
-    Node next;
-    Node tail;
+public class ListNode {
+    int val;
+    ListNode head;
+    ListNode next;
+    ListNode prev;
+    ListNode tail;
     int length;
 
-    Node() {
+    ListNode() {
         head = null;
     }
 
-    Node(int input) {
-        this.data = input;
+    ListNode(int input) {
+        this.val = input;
         head = null;
-        tail = null;
+        next = null;
+        prev = null;
     }
-    /*
-    remove(int index)
-    remove(int value)
-    set(int index, int value)
-    get(int index)
-     */
 
     public void add(int input) {
-        Node node = new Node(input);
+        ListNode node = new ListNode(input);
         if (head == null) {
             head = node;
             tail = node;
+            prev=null;
         } else {
+
             tail.next = node;
             tail = node;
+            head=tail;
         }
         length++;
     }
@@ -42,17 +41,17 @@ public class Node {
     public void print() {
         if(head==null)
             System.out.println("Empty Node");
-        Node temp=head;
+        ListNode temp=head;
         while (temp != null) {
-            System.out.print(temp.data+" ");
+            System.out.print(temp.val +" ");
             temp = temp.next;
         }
     }
 
     public void remove(int input) {
-        Node temp = head;
+        ListNode temp = head;
         while (temp.next != null) {
-            if (temp.next.data == input) {
+            if (temp.next.val == input) {
                 temp.next = temp.next.next;
                 length--;
             }
@@ -61,7 +60,7 @@ public class Node {
     }
 
     public void removeind(int index) {
-        Node temp = head;
+        ListNode temp = head;
         for (int i = 0; i < index-1; i++)
             temp=temp.next;
 
@@ -72,12 +71,12 @@ public class Node {
     public void set(int index, int value) {
         for (int i = 0; i < index-1; i++)
             head=head.next;
-        head.next.data=value;
+        head.next.val =value;
     }
 
     public void insert(int index, int value) {
-        Node temp=head;
-        Node node=new Node(value);
+        ListNode temp=head;
+        ListNode node=new ListNode(value);
         if(index==0) {
             node.next = temp;
             temp = node;
@@ -95,7 +94,7 @@ public class Node {
 
         for (int i = 0; i < index-1; i++)
             head=head.next;
-        return head.next.data;
+        return head.next.val;
 //        Node temp = head;
 //        int i = 0;
 //        int ret=0;
@@ -111,15 +110,4 @@ public class Node {
 //        return ret;
     }
 
-    public Node deleteDuplicates(Node head) {
-        Node temp=head;
-        if(head==null) return head;
-        while(head.next!=null){
-            if(head.data==head.next.data){
-                head.next=head.next.next;
-            }else
-                head=head.next;
-        }
-        return temp;
-    }
 }

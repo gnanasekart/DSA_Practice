@@ -1,4 +1,4 @@
-package sample;
+package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.List;
 
 public class Nodeimplementation {
 
