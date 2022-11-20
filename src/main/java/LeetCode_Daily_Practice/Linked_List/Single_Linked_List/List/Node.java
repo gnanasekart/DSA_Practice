@@ -96,19 +96,6 @@ public class Node {
         for (int i = 0; i < index-1; i++)
             head=head.next;
         return head.next.data;
-//        Node temp = head;
-//        int i = 0;
-//        int ret=0;
-//        while (temp.next != null) {
-//            i += 1;
-//            tail = temp.next;
-//            if (i == index) {
-//                ret = temp.data;
-//            }
-//            temp = tail;
-//            tail = tail.next;
-//        }
-//        return ret;
     }
 
 }
