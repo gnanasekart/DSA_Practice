@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.P_E_N19_Merge_Two_Sorted_Lists;
+package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.P_E_N19_2_Merge_Two_Sorted_Lists;
 
 import org.testng.annotations.Test;
 public class Sorted_List {

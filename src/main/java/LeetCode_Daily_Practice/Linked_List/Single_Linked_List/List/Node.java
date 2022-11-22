@@ -1,11 +1,6 @@
 package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.List;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Stack;
 
 public class Node {
     int data;
@@ -14,11 +9,11 @@ public class Node {
     Node tail;
     int length;
 
-    Node() {
+    public Node() {
         head = null;
     }
 
-    Node(int input) {
+   public Node(int input) {
         this.data = input;
         head = null;
         tail = null;
@@ -133,6 +128,7 @@ public class Node {
         head = null;
     }
 
+    //inProgress
     public void removeAll(int input){
         Objects.requireNonNull(input);
 //        if(head.data==input){
