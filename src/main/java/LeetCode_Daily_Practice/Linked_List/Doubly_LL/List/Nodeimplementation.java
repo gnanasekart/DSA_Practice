@@ -1,5 +1,6 @@
 package LeetCode_Daily_Practice.Linked_List.Doubly_LL.List;
 
+import LeetCode_Daily_Practice.Linked_List.Single_Linked_List.List.Node;
 import org.testng.annotations.Test;
 
 public class Nodeimplementation {
@@ -13,12 +14,17 @@ public class Nodeimplementation {
     @Test
     public void example1() {
         //ListNode node = new ListNode();
-        add(1);
-        add(2);
+//        add(1);
+//        add(2);
+//        add(3);
+//        add(4);
+//        add(5);
+//        add(6);
+
         add(3);
-        add(4);
-        add(5);
-        add(6);
+        add(2);
+        add(0);
+        add(-4);
         print();
         //System.out.println(size());
         //remove(1);
@@ -31,7 +37,6 @@ public class Nodeimplementation {
         // node.deleteDuplicates(node.head);
         print();
     }
-
 
     public void add(int input) {
         node = new ListNode(input);
@@ -129,6 +134,8 @@ public class Nodeimplementation {
             temp = temp.next;
         return temp.next.val;
     }
+
+
 
 
 }

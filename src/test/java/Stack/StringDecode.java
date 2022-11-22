@@ -19,7 +19,7 @@ public class StringDecode {
 			e. Reverse the string and push back to the stack
 		4. Repeat the step 3 until stack is empty
 
-	 *  ab(3c) = bbccc
+	    ab(3c) = bbccc
 		a3(bc2(d)) = abcddbcddbcdd
 		3(ab) = ababab
 		2d(3(a)) = daaadaaa
@@ -72,7 +72,7 @@ public class StringDecode {
 			}else {
 				while(stack.peek() != '[')
 					list.add(stack.pop());
-				//pop the next char -> thid id opening bracket
+				//pop the next char -> third id opening bracket
 				stack.pop();
 
 				//get the frequency
@@ -92,6 +92,7 @@ public class StringDecode {
 		}
 		StringBuilder sb = new StringBuilder();
 		while(!stack.isEmpty()) sb = sb.append(stack.pop());
+		//System.out.println(sb.reverse().toString());
 		return sb.reverse().toString();
 	}
 }

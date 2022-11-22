@@ -36,6 +36,9 @@ public class Sorted_List {
         list.add(1, node2);
         list.add(3, node2);
         list.add(4, node2);
+        list.add(7, node2);
+        list.add(9, node2);
+        list.add(10, node2);
         //print(node2.head);
         list.mergeTwoLists(node1.head,node2.head);
         list.print(list.mergeNode.head);
@@ -109,7 +112,7 @@ public class Sorted_List {
             add(l2.val,mergeNode);
             l2=l2.next;
         }
-        return l1;
+        return mergeNode;
     }
 
     public ListNode newNode=null;
