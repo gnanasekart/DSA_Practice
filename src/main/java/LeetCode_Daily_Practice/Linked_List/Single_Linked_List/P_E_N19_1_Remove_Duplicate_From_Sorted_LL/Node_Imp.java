@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.P_E_N19_Remove_Duplicate;
+package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.P_E_N19_1_Remove_Duplicate_From_Sorted_LL;
 
 public class Node_Imp {
     int data;

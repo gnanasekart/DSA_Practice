@@ -3,10 +3,10 @@ package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.List;
 import java.util.Objects;
 
 public class Node {
-    int data;
-    Node head;
-    Node next;
-    Node tail;
+    public int data;
+    public Node head;
+    public Node next;
+    public Node tail;
     int length;
 
     public Node() {
@@ -19,7 +19,7 @@ public class Node {
         tail = null;
     }
 
-    public void add(int input) {
+    public Node add(int input) {
         Node node = new Node(input);
         if (head == null) {
             head = node;
@@ -29,6 +29,7 @@ public class Node {
             tail = node;
         }
         length++;
+        return node;
     }
 
     public void addFirst(int input) {
