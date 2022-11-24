@@ -11,13 +11,13 @@ public class ReverseLinkedList {
 		head.next.next = addNode(33);
 		head.next.next.next = addNode(40);
 
-		//Node tail = reverseNodes(head);
-		//printAllNodes(tail);
+		Node tail = reverseNodes(head);
+		printAllNodes(tail);
 
 		//print only odd numbers
-		printOddNodes(head);
+		//printOddNodes(head);
 		
-		printOddValues(head);
+		//printOddValues(head);
 	}
 
 	private void printAllNodes(Node node){
