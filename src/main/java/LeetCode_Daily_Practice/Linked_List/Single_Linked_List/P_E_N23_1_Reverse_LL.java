@@ -20,7 +20,7 @@ public class P_E_N23_1_Reverse_LL {
         int[] h = {1, 2, 3, 4, 5};
         for (int i : h)
             node = add(i);
-        Assert.assertEquals(toArray(reverseSwap(node)), new int[]{5, 4, 3, 2, 1});
+        Assert.assertEquals(toArray(reverseList(node)), new int[]{5, 4, 3, 2, 1});
     }
 
     @Test
@@ -149,5 +149,36 @@ public class P_E_N23_1_Reverse_LL {
             currNode = tempNode;
         }
         return prevNode;
+    }
+
+//    public ListNode reverseList(ListNode head) {
+//        //Base case
+//        if(head==null || head.next==null){
+//            return head;
+//        }
+//        //Recursive call
+//        ListNode newHead=reverseSwap(head.next);
+//        head.next.next=head;
+//        head.next=null;
+//        return newHead;
+//    }
+
+    public ListNode reverseList(ListNode head) {
+        if(head ==null || head.next==null){
+            return head;
+        }
+        ListNode prev=null;
+        ListNode present = head;
+        ListNode forward = head.next;
+
+        while(present!=null){
+            present.next=prev;
+            prev=present;
+            present=forward;
+            if(forward!=null){
+                forward = forward.next;
+            }
+        }
+        return prev;
     }
 }

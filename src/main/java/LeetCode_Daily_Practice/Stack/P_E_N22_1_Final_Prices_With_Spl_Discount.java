@@ -4,7 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class P_E_N22_1_Final_Prices_With_Spl_Discount {
     /*
@@ -46,13 +48,13 @@ Constraints:
     @Test
     public void example1() {
         int[] prices = {8, 4, 6, 2, 3};
-        Assert.assertEquals(discount(prices), new int[]{4, 2, 4, 2, 3});
+        Assert.assertEquals(discounts(prices), new int[]{4, 2, 4, 2, 3});
     }
 
     @Test
     public void example2() {
         int[] prices = {10, 1, 1, 6};
-        Assert.assertEquals(discount(prices), new int[]{9, 0, 1, 6});
+        Assert.assertEquals(discounts(prices), new int[]{9, 0, 1, 6});
     }
 
     @Test
@@ -70,19 +72,19 @@ Constraints:
     @Test
     public void example5() {
         int[] prices = {2};
-        Assert.assertEquals(discount(prices), new int[]{2});
+        Assert.assertEquals(discounts(prices), new int[]{2});
     }
 
     @Test
     public void example6() {
         int[] prices = {2, 4, 6, 8, 9};
-        Assert.assertEquals(discount(prices), new int[]{2, 4, 6, 8, 9});
+        Assert.assertEquals(discounts(prices), new int[]{2, 4, 6, 8, 9});
     }
 
     @Test
     public void example7() {
         int[] prices = {8, 7, 4, 2, 8, 1, 7, 7, 10, 1};
-        Assert.assertEquals(discount(prices), new int[]{1, 3, 2, 1, 7, 0, 0, 6, 9, 1});
+        Assert.assertEquals(discounts(prices), new int[]{1, 3, 2, 1, 7, 0, 0, 6, 9, 1});
     }
 
 /*
@@ -94,6 +96,9 @@ Constraints:
 		then increment i and j
 	else increment j and compare the same
 5. return input array
+
+time - O(n^2)
+space - O(1)
 */
 
     public int[] discount(int[] p) {
@@ -104,19 +109,42 @@ Constraints:
                 if (p[j] <= p[i]) {
                     p[i] = p[i] - p[j];
                     break;
-                } else {
+                } else
                     continue;
-                }
             }
         }
         return p;
     }
 
+    /*
+    1. create stack
+    2. push the index value if stack empty
+    3. else peek the stack value and compare the condition with the index
+    4. find the difference and add in peeked index place
+    5. else move to next index by incrementing
+    6. return array
+     */
     public int[] discounts(int[] p) {
         if (p.length <= 1) return p;
-
-        Queue<Integer> q = new ArrayDeque();
+        int i = 0, j=0;
+        Stack<Integer> st = new Stack<>();
+        while (i < p.length) {
+            while (!st.isEmpty() && p[i] <= p[st.peek()]) {
+                p[st.pop()] -= p[i];
+            }
+            st.push(i);
+            i++;
+        }
         return p;
-    }
+//            if (st.isEmpty()) {
+//                st.push(i);
+//            } else {
+//                j= st.peek();
+//                if (p[i] <= p[j]) {
+//                    p[st.pop()] -= p[i];
+//                }else
+//                    st.push(i);
+//            }
 
+    }
 }

@@ -45,8 +45,8 @@ ListNode node=null;
 
     @Test
     public void example3() {
-        int[] h = {0};
-        int k=4;
+        int[] h = {1,2};
+        int k=1;
         for (int i : h)
             node = add(i);
         Assert.assertEquals(rotateRight(node, k), new int[]{0});
@@ -137,30 +137,61 @@ ListNode node=null;
 
 
      */
+//    public ListNode rotateRight1(ListNode head, int k) {
+//        if(k==0 || head==null || head.next==null) return head;
+//
+//        int l=0, i=0;
+//        ListNode loop = head;
+//        while(loop!=null){
+//            loop=loop.next;
+//            l++;
+//        }
+//        ListNode curr=head,headtemp=null,tail=null,t=null,h=null,tt=null,hh=null;
+//        while(curr!=null && i<=k%l){
+//            if(h==null) h=t=new ListNode(curr.val);
+//            else t.next=t=new ListNode(curr.val);
+//            headtemp=curr;
+//            curr=curr.next;
+//            i++;
+//        }
+//        tail=headtemp.next;
+//        while(tail!=null){
+//            if(hh==null) hh=tt=new ListNode(tail.val);
+//            else tt.next=tt=new ListNode(tail.val);
+//            tail=tail.next;
+//        }
+//        if(tail==null) return t;
+//        else tt.next=h;
+//
+//        return hh;
+//    }
 
     public ListNode rotateRight(ListNode head, int k) {
-        final ListNode c = head;
-        if (k == 0 || head == null || head.next == null)
-            return head;
-
-        ListNode curr = c, headtemp = null, tail = null, end = null;
-        int i = 0;
-        while (i < k) {
-            if(curr.next==null) curr.next=c;
-            curr = curr.next;
-            i++;
+        if (k == 0 || head == null || head.next == null) return head;
+        int l=0, i=0;
+        ListNode loop = head;
+        while(loop!=null){
+            loop=loop.next;
+            l++;
         }
-        headtemp = c;
-        while (headtemp.next != null) {
-            headtemp=headtemp.next;
-            end = headtemp;
+        ListNode temp = head, h=null, t=null, n=null;
+        while(temp!=null){
+            if(h==null) h=t=new ListNode(temp.val);
+            else t.next=t= new ListNode(temp.val);
+            temp=temp.next;
         }
-        tail = curr.next;
-        end.next = head;
-        head=tail;
-        curr.next = null;
-        return tail;
+        k=k%l;
+        k=l-k;
+        while(i++ < k){
+            n=h.next;
+            t.next=h;
+            t=t.next;
+            h.next=null;
+            h=n;
+        }
+        return h;
     }
+
 
 
     public void print(ListNode node1) {

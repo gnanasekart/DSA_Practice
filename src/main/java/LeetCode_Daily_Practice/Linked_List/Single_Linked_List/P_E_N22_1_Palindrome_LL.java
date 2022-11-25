@@ -23,7 +23,8 @@ The number of nodes in the list is in the range [1, 10^5].
     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
   }
 
-  ListNode head=null, tail = null, next=null, res=null;
+  ListNode head=null, tail = null;
+  // next=null, res=null;
     ListNode node=null, temp=null;
     int length=0;
 
@@ -75,6 +76,14 @@ The number of nodes in the list is in the range [1, 10^5].
         Assert.assertEquals(palindrome(node), false);
     }
 
+    @Test
+    public void example7(){
+        int[] a ={1,2,3,3,2,1};
+        for(int x : a)
+            node = add(x);
+        Assert.assertEquals(palindrome(node), true);
+    }
+
     public ListNode add(int input){
         if(head==null){
             head=tail=new ListNode(input);
@@ -122,15 +131,66 @@ The number of nodes in the list is in the range [1, 10^5].
         return temp;
     }
 
-    public boolean palindrome(ListNode n){
+    public boolean palindrome1(ListNode n){
         if(n.next==null) return true;
         if(n==null) return false;
-        ListNode ntemp = n;
+        ListNode ntemp = n, rest=null;
         while(ntemp!=null){  //O(n)
-            res = reverseLL(ntemp.val);
+            rest = reverseLL(ntemp.val);
             ntemp=ntemp.next;
         }
-        return Arrays.equals(toArray(res),toArray(n));  //O(m*n)
+        return Arrays.equals(toArray(rest),toArray(n));  //O(m*n)
     }
 
+
+    public boolean palindrome(ListNode n) {
+        if(n.next==null) return true;
+        if(n==null) return false;
+
+        boolean isPal = false;
+        ListNode curr = n;
+        print(curr);
+        ListNode second = n;
+        ListNode revs = null;
+        int l = 0, left = 0, right = 0, trav = 0;
+        while (curr != null) {
+            curr = curr.next;
+            l++;
+        }
+        if (l % 2 == 0) {
+            left = l / 2 - 1;
+            right = l / 2;
+        } else {
+            left = l / 2 - 1;
+            right = l / 2 + 1;
+        }
+        ListNode loop = n;
+        ListNode nextlevel = null;
+        while (loop != null && trav++ <= right) {
+            nextlevel = loop;
+            loop = loop.next;
+        }
+        revs = reverseLL(nextlevel);
+
+        while (revs != null && second != null && left>=0) {
+            if (second.val != revs.val) {
+                return false;
+            } else isPal = true;
+            left--;
+            revs = revs.next;
+            second = second.next;
+        }
+        return isPal;
+    }
+
+    public ListNode reverseLL(ListNode node){
+        ListNode nextNode=null, prevNode=null, currNode = node;
+        while(currNode!=null){
+            nextNode = currNode.next;
+            currNode.next=prevNode;
+            prevNode=currNode;
+            currNode=nextNode;
+        }
+        return prevNode;
+    }
 }
