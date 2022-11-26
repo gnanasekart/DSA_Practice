@@ -10,6 +10,7 @@ import java.util.Stack;
 
 public class P_E_N20_1_Backspace_String_Compare {
     /*
+    leetcode.com/problems/backspace-string-compare/
     Given two strings s and t,
     return true if they are equal when both are typed into empty text editors.
     '#' means a backspace character.
@@ -64,6 +65,7 @@ public class P_E_N20_1_Backspace_String_Compare {
         for(char c: s.toCharArray())
             if(c =='#' && !st1.isEmpty()) st1.pop();
             else if(c !='#') st1.push(c);
+
         Stack<Character> st2 = new Stack<>();
         for(char c: t.toCharArray())
             if(c =='#' && !st2.isEmpty()) st2.pop();

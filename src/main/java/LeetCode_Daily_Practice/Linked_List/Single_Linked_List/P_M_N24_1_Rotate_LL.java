@@ -166,16 +166,25 @@ ListNode node=null;
 //        return hh;
 //    }
 
+    /*
+    1. find the length
+    2. calculate the k value but limiting within the length by k=k%l
+    3.
+
+
+    time - O(n) + O(n) = O(n)
+    space = O(n)
+     */
     public ListNode rotateRight(ListNode head, int k) {
         if (k == 0 || head == null || head.next == null) return head;
         int l=0, i=0;
         ListNode loop = head;
-        while(loop!=null){
+        while(loop!=null){//O(n)
             loop=loop.next;
             l++;
         }
         ListNode temp = head, h=null, t=null, n=null;
-        while(temp!=null){
+        while(temp!=null){//O(n)
             if(h==null) h=t=new ListNode(temp.val);
             else t.next=t= new ListNode(temp.val);
             temp=temp.next;

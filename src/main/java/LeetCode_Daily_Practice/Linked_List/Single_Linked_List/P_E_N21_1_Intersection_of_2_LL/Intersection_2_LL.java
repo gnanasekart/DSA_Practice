@@ -76,17 +76,18 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
-//    @Test
-//    public void example1(){
-//        Node node1 = new Node();
-//        int[] heada = {4,1,8,4,5};
-//        node1.addAll(heada);
-//        Node node2 = new Node();
-//        int[] headb = {5,6,1,8,4,5};
-//        node2.addAll(headb);
-//        intersect(node1, node2);
-//
-//    }
+    @Test
+    public void example1(){
+        new ListNode();
+        int[] heada = {1,9,1,2,4};
+        for(int a: heada)
+            node1 = addA(a);
+        int[] headb = {3,2,4};
+        for(int b: headb)
+            node2 = addB(b);
+        intersect(node1, node2);
+        //intersect=2
+    }
 
     @Test
     public void example2(){
@@ -97,14 +98,21 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
         int[] headb = {5,6,1,8,4,5};
         for(int b: headb)
             node2 = addB(b);
-        //intersect(node1, node2, 2, 3);
         intersect(node1, node2);
-        //inputList(heada, headb, 2, 3);
+        //intersect=8
     }
 
-
-
-
+    @Test
+    public void example3(){
+        new ListNode();
+        int[] heada = {2,6,4};
+        for(int a: heada)
+            node1 = addA(a);
+        int[] headb = {1,5};
+        for(int b: headb)
+            node2 = addB(b);
+        intersect(node1, node2);//no intersect
+    }
 
     ListNode node1=null, node2=null;
     ListNode head1=null, tail1 = null, head2=null, tail2=null;
@@ -126,29 +134,23 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
         return head2;
     }
 
-    ListNode heada= null, headb=null;
-    public void intersect1(ListNode node1, ListNode node2, int aPosition, int bPosition) {
-        int indexA=0, indexB=0, tempA=0, tempB=0;
-        while(node1!=null){
-            if(indexA++ == aPosition){
-                tempA=node1.val;
-            }
-            node1=node1.next;
-        }
-        while(node2!=null){
-            if(indexB++ == bPosition){
-                tempB=node2.val;
-            }
-            node2=node2.next;
-        }
+    /*
+   1. consider a hashset to avoid duplicate entry
+   2. add all the combination node into set
+   3. then from list two check every node is exist in set already
+   4. if exist return the node
+   5. else continue till the end and return node 1
 
-        if(tempA==tempB)
-            System.out.println(tempA);
-    }
+    space - O(n) + O(n)
+    time = O(n)
+
+    */
+
+
 
     public ListNode intersect(ListNode node1, ListNode node2){
 
-        HashSet<ListNode> hset1 =new HashSet<>();
+        HashSet<ListNode> hset1 =new HashSet<>();//O(n)
         while(node1!=null){
             hset1.add(node1);
             node1=node1.next;
@@ -162,45 +164,31 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
             node2=node2.next;
         }
         return node2;
-
-//        ListNode n1 = node1, n2 = node2;
-//        while(node1!=null){
-//            n2=node2;
-//            while(n2!=null){
-//                if(node1==n2) return node1;
-//
-//                n2=n2.next;
-//            }
-//            node1=node1.next;
-//        }
-//        return null;
-
-
     }
 
-    //ListNode heada= null, headb=null;
-//    public ListNode[] inputList(int[] a, int[] b, int aPosition, int bPosition){
-//        ListNode[] heads =new ListNode[8];
-//        ListNode[] n1head=null, n2head=null, n1tail=null, n2tail=null;
-//        int i=0;
-//        for(int aa : a){
-//            if(heads==null){
-//                heads[i++]=new ListNode(aa);
-//                //tail[i++]=new ListNode(aa);
-//            }else{
-//                heads[i].next = heads[i++] = new ListNode(aa);
-//            }
-//        }
-//
-//        for(int bb : b) {
-//            if (heads == null) {
-//                heads[i++] = new ListNode(bb);
-//            } else {
-//                if ()
-//                    heads[i].next = heads[i++] = new ListNode(bb);
-//            }
-//        }
-//
-//        return heads;
-//    }
+    /*
+   1. consider two loop
+   2. first list node 1 with check all the nodes from node 2 and its continue nodes
+   3. similarly for node 2, 3, etc
+   4. if both the node matches means break and return the node
+   5. else continue the loop till the end
+
+    space - n^2
+    time = O(1)
+
+    */
+    public ListNode intersectBF(ListNode node1, ListNode node2) {
+
+        ListNode n1 = node1, n2 = node2;
+        while(node1!=null){//O(n)
+            n2=node2;
+            while(n2!=null){//O(n)
+                if(node1==n2) return node1;
+
+                n2=n2.next;
+            }
+            node1=node1.next;
+        }
+        return null;
+    }
 }

@@ -15,12 +15,17 @@ public class FindMinBracketToVaild {
 		//findMinValid1();
 	}
 
-	//@Test
+	@Test
 	public void example2() {
 		String s = "{})}";
 		Assert.assertEquals(findMinValid(s), 2);
 	}
 
+	@Test
+	public void example5() {
+		String s = "()";
+		Assert.assertEquals(findMinValid(s), true);
+	}
 	//@Test
 	public void example3() {
 		String s = "))";
