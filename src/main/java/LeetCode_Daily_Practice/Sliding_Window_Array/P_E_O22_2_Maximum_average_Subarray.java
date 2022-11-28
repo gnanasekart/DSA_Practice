@@ -59,7 +59,7 @@ public class P_E_O22_2_Maximum_average_Subarray {
     private int sumvalue(int[] arr, int k) {
         int left = 0, right = 0;
         int sum = 0, max = 0;
-        while (left < arr.length) {
+        while (left < arr.length) {//O(n)
             if (left <= k) {
                 sum = 0;
                 while (left < k + right)
@@ -77,15 +77,14 @@ public class P_E_O22_2_Maximum_average_Subarray {
     private double sumvalue1(int[] arr, int k) {
         double max=Double.MAX_VALUE, newmax=0.0;
         int i=0;
-        while(i<k){
+        while(i<k){//O(n/2)
             newmax+=arr[i++];
         }
         i=k;
         max = newmax/k;
-        while(i<arr.length){
+        while(i<arr.length){//O(n/2)
 //            newmax=newmax-arr[i-k];//8-1=7
 //            newmax=newmax+arr[i++];//7+3=10
-
             newmax= ((newmax-arr[i-k]) + arr[i++]);
             max = Math.max(max, newmax/k);
         }

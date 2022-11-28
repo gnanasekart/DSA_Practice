@@ -21,7 +21,7 @@ Return the minimum possible difference.
     public void example1(){
         int[] arr = {9,4,1,7};
         int k=2;
-        Assert.assertEquals(kScoreWS(arr, k), 2);
+        Assert.assertEquals(minimumDifference(arr, k), 2);
     }
 
     @Test
@@ -54,6 +54,19 @@ Return the minimum possible difference.
 
 */
 
+    public int minimumDifference(int[] nums, int k) {
+        if(nums.length<2) return 0;
+        Arrays.sort(nums);
+        int right=k-1, Max=Integer.MAX_VALUE, val=0;
+        while(right<nums.length){
+            //right=k-1;
+
+            val=Math.min(Max, nums[right]-nums[right-k+1]);
+            Max=val<Max?val:Max;
+            right++;
+        }
+        return Max;
+    }
 
     private int kScoreWS(int[] arr, int k){
         if(k<=1) return 0;

@@ -78,4 +78,16 @@ public class P_E_O25_1_Two_String_Arr_are_Equal {
 
         return String.join("", w1).equals(String.join("", w2));
     }
+
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+
+        StringBuilder sb = new StringBuilder();
+        for(String w1: word1) sb.append(w1);
+
+        StringBuilder sb1 = new StringBuilder();
+        for(String w2: word2) sb1.append(w2);
+
+        if(sb.toString().equals(sb1.toString())) return true;
+        else return false;
+    }
 }

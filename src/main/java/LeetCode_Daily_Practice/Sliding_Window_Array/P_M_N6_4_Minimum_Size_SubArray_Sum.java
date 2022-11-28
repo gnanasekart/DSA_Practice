@@ -22,7 +22,7 @@ Constraints:
 1 <= nums[i] <= 10^4
 
 */
-    
+
     @Test
     public void ex(){
         int[] nums = {2,3,1,2,4,3};
@@ -44,21 +44,28 @@ Constraints:
         Assert.assertEquals(minSubArraySum(nums, k), 16);
     }
 
-    public int minSubArraySum(int[] nums, int target) {
+    public int minSubArraySumBF(int[] nums, int target) {
         int sum=0, min=Integer.MAX_VALUE, arrlen=0;
         for(int i=0; i<nums.length; i++){
             sum=0;
             for(int j=i; j<nums.length; j++){
-
                 sum+=nums[j];
                 if(sum>=target){
                     arrlen=j-i+1;
                     min=Math.min(min, arrlen);
-                    System.out.println(min);
                     break;
                 }
             }
         }
         return min==Integer.MAX_VALUE ? 0 : min;
+    }
+
+    public int minSubArraySum(int[] nums, int target) {//{2,3,1,2,4,3}; k=7
+        int left=0, right=0, min=Integer.MAX_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+
+
+        }
+
     }
 }

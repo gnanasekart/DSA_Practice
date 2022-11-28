@@ -1,7 +1,9 @@
-package LeetCode_Daily_Practice.Sliding_Window_Array;
+package LeetCode_Daily_Practice.Two_Pointers_Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.Arrays;
 
 public class P_E_N6_6_Duplicate_Zero {
     /*
@@ -67,8 +69,8 @@ Constraints:
 
     @Test
     public void ex8() {
-        int[] arr = {8,4,5,0,0,0,0,7};
-        Assert.assertEquals(DuplicateZero(arr), new int[]{8,4,5,0,0,0,0,0});
+        int[] arr = {8, 4, 5, 0, 0, 0, 0, 7};
+        Assert.assertEquals(DuplicateZero(arr), new int[]{8, 4, 5, 0, 0, 0, 0, 0});
     }
     //[0,1,7,6,0,2,0,7]
 
@@ -83,7 +85,7 @@ Constraints:
 7. if num[i] is zero means replace num[i] and num[i-1]
 8. once reach start point then stop the process
 */
-    public int[] DuplicateZero(int[] arr) {
+    public int[] DuplicateZero1(int[] arr) {
         int zero = 0, n = 0, i = arr.length - 1;
         for (int a : arr) {
             if (a == 0) zero++;
@@ -96,8 +98,8 @@ Constraints:
             i--;
         }
         //System.out.println(n);
-        n = n== arr.length-1 ? n:n - 1;
-        while (n >0) {
+        n = n == arr.length - 1 ? n : n - 1;
+        while (n > 0) {
 
 
             if (arr[i] == 0) {
@@ -108,6 +110,38 @@ Constraints:
             }
             //System.out.println(Arrays.toString(arr));
         }
+        return arr;
+    }
+
+
+    public int[] DuplicateZero(int[] arr) {
+        int n = arr.length-1;
+        int i = 0, l = n - 1, zero = 0;
+
+        while (i <= n) {// -> O(n)
+            if (arr[i++] == 0) zero++;
+        }
+        int x=n;
+        int m = arr.length + zero;//11
+        while(m>n){ //O(n/2)
+            if(arr[l--]==0){
+                x--;
+                m=m-2;
+            }else{
+                x--;
+                m--;
+            }
+        }
+        m=m==arr.length-1? m: m-1;
+        while (x > 0) {//O(n)
+
+            if (arr[x] == 0) {
+                arr[m--] = arr[x];
+                arr[m--] = arr[x];
+            } else  arr[m--] = arr[x];
+            x--;
+        }
+        System.out.println(Arrays.asList(arr));
         return arr;
     }
 }

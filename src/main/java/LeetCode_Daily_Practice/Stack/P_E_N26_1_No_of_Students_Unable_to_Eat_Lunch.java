@@ -96,7 +96,7 @@ public class P_E_N26_1_No_of_Students_Unable_to_Eat_Lunch {
 */
 
 
-    public int countStudents(int[] students, int[] sandwiches) {
+    public int countStudents1(int[] students, int[] sandwiches) {
         if(students.length!=sandwiches.length) return 0;
         Stack<Integer> st = new Stack();
         for(int i=sandwiches.length-1; i>=0; i--)
@@ -117,7 +117,7 @@ public class P_E_N26_1_No_of_Students_Unable_to_Eat_Lunch {
         return q.size();
     }
 
-    public int countStudents1(int[] students, int[] sandwiches) {
+    public int countStudents(int[] students, int[] sandwiches) {
         Queue<Integer> q = new ArrayDeque();
         for(int sand: students)
             q.offer(sand);
