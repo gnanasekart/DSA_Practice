@@ -87,58 +87,52 @@ Constraints:
 */
     public int[] DuplicateZero1(int[] arr) {
         int zero = 0, n = 0, i = arr.length - 1;
-        for (int a : arr) {
+        for (int a : arr)
             if (a == 0) zero++;
-        }
 
         n = arr.length + zero;
-
         while (n > arr.length) {
             n = (arr[i] == 0) ? n - 2 : n - 1;
             i--;
         }
-        //System.out.println(n);
         n = n == arr.length - 1 ? n : n - 1;
+
         while (n > 0) {
-
-
             if (arr[i] == 0) {
                 arr[n--] = arr[i];
                 arr[n--] = arr[i--];
-            } else {
+            } else
                 arr[n--] = arr[i--];
-            }
-            //System.out.println(Arrays.toString(arr));
         }
         return arr;
     }
 
 
     public int[] DuplicateZero(int[] arr) {
-        int n = arr.length-1;
+        int n = arr.length - 1;
         int i = 0, l = n - 1, zero = 0;
 
         while (i <= n) {// -> O(n)
             if (arr[i++] == 0) zero++;
         }
-        int x=n;
+        int x = n;
         int m = arr.length + zero;//11
-        while(m>n){ //O(n/2)
-            if(arr[l--]==0){
+        while (m > n) { //O(n/2)
+            if (arr[l--] == 0) {
                 x--;
-                m=m-2;
-            }else{
+                m = m - 2;
+            } else {
                 x--;
                 m--;
             }
         }
-        m=m==arr.length-1? m: m-1;
+        m = m == arr.length - 1 ? m : m - 1;
         while (x > 0) {//O(n)
 
             if (arr[x] == 0) {
                 arr[m--] = arr[x];
                 arr[m--] = arr[x];
-            } else  arr[m--] = arr[x];
+            } else arr[m--] = arr[x];
             x--;
         }
         System.out.println(Arrays.asList(arr));

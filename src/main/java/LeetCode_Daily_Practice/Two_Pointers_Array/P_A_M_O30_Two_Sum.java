@@ -11,11 +11,11 @@ public class P_A_M_O30_Two_Sum {
 /*
 https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     logic-
-            1. consider two pointer left and right
+1. consider two pointer left and right
 2. left will be slow pointer and right will be fast pointer
 3. right will sum with left pointer and match with target
 4. if match with target then return left+1 and right+1
-            5. else right increment until array length
+5. else right increment until array length
 6. left increment for every right loop complete
 
 */
@@ -23,7 +23,7 @@ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public void example1(){
         int[] n ={2,7,11,15};
         int target=9;
-        Assert.assertEquals(targetSum(n, target), new int[]{1,2});
+        Assert.assertEquals(targetSum1(n, target), new int[]{1,2});
     }
 
     @Test
@@ -37,7 +37,7 @@ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public void example5(){
         int[] n ={1,2,3,4,5,6,7,8,9};
         int target=6;
-        Assert.assertEquals(targetSum(n, target), new int[]{2,4});
+        Assert.assertEquals(targetSum1(n, target), new int[]{2,4});
     }
 
     @Test

@@ -55,20 +55,6 @@ logic-
         return new int[] {};
     }
 
-    //using while loop
-    public int[] twoNoZeroIntegers2(int n) {
-        if(n<2) return new int[]{};
-        int sum=0;
-        for(int i=1; i<n; i++){
-            if(!contains(i) && !contains(n-i)){
-                sum = i + n-i;
-                if(sum==n)
-                    return new int[] {i, n-i};
-            }
-        }
-        return new int[] {};
-    }
-
     public int[] twoNoZeroIntegers(int n) {
         if(n<2) return new int[]{};
         n--;

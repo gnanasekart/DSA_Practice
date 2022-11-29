@@ -76,7 +76,7 @@ n is even.
 /*
 1. check if length value is <= 1
 2. collect the occurrence of candy
-3. compare the occurrence is < to candytype length to return the min value
+3. compare the occurrence is < to candy type length to return the min value
 */
 
     public int candyTypeSet(int[] type) {

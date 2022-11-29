@@ -121,7 +121,7 @@ cannot load all elements into the memory at once?
                 map.put(l, map.get(l)-1);
             }
         }
-
+//------
         int[] arr=new int[list.size()];
         int j=0;
         for(Integer a: list)//=>O(n)

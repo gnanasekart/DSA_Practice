@@ -22,7 +22,6 @@ public class P_E_O19_3_Merge_Sort_Array {
     and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
 
     Constraints:
-
     nums1.length == m + n
     nums2.length == n
     0 <= m, n <= 200

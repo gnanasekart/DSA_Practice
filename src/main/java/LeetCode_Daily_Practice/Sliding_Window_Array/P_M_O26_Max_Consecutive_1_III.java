@@ -10,7 +10,7 @@ public class P_M_O26_Max_Consecutive_1_III {
     number of consecutive 1's in the array if you can flip at most k 0's.
 
     Constraints:
-1 <= nums.length <= 105
+1 <= nums.length <= 10^5
 nums[i] is either 0 or 1.
 0 <= k <= nums.length
 */
@@ -18,7 +18,7 @@ nums[i] is either 0 or 1.
     public void example1(){
         int[] num={1,1,1,0,0,0,1,1,1,1,0};
         int k=2;
-        Assert.assertEquals(maxOneTwoPointer(num, k), 6);
+        Assert.assertEquals(maxOne(num, k), 6);
     }
 
     @Test

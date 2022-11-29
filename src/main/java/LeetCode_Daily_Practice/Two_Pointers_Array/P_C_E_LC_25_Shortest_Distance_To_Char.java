@@ -231,7 +231,8 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         int p2 = (int) list.get(1);
         int k = 2;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != c) res[i] = Math.min(i - p1, p2 - i);
+            if (s.charAt(i) != c)
+                res[i] = Math.min(i - p1, p2 - i);
             else {
                 p1 = p2;
                 p2 = (int) list.get(k++);

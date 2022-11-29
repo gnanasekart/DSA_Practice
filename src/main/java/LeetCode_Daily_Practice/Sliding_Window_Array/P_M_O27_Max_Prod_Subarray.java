@@ -21,7 +21,7 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
     @Test
     public void example1(){
         int[] num={2,3,-2,4};
-        Assert.assertEquals(prodSubArray(num), 6);
+        Assert.assertEquals(kandane(num), 6);
     }
 
     @Test
@@ -124,5 +124,24 @@ The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit int
             }
         }
         return max;
+    }
+
+    private int kandane(int[] num){
+            int sum=1, first=num[0], max=Integer.MIN_VALUE;
+            for(int i=1; i<num.length; i++) {
+                sum *= num[i];
+
+                if (first < sum) first = sum;
+                if (sum == 0) sum = 1;
+            }
+                sum=1;
+            for(int i=num.length-1; i>0; i--){
+                sum*=num[i];
+
+                if (first < sum) first = sum;
+                if (sum == 0) sum = 1;
+            }
+        return first;
+
     }
 }

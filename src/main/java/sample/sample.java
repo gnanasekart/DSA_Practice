@@ -12,10 +12,9 @@ public class sample {
 
     @Test
     public void main1() {
-        String[] s = {"Hello","Alaska","Dad","Peace"};
+        String[] s = {"Hello", "Alaska", "Dad", "Peace"};
         String[] s2 = findWords(s);
     }
-
 
 
     public static String[] findWords(String[] words) {
@@ -25,27 +24,27 @@ public class sample {
         String s3 = "zxcvbnm";
         ArrayList<String> st = new ArrayList<>();
 
-        for(String s: words) {
-            if(s1.indexOf(Character.toLowerCase(s.charAt(0)))!=-1) {
-                for(char c: s.toCharArray()){
-                    if(s1.indexOf(Character.toLowerCase(c))!=-1){
+        for (String s : words) {
+            if (s1.indexOf(Character.toLowerCase(s.charAt(0))) != -1) {
+                for (char c : s.toCharArray()) {
+                    if (s1.indexOf(Character.toLowerCase(c)) != -1) {
                         valid = true;
-                    }else valid = false;
+                    } else valid = false;
                 }
-            }else if(s2.indexOf(Character.toLowerCase(s.charAt(0)))!=-1){
-                for(char c: s.toCharArray()){
-                    if(s2.indexOf(Character.toLowerCase(c))!=-1){
+            } else if (s2.indexOf(Character.toLowerCase(s.charAt(0))) != -1) {
+                for (char c : s.toCharArray()) {
+                    if (s2.indexOf(Character.toLowerCase(c)) != -1) {
                         valid = true;
-                    }else valid = false;
+                    } else valid = false;
                 }
-            }else if(s3.indexOf(Character.toLowerCase(s.charAt(0)))!=-1){
-                for(char c: s.toCharArray()){
-                    if(s3.indexOf(Character.toLowerCase(c))!=-1){
+            } else if (s3.indexOf(Character.toLowerCase(s.charAt(0))) != -1) {
+                for (char c : s.toCharArray()) {
+                    if (s3.indexOf(Character.toLowerCase(c)) != -1) {
                         valid = true;
-                    }else valid = false;
+                    } else valid = false;
                 }
             }
-            if(valid){
+            if (valid) {
                 st.add(s);
             }
         }
@@ -54,21 +53,21 @@ public class sample {
     }
 
     @Test
-    public void ex1(){
+    public void ex1() {
         String s = "xyzzaz";
         subsstring(s);
     }
 
     private int subsstring(String s) {
-            int i=0, right=0;
+        int i = 0, right = 0;
         HashMap<Character, Integer> map = new HashMap();
-        int count=0;
-        while( i<s.length()){
-            while(i<3){
-                map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0)+1);
+        int count = 0;
+        while (i < s.length()) {
+            while (i < 3) {
+                map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
             }
 
-            if(!map.containsValue(2) && map.size()==3){
+            if (!map.containsValue(2) && map.size() == 3) {
                 count++;
             }
 //            while(i<s.length()){
@@ -82,8 +81,8 @@ public class sample {
     }
 
     @Test
-    public void ex2(){
-        String[] s = {"abc","car","ada","racecar","cool"};
+    public void ex2() {
+        String[] s = {"abc", "car", "ada", "racecar", "cool"};
         Assert.assertEquals(substringp(s), "ada");
     }
 
@@ -97,16 +96,15 @@ public class sample {
      */
 
 
-
     private String substringp(String[] s) {
         boolean valid = false;
-        String w="";
-        for(String word : s){
-            int left=0, right=word.length()-1;
-            while(left<right){//0, 2  1 1
-                if(word.charAt(left++)!=word.charAt(right--)) {//0 2
+        String w = "";
+        for (String word : s) {
+            int left = 0, right = word.length() - 1;
+            while (left < right) {//0, 2  1 1
+                if (word.charAt(left++) != word.charAt(right--)) {//0 2
                     break;
-                }else {
+                } else {
                     return word;
                 }
             }
@@ -115,22 +113,22 @@ public class sample {
     }
 
     @Test
-    public void ex3(){
-        int[] s = {0,1,0,3,12};
-       Assert.assertEquals(moveZeroes(s), new int[]{1,3,12,0,0});
+    public void ex3() {
+        int[] s = {0, 1, 0, 3, 12};
+        Assert.assertEquals(moveZeroes(s), new int[]{1, 3, 12, 0, 0});
     }
 
     public int[] moveZeroes(int[] nums) {
 
-        int i=0, j=1, temp=0;
-        while(i<nums.length-1 && j<nums.length){
-            if(nums[i]==0 && nums[j]==0){
+        int i = 0, j = 1, temp = 0;
+        while (i < nums.length - 1 && j < nums.length) {
+            if (nums[i] == 0 && nums[j] == 0) {
                 j++;
-            }else if(nums[i]==0 && nums[j]!=0){
-                temp=nums[i];
-                nums[i++]=nums[j];
-                nums[j++]=temp;
-            }else if(nums[i]!=0 && nums[j]==0){
+            } else if (nums[i] == 0 && nums[j] != 0) {
+                temp = nums[i];
+                nums[i++] = nums[j];
+                nums[j++] = temp;
+            } else if (nums[i] != 0 && nums[j] == 0) {
                 j++;
             }
         }
@@ -138,5 +136,33 @@ public class sample {
         return nums;
     }
 
-
+    @Test
+    public void ex() {
+    int[] nums = {1, 2, 3, 4, 5, 6, 7};
+    int k = 3;
+    rotate(nums, k);
 }
+
+        public void rotate(int[] nums, int k) {
+            int n=nums.length, temp=0;
+            if(nums.length==0) return;
+            k=n%k;
+            k=n-k;
+            for(int i=0; i<k; i++){
+                int j=n-2, x=n-1;
+                temp=nums[n-1];
+                while(j>=0){
+                    nums[x--]=nums[j--];
+                }
+                nums[0]=temp;
+            }
+        }
+    }
+//         int[] a = new int[nums.length];
+//         for(int i=rot; rot<nums.length; i++){
+//                a[left++]=a[rot];
+//         }
+
+//         for(int n=0; n<nums.length-k; n++){
+//             a[left++]=a[n];
+//         }

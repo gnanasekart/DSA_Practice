@@ -10,11 +10,16 @@ import java.util.Set;
 
 public class P_M_N5_5_Long_SubString_Without_Repeat_Char {
     /*
+    https://leetcode.com/problems/longest-substring-without-repeating-characters/
     Given a string s, find the length of the longest substring without repeating characters.
 
 Input: s = "abcabcbb"
 Output: 3
 Explanation: The answer is "abc", with the length of 3.
+
+Constraints:
+0 <= s.length <= 5 * 10^4
+s consists of English letters, digits, symbols and spaces.
 
 */
     @Test
@@ -50,7 +55,7 @@ Explanation: The answer is "abc", with the length of 3.
     @Test
     public void ex1() {
         String s = "abcabcbb";
-        Assert.assertEquals(nonrepeatString(s), 3);
+        Assert.assertEquals(lengthOfLongestSubString(s), 3);
     }
 
     @Test
@@ -130,23 +135,39 @@ Explanation: The answer is "abc", with the length of 3.
         return max;
     }
 
-    //debug
-      public int lengthOfLongestSubstringMAp(String s) {
+    public int lengthOfLongestSubString1(String s) {
+        if(s.length()<1) return 0;
+        int index=0, max=Integer.MIN_VALUE;
+        String sb="";
+        String ans = sb+s.charAt(0);
+        for (int i = 1; i < s.length(); i++) {
+            index=ans.indexOf(s.charAt(i));
+            if(index==-1){
+                ans+=s.charAt(i);
+                max=Math.max(max, ans.length());
+            }else{
+                ans=ans.substring(index+1)+s.charAt(i);
+            }
+        }
+        return max;
+    }
 
-            int left = 0, right = 0, len = 0;
+
+    //debug
+      public int lengthOfLongestSubString(String s) {
+
+            int left = 0, right = 0, len = 0, max= Integer.MIN_VALUE;
 
             Map<Character, Integer> map = new HashMap();
 
             while (right < s.length()) {
                 if (map.containsKey(s.charAt(right))) {
-                    System.out.println("map = " + map);
                     left = Math.max(map.get(s.charAt(right)) + 1, left);
                 }
-
-                map.put(s.charAt(right), right);
-                len = Math.max(left, right - left + 1);
+                max = Math.max(max, right-left+1);
+                map.put(s.charAt(right),map.getOrDefault(s.charAt(right), 0)+ right+1);
                 right++;
             }
-            return len;
+            return max;
         }
     }
