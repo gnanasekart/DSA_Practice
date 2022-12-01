@@ -55,6 +55,13 @@ public class Word_pattern_FreshWks {
         //wordPatternASCII(ch, pattern);
     }
 
+    private List<String> getAllMatches(String str, String pattern) {
+        List<String> list = new ArrayList<>();
+        for (String s : str.split(" "))
+            if (wordPatternASCII(s, pattern))
+                list.add(s);
+        return list;
+    }
     private boolean wordPatternASCII(String str, String pattern) {
         int petLen = pattern.length();
         int strlen = str.length();
@@ -67,19 +74,14 @@ public class Word_pattern_FreshWks {
 //				ch[pattern.charAt(i) - 'a'] = str.charAt(i);
             if (ch[pattern.charAt(i) - 'a'] == 0) {
                 for (int j = 0; j < ch.length; j++) {
-                    if (ch[j] == str.charAt(i)) return false;
+                    if (ch[j] == str.charAt(i))
+                        return false;
                 }
                 ch[pattern.charAt(i) - 'a'] = str.charAt(i);
-            } else if (ch[pattern.charAt(i) - 'a'] != str.charAt(i)) return false;
+            } else if (ch[pattern.charAt(i) - 'a'] != str.charAt(i))
+                return false;
         }
         return true;
-    }
-
-    private List<String> getAllMatches(String str, String pattern) {
-        List<String> list = new ArrayList<>();
-        for (String s : str.split(" "))
-            if (wordPatternASCII(s, pattern)) list.add(s);
-        return list;
     }
 
 	/*

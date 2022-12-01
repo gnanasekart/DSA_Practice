@@ -22,32 +22,32 @@ public class P_E_N11_2_Sum_of_Unique_Elements {
 */
 
     @Test
-    public void example1(){
-        int[] nums = {1,2,3,2};
+    public void example1() {
+        int[] nums = {1, 2, 3, 2};
         Assert.assertEquals(uniqueSum(nums), 4);
     }
 
     @Test
-    public void example2(){
-        int[] nums = {1,1,1,1,1};
+    public void example2() {
+        int[] nums = {1, 1, 1, 1, 1};
         Assert.assertEquals(uniqueSum(nums), 0);
     }
 
     @Test
-    public void example3(){
-        int[] nums = {1,2,3,4,5};
+    public void example3() {
+        int[] nums = {1, 2, 3, 4, 5};
         Assert.assertEquals(uniqueSum(nums), 15);
     }
 
     @Test
-    public void example4(){
+    public void example4() {
         int[] nums = {1};
         Assert.assertEquals(uniqueSum(nums), 1);
     }
 
     @Test
-    public void example5(){
-        int[] nums = {1,11,100};
+    public void example5() {
+        int[] nums = {1, 11, 100};
         Assert.assertEquals(uniqueSum(nums), 112);
     }
 
@@ -58,12 +58,29 @@ public class P_E_N11_2_Sum_of_Unique_Elements {
 4. return the key
 */
 
-    public int uniqueSum(int[] nums) {
+    public int uniqueSum1(int[] nums) {
         Map<Integer, Integer> map = new HashMap();
-        Arrays.stream(nums).forEach(n -> map.put(n, map.getOrDefault(n, 0)+1));
+        Arrays.stream(nums).forEach(n -> map.put(n, map.getOrDefault(n, 0) + 1));
+        int sum = 0;
+        for (Integer m : map.keySet()) {
+            if (map.get(m) == 1) sum += m;
+        }
+        return sum;
+    }
+
+    public int uniqueSum(int[] nums) {
+        String s = nums.toString();
         int sum=0;
-        for(Integer m : map.keySet()){
-            if(map.get(m)==1) sum+=m;
+
+        int[] a = new int[101];
+
+        for(int i=0; i<a.length; i++) {
+            a[nums[i]]++;
+        }
+
+        for(int x=0; x<a.length; x++ ) {
+            if(a[x]==1)
+                sum=+x;
         }
         return sum;
     }
