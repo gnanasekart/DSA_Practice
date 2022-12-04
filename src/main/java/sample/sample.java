@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.stream.Collectors;
@@ -136,33 +137,5 @@ public class sample {
         return nums;
     }
 
-    @Test
-    public void ex() {
-    int[] nums = {1, 2, 3, 4, 5, 6, 7};
-    int k = 3;
-    rotate(nums, k);
-}
 
-        public void rotate(int[] nums, int k) {
-            int n=nums.length, temp=0;
-            if(nums.length==0) return;
-            k=n%k;
-            k=n-k;
-            for(int i=0; i<k; i++){
-                int j=n-2, x=n-1;
-                temp=nums[n-1];
-                while(j>=0){
-                    nums[x--]=nums[j--];
-                }
-                nums[0]=temp;
-            }
-        }
     }
-//         int[] a = new int[nums.length];
-//         for(int i=rot; rot<nums.length; i++){
-//                a[left++]=a[rot];
-//         }
-
-//         for(int n=0; n<nums.length-k; n++){
-//             a[left++]=a[n];
-//         }

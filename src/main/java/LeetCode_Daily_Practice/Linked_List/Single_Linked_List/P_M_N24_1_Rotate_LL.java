@@ -100,7 +100,6 @@ ListNode node=null;
     space - O(1) using same space without creating new node
      */
 
-
     int length = 0;
     ListNode head = null, tail = null, prev = null, temp = null;
 
@@ -198,6 +197,7 @@ ListNode node=null;
             h.next=null;
             h=n;
         }
+        print(h);
         return h;
     }
 

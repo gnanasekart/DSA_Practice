@@ -70,7 +70,7 @@ pseudocode
             for (Map.Entry<String, Integer> map : map1.entrySet()) {
                 if (map2.containsKey(map.getKey())) {
                     tempValue = map1.get(map.getKey()) > map.getValue() ? map1.get(map.getKey()) : map.getValue();
-                    //min=Math.min(tempValue, min);
+                    min=Math.min(tempValue, min);
                     temp.put(map.getKey(), min);
                 }
             }

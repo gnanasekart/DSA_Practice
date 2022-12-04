@@ -22,7 +22,8 @@ public class Grumpy_Owner {
 
 	Example 1:
 
-	Input: customers = [1,0,1,2,1,1,7,5], grumpy = [0,1,0,1,0,1,0,1], minutes = 3
+	Input: customers = [1,0,1,2,1,1,7,5],
+			  grumpy = [0,1,0,1,0,1,0,1], minutes = 3
 	Output: 16
 	Explanation: The bookstore owner keeps themselves not grumpy for the last 3 minutes. 
 	The maximum number of customers that can be satisfied = 1 + 1 + 1 + 1 + 7 + 5 = 16.
@@ -57,12 +58,14 @@ public class Grumpy_Owner {
 		int currentCustomer=0, maxCustomer=0;
 		
 		for (int i = 0; i < grumpy.length; i++) {
-			if(grumpy[i]==0) currentCustomer += customers[i]; 
+			if(grumpy[i]==0)
+				currentCustomer += customers[i];
 		}
 		maxCustomer = currentCustomer;
 		
 		for (int i = 0; i < min; i++) {
-			if(grumpy[i]==1) currentCustomer += customers[i]; 
+			if(grumpy[i]==1)
+				currentCustomer += customers[i];
 		}
 		
 		maxCustomer = Math.max(maxCustomer, currentCustomer);

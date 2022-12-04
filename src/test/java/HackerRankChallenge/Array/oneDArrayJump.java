@@ -32,9 +32,6 @@ NO
 			else if(game[i+1]==0) return true;
 			
 		}
-		
-		
-		
 		return false;
         
     }
