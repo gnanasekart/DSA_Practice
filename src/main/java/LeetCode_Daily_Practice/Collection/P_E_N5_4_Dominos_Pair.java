@@ -18,7 +18,7 @@ for which 0 <= i < j < dominoes.length, and dominoes[i] is equivalent to dominoe
 	@Test
 	public void ex1() {
 		int[][] dom = {{1, 2}, {2, 1}, {3, 4}, {5, 6}};
-		Assert.assertEquals(dominoesArray(dom), 1);
+		Assert.assertEquals(dominoesArray1(dom), 1);
 	}
 
 	@Test
@@ -34,7 +34,7 @@ for which 0 <= i < j < dominoes.length, and dominoes[i] is equivalent to dominoe
     - check inner array length ==2
 
     1. consider the array value as key
-    2. get the occurrance of key and store in value
+    2. get the occurrence of key and store in value
     3. get the count of each key by getting the value in probability combination
     */
 	public int dominoesArray1(int[][] arr) {

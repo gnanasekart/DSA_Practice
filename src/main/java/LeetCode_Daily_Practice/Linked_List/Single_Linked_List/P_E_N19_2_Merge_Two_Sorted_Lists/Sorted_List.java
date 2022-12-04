@@ -23,7 +23,7 @@ public class Sorted_List {
         list.add(3, node2);
         list.add(4, node2);
         //print(node2.head);
-        list.mergeTwoList(node1.head,node2.head);
+        list.mergeTwoListsRe(node1.head,node2.head);
         list.print(list.mergeNode.head);
     }
 
@@ -181,6 +181,50 @@ public class Sorted_List {
         }
 
         return h;
+    }
+
+    ListNode tr=null, hr=null;
+    public ListNode mergeTwoListsRe(ListNode l1, ListNode l2) {
+        if(l1==null && l2==null || l1!=null && l2==null) return l1;
+        //if(l1!=null && l2==null) return l1;
+        if (l1==null && l2!=null) return l2;
+
+        if(l1!=null && l2!=null){
+            if(l1.val < l2.val){
+                hr=tr=new ListNode(l1.val);
+                l1=l1.next;
+            }else{
+                hr=tr=new ListNode(l2.val);
+                l2=l2.next;
+            }
+        }
+
+        ListNode get = recursivemerge(l1, l2, hr, tr);
+        return get;
+    }
+
+    ListNode recursivemerge(ListNode l1, ListNode l2, ListNode hr, ListNode tr){
+
+        while(l1!=null && l2!=null){
+            if(l1.val < l2.val){
+                tr.next=tr=new ListNode(l1.val);
+                l1=l1.next;
+            }else{
+                tr.next=tr=new ListNode(l2.val);
+                l2=l2.next;
+            }
+        }
+
+        while (l1 != null || l2 != null) {
+            if (l1 != null) {
+                tr.next=tr=new ListNode(l1.val);
+                l1=l1.next;
+            } else if(l2!=null){
+                tr.next=tr=new ListNode(l2.val);
+                l2=l2.next;
+            }
+        }
+         return hr;
     }
 
 }

@@ -1,5 +1,6 @@
 package BinarySearch;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -36,20 +37,20 @@ k= 5   4   4   3   2   1   1   0
 
     @Test
     public void example2() {
-        int[] arr = {1,2,3,4,5};
+        int[] arr = {1, 2, 3, 4, 5};
         int k = 5;
         System.out.println(missingInteger(arr, k));
     }
 
     @Test
     public void example3() {
-        int[] arr = {1,3,5,6};
+        int[] arr = {1, 3, 5, 6};
         int k = 7;
         System.out.println(missingInteger(arr, k));
     }
 
-    private int missingInteger(int[] arr, int k) {
-        int low=1, high=arr.length-1;
+    private int missingInteger1(int[] arr, int k) {
+        int low = 1, high = arr.length - 1;
         if (k <= 1) return 1;
         while (low <= high) {
             int mid = (low + high) / 2;
@@ -58,4 +59,45 @@ k= 5   4   4   3   2   1   1   0
         }
         return low + k;
     }
+
+    public int missingInteger(int[] arr, int k) {
+//        int i=1;
+//        while(k>0){
+//            if( == i){
+//                k--;
+//            }
+//            i++;
+//        }
+        return 1;
+
+    }
+
+    @Test
+    public void example() {
+        String[] arr = {"h", "e", "l", "l", "o"};
+        String[] out = {"o", "l", "l", "e", "h"};
+        recursionS(arr);
+        Assert.assertEquals(arr, out);
+        //Assert.assertEquals(recursionS(arr), out);
+    }
+
+    public void recursionS(String[] arr) {
+
+         reverseString(arr, 0);
+    }
+
+    public void reverseString(String[] arr, int i) {
+        int left = i, right = arr.length - left - 1;
+        String temp = "";
+        if (left > arr.length/2) {
+            return ;
+        }
+            right = arr.length - left - 1;
+            temp = arr[left];
+            arr[left++] = arr[right];
+            arr[right] = temp;
+            reverseString(arr, left);
+    }
+
+
 }

@@ -95,7 +95,7 @@ s and t consist of any valid ascii character.
 4. return the sum value
 */
 
-    private boolean isomorphic1(String s, String t) {
+    private boolean isomorphic(String s, String t) {
         if (s.length() != t.length()) return false;
         Map<Object, Integer> map1 = new HashMap();
         Map<Object, Integer> map2 = new HashMap();
@@ -120,7 +120,7 @@ s and t consist of any valid ascii character.
             return false;
     }
 
-    private boolean isomorphic(String s, String t) {
+    private boolean isomorphic1(String s, String t) {
         if (s.length() != t.length()) return false;
         Map<Character, Character> map1 = new HashMap();
         Map<Character, Character> map2 = new HashMap();
@@ -140,22 +140,40 @@ s and t consist of any valid ascii character.
         return true;
     }
 
-    public boolean isIsomorphic(String s, String t) {
-        int[] sMap = new int[26];
-        int[] tMap = new int[26];
-        char sChar, tChar;
+    public boolean isomorphic2(String s, String t) {
+        if (s.length() != t.length()) return false;
+        HashMap<Character, Character> map = new HashMap();//egg , add
+        HashMap<Character, Character> map2 = new HashMap();
 
-        for (int i = s.length() - 1; i >= 0; i--) {
-            sChar = s.charAt(i);
-            tChar = t.charAt(i);
+        for (int i = 0; i < s.length(); i++) {
 
-            if (sMap[sChar-'a'] != tMap[tChar-'a']){
-                return false;
-            }
+            if (map.containsKey(s.charAt(i))) {
+                if (map.get(s.charAt(i)) != t.charAt(i)) return false;
+            } else map.put(s.charAt(i), t.charAt(i));
 
-            sMap[sChar-'a'] = i + 1;
-            tMap[tChar-'a'] = i + 1;
+            if (map2.containsKey(t.charAt(i))) {
+                if (map2.get(t.charAt(i)) != s.charAt(i)) return false;
+            } else map2.put(t.charAt(i), s.charAt(i));
         }
         return true;
     }
-}
+
+        public boolean isIsomorphic (String s, String t){
+            int[] sMap = new int[26];
+            int[] tMap = new int[26];
+            char sChar, tChar;
+
+            for (int i = s.length() - 1; i >= 0; i--) {
+                sChar = s.charAt(i);
+                tChar = t.charAt(i);
+
+                if (sMap[sChar - 'a'] != tMap[tChar - 'a']) {
+                    return false;
+                }
+
+                sMap[sChar - 'a'] = i + 1;
+                tMap[tChar - 'a'] = i + 1;
+            }
+            return true;
+        }
+    }

@@ -14,7 +14,7 @@ return an array of all the integers in the range [1, n] that do not appear in nu
 
 Constraints -
 n == nums.length
-1 <= n <= 105
+1 <= n <= 10^5
 1 <= nums[i] <= n
 
 Follow up: Could you do it without extra space and in O(n) runtime?

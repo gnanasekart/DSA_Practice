@@ -1,5 +1,6 @@
 package Recursion;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class StringReverse {
@@ -39,5 +40,27 @@ public class StringReverse {
             sb.append(s.charAt(i));
         }
         System.out.println(sb.toString());
+    }
+
+    @Test
+    public void ex(){
+        String[] s = {"h","e","l","l","o"};
+        String[] out= {"o","l","l","e","h"};
+        Assert.assertEquals(s, out);
+    }
+
+    public void reverseString(char[] s) {
+        reversemethod(s, 0);
+    }
+
+    public void reversemethod(char[] s, int left){
+        if(left>=s.length/2)
+            return;
+
+        int right=s.length;
+        char temp= s[right-left-1];
+        s[right-left-1]=s[left];
+        s[left++]=temp;
+        reversemethod(s, left);
     }
 }

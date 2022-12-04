@@ -3,6 +3,8 @@ package LeetCode_Challenges;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+
 public class P_E_LC_24_Contains_Duplicate {
 /*
 leetcode.com/problems/contains-duplicate/

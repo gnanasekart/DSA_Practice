@@ -3,12 +3,13 @@ package LeetCode_Daily_Practice.Collection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class P_E_N2_3_Majority_Element {
     /*
-    leetcode.com/problems/contains-duplicate-ii/
+    leetcode.com/problems/majority-element/
 
 Given an array nums of size n, return the majority element.
 The majority element is the element that appears more than ⌊n / 2⌋ times.
@@ -65,12 +66,34 @@ PseudoCode
 
         for (int i = 0; i < s.length; i++) {
             map.put(s[i], map.getOrDefault(s[i], 0) + 1);
-
             if (map.get(s[i]) > max){
                 max=map.get(s[i]);
                 key=s[i];
             }
         }
         return key;
+    }
+
+    private int majorityEle(int[] s){
+        Arrays.sort(s);
+        return s[s.length/2];
+    }
+
+    //Moore Voting algorithm solution
+    private int mooreVoting(int[] s) {
+        int count=0, ans=0;
+        for(int e: s){
+            if(count==0) {
+                ans=e;
+                count=1;
+            } else if(e!=ans) count--;
+            else count++;
+        }
+        count = 0;
+        for (int i = 0; i < s.length; i++)
+            if (s[i] == ans) count++;
+        if (count > (s.length / 2))
+            return ans;
+        return -1;
     }
 }
