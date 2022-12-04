@@ -2,6 +2,8 @@ package BinarySearch;
 
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class Kth_Missing_Positive_Int {
 
     /*
@@ -42,12 +44,13 @@ k= 5   4   4   3   2   1   1   0
     @Test
     public void example3() {
         int[] arr = {1,3,5,6};
-        int k = 5;
+        int k = 7;
         System.out.println(missingInteger(arr, k));
     }
 
     private int missingInteger(int[] arr, int k) {
-        int low = 0, high = arr.length - 1;
+        int low=1, high=arr.length-1;
+        if (k <= 1) return 1;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (arr[mid] - mid > k) high = mid - 1;

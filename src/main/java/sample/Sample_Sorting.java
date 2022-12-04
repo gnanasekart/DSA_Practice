@@ -4,84 +4,108 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Sample_Sorting {
 
+    @Test //+ve
+    public void example1() {
+        String s = "egg";
+        String t = "add";
+        Assert.assertEquals(isomorphic(s, t), true);
+    }
 
-    @Test
-    public void example1(){
-        int[] arr = {9,2,3,6,5,6,2,1,9};
-        Assert.assertEquals(sortArray(arr), new int[]{1,2,2,3,5,6,6,9,9});
+    @Test //edge
+    public void example2() {
+        String s = "a";
+        String t = "b";
+        Assert.assertEquals(isomorphic(s, t), true);
     }
 
     @Test
-    public void example2(){
-        int[] arr = {3,7,8,9,1,2,3,3,3,0};
-        Assert.assertEquals(sortArray(arr), new int[]{0,1,2,3,3,3,3,7,8,9});
-    }
-
-
-    @Test
-    public void example3(){
-        int[] arr = {-4,-2,4,6,-1,0};
-        Assert.assertEquals(sortArray(arr), new int[]{-4,-2,-1,0,4,6});
+    public void example3() {
+        String s = "foo";
+        String t = "bar";
+        Assert.assertEquals(isomorphic(s, t), false);
     }
 
     @Test
-    public void example4(){
-        int[] arr = {2,2,2,2};
-        Assert.assertEquals(sortArray(arr), new int[]{2,2,2,2});
+    public void example4() {
+        String s = "badc";
+        String t = "baba";
+        Assert.assertEquals(isomorphic(s, t), false);
     }
 
     @Test
-    public void example5(){
-        int[] arr = {1};
-        Assert.assertEquals(sortArray(arr), new int[]{1});
+    public void example5() {
+        String s = "paper";
+        String t = "title";
+        Assert.assertEquals(isomorphic(s, t), true);
     }
 
-    @Test
-    public void example6(){
-        int[] arr = {};
-        Assert.assertEquals(sortArray(arr), new int[]{});
-    }
-
-    @Test
-    public void example7(){
-        int[] arr = {1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9};
-        Assert.assertEquals(sortArray(arr), new int[]{1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,7,7,7,8,8,8,8,8,9,9,9,9,9});
-    }
-/*
-logic
-1. assume to use two iteration to compare two values in array
-2. first iteration use one value
-3. second iteration use another value
-4. compare each value as value 1 < 2
-5. then swap the values once condition correct
-6. iteration will continue until the loop end
-7. once loop end reach then the value are in sorteded order
-
-*/
-
-    public int[] sortArray(int[] arr){
-
-        if(arr.length < 1) return new int[]{};
-
-        for(int i=0; i<arr.length; i++){
-            for(int j=i+1; j<arr.length; j++){
-                if(arr[i]>arr[j]){
-//                    int temp=arr[i];
-//                    arr[i]=arr[j];
-//                    arr[j]=temp;
-
-                    arr[i]=arr[i]+arr[j];
-                    arr[j]=arr[i]-arr[j];
-                    arr[i]=arr[i]-arr[j];
+    public boolean isomorphicMP(String s, String t) {
+        if (s.length() != t.length()) return false;
+        HashMap<Character, Character> map = new HashMap();//egg , add
+        HashMap<Character, Character> map2 = new HashMap();
+        for (int i = 0; i < s.length(); i++) {
+            if (map.containsKey(s.charAt(i))) {
+                if (map.get(s.charAt(i)) != t.charAt(i)) {
+                    return false;
                 }
+            } else map.put(s.charAt(i), t.charAt(i));
+        }
+
+        for (int i = 0; i < t.length(); i++) {
+            if (map2.containsKey(t.charAt(i))) {
+                if (map2.get(t.charAt(i)) != s.charAt(i)) {
+                    return false;
+                }
+            } else {
+                map2.put(t.charAt(i), s.charAt(i));
             }
         }
-        return arr;
+        return true;
     }
 
+    public boolean isomorphic(String s, String t) {
+        if (s.length() != t.length()) return false;
 
+        int[] a1 = new int[256];
+        int[] a2 = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            if (a1[s.charAt(i)] != 0) {
+                if (a1[(s.charAt(i))] != t.charAt(i))
+                    return false;
+            }else a1[s.charAt(i)] = t.charAt(i);
+        }
 
+        for (int i = 0; i < s.length(); i++) {
+            if (a2[t.charAt(i)] != 0) {
+                if (a2[(t.charAt(i))] != s.charAt(i))
+                    return false;
+            }else a2[t.charAt(i)] = s.charAt(i);
+        }
+        return true;
+    }
+
+    public boolean isomorphica(String s, String t) {
+        if (s.length() != t.length()) return false;
+
+        int[] a1 = new int[256];
+        int[] a2 = new int[256];
+        for (int i = 0; i < s.length(); i++) {
+            if (a1[s.charAt(i)] != 0) {
+                if (a1[(s.charAt(i))] != t.charAt(i))
+                    return false;
+            }else a1[s.charAt(i)] = t.charAt(i);
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            if (a2[t.charAt(i)] != 0) {
+                if (a2[(t.charAt(i))] != s.charAt(i))
+                    return false;
+            }else a2[t.charAt(i)] = s.charAt(i);
+        }
+        return true;
+    }
 }
