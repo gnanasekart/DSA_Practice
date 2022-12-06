@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -113,7 +113,6 @@ All the words in s1 and s2 are separated by a single space.
         if (s1.length() < 1 || s2.length() < 1) return new String[]{};
         String[] s = (s1+" "+s2).split(" ");
         List<String> list = new ArrayList<>();
-
 
        Map<String, Long> map = Arrays.stream(s)
                .collect(Collectors.groupingBy(key -> key, Collectors.counting()));

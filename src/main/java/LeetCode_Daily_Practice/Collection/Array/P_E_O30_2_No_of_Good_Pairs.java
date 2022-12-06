@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -63,7 +63,7 @@ Constraints:
 4. return the sum value
 */
 
-    private int goodPairs(int[] nums){
+    private int goodPairs1(int[] nums){
         if(nums.length < 1) return 0;
         int sum=0;
         HashMap<Integer, Integer> map = new HashMap<>();
@@ -75,5 +75,14 @@ Constraints:
             }
         }
         return sum;
+    }
+
+    private int goodPairs(int[] nums){
+        int[] n = new int[101];
+        int count=0;
+        for(int i=0; i<nums.length; i++){
+            count+=n[nums[i]]++;
+        }
+    return count;
     }
 }

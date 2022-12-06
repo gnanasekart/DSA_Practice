@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,10 +14,9 @@ In a town, there are n people labeled from 1 to n.
 There is a rumor that one of these people is secretly the town judge.
 
 If the town judge exists, then:
-
-The town judge trusts nobody.
-Everybody (except for the town judge) trusts the town judge.
-There is exactly one person that satisfies properties 1 and 2.
+- The town judge trusts nobody.
+- Everybody (except for the town judge) trusts the town judge.
+- There is exactly one person that satisfies properties 1 and 2.
 
 You are given an array trust where trust[i] = [ai, bi]
 representing that the person labeled ai trusts the person labeled bi.
@@ -122,14 +121,6 @@ trustedBy = | 0 | 1 | 2 | 3 | 4 |
             if (trusting[i] == 0 && trustedby[i]==n-1)
                 judge = i;
         }
-
-//        for (int i = 1; i < trusting.length; i++) {
-//            if (trusting[i] == 0)
-//                judge = i;
-//        }
-//        if(trustedby[judge] == n-1)
-//            return judge;
-
         return -1;
     }
 
@@ -175,27 +166,5 @@ trustedBy = | 0 | 1 | 2 | 3 | 4 |
         return -1;
     }
 
-
-//    public int townJudge2(int[][] trust, int n) {
-//        if(trust.length==0 && n==1) return 1;
-//        int judge=0;
-//        Map<Integer, Integer> map = new HashMap();
-//        for(int[] t : trust){
-//            map.put(t[1], map.getOrDefault(t[1], 0)+1);
-//        }
-//        int isJudge=-1;
-//        for(Map.Entry<Integer, Integer> entry: map.entrySet()){
-//            if(entry.getValue()==n-1){
-//                int key = entry.getKey();
-//                for(int[] t : trust){
-//                    if(t[0]==key){
-//                        break;
-//                    }else
-//                        isJudge=entry.getKey();
-//                }
-//            }
-//        }
-//        return isJudge;
-//    }
 }
 

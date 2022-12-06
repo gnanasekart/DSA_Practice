@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection;
+package LeetCode_Daily_Practice.Collection.String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -83,62 +83,23 @@ logic
         Arrays.stream(words).forEach(word -> map.remove(word));
 
 
-        Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getValue();
-//        for (Map.Entry<String, Integer> entry : map.entrySet()){
-//           if(entry.getValue()> max[0]){
-//               max[0] = entry.getValue();
-//               maxWord[0] = entry.getKey();
-//           }
-//        }
-
-        List l = map.entrySet().stream().filter(entry -> entry.getValue() > max[0])
-                .map(entry -> {
-                    max[0] = entry.getValue();
-                    maxWord[0] = entry.getKey();
-                    return maxWord[0];
-                }).distinct().collect(Collectors.toList());
-        System.out.println(l.toString());
-        return l.get(0).toString();
-    }
-
-
-    @Test
-    public void ex1() {
-        String s = "loveleetcode";
-        char c = 'e';
-        Assert.assertEquals(minimumchardistance(s, c), new int[]{3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0});
-    }
-
-
-    private int[] minimumchardistance(String s, char c) {
-        if (s.length() < 1) return new int[]{};
-        int[] ch = new int[s.length()];
-        Arrays.fill(ch, s.length());
-        int left = 0, right = 0;
-        while (left < ch.length && right < ch.length) {
-            if (s.charAt(right) != c) {
-                right++;
-            } else if (s.charAt(right) == c) {
-                while (left < right) {
-                    ch[left] = Math.abs(left - right);
-                    left++;
-                }
-                right++;
-            }
+  //      Collections.max(map.entrySet(), Map.Entry.comparingByValue()).getValue();
+        for (Map.Entry<String, Integer> entry : map.entrySet()){
+           if(entry.getValue()> max[0]){
+               max[0] = entry.getValue();
+               maxWord[0] = entry.getKey();
+           }
         }
-        right = right - 1;
-        while (right > 0 && right >= left) {
-            if (s.charAt(right) != c)
-                right--;
-            else if (s.charAt(right) == c) {
-                while (left > right) {
-                    ch[left] = Math.min(Math.abs(left - right), ch[left]);
-                    left--;
-                }
-                right--;
-            }
-        }
-        return ch;
+
+//        List l = map.entrySet().stream().filter(entry -> entry.getValue() > max[0])
+//                .map(entry -> {
+//                    max[0] = entry.getValue();
+//                    maxWord[0] = entry.getKey();
+//                    return maxWord[0];
+//                }).distinct().collect(Collectors.toList());
+//        System.out.println(l.toString());
+//        return l.get(0).toString();
+        return maxWord[0];
     }
 }
 

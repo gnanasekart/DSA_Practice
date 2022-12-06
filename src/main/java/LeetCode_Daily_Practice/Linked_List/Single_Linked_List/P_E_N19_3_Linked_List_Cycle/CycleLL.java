@@ -3,7 +3,11 @@ package LeetCode_Daily_Practice.Linked_List.Single_Linked_List.P_E_N19_3_Linked_
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import LeetCode_Daily_Practice.Linked_List.Single_Linked_List.List.Node;
+
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CycleLL{
 
@@ -48,7 +52,6 @@ public class CycleLL{
         while (head != null) {
             if (!set.add(head))
                 return true;
-
             set.add(head);
             head = head.next;
         }
