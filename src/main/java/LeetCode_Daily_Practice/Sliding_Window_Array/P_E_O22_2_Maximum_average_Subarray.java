@@ -14,6 +14,7 @@ n == nums.length
 1 <= k <= n <= 10^5
 -10^4 <= nums[i] <= 10^4
  */
+
 public class P_E_O22_2_Maximum_average_Subarray {
     @Test
     public void example1() {

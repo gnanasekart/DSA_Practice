@@ -60,11 +60,35 @@ Constraints:
         return min==Integer.MAX_VALUE ? 0 : min;
     }
 
-//    public int minSubArraySum(int[] nums, int target) {//{2,3,1,2,4,3}; k=7
-//        int left=0, right=0, min=Integer.MAX_VALUE;
-//        for (int i = 0; i < nums.length; i++) {
-//
-//        }
-//
-//    }
+    public int minSubArrayLen(int target, int[] nums) {
+        int l = 0;
+        int sum = 0;
+        int min = Integer.MAX_VALUE;
+        for(int i=0;i<nums.length;i++){
+            sum += nums[i];
+
+            while(sum>=target){
+                min = Math.min(min, i-l+1);
+                sum = sum-nums[l];
+                l++;
+            }
+        }
+        return min== Integer.MAX_VALUE?0:min;
+    }
+
+    public int minSubArrayLen1(int k, int[] nums) {
+        int l=0, r=0, distance=Integer.MAX_VALUE, sum=0;
+        while(l<nums.length){
+            if(sum<k && r<nums.length)
+                sum+=nums[r++];
+            else if(sum>=k){
+                sum-=nums[l];
+                distance= Math.min(distance, r-l);
+                l++;
+            } else if (distance==Integer.MAX_VALUE) {
+                return 0;
+            } else break;
+        }
+        return distance;
+    }
 }

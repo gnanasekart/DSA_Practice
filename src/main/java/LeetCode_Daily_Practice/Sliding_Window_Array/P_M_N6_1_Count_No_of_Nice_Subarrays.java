@@ -32,7 +32,7 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
     public void ex(){
         int[] nums = {1,1,2,1,1};
         int k=3;
-        Assert.assertEquals(countinuesubarray(nums, k), 2);
+        Assert.assertEquals(countnicesubarrayPrefixSum(nums, k), 2);
     }
 
     @Test
@@ -92,21 +92,21 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
 
     //using prefix sum
     public int countnicesubarrayPrefixSum(int[] nums, int k) {
-        int count=0, prefixSum=0,j=0;
+        int count=0,sum=0,prefixSum=0,j=0;
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++)
             nums[i] = nums[i]%2==1 ? 1 : 0;
 
-       // map.put(0,1);
+        map.put(0,1);
         while(j< nums.length){
-            prefixSum+=nums[j++];
+            sum+=nums[j++];
 
-            if(prefixSum==k) count++;
+            //if(sum==k) count++;
+            prefixSum=sum-k;
+            if(map.containsKey(prefixSum))
+                count+=map.get(prefixSum);
 
-            if(map.containsKey(prefixSum-k))
-                count+=map.get(prefixSum-k);
-
-            map.put(prefixSum, map.getOrDefault(prefixSum, 0)+1);
+            map.put(sum, map.getOrDefault(sum, 0)+1);
         }
         return count;
     }

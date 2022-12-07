@@ -69,7 +69,8 @@ Constraints:
             sum+=nums[i];
             reminder=sum%k;//4,4,4,2,4,0
 
-            if(reminder<0) reminder=reminder+k;
+            if(reminder<0)
+                reminder=reminder+k;
 
             if(map.containsKey(reminder))
                 count+=map.get(reminder);

@@ -68,13 +68,8 @@ logic
     private String mergeStringsBF(String w1, String w2) {
         String str = "";
         for (int i = 0, j = 0; i < w1.length() + w2.length(); i++, j++) {
-            if (i < w1.length()) {
-                str += w1.charAt(i);
-            }
-
-            if (j < w2.length()) {
-                str += w2.charAt(j);
-            }
+            if (i < w1.length()) str += w1.charAt(i);
+            if (j < w2.length()) str += w2.charAt(j);
         }
         return str;
     }

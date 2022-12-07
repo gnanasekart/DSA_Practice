@@ -210,8 +210,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
 
         for (int i = 0, j = 0; i < ans.length; i++) {
             if (i == 0) j = s.indexOf(c);
-            if (i > j && s.indexOf(c, i) >= 0 &&
-                    Math.abs(j - i) > Math.abs(s.indexOf(c, i) - i)) {
+            if (i > j && s.indexOf(c, i) >= 0 && Math.abs(j - i) > Math.abs(s.indexOf(c, i) - i)) {
                 j = s.indexOf(c, i);
             }
             ans[i] = Math.abs(j - i);

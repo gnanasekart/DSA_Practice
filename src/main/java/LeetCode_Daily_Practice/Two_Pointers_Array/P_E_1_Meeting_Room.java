@@ -82,4 +82,7 @@ arr = [0 to 100]
         }
         return true;
     }
+
+    //best solution using priority queue
+
 }

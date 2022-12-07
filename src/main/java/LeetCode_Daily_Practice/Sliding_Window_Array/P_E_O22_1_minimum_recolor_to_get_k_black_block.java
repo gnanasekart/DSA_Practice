@@ -22,7 +22,7 @@ public class P_E_O22_1_minimum_recolor_to_get_k_black_block {
     public void example2() {
        String s = "WBBWWBBWBW";
         int k = 7;
-        Assert.assertEquals(changeColor(s, k), 3);
+        Assert.assertEquals(changeColor1(s, k), 3);
     }
 
     @Test

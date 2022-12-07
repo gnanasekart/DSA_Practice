@@ -34,7 +34,7 @@ words[i] consists of English letters (both lowercase and uppercase).
     @Test
     public void example1() {
         String[] words = {"Hello", "Alaska", "Dad", "Peace"};
-        Assert.assertEquals(keyboard(words), new String[]{"Alaska", "Dad"});
+        Assert.assertEquals(findWords(words), new String[]{"Alaska", "Dad"});
     }
 
     @Test
@@ -117,5 +117,61 @@ pseudocode
                 list.add(small);
         }
         return list.toArray(new String[0]);
+    }
+
+    public String[] findWords2(String[] words) {
+        List<String> result = new ArrayList<>();
+        String[] levels = {"qwertyuiop", "asdfghjkl", "zxcvbnm"};
+        for (String word : words) {
+            for (String level : levels) {
+                int lettersCount = word.length();
+                for (int k = 0; k < word.length(); k++) {
+                    char c = Character.toLowerCase(word.charAt(k));
+                    if (level.indexOf(c) < 0) {
+                        break;
+                    }
+                    lettersCount--;
+                }
+                if (lettersCount == 0) {
+                    result.add(word);
+                    break;
+                }
+            }
+        }
+        return result.toArray(new String[0]);
+    }
+
+    public String[] findWords1(String[] words) {
+        String s1 = "qwertyuiopQWERTYUIOP";
+        String s2 = "asdfghjklASDFGHJKL";
+        String s3 = "zxcvbnmZXCVBNM";
+        ArrayList<String> list = new ArrayList<>();
+        for(int i=0;i<words.length;i++){
+            int count1=0,count2=0,count3=0,len=words[i].length();
+            for(int j=0;j<len;j++){
+                if(s1.contains(Character.toString(words[i].charAt(j))))
+                    count1++;
+                else if(s2.contains(Character.toString(words[i].charAt(j))))
+                    count2++;
+                else if(s3.contains(Character.toString(words[i].charAt(j))))
+                    count3++;
+                if(count1==len || count2==len || count3==len)
+                    list.add(words[i]);
+            }
+        }
+        String ans[] = new String[list.size()];
+        list.toArray(ans);
+        return ans;
+    }
+
+    public String[] findWords(String[] words) {
+        List<String> ans = new ArrayList<>();
+        for(int i = 0; i < words.length; i++) {
+            String s = words[i].toLowerCase();
+            if(s.matches("[qwertyuiop]*") || s.matches("[asdfghjkl]*") || s.matches("[zxcvbnm]*")){
+                ans.add(words[i]);
+            }
+        }
+        return ans.toArray(new String[0]);
     }
 }

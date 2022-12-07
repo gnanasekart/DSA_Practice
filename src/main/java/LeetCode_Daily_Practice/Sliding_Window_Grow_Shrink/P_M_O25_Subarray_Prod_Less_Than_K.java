@@ -66,20 +66,20 @@ leetcode.com/problems/subarray-product-less-than-k/
 
     private int SubArrayProd(int[] w, int target){
         if(w.length<2 && w[0]<target) return 1;
-        int count=0, prod=1, ni=0;
-        for(int i=0; i<w.length; i++){//O(n)
-            prod=prod*w[i];//no of iteration increase by prod
+        int count=0, prod=1, left=0;
+        for(int right=0; right<w.length; right++){//O(n)
+            prod=prod*w[right];//no of iteration increase by prod
 
 //            while(prod>=target)
-//                prod=prod/w[ni++];
-//            count=count+i-ni+1;
+//                prod=prod/w[left++];
+//            count=count+right-left+1;
 
             if(prod<target)
-                count+=i-ni+1;
+                count+=right-left+1;
             else{
                 while(prod>=target)
-                    prod=prod/w[ni++];
-                count+=i-ni+1;
+                    prod=prod/w[left++];
+                count+=right-left+1;
             }
         }
         return count;

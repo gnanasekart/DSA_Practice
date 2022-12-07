@@ -69,8 +69,8 @@ logic
     - calculate the index different as min value
 5. Again if the sum < k value then sum with right value until condition breaks
 6. if min value is still in default value then return o
-
 */
+
     private int minSubarray(int[] nums, int k){
 
         int l=0, r=0, distance=Integer.MAX_VALUE, sum=0;
