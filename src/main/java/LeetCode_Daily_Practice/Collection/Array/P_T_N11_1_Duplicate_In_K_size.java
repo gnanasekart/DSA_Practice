@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection.String;
+package LeetCode_Daily_Practice.Collection.Array;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

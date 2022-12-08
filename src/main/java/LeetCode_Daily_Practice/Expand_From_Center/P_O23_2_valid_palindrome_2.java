@@ -66,6 +66,7 @@ s consists of lowercase English letters.
         String s = "bba";
         Assert.assertEquals(isPalindromBF(s),true);
     }
+
 /*
 1. first concat the string from 0 to left and right to length - validate
     second concat the string from 0 to left and right to length and validate

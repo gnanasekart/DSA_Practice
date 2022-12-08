@@ -98,4 +98,32 @@ public class P_E_N8_2_Buddy_String {
         }
         return ispresent;
     }
+
+    public boolean buddyStrings1(String A, String B) {
+        if (A.length() != B.length())
+            return false;
+
+        if (A.equals(B)) {
+            Set set = new HashSet();
+            for (int i = 0; i < A.length(); i++) {
+                if (set.contains(A.charAt(i)))
+                    return true;
+                else set.add(A.charAt(i));
+            }
+            return false;
+        }
+
+        int counter = 0;
+        int aChars = 0;
+        int bChars = 0;
+        for (int i = 0; i < A.length(); i++) {
+            aChars += A.charAt(i);
+            bChars += B.charAt(i);
+            if (A.charAt(i) != B.charAt(i))
+                counter++;
+            if (counter > 2)
+                return false;
+        }
+        return counter <= 2 && aChars == bChars;
+    }
 }

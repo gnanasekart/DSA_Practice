@@ -3,6 +3,7 @@ package LeetCode_Daily_Practice.Collection.String;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ s consists of lowercase English letters.
 @Test
 public void example1(){
 String s = "xyzzaz";
-Assert.assertEquals(distinctCharacters(s), 1);
+Assert.assertEquals(countGoodSubstrings(s), 1);
 }
 
 @Test
@@ -69,5 +70,55 @@ PseudoCode
             set.clear();
         }
         return count;
+    }
+
+    public int countGoodSubstrings(String s) {
+        int res = 0, start = 0, end = 3;
+
+        if(s.length() < 3) return 0;
+
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for(int i = 0 ; i < 3; i++) {
+            char c  = s.charAt(i);
+            map.put(c, map.getOrDefault(c, 0) + 1);
+        }
+
+        if(map.size() == 3) res++;
+
+        while(end<s.length()) {
+            char e = s.charAt(end);
+            char st= s.charAt(start);
+
+            map.put(st, map.get(st) - 1);
+            if(map.get(st) == 0)
+                map.remove(st);
+
+            map.put(e, map.getOrDefault(e ,0) + 1);
+
+            if(map.size() == 3) res++;
+
+            start++;
+            end++;
+        }
+        return res;
+    }
+
+    public int countGoodSubstrings1(String s) {
+        int nextIndex[]=new int[128];
+        int r=0, l=0;
+        int count=0;
+        int res=0;
+        int n=s.length();
+        for(r=0;r<n;r++){
+            l=Math.max(nextIndex[s.charAt(r)],l);
+            count=r-l+1;
+            nextIndex[s.charAt(r)]=r+1;
+            if(count>=3){
+                res++;
+                count=0;
+            }
+        }
+        return res;
     }
 }

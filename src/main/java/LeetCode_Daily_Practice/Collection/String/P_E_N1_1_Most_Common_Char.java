@@ -35,6 +35,7 @@ words[i] consists of lowercase English letters.
         String[] s = {"acabcddd", "bcbdbcbd", "baddbadb", "cbdddcac", "aacbcccd", "ccccddda", "cababaab", "addcaccd"};
         Assert.assertEquals(commonChar(s), Arrays.asList());
     }
+
 /*
 pseudocode
 1. get every word from string array

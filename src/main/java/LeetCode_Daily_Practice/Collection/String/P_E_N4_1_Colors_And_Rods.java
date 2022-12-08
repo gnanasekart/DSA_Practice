@@ -84,7 +84,7 @@ base condition
         if (ring.length() % 2 != 0 || ring.length() < 5) return 0;
 
         String[] str = new String[10];
-        Arrays.fill(str, "".toString());
+        Arrays.fill(str, "");
         int count = 0, index = 0;
         String s = "";
 
