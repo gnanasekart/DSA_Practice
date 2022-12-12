@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class P_N_8_Adjacent_Characters {
+public class P_D_8_Adjacent_Characters {
     /*
 
    For each word in a list of words, if any two adjacent characters are equal, change one of them.
@@ -98,4 +98,80 @@ Each character of words[i] is in the range ascii[a-z].
 //        }
 //        return c;
 //    }
-}
+
+    @Test
+    public void ex122(){
+        sorting(new int[] {5,2,7,1,8,9});
+    }
+
+    @Test
+    public void ex123(){
+        sorting(new int[] {-4, 6, 1, -7, 3, 2, 0});
+
+    }
+
+    @Test
+    public void ex124(){
+        sorting(new int[] {1,2,2,1,1,1,1});
+    }
+
+    @Test
+    public void ex125(){
+        sorting(new int[] {1});
+    }
+
+
+/*
+    1. get i value as 0
+    2. get j value as i+1
+    3. then compare i is < j means swap the value
+    if not move to next value
+
+
+
+*
+ */
+    public void sorting(int[] arr){
+
+            for (int i=0; i<arr.length; i++){
+                int p = i, j=i+1, temp=0;
+                while (j<arr.length){
+                    if(arr[p] < arr[j]) {
+                        p = j;
+                    }
+                    j++;
+                }
+                temp = arr[p];
+                arr[p] = arr[i];
+                arr[i] = temp;
+                System.out.print(arr[i]);
+            }
+        }
+//        int temp=0;
+//        int left=0, right=1, p=0;
+//
+//        while(left<arr.length-1 && p<arr.length-1){
+//
+//            if(arr[p]<arr[right]){
+//                right++;
+//            }else if(arr[p]>arr[right]){
+//                temp = arr[p];
+//                arr[p++] = arr[right];
+//                arr[right++] = temp;
+//            }
+//
+//        }
+
+//        if (arr.length==1) return;
+//        int temp=0;
+//        for(int i=0; i<arr.length; i++){
+//            for(int j=0; j< arr.length-1; j++){
+//                if(arr[i]<arr[j] && i!=j) {
+//                    temp = arr[i];
+//                    arr[i] = arr[j];
+//                    arr[j] = temp;
+//                }
+//            }
+//        }
+       // System.out.println(arr);
+    }
