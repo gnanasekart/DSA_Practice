@@ -23,14 +23,14 @@ public class P_E_D3_2_Search_Insert_Position {
     public void ex1() {
         int[] a = {1,3,5,6};//0,1  0,0
         int k = 2;
-        Assert.assertEquals(searchInsertPosition(a, k), 1);
+        Assert.assertEquals(searchBuildin(a, k), 1);
     }
 
     @Test
     public void ex2() {
         int[] a = {1,3,5,6};
         int k = 5;
-        Assert.assertEquals(searchInsertPosition(a, k), 2);
+        Assert.assertEquals(searchBuildin(a, k), 2);
     }
 
     @Test
@@ -64,6 +64,7 @@ public class P_E_D3_2_Search_Insert_Position {
 
     private int searchBuildin(int[] arr, int k){
         int index= Arrays.binarySearch(arr, k);
-        return -(index)+ (-1);
+        int value = (index<0)? (-(index)+ (-1)) : index;
+        return value;
     }
 }

@@ -121,15 +121,15 @@ Constraints:
         return ans;
     }
 
-    public List<Integer> targetIndicesValue(int[] nums, int target) {
-        int lesser=0, eql=0;
-
-        for(int i=0; i<nums.length; i++){
-            if(nums[i]<target) lesser++;
-            else if(nums[i]==target) eql++;
-        }
-
-
-
-    }
+//    public List<Integer> targetIndicesValue(int[] nums, int target) {
+//        int lesser=0, eql=0;
+//
+//        for(int i=0; i<nums.length; i++){
+//            if(nums[i]<target) lesser++;
+//            else if(nums[i]==target) eql++;
+//        }
+//
+//
+//
+//    }
 }
