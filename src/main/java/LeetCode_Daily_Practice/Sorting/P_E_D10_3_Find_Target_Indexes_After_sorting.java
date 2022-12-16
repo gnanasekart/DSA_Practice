@@ -15,7 +15,8 @@ You are given a 0-indexed integer array nums and a target element target.
 
 A target index is an index i such that nums[i] == target.
 
-Return a list of the target indices of nums after sorting nums in non-decreasing order. If there are no target indices, return an empty list. The returned list must be sorted in increasing order.
+Return a list of the target indices of nums after sorting nums in non-decreasing order.
+If there are no target indices, return an empty list. The returned list must be sorted in increasing order.
 
 Constraints:
 
@@ -27,7 +28,7 @@ Constraints:
     public void ex1(){
         int target=2;
         int[] nums = {1,2,5,2,3};
-        Assert.assertEquals(targetIndices(nums, target), new int[]{1,2});
+        Assert.assertEquals(targetIndicesValue(nums, target), new int[]{1,2});
     }
 
 
@@ -121,15 +122,17 @@ Constraints:
         return ans;
     }
 
-//    public List<Integer> targetIndicesValue(int[] nums, int target) {
-//        int lesser=0, eql=0;
-//
-//        for(int i=0; i<nums.length; i++){
-//            if(nums[i]<target) lesser++;
-//            else if(nums[i]==target) eql++;
-//        }
-//
-//
-//
-//    }
+    //{1,2,5,2,3} => 1,2,2,3,5
+    public int[] targetIndicesValue(int[] nums, int target) {
+        int lesser=0, eql=0;
+        List<Integer> list = new ArrayList<>();
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]<target) lesser++;//1
+            else if(nums[i]==target) eql++;//2
+        }
+        for(int i=0; i<eql; i++)//0<=2
+            list.add(lesser++);
+
+        return list.stream().mapToInt(i -> i).toArray();
+    }
 }

@@ -36,7 +36,7 @@ Explanation: The square root of 8 is 2.82842..., and since we round it down to t
     @Test
     public void ex3() {
         int a = 29;
-        Assert.assertEquals(sqroot(a), 5);
+        Assert.assertEquals(mySqrt(a), 5);
     }
 
     @Test

@@ -53,6 +53,8 @@ All the values of heights are distinct.
         int[] heights = {1};
         Assert.assertEquals(sortPeople(names, heights), new String[]{"Mary"});
     }
+
+
     public String[] sortPeople1(String[] names, int[] heights) {
         if(heights.length==1) return names;
         Map<Integer, String> map = new HashMap();

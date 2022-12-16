@@ -98,7 +98,10 @@ intervals[i].length == 2
     }
 
     public int[][] merge2p(int[][] arr){
-        Arrays.sort(arr, (a,b) -> a[0]-b[0]);
+        //Arrays.sort(arr, (a,b) -> a[0]-b[0]);
+
+        Arrays.sort(arr, Comparator.comparingInt(i -> i[0]));
+
         int j=0;
         for(int i=0; i<arr.length; i++){
             if(arr[j][1]>=arr[i][0])
