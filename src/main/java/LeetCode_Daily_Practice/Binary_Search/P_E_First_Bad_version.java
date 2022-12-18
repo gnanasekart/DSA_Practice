@@ -1,5 +1,6 @@
 package LeetCode_Daily_Practice.Binary_Search;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Scanner;
@@ -25,10 +26,28 @@ Constraints:
 
     @Test
     public void ex1() {
-
+        int n=5;
+        int firstBadIndex=4;
+        Assert.assertEquals(badVersion(n, firstBadIndex), 4);
     }
 
 
 
+    public boolean isBadVersion(int x, int first){
+        if(x<first) return false;
+        else return true;
     }
+
+
+
+    private int badVersion(int n, int first) {
+        int left=1, right=n, mid=0;
+        while(left<=right){
+            mid = left+(right-left)/2;
+            if(isBadVersion(mid, first)==false) left=mid+1;
+            else right = mid-1;
+        }
+        return left;
+    }
+}
 
