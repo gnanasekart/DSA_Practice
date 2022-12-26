@@ -18,6 +18,7 @@ Return k after placing the final result in the first k slots of nums.
 Do not allocate extra space for another array. You must do this by modifying
 the input array in-place with O(1) extra memory.
      */
+
     @Test
     public void example1(){
         int[] nums={0,1,2,2,3,0,4,2};
@@ -52,6 +53,7 @@ the input array in-place with O(1) extra memory.
         int k=1;
         Assert.assertEquals(removeElement1(nums, k), 4);
     }
+
 /*
 logic -
 1. check the array length not to be zero
@@ -60,14 +62,15 @@ logic -
 4. if k value matches means does not swap
 5. return the new index value
  */
+
     //time - O(n)
     //space - O(1) by using existing memory
     private int removeElement(int[] nums, int k) {
         if(nums.length == 0) return 0;
         int left=0, right=0;
 
-        while(left<nums.length){//=> O(n)
-            if(nums[left]!=k)  //=> O(1)
+        while(left<nums.length){ //=> O(n)
+            if(nums[left]!=k)   //=> O(1)
                 nums[right++]=nums[left];
             left++;
         }
@@ -84,6 +87,7 @@ logic -
           }
         return index;
     }
+
 //3 2 2 3
     private int removeElement1(int[] nums, int k) {
         int left=0, right=nums.length-1;

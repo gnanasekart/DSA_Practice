@@ -69,10 +69,18 @@ name and typed consist of only lowercase English letters.
 
 	@Test
 	public void example8() {
+		String name = "zlexya";
+		String typed = "aazlllllllllllllleexxxxxxxxxxxxxxxya";
+		Assert.assertEquals(longPress5(name, typed), false);
+	}
+
+	@Test
+	public void example9() {
 		String name = "alex";
 		String typed = "aaleelx";
 		Assert.assertEquals(longPress5(name, typed), false);
 	}
+
 /*
 - check condition name is <= typed means return true
 - also check if both char array last length != then return false
@@ -157,7 +165,8 @@ name and typed consist of only lowercase English letters.
 		}
 
 		while(j<typed.length()){
-			if(name.charAt(i-1)!=typed.charAt(j)) return false;
+			if(name.charAt(i-1)!=typed.charAt(j))
+				return false;
 			j++;
 		}
 		return i==name.length();

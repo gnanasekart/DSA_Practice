@@ -70,6 +70,7 @@ PseudoCode
                 max=map.get(s[i]);
                 key=s[i];
             }
+            int[] value =map.values().stream().distinct().mapToInt(k -> k).toArray();
         }
         return key;
     }

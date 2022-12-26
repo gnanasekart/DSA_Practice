@@ -36,7 +36,7 @@ arr = [0 to 100]
     @Test
     public void example4() {
         int[][] arr = {{0,0}};
-        Assert.assertEquals(meeting(arr), false);
+        Assert.assertEquals(meeting(arr), true);
     }
 
     @Test
@@ -71,7 +71,7 @@ arr = [0 to 100]
     4. else return false
      */
 
-    private boolean meeting(int[][] arr) {
+    private boolean meeting1(int[][] arr) {
         Arrays.sort(arr, (a,b) -> a[0]-b[0]);
         int i=0;
         while(i<arr.length-1){
@@ -83,6 +83,16 @@ arr = [0 to 100]
         return true;
     }
 
-    //best solution using priority queue
-
+    private boolean meeting(int[][] arr) {
+        if(arr.length==1) return true;
+        Arrays.sort(arr, (a,b) -> a[0]-b[0]);
+        int i=0;
+        while(i<arr.length-1){
+            if(!(arr[i][1]<arr[i+1][0])){
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
 }

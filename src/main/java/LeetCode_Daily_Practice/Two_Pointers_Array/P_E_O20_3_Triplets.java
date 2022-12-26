@@ -144,20 +144,4 @@ public class P_E_O20_3_Triplets {
         }
         return count;
     }
-
-//    public int tripletHashStream(int[] arr, int diff){
-//        AtomicInteger count= new AtomicInteger();
-//        HashMap<Integer,Integer> map=new HashMap<>();
-//
-//        Arrays.stream(arr).forEach(a -> map.put(a,1));
-//
-//        IntConsumer op = a -> {
-//            if (map.containsKey(a + diff) && map.containsKey(a + 2 * diff))
-//                count.getAndIncrement();
-//        };
-//        Arrays.stream(arr).map(a -> map.put(a,1)).forEach(op);
-//        return (int)Arrays.stream(arr).map(a -> map.put(a,1))
-//                .filter(ar -> (map.containsKey(ar + diff) && map.containsKey(ar + 2 * diff)))
-//                .count();
-//    }
 }

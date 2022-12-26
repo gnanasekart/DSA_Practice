@@ -111,7 +111,6 @@ logic
             }else if(nums1[left] < nums2[right]) left++;
             else right++;
         }
-
         return set.stream().mapToInt(n -> n).toArray();
     }
 

@@ -67,7 +67,7 @@ logic-
     }
 
     public boolean contains(int n){
-        while(n!=0){
+        while(n>0){
             if(n%10==0)
                 return true;
             n=n/10;

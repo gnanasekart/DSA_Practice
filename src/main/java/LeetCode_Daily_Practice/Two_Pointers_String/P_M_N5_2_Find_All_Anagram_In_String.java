@@ -113,26 +113,33 @@ sliding window
 
     private List<Integer> anagramASCII(String s, String p) {
         List<Integer> list = new ArrayList<>();
-        int[] sa = new int[26];
-        int[] pa = new int[26];
 
-        for(int i=0; i< p.length(); i++){
-            sa[s.charAt(i) - 'a']++;
-            pa[p.charAt(i) - 'a']++;
+        int[] sa = new int[26];
+        int[] sp = new int[26];
+
+        if(s.length()<p.length()){
+            return list;
+        }
+
+        for(int i=0; i<p.length(); i++){
+            sa[s.charAt(i)-'a']++;
+            sp[p.charAt(i)-'a']++;
         }
         int left=0, right=p.length();
-        if(Arrays.equals(sa, pa))
+        if(Arrays.equals(sa, sp)){
             list.add(left);
+        }
 
-        while(right < s.length()){
-            sa[s.charAt(right)-'a']++;
+        while(right<s.length()){
             sa[s.charAt(left)-'a']--;
+            sa[s.charAt(right)-'a']++;
 
-            if(Arrays.equals(sa, pa))
+            if(Arrays.equals(sa, sp)){
                 list.add(left+1);
+            }
 
-            left++;
             right++;
+            left++;
         }
         return list;
     }
@@ -178,7 +185,8 @@ sliding window
         int left = 0, right = p.length();
 
         while (right < s.length()) {
-            if (sMap.equals(pMap)) ans.add(left);
+            if (sMap.equals(pMap))
+                ans.add(left);
 
             // acquire the next char from the right
             char acquire = s.charAt(right);
@@ -186,14 +194,17 @@ sliding window
 
             // get rid the first from extreme left of window
             char discard = s.charAt(left);
-            if (sMap.get(discard) == 1) sMap.remove(discard);
-            else sMap.put(discard, sMap.get(discard) - 1);
+            if (sMap.get(discard) == 1)
+                sMap.remove(discard);
+            else
+                sMap.put(discard, sMap.get(discard) - 1);
 
             // slide the window
             left++; right++;
         }
 
-        if (sMap.equals(pMap)) ans.add(left);
+        if (sMap.equals(pMap))
+            ans.add(left);
 
         return ans;
     }
