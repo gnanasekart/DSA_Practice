@@ -32,8 +32,6 @@ public class P_E_D_10_5_Maximum_Units_on_a_Truck {
     1 <= boxTypes.length <= 1000
     1 <= numberOfBoxesi, numberOfUnitsPerBoxi <= 1000
     1 <= truckSize <= 10^6
-
-
      */
 
     @Test
@@ -81,15 +79,5 @@ public class P_E_D_10_5_Maximum_Units_on_a_Truck {
             truckbox-=count;
         }
         return sum;
-
-
-
-//        Arrays.sort(boxTypes, (i,j) -> Integer.compare(j[1], i[1])); //{2,5},{4,7},{3,9},{5,10}
-//        for (int i=0;i<boxTypes.length && truckSize !=0 ;i++){
-//            int numberOfBoxes= Math.min(truckSize, boxTypes[i][0]);// 3
-//            maxUnits += (numberOfBoxes * boxTypes[i][1]);//10 > 38 > 65
-//            truckSize -= numberOfBoxes;//1
-//        }
-//        return maxUnits;
     }
 }

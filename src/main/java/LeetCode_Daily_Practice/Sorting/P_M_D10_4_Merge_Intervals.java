@@ -23,7 +23,7 @@ intervals[i].length == 2
     @Test
     public void ex1(){
         int[][] nums = {{1,3},{8,10},{2,6},{15,18}};
-        Assert.assertEquals(merge2p(nums), new int[][] {{1,6},{8,10},{15,18}});
+        Assert.assertEquals(merge(nums), new int[][] {{1,6},{8,10},{15,18}});
     }
 
     @Test

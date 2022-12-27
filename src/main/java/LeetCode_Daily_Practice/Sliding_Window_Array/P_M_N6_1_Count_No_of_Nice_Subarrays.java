@@ -46,7 +46,7 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
     public void ex2(){
         int[] nums = {2,2,2,1,2,2,1,2,2,2};
         int k=2;
-        Assert.assertEquals(countinuesubarray(nums, k), 16);
+        Assert.assertEquals(countnicesubarrayPrefixSum(nums, k), 16);
     }
 
     /*

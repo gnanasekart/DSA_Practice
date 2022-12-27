@@ -9,7 +9,8 @@ public class P_E_D_10_2_Sort_the_People {
 
 /*
 leetcode.com/problems/sort-the-people/
-You are given an array of strings names, and an array heights that consists of distinct positive integers. Both arrays are of length n.
+You are given an array of strings names, and an array heights that consists of distinct positive integers.
+ Both arrays are of length n.
 
 For each index i, names[i] and heights[i] denote the name and height of the ith person.
 

@@ -99,79 +99,32 @@ Each character of words[i] is in the range ascii[a-z].
 //        return c;
 //    }
 
-    @Test
-    public void ex122(){
-        sorting(new int[] {5,2,7,1,8,9});
-    }
-
-    @Test
-    public void ex123(){
-        sorting(new int[] {-4, 6, 1, -7, 3, 2, 0});
-
-    }
-
-    @Test
-    public void ex124(){
-        sorting(new int[] {1,2,2,1,1,1,1});
-    }
-
-    @Test
-    public void ex125(){
-        sorting(new int[] {1});
-    }
-
-
-/*
-    1. get i value as 0
-    2. get j value as i+1
-    3. then compare i is < j means swap the value
-    if not move to next value
-
-
-
-*
- */
-    public void sorting(int[] arr){
-
-            for (int i=0; i<arr.length; i++){
-                int p = i, j=i+1, temp=0;
-                while (j<arr.length){
-                    if(arr[p] < arr[j]) {
-                        p = j;
-                    }
-                    j++;
-                }
-                temp = arr[p];
-                arr[p] = arr[i];
-                arr[i] = temp;
-                System.out.print(arr[i]);
+    public int[] minimalOperations(String[] words) {
+        int[] result = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            String s = words[i];
+            if (s == null || s.isEmpty()) {
+                result[i] = 0;
+                continue;
             }
+            int count = 0;
+            char[] chars = words[i].toCharArray();
+            int cc = 1;
+            for (int j = 1; j < chars.length; j++) {
+                if (chars[j] == chars[j - 1]) {
+                    // count the number of times current character repeats
+                    cc++;
+                    if (j == chars.length - 1) {
+                        // special case when last character is repeating
+                        count = count + cc / 2;
+                    }
+                } else {
+                    count = count + cc / 2;
+                    cc = 1;
+                }
+            }
+            result[i] = count;
         }
-//        int temp=0;
-//        int left=0, right=1, p=0;
-//
-//        while(left<arr.length-1 && p<arr.length-1){
-//
-//            if(arr[p]<arr[right]){
-//                right++;
-//            }else if(arr[p]>arr[right]){
-//                temp = arr[p];
-//                arr[p++] = arr[right];
-//                arr[right++] = temp;
-//            }
-//
-//        }
-
-//        if (arr.length==1) return;
-//        int temp=0;
-//        for(int i=0; i<arr.length; i++){
-//            for(int j=0; j< arr.length-1; j++){
-//                if(arr[i]<arr[j] && i!=j) {
-//                    temp = arr[i];
-//                    arr[i] = arr[j];
-//                    arr[j] = temp;
-//                }
-//            }
-//        }
-       // System.out.println(arr);
+        return result;
+    }
     }
