@@ -136,15 +136,5 @@ space - O(1)
             i++;
         }
         return p;
-//            if (st.isEmpty()) {
-//                st.push(i);
-//            } else {
-//                j= st.peek();
-//                if (p[i] <= p[j]) {
-//                    p[st.pop()] -= p[i];
-//                }else
-//                    st.push(i);
-//            }
-
     }
 }

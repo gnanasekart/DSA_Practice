@@ -54,7 +54,7 @@ public class P_E_N26_1_No_of_Students_Unable_to_Eat_Lunch {
     public void ex1(){
         int[] students={1,1,0,0};
         int[] sandwiches = {0,1,0,1};
-        Assert.assertEquals(countStudents(students, sandwiches), 0);
+        Assert.assertEquals(countStudents1(students, sandwiches), 0);
     }
 
     @Test
@@ -98,7 +98,9 @@ public class P_E_N26_1_No_of_Students_Unable_to_Eat_Lunch {
 
     public int countStudents1(int[] students, int[] sandwiches) {
         if(students.length!=sandwiches.length) return 0;
+
         Stack<Integer> st = new Stack();
+
         for(int i=sandwiches.length-1; i>=0; i--)
             st.push(sandwiches[i]);
 

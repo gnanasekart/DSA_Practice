@@ -31,7 +31,7 @@ cannot load all elements into the memory at once?
     public void example1(){
         int[] nums1={1,2,2,1};
         int[] nums2={2,2};
-        Assert.assertEquals(intersectArrayMaxAppear1(nums1, nums2), new int[]{2,2});
+        Assert.assertEquals(intersectBS(nums1, nums2), new int[]{2,2});
     }
 
     @Test
@@ -45,7 +45,7 @@ cannot load all elements into the memory at once?
     public void example2(){
         int[] nums1={4,9,5};
         int[] nums2={9,4,9,8,4};
-        Assert.assertEquals(intersectArrayMaxAppear(nums1, nums2), new int[]{4,9});
+        Assert.assertEquals(intersectBS(nums1, nums2), new int[]{9,4});
     }
 
     @Test
@@ -97,6 +97,11 @@ cannot load all elements into the memory at once?
     //time = O(n)+O(n)+O(n)+O(nlog n)+O(nlog n) =
     //space = O(n)arraylist +O(n)hashmap + O(n)array => O(n)
     private int[] intersectArrayMaxAppear(int[] n1, int[] n2){
+
+        if(n2.length < n1.length){
+            return intersect(n2, n1);
+        }
+
         if(n1.length<1 && n2.length<1) return new int[]{};
         int left=0, right=0, i=1;;
         Arrays.sort(n1);//O(nlog n)
@@ -136,7 +141,7 @@ cannot load all elements into the memory at once?
             for(int j=0;j<nums2.length;j++){
                 if(nums1[i]==nums2[j]){
                     l.add(nums2[j]);
-                    //nums2[j]=Integer.MAX_VALUE;
+                    nums2[j]=Integer.MAX_VALUE;
                     break;
                 }
             }
@@ -146,5 +151,50 @@ cannot load all elements into the memory at once?
         for(int m: l)
             arr[k++]=m;
         return arr;
+    }
+
+    public int[] intersect(int[] nums1, int[] nums2) {
+        int arr[]=new int[1001];
+        int ans[]=new int[1001];
+        int count=0;
+        for(int i:nums1){
+            arr[i]++;
+        }
+        for(int i :nums2){
+            if(arr[i]>0){
+                ans[count++]=i;
+                arr[i]--;
+            }
+        }
+        return Arrays.copyOfRange(ans,0,count);
+    }
+
+    public int[] intersectBS(int[] n1, int[] n2){
+        List<Integer> list = new ArrayList<>();
+        Arrays.sort(n1);
+        Arrays.sort(n2);
+        int left=0;
+        for(int n : n1){
+            int index = binarySearchOf(n2, n, left);
+            if(index!=-1){
+                list.add(index);
+                left=index+1;
+            }
+        }
+        return list.stream().mapToInt(u -> u).toArray();
+    }
+
+    private int binarySearchOf(int[] n1, int n, int left) {
+
+        int mid=0, right=n1.length-1, ind=-1;
+        while(left<=right){
+            mid=(right+left)/2;
+            if(n1[mid]==n) {
+                return mid;
+            }
+            else if(n1[mid]<n) left=mid+1;
+            else if(n1[mid]>n) right=mid-1;
+        }
+        return ind;
     }
 }
