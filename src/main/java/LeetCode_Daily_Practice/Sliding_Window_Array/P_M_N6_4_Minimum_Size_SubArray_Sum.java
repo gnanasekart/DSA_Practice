@@ -69,8 +69,7 @@ Constraints:
 
             while(sum>=target){
                 min = Math.min(min, i-l+1);
-                sum = sum-nums[l];
-                l++;
+                sum = sum-nums[l++];
             }
         }
         return min== Integer.MAX_VALUE?0:min;

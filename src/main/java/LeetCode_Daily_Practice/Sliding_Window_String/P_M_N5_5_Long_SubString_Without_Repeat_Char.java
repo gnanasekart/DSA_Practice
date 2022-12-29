@@ -25,6 +25,7 @@ s consists of English letters, digits, symbols and spaces.
     @Test
     public void ex2() {
         String s = "";
+        s.indexOf('a');
         Assert.assertEquals(nonrepeatString(s), 0);
     }
 

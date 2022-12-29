@@ -3,6 +3,8 @@ package LeetCode_Daily_Practice.Sliding_Window_Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+
 public class P_M_O26_Max_Consecutive_1_III {
 /*
     leetcode.com/problems/max-consecutive-ones-iii/

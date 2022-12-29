@@ -82,23 +82,6 @@ Each character of words[i] is in the range ascii[a-z].
         return res;
     }
 
-//    private int[] adjancentChar1(String[] words) {
-//        int count=1;
-//        int[] c = new int[words.length];
-//        for(String word: words){//O(n^2)
-//            for(int i=0; i<word.length()-1;i++){
-//                if(word.charAt(i+1)==word.charAt(i)){
-//                    count++;
-//                }
-//            }
-//            int i=0;
-//            if(count>0)
-//               c[i++]=(count)/2;
-//            else c[i++]=0;
-//        }
-//        return c;
-//    }
-
     public int[] minimalOperations(String[] words) {
         int[] result = new int[words.length];
         for (int i = 0; i < words.length; i++) {
