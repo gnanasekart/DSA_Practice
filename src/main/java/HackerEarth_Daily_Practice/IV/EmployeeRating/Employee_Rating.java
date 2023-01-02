@@ -1,4 +1,4 @@
-package HackerEarth_Daily_Practice.EmployeeRating;
+package HackerEarth_Daily_Practice.IV.EmployeeRating;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

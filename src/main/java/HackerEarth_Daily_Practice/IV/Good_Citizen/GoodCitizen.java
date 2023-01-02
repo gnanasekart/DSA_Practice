@@ -1,4 +1,4 @@
-package HackerEarth_Daily_Practice.Good_Citizen;
+package HackerEarth_Daily_Practice.IV.Good_Citizen;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +16,7 @@ public class GoodCitizen {
         Assert.assertEquals(goodCitizen(num), 3);
     }
 
-    private int goodCitizen(int[] num) {
+    private int goodCitizen1(int[] num) {
         int count = 0, val = 0, left = -1, point = 0,  right = point+1;
         while (right <= num.length) {
             if (left == -1 || right == num.length) {
@@ -34,6 +34,22 @@ public class GoodCitizen {
             }
             point = left + 1;
             right = point + 1;
+        }
+        return count;
+    }
+
+    private int goodCitizen(int[] num) {
+        int count=0,previous=0, next=0;
+
+        for (int i=0; i< num.length-1; i++){
+            if(i==0) previous=0;
+            else previous=num[i-1];
+
+            if(next==num.length) next=0;
+            else next=num[i+1];
+
+            if(num[i] > (previous+next)/2)
+                count++;
         }
         return count;
     }

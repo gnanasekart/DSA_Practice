@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Two_Pointers_Array;
+package LeetCode_Daily_Practice.IV;
 
 import org.testng.annotations.Test;
 

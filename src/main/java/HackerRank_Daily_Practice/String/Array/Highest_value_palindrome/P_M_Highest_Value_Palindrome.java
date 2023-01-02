@@ -1,4 +1,4 @@
-package HackerRank_Daily_Practice.String.Array;
+package HackerRank_Daily_Practice.String.Array.Highest_value_palindrome;
 
 import java.util.Scanner;
 

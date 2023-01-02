@@ -94,21 +94,18 @@ n == height.length
 //        }
 
         int max = Integer.MIN_VALUE;
-        int left = 0, right = 1, val = 0;
-        while (right < h.length && left < h.length) {
-            if (h[left] < h[right]) {
-                //left++;
-                right++;
-            } else {
-                while (right < h.length) {
-                    val = Math.min(h[left], h[right]);
-                    max = Math.max(max, val * (right - left));
-                    System.out.println(max + " " + right + " " + left);
-                    right++;
-                }
-            }
-            left++;
+        int left = 0, right = h.length-1, val = 0;
+        while (left < right) {
+            val = Math.min(h[left], h[right]);
+            max = Math.max(max, val * (right - left));
+            if (h[left] <= h[right])
+                left++;
+            else
+                right--;
+
+           // max = Math.max(max, Math.min(h[left], h[right]) * (right - left));
         }
+            System.out.println(max + " " + right + " " + left);
         return max;
     }
 }
