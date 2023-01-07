@@ -27,6 +27,4 @@ public class mainTopologicalClass {
         //System.out.print(g.toStrings());
         g.topologicalSort();
     }
-
-
 }
