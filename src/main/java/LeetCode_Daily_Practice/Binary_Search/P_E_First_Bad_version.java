@@ -21,7 +21,6 @@ Constraints:
 
 1 <= bad <= n <= 231 - 1
 
-
      */
 
     @Test
@@ -32,13 +31,10 @@ Constraints:
     }
 
 
-
     public boolean isBadVersion(int x, int first){
         if(x<first) return false;
         else return true;
     }
-
-
 
     private int badVersion(int n, int first) {
         int left=1, right=n, mid=0;

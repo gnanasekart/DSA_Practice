@@ -7,21 +7,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class P_M_Find_First_And_Last_Position_After_Sortying {
+public class P_M_Find_First_And_Last_Position_After_Sorting {
     /*
      *
      *First sort the Array
      * Find first and last position of element in Sorted Array
-     *
      * Given an array of integers nums sorted in non-decreasing order, find the starting and ending
      * position of given target value.
-     *
      * If target is not found in the array return [-1,-1].
-     *
      * You must write an algorithm with O(log n) runtime complexity.
      *
-     * Constraints:
-
+    Constraints:
     0 <= nums.length <= 10^5
     -10^9 <= nums[i] <= 10^9
     nums is a non-decreasing array.
@@ -29,7 +25,6 @@ public class P_M_Find_First_And_Last_Position_After_Sortying {
      *
      *
      */
-
 
     @Test
     public void example1() {
