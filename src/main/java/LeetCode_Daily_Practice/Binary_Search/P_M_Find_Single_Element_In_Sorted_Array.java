@@ -63,6 +63,7 @@ public class P_M_Find_Single_Element_In_Sorted_Array {
         }
         return -1;
     }
+
     private int singleElement(int[] nums) {
         int l = 0;
         int h = nums.length - 1;

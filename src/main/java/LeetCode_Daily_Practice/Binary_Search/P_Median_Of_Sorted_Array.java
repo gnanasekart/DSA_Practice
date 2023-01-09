@@ -48,7 +48,9 @@ public class P_Median_Of_Sorted_Array {
             index++;
         }
         int mid = output.length/2;
-        if(output.length%2==1) return (double) output[mid];
-        else return (double) (((double) output[mid]+ (double) output[mid-1])/2);
+        if(output.length%2==1)
+            return (double) output[mid];
+        else
+            return (double) (((double) output[mid]+ (double) output[mid-1])/2);
     }
 }

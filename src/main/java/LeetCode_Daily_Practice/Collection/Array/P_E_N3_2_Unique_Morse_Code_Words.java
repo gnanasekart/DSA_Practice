@@ -11,7 +11,7 @@ public class P_E_N3_2_Unique_Morse_Code_Words {
    /*
     leetcode.com/problems/unique-morse-code-words/description/
 
-    International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:
+International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:
 
             'a' maps to ".-",
             'b' maps to "-...",

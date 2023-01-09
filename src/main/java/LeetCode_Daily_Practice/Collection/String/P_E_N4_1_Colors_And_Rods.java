@@ -43,7 +43,7 @@ rings[i] where i is odd is a digit from '0' to '9' (0-indexed).
     @Test
     public void example1() {
         String ring = "B0R0G0R9R0B0G0";
-        Assert.assertEquals(ringandRodsString(ring), 1);
+        Assert.assertEquals(ringandRodsSet(ring), 1);
     }
 
     @Test

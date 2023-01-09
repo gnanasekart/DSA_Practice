@@ -106,7 +106,6 @@ PseudoCode
                 set.remove(i-k-1);
             }
 
-
             if(set.contains(s[i])) return true;
             else set.add(s[i]);
 

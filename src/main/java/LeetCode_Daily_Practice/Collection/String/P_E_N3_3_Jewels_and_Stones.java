@@ -108,11 +108,6 @@ PseudoCode
                count++;
            }
        }
-
-//       for(char st : s.toCharArray()){
-//           if(ch[st-'A'] > 0)
-//               count+=ch[st-'A'];
-//       }
        return count;
     }
 
