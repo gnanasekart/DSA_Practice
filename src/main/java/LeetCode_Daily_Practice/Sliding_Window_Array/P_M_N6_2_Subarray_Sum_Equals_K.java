@@ -91,7 +91,8 @@ Constrains
             sum += num[i];
             psum = sum - k;
             if (sum == k) count++;
-            if (map.containsKey(psum)) count += map.get(psum);
+            if (map.containsKey(psum)) 
+            	count += map.get(psum);
             map.put(sum, map.getOrDefault(sum, 0) + 1);
         }
         return count;

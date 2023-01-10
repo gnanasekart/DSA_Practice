@@ -25,7 +25,7 @@ Explanation: Mary is the tallest, followed by Emma and John.
 Constraints:
 
 n == names.length == heights.length
-1 <= n <= 103
+1 <= n <= 10^3
 1 <= names[i].length <= 20
 1 <= heights[i] <= 105
 names[i] consists of lower and upper case English letters.

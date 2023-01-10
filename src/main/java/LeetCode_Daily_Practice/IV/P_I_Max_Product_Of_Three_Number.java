@@ -17,7 +17,6 @@ public class P_I_Max_Product_Of_Three_Number {
         int[] arr1 = {};
 
         Arrays.sort(arr);
-        System.out.println(arr);
         int[] prod = new int[3];
         int last = arr.length - 1;
 

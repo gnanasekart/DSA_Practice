@@ -22,7 +22,7 @@ strs[i] consists of only lowercase English letters.
     @Test
     public void ex1(){
         String[] strs = {"flower", "flow", "flight"};
-        Assert.assertEquals(commonPrefixMethod(strs), "fl");
+        Assert.assertEquals(commonprefixbyChar(strs), "fl");
     }
 
     @Test
@@ -62,6 +62,23 @@ strs[i] consists of only lowercase English letters.
             }
         }
         return prefix;
+    }
+
+    private String commonprefixbyChar(String[] str){
+        int size = str.length;
+        Arrays.sort(str);
+
+        int min = Math.min(str[0].length(), str[size-1].length());
+        int i=0;
+        while(i<min && str[0].charAt(i)==str[size-1].charAt(i)){
+            i++;
+        }
+
+        String s = "";
+        if(i>0){
+            return str[0].substring(0, i);
+        }
+        return s;
     }
 
     private String commonPrefixMethod(String[] strs) {

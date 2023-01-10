@@ -12,13 +12,12 @@ public class P_M_T_Product_Of_Array_Except_Self {
 
 Constraints:
 
-2 <= nums.length <= 105
+2 <= nums.length <= 10^5
 -30 <= nums[i] <= 30
 The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 
 Follow up: Can you solve the problem in O(1) extra space complexity?
 (The output array does not count as extra space for space complexity analysis.)
-
      */
 
     @Test
@@ -36,7 +35,7 @@ Follow up: Can you solve the problem in O(1) extra space complexity?
     @Test
     public void ex3() {
         int[] nums = {5, 1, 4, 2};
-        Assert.assertEquals(productArray(nums), new int[]{8, 40, 10, 20});
+        Assert.assertEquals(productArray1(nums), new int[]{8, 40, 10, 20});
     }
 
     //time=O(n)
