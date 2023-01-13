@@ -180,14 +180,14 @@ Follow up: Could you write a solution that runs in O(m + n) time and use only O(
     public ListNode intersectBF(ListNode node1, ListNode node2) {
 
         ListNode n1 = node1, n2 = node2;
-        while(node1!=null){//O(n)
+        while(n1!=null){//O(n)
             n2=node2;
             while(n2!=null){//O(n)
                 if(node1==n2) return node1;
 
                 n2=n2.next;
             }
-            node1=node1.next;
+            n1=n1.next;
         }
         return null;
     }

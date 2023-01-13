@@ -2,6 +2,13 @@ package LeetCode_Daily_Practice.Stack;
 
 public class Bracket_Validation {
 
+    /*
+    Given a string of brackets, the task is to find an index k which decides the number of opening brackets is equal to the number of closing brackets.
+The string must be consists of only opening and closing brackets i.e. ‘(‘ and ‘)’.
+
+An equal point is an index such that the number of opening brackets before it is equal to the number of closing brackets from and after.
+     */
+
     static int findIndex(String str)
     {
         int len = str.length();

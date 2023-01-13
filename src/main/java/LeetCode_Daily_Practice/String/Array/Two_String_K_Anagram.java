@@ -3,6 +3,14 @@ package LeetCode_Daily_Practice.String.Array;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+/*
+Given two strings of lowercase alphabets and a value k, the task is to find if two strings are K-anagrams of each other or not.
+Two strings are called k-anagrams if following two conditions are true.
+
+Both have same number of characters.
+Two strings can become anagram by changing at most k characters in a string.
+ */
+
 public class Two_String_K_Anagram {
     @Test
     public void ex1(){

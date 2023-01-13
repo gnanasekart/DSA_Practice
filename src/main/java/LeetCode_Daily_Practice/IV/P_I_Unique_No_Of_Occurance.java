@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_I_Unique_No_Of_Occurance {
 /*
@@ -42,8 +43,12 @@ Constraints:
         Map<Integer, Integer> map = new HashMap<>();
         Arrays.stream(arr).forEach(i -> map.put(i, map.getOrDefault(i, 0)+1));
         int[] value =map.values().stream().distinct().mapToInt(k -> k).toArray();
-        if(value.length==map.size())
+
+        Set<Integer> collect = map.values().stream().collect(Collectors.toSet());
+        if(map.size()==collect.size())
             return true;
+//        if(value.length==map.size())
+//            return true;
         return false;
     }
 
