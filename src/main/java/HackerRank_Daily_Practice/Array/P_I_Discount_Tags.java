@@ -29,7 +29,32 @@ public class P_I_Discount_Tags {
     @Test
     public void ex3(){
         int[] arr = {2,6,10,1,1};
-        Assert.assertEquals(tags(arr), true);
+        Assert.assertEquals(tag(arr), true);
+    }
+
+    @Test
+    public void ex5(){
+        int[] arr = {-1,-2,-3,1,4,10};
+        Assert.assertEquals(tag(arr), 14);
+    }
+
+    private long tag(int[] val) {
+        int evenSum = 0,oddSum=0,posOddVal=Integer.MAX_VALUE, minOddValue=Integer.MAX_VALUE;
+
+        for (int i = 0; i < val.length; i++) {
+            if (val[i] % 2 == 0)
+                evenSum = Math.max(evenSum+val[i],evenSum);
+            else {
+                oddSum = Math.max(oddSum+val[i],oddSum);
+                minOddValue=Math.min(minOddValue,val[i]);
+                posOddVal=val[i]>0 && val[i]<posOddVal?val[i]:posOddVal;
+            }
+        }
+        if(oddSum%2==1){
+            if(minOddValue>0)oddSum-=minOddValue;
+            else  oddSum=Math.max(oddSum+minOddValue,oddSum-posOddVal);
+        }
+        return Math.max(evenSum+oddSum,evenSum);
     }
 
     private boolean tags(int[] arr) {

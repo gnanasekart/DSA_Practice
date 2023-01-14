@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Sliding_Window_Array;
+package LeetCode_Daily_Practice.Sliding_Window_String;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
