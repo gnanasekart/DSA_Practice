@@ -109,8 +109,7 @@ Constraints:
 
 
     public int[] DuplicateZero(int[] arr) {
-        int n = arr.length - 1;
-        int i = 0, l = n - 1, zero = 0;
+        int n = arr.length - 1, i = 0, l = n - 1, zero = 0;
 
         while (i <= n) {// -> O(n)
             if (arr[i++] == 0) zero++;

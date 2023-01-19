@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class P_E_N7_1_Distribute_Candies {
     /*
@@ -81,8 +82,7 @@ n is even.
 
     public int candyTypeSet(int[] type) {
         if (type.length < 1) return 0;
-        Set<Integer> set = new HashSet();
-        Arrays.stream(type).forEach(s -> set.add(s));
+        Set<Integer> set = Arrays.stream(type).mapToObj(i -> i).collect(Collectors.toSet());
         return set.size() < type.length/2 ? set.size() : type.length/2;
     }
 
