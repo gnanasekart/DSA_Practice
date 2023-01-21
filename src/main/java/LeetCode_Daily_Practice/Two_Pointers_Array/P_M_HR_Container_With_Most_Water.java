@@ -74,25 +74,9 @@ n == height.length
     5. calculate the min value with two bar different index
     6.
     */
+
+    // int[] arr = {1,8,6,2,5,4,8,3,7}; 49
     public int maxAreaBF(int[] h) {
-
-//        int max = Integer.MIN_VALUE;
-//        int left = 0, right = h.length - 1, val = 0;
-//        while (right < h.length && left < h.length) {
-//            if (h[left] < h[right]) {
-//                //left++;
-//                right++;
-//            } else {
-//                while (right < h.length) {
-//                    val = Math.min(h[left], h[right]);
-//                    max = Math.max(max, val * (right - left));
-//                    System.out.println(max + " " + right + " " + left);
-//                    right++;
-//                }
-//            }
-//            left++;
-//        }
-
         int max = Integer.MIN_VALUE;
         int left = 0, right = h.length-1, val = 0;
         while (left < right) {

@@ -67,6 +67,7 @@ logic-
         char[] ch = str.toCharArray();
         int i=0, j=str.length()-1;
         char temp;
+
         String ss = "abcdefghijklmnopqrstuvwxyzQWERTYUIOPASDFGHJKLZXCVBNM";
         while(i<j){
             if(!ss.contains(String.valueOf(ch[i]))) i++;

@@ -67,16 +67,7 @@ s consists only of printable ASCII characters.
         if(s.isEmpty()) return true;
         s=s.toLowerCase().replaceAll("[^a-zA-Z0-9]","");
         int left=0, right=s.length()-1;
-        //if(s.length()==1) return false;
         while(left<=right){
-            char l = s.charAt(left);
-            char r = s.charAt(right);
-//            if((!Character.isAlphabetic(l)) && (Character.isAlphabetic(r))){
-//                left++;
-//            }
-//            else if((Character.isAlphabetic(l)) && (!Character.isAlphabetic(r))){
-//                right--;
-//            }
             if(s.charAt(left)!= s.charAt(right)){
                 return false;
             }

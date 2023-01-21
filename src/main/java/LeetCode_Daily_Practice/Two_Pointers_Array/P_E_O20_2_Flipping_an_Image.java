@@ -41,8 +41,8 @@ public class P_E_O20_2_Flipping_an_Image {
     @Test
     public void example2() {
         int[][] image = {{1, 1, 0, 0}, {1, 0, 0, 1}, {0, 1, 1, 1}, {1, 0, 1, 0}};
-        int[][] out = {{1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 1}, {1, 0, 1, 0}};
-        Assert.assertEquals(flipImageB(image), out);
+        int[][] outpu = {{1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 1}, {1, 0, 1, 0}};
+        Assert.assertEquals(flipImageB(image), outpu);
     }
 
     @Test

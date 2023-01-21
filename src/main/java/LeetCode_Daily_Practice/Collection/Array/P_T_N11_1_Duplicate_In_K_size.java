@@ -53,22 +53,4 @@ Output: Duplicates found
             }
         }
     }
-
-    //invalid approach indexOf does not work for array
-    public boolean duplicate1(int[] num, int k) {
-        boolean duplicatefound = false;
-        for (int i = 0; i < num.length; i++) {
-            int first = num.toString().indexOf(num[i]);
-            int last = num.toString().lastIndexOf(num[i]);
-            if (first == last) {
-                duplicatefound = false;
-            } else {
-                int diff = last - first;
-                if (diff <= k) {
-                    duplicatefound = true;
-                }
-            }
-        }
-        return duplicatefound;
-    }
 }

@@ -36,7 +36,7 @@ Could you do it in-place with O(1) extra space?
     public void ex() {
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
         int k = 3;
-        Assert.assertEquals(rotate1(nums, k), new int[]{5,6,7,1,2,3,4});
+        Assert.assertEquals(rotate2(nums, k), new int[]{5,6,7,1,2,3,4});
     }
 
     @Test
