@@ -21,11 +21,9 @@ public class Node_Imp {
     public void add(int input) {
         Node_Imp node = new Node_Imp(input);
         if (head == null) {
-            head = node;
-            tail = node;
+            head = tail = node;
         } else {
-            tail.next = node;
-            tail = node;
+            tail.next = tail = node;
         }
         length++;
     }

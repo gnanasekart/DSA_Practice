@@ -81,8 +81,7 @@ public class P_E_D_5_Remove_Linked_List_Element {
         return h;
     }
 
-
-
+//------------------------------------------------------------
 
     private ListNode removeDuplicate(ListNode node, int k) {
         removeDuplicateRecursion(node, k);

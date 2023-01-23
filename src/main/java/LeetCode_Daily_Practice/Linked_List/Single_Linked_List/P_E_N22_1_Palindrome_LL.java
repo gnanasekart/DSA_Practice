@@ -157,6 +157,7 @@ The number of nodes in the list is in the range [1, 10^5].
             curr = curr.next;
             l++;
         }
+
         if (l % 2 == 0) {
             left = l / 2 - 1;
             right = l / 2;

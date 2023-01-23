@@ -134,9 +134,8 @@ sliding window
             sa[s.charAt(left)-'a']--;
             sa[s.charAt(right)-'a']++;
 
-            if(Arrays.equals(sa, sp)){
+            if(Arrays.equals(sa, sp))
                 list.add(left+1);
-            }
 
             right++;
             left++;

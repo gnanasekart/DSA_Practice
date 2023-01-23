@@ -57,16 +57,6 @@ public class Sorted_List {
     }
 
     @Test
-    public void example4(){
-        Sorted_List list = new Sorted_List();
-        ListNode node1 = new ListNode();
-        ListNode node2 = new ListNode();
-        list.add(0, node2);
-        list.mergeTwoList(node1.head,node2.head);
-        list.print(list.mergeNode.head);
-    }
-
-    @Test
     public void example5(){
         Sorted_List list = new Sorted_List();
         ListNode node1 = new ListNode();

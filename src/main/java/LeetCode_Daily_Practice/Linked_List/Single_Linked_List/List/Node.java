@@ -13,7 +13,7 @@ public class Node {
         head = null;
     }
 
-   public Node(int input) {
+    public Node(int input) {
         this.data = input;
         head = null;
         tail = null;
@@ -22,11 +22,9 @@ public class Node {
     public Node add(int input) {
         Node node = new Node(input);
         if (head == null) {
-            head = node;
-            tail = node;
+            head = tail = node;
         } else {
-            tail.next = node;
-            tail = node;
+            tail.next = tail = node;
         }
         length++;
         return node;
@@ -48,15 +46,15 @@ public class Node {
         } else {
             for (int i = 0; i < index - 1; i++)
                 temp = temp.next;
-            node.next = temp.next;
-            temp.next = node;
+                node.next = temp.next;
+                temp.next = node;
         }
         length++;
     }
 
-    public boolean addAll(int[] input){
-        if(input.length == 0) return false;
-        for(int x: input)
+    public boolean addAll(int[] input) {
+        if (input.length == 0) return false;
+        for (int x : input)
             add(x);
 
         return true;
@@ -69,7 +67,7 @@ public class Node {
     }
 
     public int get(int index) {
-        if(index <0 || index>=length)
+        if (index < 0 || index >= length)
             throw new ArrayIndexOutOfBoundsException();
         Node temp = getNode(index);
         return temp.data;
@@ -113,8 +111,8 @@ public class Node {
     }
 
     public void remove(int input) {
-        if(length==0) return;
-        if(length==1) tail=head=null;
+        if (length == 0) return;
+        if (length == 1) tail = head = null;
         Node temp = head;
         while (temp.next != null) {
             if (temp.next.data == input) {
@@ -130,7 +128,7 @@ public class Node {
     }
 
     //inProgress
-    public void removeAll(int input){
+    public void removeAll(int input) {
         Objects.requireNonNull(input);
 //        if(head.data==input){
 //            head=head.next;
@@ -138,38 +136,38 @@ public class Node {
 //        }
 
         Node temp = head;//1,1,2,3,1    1,2,3,2,1
-        while(temp!=null) {
-            if(temp.data==input){
+        while (temp != null) {
+            if (temp.data == input) {
                 //temp=temp.next;
-            } else if(temp.next.data==input && temp.next!=null){
+            } else if (temp.next.data == input && temp.next != null) {
                 temp.next = temp.next.next;
-            }else if(temp.next.data==input && temp.next==null){
-                temp.next=null;
+            } else if (temp.next.data == input && temp.next == null) {
+                temp.next = null;
             }
             length--;
-            temp=temp.next;
+            temp = temp.next;
         }
-        }
+    }
 
     public void removeIndex(int index) {
-        if(index >=length || index < 0)
+        if (index >= length || index < 0)
             throw new ArrayIndexOutOfBoundsException();
-        if(index == 0)
+        if (index == 0)
             removeFirstIndex();
-        else if(index == length-1)
+        else if (index == length - 1)
             removeLastIndex();
-        else{
-            Node node = getNode(index-1);
+        else {
+            Node node = getNode(index - 1);
             node.next = node.next.next;
         }
         length--;
     }
 
-    public Node getNode(int index){
+    public Node getNode(int index) {
         Node temp = head;
-        int currentIndex=0;
-        while(index >= 0 && currentIndex++ != index)
-            temp=temp.next;
+        int currentIndex = 0;
+        while (index >= 0 && currentIndex++ != index)
+            temp = temp.next;
 
         return temp;
     }
@@ -191,7 +189,7 @@ public class Node {
         int count = 0, index = -1;
         while (temp != null) {
             if (temp.data == input)
-                index=count;
+                index = count;
             temp = temp.next;
             count++;
         }
