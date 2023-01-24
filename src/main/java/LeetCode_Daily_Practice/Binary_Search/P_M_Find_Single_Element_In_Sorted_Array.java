@@ -23,7 +23,7 @@ public class P_M_Find_Single_Element_In_Sorted_Array {
         //Positive Test Data
         int[] nums = {1,1,2,3,3,4,4,8,8};
         int expected = 2;
-        singleElement(nums);
+        singleElement1(nums);
     }
 
     @Test
@@ -42,11 +42,9 @@ public class P_M_Find_Single_Element_In_Sorted_Array {
         singleElement(nums);
     }
 
-
     private int singleElement1(int[] nums) {
         int left=0, right=nums.length-1, mid=0;
         boolean b1 = false, b2 = false;
-
         while(left<=right){
             mid=(right+left)/2;
             if(mid%2==0 && mid!=nums.length-1){
