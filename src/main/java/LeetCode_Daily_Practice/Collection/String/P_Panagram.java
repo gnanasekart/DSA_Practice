@@ -10,7 +10,7 @@ public class P_Panagram {
     /*
 
  A string is a pangram if it contains all letters of the English alphabet, ascii['a'-'z'].
- Given a list of strings, determine if each one is a pangram or not. Return "1" if true and "0" if false.
+ Given a list of strings, determine if each one is a panagram or not. Return "1" if true and "0" if false.
 
 Example
 

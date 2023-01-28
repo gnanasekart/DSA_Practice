@@ -42,7 +42,7 @@ Constraints:
     private boolean uniqueOcc(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         Arrays.stream(arr).forEach(i -> map.put(i, map.getOrDefault(i, 0)+1));
-        int[] value =map.values().stream().distinct().mapToInt(k -> k).toArray();
+       // int[] value =map.values().stream().distinct().mapToInt(k -> k).toArray();
 
         Set<Integer> collect = map.values().stream().collect(Collectors.toSet());
         if(map.size()==collect.size())

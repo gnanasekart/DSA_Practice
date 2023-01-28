@@ -74,8 +74,6 @@ public class P_I_Discount_Tags {
             if(windowSum%2==0){
                 maxSum=Math.max(maxSum,windowSum);
             }
-
-
         }
         return maxSum;
     }

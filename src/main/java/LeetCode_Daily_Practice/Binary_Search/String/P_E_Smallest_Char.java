@@ -52,12 +52,12 @@ public class P_E_Smallest_Char {
     private char smallestLetterLargerThanTarget(char[] letters, char target) {
         int left=0, right=letters.length-1, mid=0;
         while(left<=right){
-            mid=(right+left)/2;//
+            mid=(right+left)/2;
 
             int diff=letters[mid]-target;
 
             if(diff>0) right=mid-1;
-            else left=mid+1;
+            else left=mid+1;//
         }
         if(left>letters.length-1) return letters[0];
         return letters[left];

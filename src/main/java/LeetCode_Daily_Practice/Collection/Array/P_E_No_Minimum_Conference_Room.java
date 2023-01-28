@@ -15,7 +15,7 @@ Find the minimum number of conference rooms required so that all meetings can be
     @Test
     public void example1() {
         //Positive Test Data
-        String[][] meetingTimes = {{"09 00", "09 45"},{"09 30", "10 30"}, {"10 40", "12 00"},{"11 00", "13 00"}, {"11 45", "14 00"},{"16 00", "17 00"}};
+        String[][] meetingTimes = {{"09 00", "09 45"},{"09 30", "10 30"},{"10 40", "12 00"},{"11 00", "13 00"}, {"11 45", "14 00"},{"16 00", "17 00"}};
         int expectedOutput = 3;
         Assert.assertEquals(expectedOutput, minConfRooms(meetingTimes));
     }
