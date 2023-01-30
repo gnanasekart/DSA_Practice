@@ -38,6 +38,12 @@ Follow up: Can you solve the problem in O(1) extra space complexity?
         Assert.assertEquals(productArray1(nums), new int[]{8, 40, 10, 20});
     }
 
+    @Test
+    public void ex4() {
+        int[] nums = {1, 2, 3};
+        Assert.assertEquals(getProductArray(nums), new int[]{6, 3, 2});
+    }
+
     //time=O(n)
 //space=O(n)
     private int[] productArray1(int[] nums) {
@@ -54,6 +60,21 @@ Follow up: Can you solve the problem in O(1) extra space complexity?
         for (int i = 0; i < nums.length; i++)//O(n)
             nums[i] = pre[i] * suf[i];
         return nums;
+    }
+
+    public int[] getProductArray(int[] nums) {
+        int[] result = new int[nums.length];
+        int product = 1;
+        for (int i = 0; i < nums.length; i++) {
+            result[i] = product;
+            product *= nums[i];
+        }
+        product = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            result[i] *= product;
+            product *= nums[i];
+        }
+        return result;
     }
 
     private int[] productArray(int[] nums) {
