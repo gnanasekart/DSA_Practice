@@ -169,7 +169,6 @@ public class Sorted_List {
                 l2=l2.next;
             }
         }
-
         return h;
     }
 

@@ -21,21 +21,21 @@ public class P_E_D3_2_Search_Insert_Position {
 
     @Test
     public void ex1() {
-        int[] a = {1,3,5,6};//0,1  0,0
+        int[] a = {1, 3, 5, 6};//0,1  0,0
         int k = 2;
         Assert.assertEquals(searchBuildin(a, k), 1);
     }
 
     @Test
     public void ex2() {
-        int[] a = {1,3,5,6};
+        int[] a = {1, 3, 5, 6};
         int k = 5;
         Assert.assertEquals(searchBuildin(a, k), 2);
     }
 
     @Test
     public void ex3() {
-        int[] a = {1,3,5,6};
+        int[] a = {1, 3, 5, 6};
         int k = 7;
         Assert.assertEquals(searchBuildin(a, k), 4);
     }
@@ -48,23 +48,20 @@ public class P_E_D3_2_Search_Insert_Position {
     }
 
 
-
     private int searchInsertPosition(int[] arr, int k) {
-        int left=0 ,right=arr.length-1, mid=0;
-        while(left<=right){
-            mid=(left+right)/2;
-            if(arr[mid]<k)
-                left=mid+1;
-            else right=mid-1;
-//            else if(arr[mid]==k)
-//                return left;
+        int left = 0, right = arr.length - 1, mid = 0;
+        while (left <= right) {
+            mid = (left + right) / 2;
+            if (arr[mid] < k)
+                left = mid + 1;
+            else right = mid - 1;
         }
-            return left;
+        return left;
     }
 
-    private int searchBuildin(int[] arr, int k){
-        int index= Arrays.binarySearch(arr, k);
-        int value = (index<0)? (-(index)+ (-1)) : index;
+    private int searchBuildin(int[] arr, int k) {
+        int index = Arrays.binarySearch(arr, k);
+        int value = (index < 0) ? (-(index) + (-1)) : index;
         return value;
     }
 }

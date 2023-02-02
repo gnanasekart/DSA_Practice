@@ -39,7 +39,7 @@ public class P_I_Add_Space_to_Str {
     }
         class A{
             public  A(){
-                System.out.println("message A");
+                System.out.println("message Aa");
             }
         }
 

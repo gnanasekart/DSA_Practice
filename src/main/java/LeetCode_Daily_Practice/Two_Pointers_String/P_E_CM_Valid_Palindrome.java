@@ -55,7 +55,7 @@ s consists only of printable ASCII characters.
         if (s.isEmpty()) return true;
         StringBuffer sb = new StringBuffer();
         for (char c : s.toLowerCase().toCharArray()) {
-            if (Character.isAlphabetic(c) || Character.isDigit(c)) {
+            if (Character.isLetterOrDigit(c)) {
                 sb.append(c);
             }
         }

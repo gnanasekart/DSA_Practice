@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import java.util.Stack;
 
-public class String_Bracket_validation {
+public class P_I_String_Bracket_validation {
 
    @Test
    public void ex(){
