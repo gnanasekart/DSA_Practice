@@ -85,7 +85,7 @@ nums[i] is either 0 or 1.
                         zero--;
                     }else break;
                 }
-                max=Math.max(max, i-j+1);
+                max=Math.max(max, j-i+1);
             }
         }
         return max;
