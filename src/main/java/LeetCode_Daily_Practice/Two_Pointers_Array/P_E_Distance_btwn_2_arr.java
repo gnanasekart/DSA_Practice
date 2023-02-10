@@ -4,6 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class P_E_Distance_btwn_2_arr {
     /*
@@ -60,10 +62,12 @@ public class P_E_Distance_btwn_2_arr {
         Assert.assertEquals(findTheDistanceValue(arr1, arr2, d), 1);
     }
 
-    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+    public int findTheDistanceValue1(int[] arr1, int[] arr2, int d) {
         Arrays.sort(arr1);
         Arrays.sort(arr2);
         int i = 0, j = 0, count = arr1.length;
+
+        TreeSet<Integer> ts = new TreeSet<>();
 
         while (i < arr1.length && j < arr2.length) {
             if (Math.abs(arr1[i] - arr2[j]) <= d) {
@@ -74,4 +78,36 @@ public class P_E_Distance_btwn_2_arr {
         }
         return count;
     }
+
+    //O(nlogn)
+    public int findTheDistanceValue2(int[] arr1, int[] arr2, int d) {
+        int count = 0;
+        TreeSet<Integer> tree = new TreeSet<>();
+        for (int number : arr2) {
+            tree.add(number);
+        }
+        for (int i = 0; i < arr1.length; i++) {
+            int leftValue = arr1[i] - d;
+            int rightValue = arr1[i] + d;
+            Set<Integer> set = tree.subSet(leftValue, rightValue + 1);
+            if (set.isEmpty())
+                count += 1;
+        }
+        return count;
+    }
+
+    // Brute force O(n^2)
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+        int count = arr1.length;
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr2.length; j++) {
+                if (Math.abs(arr1[i] - arr2[j]) <= d) {
+                    count -= 1;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
 }
+
