@@ -89,7 +89,7 @@ logic-
 
         return false;
     }
-
+//to avoid odd number we're using a%2==0 and a/2
     //time = O(n)+O(n) => O(n)
     //space = O(n) = based on map
     private boolean nDoubleExist(int[] arr){
