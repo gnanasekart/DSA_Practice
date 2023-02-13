@@ -25,28 +25,21 @@ to the number of closing brackets from and after.
         if (str.charAt(len-1) == ')')
             close[len-1] = 1;
 
-        // Store the number of opening brackets
-        // at each index
-        for (int i = 1; i < len; i++)
-        {
+        // Store the number of opening brackets at each index
+        for (int i = 1; i < len; i++){
             if ( str.charAt(i) == '(' )
                 open[i+1] = open[i] + 1;
-            else
-                open[i+1] = open[i];
+            else open[i+1] = open[i];
         }
 
-        // Store the number of closing brackets
-        // at each index
-        for (int i = len-2; i >= 0; i--)
-        {
+        // Store the number of closing brackets at each index
+        for (int i = len-2; i >= 0; i--){
             if ( str.charAt(i) == ')' )
                 close[i] = close[i+1] + 1;
-            else
-                close[i] = close[i+1];
+            else close[i] = close[i+1];
         }
 
-        // check if there is no opening or closing
-        // brackets
+        // check if there is no opening or closing brackets
         if (open[len] == 0)
             return len;
         if (close[0] == 0)
@@ -62,8 +55,7 @@ to the number of closing brackets from and after.
     }
 
     // Driver Method
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         String str = "(()))(()()())))";
         System.out.println(findIndex(str));
     }

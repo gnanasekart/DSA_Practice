@@ -74,8 +74,8 @@ s consists of English letters, digits, symbols and spaces.
 
     /*
     base condition
-    - check if the string is less than 1 means return 0
-    - if string length is 1 means return 1
+    - check if the string is less than 1 mean return 0
+    - if string length is 1 mean return 1
 
     1. start from max length value of i
     2. add the substring into set and compare the set length==substring length

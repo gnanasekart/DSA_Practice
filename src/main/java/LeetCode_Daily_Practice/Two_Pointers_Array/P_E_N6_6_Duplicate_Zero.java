@@ -85,7 +85,7 @@ Constraints:
 7. if num[i] is zero means replace num[i] and num[i-1]
 8. once reach start point then stop the process
 */
-    public int[] DuplicateZero(int[] arr) {
+    public int[] DuplicateZero1(int[] arr) {
         int zero = 0, n = 0, i = arr.length - 1;
         for (int a : arr)
             if (a == 0) zero++;
@@ -105,6 +105,27 @@ Constraints:
                 arr[n--] = arr[i--];
         }
         return arr;
+    }
+
+    public int[] DuplicateZero(int[] arr){
+        int zero=0,len = arr.length;
+        for(int i: arr)
+            if(i==0) zero++;
+
+        int dup = len+zero;
+        for (int i=len-1, j=dup-1; i>=0; i--, j--){
+            updates(arr, i, j);
+            if(arr[i]==0){
+                j--;
+                updates(arr,i,j);
+            }
+        }
+        return arr;
+    }
+
+    private void updates(int[] arr, int i, int j){
+        if(j< arr.length)
+            arr[j]=arr[i];
     }
 
 }

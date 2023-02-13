@@ -67,7 +67,7 @@ public class P_E_O15_Parity_Check_Even_Num {
         if(arr.length<2) return arr;
         for(int left=0, right=arr.length-1; left<right;) {
             if(arr[right]%2==0 && arr[left]%2!=0){
-                arr[left]= arr[left]+arr[right];
+                arr[left]=arr[left]+arr[right];
                 arr[right]=arr[left]-arr[right];
                 arr[left]=arr[left++]-arr[right--];
             } else if (arr[right]%2 != 0)

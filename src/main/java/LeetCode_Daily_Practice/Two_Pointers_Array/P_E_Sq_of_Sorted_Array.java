@@ -59,6 +59,4 @@ could you find an O(n) solution using a different approach?
         }
         return a;
     }
-
-
 }

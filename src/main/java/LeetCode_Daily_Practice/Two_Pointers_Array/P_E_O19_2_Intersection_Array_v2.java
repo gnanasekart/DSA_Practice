@@ -71,6 +71,25 @@ cannot load all elements into the memory at once?
 - return the arraylist from new array
 */
 
+    public int[] intersectArrayMaxAppearBF(int[] nums1, int[] nums2) {
+        ArrayList<Integer>l=new ArrayList<>();
+        for(int i=0;i<nums1.length;i++){
+            for(int j=0;j<nums2.length;j++){
+                if(nums1[i]==nums2[j]){
+                    l.add(nums2[j]);
+                    nums2[j]=Integer.MAX_VALUE;
+                    break;
+                }
+            }
+        }
+        //return l.stream().mapToInt(i -> i).toArray();
+        int k=0;
+        int arr[]= new int [l.size()];
+        for(int m: l)
+            arr[k++]=m;
+        return arr;
+    }
+
     //time = O(n)+O(n)+O(nlog n)+O(nlog n) =
     //space = O(n)arraylist + O(n)array => O(n)
     private int[] intersectArrayMaxAppear1(int[] n1, int[] n2){
@@ -131,25 +150,6 @@ cannot load all elements into the memory at once?
         int j=0;
         for(Integer a: list)//=>O(n)
             arr[j++]=a;
-        return arr;
-    }
-
-
-    public int[] intersectArrayMaxAppearBF(int[] nums1, int[] nums2) {
-        ArrayList<Integer>l=new ArrayList<>();
-        for(int i=0;i<nums1.length;i++){
-            for(int j=0;j<nums2.length;j++){
-                if(nums1[i]==nums2[j]){
-                    l.add(nums2[j]);
-                    nums2[j]=Integer.MAX_VALUE;
-                    break;
-                }
-            }
-        }
-        int k=0;
-        int arr[]= new int [l.size()];
-        for(int m: l)
-            arr[k++]=m;
         return arr;
     }
 
