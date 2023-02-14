@@ -54,8 +54,8 @@ base condition
     private List<Integer> disappearedNumber(int[] num) {
         if (num.length < 1) Arrays.asList();
         Set<Integer> set = new HashSet<>();
-
         Arrays.stream(num).forEach(l -> set.add(l));
+
         for (int i = 1; i <= num.length; i++) {
             if (!set.remove(i))
                 set.add(i);

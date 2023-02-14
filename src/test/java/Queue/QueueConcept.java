@@ -40,7 +40,4 @@ public class QueueConcept {
 		System.out.println(deque1.poll());//10
 		System.out.println(deque1.element());
 	}
-
-
-
 }

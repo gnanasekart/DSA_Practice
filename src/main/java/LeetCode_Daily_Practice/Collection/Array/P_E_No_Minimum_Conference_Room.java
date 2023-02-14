@@ -73,7 +73,8 @@ Find the minimum number of conference rooms required so that all meetings can be
         Collections.sort(list, new Comparator<Map.Entry<Integer, Integer>>() {
             @Override
             public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
-                if(o1.getValue()!=o2.getValue()) return o1.getValue()-o2.getValue();
+                if(o1.getValue()!=o2.getValue())
+                    return o1.getValue()-o2.getValue();
                 return o1.getKey()-o2.getKey();
             }
         });

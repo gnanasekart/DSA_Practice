@@ -1,4 +1,4 @@
-package LeetCode_Daily_Practice.Collection.String;
+package LeetCode_Daily_Practice.Sliding_Window_String;
 
 import java.util.Arrays;
 
