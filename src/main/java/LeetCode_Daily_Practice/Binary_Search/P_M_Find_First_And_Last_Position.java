@@ -28,8 +28,6 @@ public class P_M_Find_First_And_Last_Position {
      *
      *
      */
-
-
     @Test
     public void example1() {
         //Positive Test Data
