@@ -10,13 +10,6 @@ import java.util.HashMap;
 public class P_T_O30_Anagram {
 
     @Test
-    public void example1(){
-        int[] a = {2,7,11,15};
-        int target=9;
-        Assert.assertEquals(twoSum(a, target), new int[]{2,7});
-    }
-
-    @Test
     public void example2(){
         String a = "anagram";
        String b = "nagaram";
@@ -68,18 +61,5 @@ public class P_T_O30_Anagram {
 
         System.out.println(total);
         return false;
-    }
-
-    private int[] twoSum(int[] a, int target) {
-        int i=0, need=0;
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for(i=0; i<a.length; i++){
-            map.put(i, a[i]);
-            need = target-map.get(i);
-            if(map.containsValue(need)){
-                break;
-            }
-        }
-        return new int[]{need, map.get(i)};
     }
 }

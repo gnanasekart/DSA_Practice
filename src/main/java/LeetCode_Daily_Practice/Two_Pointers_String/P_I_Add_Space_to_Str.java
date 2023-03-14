@@ -19,33 +19,4 @@ public class P_I_Add_Space_to_Str {
         }
         System.out.println("Output: " + output.trim());
     }
-
-    @Test
-    public void main() {
-//        try {
-//            int i =8;
-//            int num = i/0;
-//        }
-//        catch(Exception e)
-//        {
-//            System.out.println("messae");
-//        }
-//        catch(ArithmeticException a) --> compile time error
-//        {
-//            System.out.println("airth");
-//        }
-
-        B obj = new B();
-    }
-        class A{
-            public  A(){
-                System.out.println("message Aa");
-            }
-        }
-
-        class B extends A {
-            public B() {
-                System.out.println("message B");
-            }
-        }
 }
