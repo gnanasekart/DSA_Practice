@@ -30,7 +30,7 @@ https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public void example2(){
         int[] n ={2,3,4};
         int target=6;
-        Assert.assertEquals(targetSum(n, target), new int[]{1,3});
+        Assert.assertEquals(targetSum1(n, target), new int[]{1,3});
     }
 
     @Test

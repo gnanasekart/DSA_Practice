@@ -32,7 +32,7 @@ The closest occurrence of 'e' for index 8 is at index 6, so the distance is abs(
         String s = "loveleetcode";
         char c = 'e';
         int[] output = {3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0};
-        Assert.assertEquals(shortestToChar(s, c), output);
+        Assert.assertEquals(findshortestDistance(s, c), output);
     }
 
     @Test
