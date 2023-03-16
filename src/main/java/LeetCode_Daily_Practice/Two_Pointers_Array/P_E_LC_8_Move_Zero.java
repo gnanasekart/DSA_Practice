@@ -19,7 +19,6 @@ logic
 	- else if => the value is not zero means swap
 	- else => increment on another pointer
 3. then return the array
-
 */
     @Test
     public void example1() {

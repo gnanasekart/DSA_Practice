@@ -59,17 +59,17 @@ public class P_E_Distance_btwn_2_arr {
     public void ex2() {
         int[] arr1 = {2, 1, 100, 3}, arr2 = {-5, -2, 10, -3, 7};
         int d = 6;
-        Assert.assertEquals(findTheDistanceValue(arr1, arr2, d), 1);
+        Assert.assertEquals(findTheDistanceValue1(arr1, arr2, d), 1);
     }
 
+    //1,2,3,100
+    //-5,-3,-2,7,10
     public int findTheDistanceValue1(int[] arr1, int[] arr2, int d) {
         Arrays.sort(arr1);
         Arrays.sort(arr2);
         int i = 0, j = 0, count = arr1.length;
-
-        TreeSet<Integer> ts = new TreeSet<>();
-
         while (i < arr1.length && j < arr2.length) {
+            //1+5<=6
             if (Math.abs(arr1[i] - arr2[j]) <= d) {
                 i++;
                 count--;
