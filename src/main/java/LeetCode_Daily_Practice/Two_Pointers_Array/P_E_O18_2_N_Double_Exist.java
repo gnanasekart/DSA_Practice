@@ -9,8 +9,7 @@ import java.util.stream.Collectors;
 public class P_E_O18_2_N_Double_Exist {
     /*
     leetcode.com/problems/check-if-n-and-its-double-exist/
-    Given an array arr of integers, check if there exist two indices i
-    and j such that :
+    Given an array arr of integers, check if there exist two indices i and j such that :
 
     i != j
     0 <= i, j < arr.length
@@ -23,10 +22,8 @@ public class P_E_O18_2_N_Double_Exist {
     Explanation: For i = 0 and j = 2, arr[i] == 10 == 2 * 5 == 2 * arr[j]
 
     Constraints:
-
     2 <= arr.length <= 500
-    -103 <= arr[i] <= 103
-
+    -10^3 <= arr[i] <= 10^3
     */
     @Test
     public void example1(){

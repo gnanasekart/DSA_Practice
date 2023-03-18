@@ -91,6 +91,7 @@ Constraints:
             if (a == 0) zero++;
 
         n = arr.length + zero;
+
         while (n > arr.length) {
             n = (arr[i] == 0) ? n - 2 : n - 1;
             i--;
