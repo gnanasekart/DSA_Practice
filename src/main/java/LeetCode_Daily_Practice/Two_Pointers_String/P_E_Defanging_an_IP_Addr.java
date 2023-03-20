@@ -16,7 +16,6 @@ Input: address = "1.1.1.1"
 Output: "1[.]1[.]1[.]1"
 
 Constraints:
-
 The given address is a valid IPv4 address.
      */
 

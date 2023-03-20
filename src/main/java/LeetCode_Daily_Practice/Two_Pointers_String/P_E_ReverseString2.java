@@ -27,6 +27,8 @@ Output: "bacdfeg"
     }
 
 
+    //time - O(n^2)
+    //space - O(n)
     public String reverseStr(String s, int k) {
         char[] ch = s.toCharArray();
         int start = 0, end = 0;

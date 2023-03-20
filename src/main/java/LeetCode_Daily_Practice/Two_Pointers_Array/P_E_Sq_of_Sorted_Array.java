@@ -37,13 +37,13 @@ could you find an O(n) solution using a different approach?
 
     @Test
     public void ex2() {
-        Assert.assertEquals(sqsort(new int[]{-7,-3,2,3,11}), new int[]{4,9,9,49,121});
+        Assert.assertEquals(sqsort(new int[]{-7, -3, 2, 3, 11}), new int[]{4, 9, 9, 49, 121});
     }
 
     //O(n log n)
     public int[] sortedSquares(int[] nums) {
-        for(int i=0; i<nums.length; i++)
-            nums[i]=nums[i]*nums[i];
+        for (int i = 0; i < nums.length; i++)
+            nums[i] = nums[i] * nums[i];
         Arrays.sort(nums);
         return nums;
     }
@@ -51,11 +51,14 @@ could you find an O(n) solution using a different approach?
     //O(n)
     private int[] sqsort(int[] ints) {
         int[] a = new int[ints.length];
-        int low =0, high=ints.length-1;
-        for (int i=ints.length-1; i>=0; i--){
-            if(Math.abs(ints[low]) > Math.abs(ints[high])){
-                a[i]=ints[low]*ints[low++];
-            }else a[i]=ints[high]*ints[high--];
+        int low = 0, high = ints.length - 1;
+        for (int i = ints.length - 1; i >= 0; i--) {
+            int ab = Math.abs(ints[low]);
+            int bc = Math.abs(ints[high]);
+            if (ab > bc)
+                a[i] = ints[low] * ints[low++];
+            else
+                a[i] = ints[high] * ints[high--];
         }
         return a;
     }

@@ -184,8 +184,7 @@ sliding window
         int left = 0, right = p.length();
 
         while (right < s.length()) {
-            if (sMap.equals(pMap))
-                ans.add(left);
+            if (sMap.equals(pMap)) ans.add(left);
 
             // acquire the next char from the right
             char acquire = s.charAt(right);
@@ -193,20 +192,15 @@ sliding window
 
             // get rid the first from extreme left of window
             char discard = s.charAt(left);
-            if (sMap.get(discard) == 1)
-                sMap.remove(discard);
-            else
-                sMap.put(discard, sMap.get(discard) - 1);
+            if (sMap.get(discard) == 1) sMap.remove(discard);
+            else sMap.put(discard, sMap.get(discard) - 1);
 
             // slide the window
             left++; right++;
         }
 
-        if (sMap.equals(pMap))
-            ans.add(left);
+        if (sMap.equals(pMap)) ans.add(left);
 
         return ans;
     }
-
-
 }

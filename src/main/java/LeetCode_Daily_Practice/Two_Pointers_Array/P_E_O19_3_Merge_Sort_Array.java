@@ -57,14 +57,15 @@ public class P_E_O19_3_Merge_Sort_Array {
     }
 
     @Test
-    public void example4(){
-        int[] nums1={1};
-        int m=1;
-        int[] nums2={0};
-        int n=0;
-        Assert.assertEquals(sortAndMerge(nums1,m,nums2,n), new int[]{1});
+    public void example4() {
+        int[] nums1 = {1};
+        int m = 1;
+        int[] nums2 = {0};
+        int n = 0;
+        Assert.assertEquals(sortAndMerge(nums1, m, nums2, n), new int[]{1});
     }
-/*
+
+    /*
 - check if nums1 array is empty means assign nums2 value to nums1
 - consider two pointer for two array
 - start comparing last value from both the array

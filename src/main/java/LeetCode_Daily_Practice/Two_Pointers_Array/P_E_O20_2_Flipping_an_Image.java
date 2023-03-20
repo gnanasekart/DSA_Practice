@@ -152,7 +152,6 @@ public class P_E_O20_2_Flipping_an_Image {
             }
         }
 
-
         for (int i = 0; i < image.length; i++) {
             for (int j = 0; j < image.length; j++) {
                 if (image[i][j] == 0) image[i][j] = 1;

@@ -81,6 +81,7 @@ strs[i] consists of only lowercase English letters.
         return s;
     }
 
+    //binary search method
     private String commonPrefixMethod(String[] strs) {
         if(strs.length==0) return "";
 
