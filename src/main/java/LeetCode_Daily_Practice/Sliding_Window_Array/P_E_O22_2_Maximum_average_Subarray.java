@@ -65,8 +65,7 @@ public class P_E_O22_2_Maximum_average_Subarray {
                 sum = 0;
                 while (left < k + right)
                     sum += arr[left++];
-            }else
-                left++;
+            }else left++;
 
             right++;
             left = right;

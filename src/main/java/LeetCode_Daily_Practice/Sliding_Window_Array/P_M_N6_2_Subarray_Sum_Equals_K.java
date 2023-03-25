@@ -18,7 +18,6 @@ Constrains
 1 <= nums.length <= 2 * 10^4
 -1000 <= nums[i] <= 1000
 -10^7 <= k <= 10^7
-
      */
 
     @Test
@@ -83,7 +82,7 @@ Constrains
         return count;
     }
 
-    public int subarraysum1(int[] num, int k) {
+    public int subarraysum(int[] num, int k) {
         int sum = 0, psum = 0, count = 0, value = 0;
         Map<Integer, Integer> map = new HashMap<>();
         //map.put(0, 1);
@@ -98,7 +97,7 @@ Constrains
         return count;
     }
 
-    public int subarraysum(int[] arr, int k) {
+    public int subarraysum1(int[] arr, int k) {
         int left = 0, right = 0, sum = 0, count = 0;
 
         while (left < arr.length) {

@@ -94,31 +94,6 @@ name and typed consist of only lowercase English letters.
 	- else return true
 */
 
-	//mine
-	private boolean longPress(String name, String typed){
-		if(name.length() <= typed.length()/2) return true;
-		boolean isLongPressed=false;
-		char[] n=name.toCharArray();
-		char[] t=typed.toCharArray();
-
-		if(n[n.length-1] != t[t.length-1]) return false;
-
-		int left=0, right=0, count=0;
-		while(left<n.length && right<t.length){
-			count=0;
-			if(n[left]==t[right]){
-				count++;
-				isLongPressed=true;
-				if(count>2)
-					return true;
-				left++;
-			}
-			right++;
-		}
-		if(left<name.length() && right==typed.length())
-			return false;
-		else return isLongPressed;
-	}
 
 	//best solution
 	private boolean longPress3(String name, String typed){
@@ -160,8 +135,10 @@ name and typed consist of only lowercase English letters.
 				i++;
 				j++;
 			}
-			else if(i>0 && name.charAt(i-1)==typed.charAt(j)) j++;
-			else return false;
+			else if(i>0 && name.charAt(i-1)==typed.charAt(j))
+				j++;
+			else
+				return false;
 		}
 
 		while(j<typed.length()){

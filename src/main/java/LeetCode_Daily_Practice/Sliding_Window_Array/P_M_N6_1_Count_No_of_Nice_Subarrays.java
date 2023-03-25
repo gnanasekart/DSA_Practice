@@ -65,12 +65,11 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
         for(int i=0; i<nums.length; i++){
                 count=0;
             for(int j=i; j<nums.length; j++){
-                if(nums[j]%2!=0){
+                if(nums[j]%2!=0)
                     count++;
-                }
-                if(count==k){
+
+                if(count==k)
                     m++;
-                }
             }
         }
         return m;
@@ -142,26 +141,6 @@ leetcode.com/problems/count-number-of-nice-subarrays/discuss/419317/Java-Sliding
                 count++;
             res += map.getOrDefault( count - k , 0 );
             map.put( count , map.getOrDefault( count , 0 ) + 1 );
-        }
-        return res;
-    }
-
-    //notworking
-    public int numberOfSubarrays(int[] nums, int k) {
-        if(nums.length < 1) return 0;
-
-        int prev=0, res=0;
-        int[] prefixSum = new int[nums.length];
-        int[] sumCount = new int[nums.length+1];
-        sumCount[0]=1;
-        for (int i = 0; i < nums.length; i++) {
-            prefixSum[i] = prev + (prefixSum[i] & 1);
-            prev = prefixSum[i];
-
-            if (prefixSum[i] >= k) {
-                res+=sumCount[prefixSum[prev-k]];
-            }
-            sumCount[prefixSum[i]]++;
         }
         return res;
     }
