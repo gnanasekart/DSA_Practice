@@ -23,21 +23,21 @@ Constraints:
     public void example1() {
         int[] s = {3, 2, 1, 1};
         int k = 3;
-        Assert.assertEquals(containsNearbyDuplicate(s, k), true);
+        Assert.assertEquals(containsDuplicateHS(s, k), true);
     }
 
     @Test
     public void example2() {
         int[] s = {1, 0, 1, 1};
         int k = 1;
-        Assert.assertEquals(containsNearbyDuplicate(s, k), true);
+        Assert.assertEquals(containsDuplicateHS(s, k), true);
     }
 
     @Test
     public void example3() {
         int[] s = {1, 2, 3, 1, 2, 3};
         int k = 2;
-        Assert.assertEquals(containsNearbyDuplicate(s, k), false);
+        Assert.assertEquals(containsDuplicateHS(s, k), false);
     }
 
     @Test
@@ -74,14 +74,10 @@ PseudoCode
 
     private boolean containsDuplicate(int[] s, int k) {
         if (s.length < 2) return false;
-        int j = 0;
         for (int i = 0; i < s.length - 1; i++) {
-            j = i + 1;
-            while (j < s.length) {
-                if (s[i] == s[j++]) {
-                    if (Math.abs(i - j) <= k) return true;
-                }
-                j++;
+            for (int j = i + 1; j < s.length; j++) {
+                if (s[i] == s[j++] && Math.abs(i - j) <= k)
+                    return true;
             }
         }
         return false;
@@ -90,8 +86,8 @@ PseudoCode
     private boolean containsDuplicateHM(int[] s, int k) {
         if (s.length < 2) return false;
         Map<Integer, Integer> map = new HashMap<>();
-        for(int i=0; i<s.length; i++){
-            if(map.containsKey(s[i]) && Math.abs(map.get(s[i])-i) <= k)
+        for (int i = 0; i < s.length; i++) {
+            if (map.containsKey(s[i]) && Math.abs(map.get(s[i]) - i) <= k)
                 return true;
             else map.put(s[i], i);
         }
@@ -99,37 +95,19 @@ PseudoCode
     }
 
     private boolean containsDuplicateHS(int[] s, int k) {
-        if (s.length < 2 || k==0) return false;
+        if (s.length < 2 || k == 0)
+            return false;
         Set<Integer> set = new HashSet<>();
-        for(int i=0; i<s.length; i++){
-            if(i>k){
-                //set.remove(j++);
-                set.remove(i-k-1);
-            }
+        for (int i = 0; i < s.length; i++) {
+            if (i > k)
+                set.remove(i - k - 1);
 
-            if(set.contains(s[i])) return true;
-            else set.add(s[i]);
+            if (set.contains(s[i]))
+                return true;
+            else
+                set.add(s[i]);
 
 //            if(!set.add(s[i])) return true;
-        }
-        return false;
-    }
-
-
-    //not working for all test cases
-    public boolean containsNearbyDuplicate(int[] nums, int k) {
-        HashMap<Integer, Integer> map = new HashMap();
-        int i=0;
-        while(i<=k){
-            map.put(nums[i], map.getOrDefault(nums[i++], 0)+1);
-        }
-        if(map.containsValue(2))
-            return true;
-        int left=0;
-        for(; i<=nums.length-1; i++){
-            map.put(nums[left], map.getOrDefault(nums[left++], 0)-1);
-            map.put(nums[i], map.getOrDefault(nums[i], 0)+1);
-            if(map.containsValue(2)) return true;
         }
         return false;
     }

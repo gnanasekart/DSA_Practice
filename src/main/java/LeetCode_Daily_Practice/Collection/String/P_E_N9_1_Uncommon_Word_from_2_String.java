@@ -69,9 +69,12 @@ All the words in s1 and s2 are separated by a single space.
     */
     public String[] uncommonWordsMap(String s1, String s2) {
 
-        if (s1.length() < 1 || s2.length() < 1) return new String[]{};
+        if (s1.length() < 1 || s2.length() < 1)
+            return new String[]{};
+
         Map<String, Integer> map = new HashMap();
         List<String> list = new ArrayList<>();
+
         for (String one : s1.split(" "))
             map.put(one, map.getOrDefault(one, 0) + 1);
 

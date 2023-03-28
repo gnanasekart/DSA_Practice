@@ -85,8 +85,10 @@ public class P_E_N8_2_Buddy_String {
         boolean ispresent = false;
         Set<Character> set = new HashSet();
         if(ss.equals(goal)){
-            for(char c : s) set.add(c);
-            if(set.size()<ss.length()) ispresent=true;
+            for(char c : s)
+                set.add(c);
+            if(set.size()<ss.length())
+                ispresent=true;
         }else{
             for(int i=0; i<ss.length(); i++){
                 if(s[i]!=g[i]){
