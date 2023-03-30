@@ -15,7 +15,7 @@ to the number of closing brackets from and after.
     {
         int len = str.length();
         int open[] = new int[len+1];
-        int    close[] = new int[len+1];
+        int close[] = new int[len+1];
         int index = -1;
 
         open[0] = 0;

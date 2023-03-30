@@ -56,7 +56,7 @@ sequence and word contains only lowercase English letters.
     }
 
 
-    private int repatingSubString2(String sequence, String word) {
+    private int repeatingSubString2(String sequence, String word) {
         int k=0;
         String c = word;
         while (sequence.indexOf(c)!=-1){

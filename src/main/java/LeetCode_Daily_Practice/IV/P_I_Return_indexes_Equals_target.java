@@ -16,8 +16,8 @@ output = 3,7 2,8
      */
 
     @Test
-    public void ex(){
-        int[] arr = {1,5,3,2,4,7,8,10};
+    public void ex() {
+        int[] arr = {1, 5, 3, 2, 4, 7, 8, 10};
         int target = 10;
         //Assert.assertEquals(findPairs(arr, target), new ArrayList<>(new int[][]{{3,7},{2,8}}));
     }
@@ -26,9 +26,8 @@ output = 3,7 2,8
         List<String> pairs = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] + arr[j] == target) {
+                if (arr[i] + arr[j] == target)
                     pairs.add(arr[i] + "," + arr[j]);
-                }
             }
         }
         return pairs;
@@ -42,13 +41,10 @@ output = 3,7 2,8
         int right = arr.length - 1;
         while (left < right) {
             int sum = arr[left] + arr[right];
-            if (sum == target) {
+            if (sum == target)
                 pairs.add(arr[left++] + "," + arr[right--]);
-            } else if (sum < target) {
-                left++;
-            } else {
-                right--;
-            }
+            else if (sum < target) left++;
+            else right--;
         }
         return pairs;
     }

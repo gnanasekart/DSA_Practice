@@ -49,13 +49,8 @@ Constraints:
     }
 
     private int climbStairs1(int n) {
-
         if(n<=1) return 1;
-
-       int res = climbStairs(n-1)+climbStairs(n-2);
-        //System.out.println(res);
-        return res;
-
+       return climbStairs(n-1)+climbStairs(n-2);
     }
 
     private int climbStairs(int n) {

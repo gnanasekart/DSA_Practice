@@ -7,44 +7,44 @@ public class P_I_Securing_Message {
 
 
     @Test
-    public void ex1(){
-    String name = "gnana Sekar";
+    public void ex1() {
+        String name = "gnana Sekar";
         Assert.assertEquals(getEncryptedName(name), "gnana sekar");
     }
 
     @Test
-    public void ex2(){
+    public void ex2() {
         String name = "gnana Sekar";
         Assert.assertEquals(getEncryptedName(name), "rakes anang");
     }
 
     @Test
-    public void ex3(){
+    public void ex3() {
         String name = "gnanasekar";
         Assert.assertEquals(getEncryptedName(name), "rakesanang");
     }
 
 
-    private String getEncryptedName(String name){
+    private String getEncryptedName(String name) {
 
-        if(new Validator().validator(name)){
+        if (new Validator().validator(name)) {
             String lower = new String(name).toLowerCase();
             StringBuilder sb = new StringBuilder(lower).reverse();
             return sb.toString();
-        }else{
+        } else {
             throw new IllegalArgumentException("Try again with valid name");
         }
     }
 
-class Validator{
-    public boolean validator(String name){
-        for(char ch : name.toCharArray()){
-            if(ch!=' ' && !(Character.isLowerCase(ch) || Character.isUpperCase(ch))){
-                return false;
+    class Validator {
+        public boolean validator(String name) {
+            for (char ch : name.toCharArray()) {
+                if (ch != ' ' && !(Character.isLowerCase(ch) || Character.isUpperCase(ch))) {
+                    return false;
+                }
             }
+            return true;
         }
-        return true;
     }
-}
 
 }

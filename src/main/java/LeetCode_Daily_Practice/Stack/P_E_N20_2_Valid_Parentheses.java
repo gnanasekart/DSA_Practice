@@ -59,7 +59,7 @@ public class P_E_N20_2_Valid_Parentheses {
     }
 
 
-    private boolean validParenthesesHM(String s) {
+    private boolean validParentheses(String s) {
         if(s.length()<2) return false;
 
         HashMap<Character, Character> map = new HashMap<>();
@@ -76,20 +76,4 @@ public class P_E_N20_2_Valid_Parentheses {
         }
         return st.isEmpty();
     }
-
-    //inProgress
-    private boolean validParentheses(String s) {
-        if(s.length()<2) return false;
-        Stack<String> st = new Stack();
-
-        String sample = "}])";
-        for(String c: s.split("")){//   (]
-            if(!st.isEmpty() && sample.contains(c)){
-                st.pop();
-            }else
-                st.push(c);
-        }
-        return st.isEmpty();
-    }
-
 }

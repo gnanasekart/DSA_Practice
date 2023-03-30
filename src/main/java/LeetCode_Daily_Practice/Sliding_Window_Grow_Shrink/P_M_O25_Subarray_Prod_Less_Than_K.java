@@ -111,26 +111,6 @@ leetcode.com/problems/subarray-product-less-than-k/
         return count;
     }
 
-    //not working
-    private int subArraymethod2(int[] w, int k){
-        if(w.length<2 && w[0]<k) return 1;
-
-        int left=0, right=0, count=0, sum=1;
-        while(right<w.length){
-            if(sum*w[right]<k){
-                count+=right-left+1;
-                sum*=w[right++];
-            }else if(sum*w[right]>=k){
-                if(left<right){
-                    sum=sum/w[left];
-                }else right++;
-
-                left++;
-            }
-        }
-        return count;
-    }
-
     public int subArraysu(int[] nums, int k){
         int left = 0, right = 0, mul = 1, count = 0;
         while (right < nums.length) {

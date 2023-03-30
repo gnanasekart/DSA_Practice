@@ -8,7 +8,6 @@ import java.util.List;
 
 public class P_D_8_Adjacent_Characters {
     /*
-
    For each word in a list of words, if any two adjacent characters are equal, change one of them.
    Determine the minimum number of substitutions so the final string contains no adjacent equal characters.
 

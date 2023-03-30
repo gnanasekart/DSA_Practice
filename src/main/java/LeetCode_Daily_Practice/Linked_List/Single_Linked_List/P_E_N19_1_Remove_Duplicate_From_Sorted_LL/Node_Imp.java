@@ -20,11 +20,8 @@ public class Node_Imp {
 
     public void add(int input) {
         Node_Imp node = new Node_Imp(input);
-        if (head == null) {
-            head = tail = node;
-        } else {
-            tail.next = tail = node;
-        }
+        if (head == null) head = tail = node;
+        else tail.next = tail = node;
         length++;
     }
 
