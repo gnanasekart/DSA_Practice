@@ -9,8 +9,5 @@
         <module name="javaDSA" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="javaDSA" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>

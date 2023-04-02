@@ -5,7 +5,8 @@ import org.testng.annotations.Test;
 public class P_I_Add_Space_to_Str {
 
 
-    public static void main(String[] args) {
+    @Test
+    public void ex1() {
        String input = "HowAreYouSekar";
         String out = "How Are You Sekar.";
         String output = "";
@@ -18,5 +19,31 @@ public class P_I_Add_Space_to_Str {
             }
         }
         System.out.println("Output: " + output.trim());
+    }
+
+    @Test
+    public void ex2(){
+        String str = "HowAreYouToday";
+        //Expected output - How are you today.
+
+        StringBuffer sb = new StringBuffer();
+
+        int left=0, right=0;
+
+        while(right<str.length() && left<str.length()){
+            if(left==0 && right==0 || Character.isLowerCase(str.charAt(right))){
+                right++;
+            }else if( Character.isUpperCase(str.charAt(right))){
+                sb.append(" ");
+                String s = str.substring(left, right);
+                sb.append(s);
+                left=right;
+                right++;
+            }
+        }
+        sb.append(" ");
+        String s = str.substring(left, right);
+        sb.append(s);
+        System.out.println(sb.toString().trim());
     }
 }

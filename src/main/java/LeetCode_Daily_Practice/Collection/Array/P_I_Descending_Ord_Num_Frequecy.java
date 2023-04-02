@@ -50,5 +50,6 @@ output - [8,8,8,2,2,5,5,6]
                 });
         System.out.println(output);
     }
+
 }
 

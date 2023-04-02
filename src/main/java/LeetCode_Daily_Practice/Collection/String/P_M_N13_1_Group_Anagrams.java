@@ -71,7 +71,6 @@ add the real string which matches with key
             List<String> list = map.getOrDefault(new String(c), new ArrayList<>());
             list.add(str);
             map.put(new String(c), list);
-
         }
         return map.values().stream().collect(Collectors.toList());
     }

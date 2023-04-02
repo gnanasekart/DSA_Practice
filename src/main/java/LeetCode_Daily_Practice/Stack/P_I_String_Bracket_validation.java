@@ -13,8 +13,9 @@ public class P_I_String_Bracket_validation {
        Assert.assertEquals(isBalanced(input), true);
    }
 
-        public static boolean isBalanced(String input) {
+        public static boolean isBalanced(String inp) {
             Stack<Character> stack = new Stack<Character>();
+            String input = inp.replaceAll("[a-zA-Z0-9 ]", "");
             for (int i = 0; i < input.length(); i++) {
                 char current = input.charAt(i);
                 if (current == '{' || current == '[' || current == '(')
