@@ -70,15 +70,13 @@ strs[i] consists of only lowercase English letters.
 
         int min = Math.min(str[0].length(), str[size-1].length());
         int i=0;
-        while(i<min && str[0].charAt(i)==str[size-1].charAt(i)){
+        while(i<min && str[0].charAt(i)==str[size-1].charAt(i))
             i++;
-        }
 
-        String s = "";
-        if(i>0){
+        if(i>0)
             return str[0].substring(0, i);
-        }
-        return s;
+
+        return "";
     }
 
     //binary search method

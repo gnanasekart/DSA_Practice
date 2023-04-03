@@ -16,7 +16,7 @@ The vowels are 'a', 'e', 'i', 'o', and 'u', and they can appear in both lower an
 more than once.
 Constraints:
 
-1 <= s.length <= 3 * 105
+1 <= s.length <= 3 * 10^5
 s consist of printable ASCII characters
   */
 

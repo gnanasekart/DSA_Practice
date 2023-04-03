@@ -49,11 +49,9 @@ There is at least one word in s.
 
         String[] str = s.split("\\s+");
         StringBuffer sb = new StringBuffer();
-        for(int i=str.length-1; i>=0; i--){
-            if(!str[i].contains(" ")){
+        for(int i=str.length-1; i>=0; i--)
+            if(!str[i].contains(" "))
                 sb.append(str[i]+" ");
-            }
-        }
         s = sb.toString().trim();
         return s;
     }

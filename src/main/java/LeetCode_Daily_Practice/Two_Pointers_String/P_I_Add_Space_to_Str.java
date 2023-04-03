@@ -12,11 +12,10 @@ public class P_I_Add_Space_to_Str {
         String output = "";
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
-            if (Character.isUpperCase(c)) {
+            if (Character.isUpperCase(c))
                 output += " " + c;
-            } else {
+            else
                 output += c;
-            }
         }
         System.out.println("Output: " + output.trim());
     }

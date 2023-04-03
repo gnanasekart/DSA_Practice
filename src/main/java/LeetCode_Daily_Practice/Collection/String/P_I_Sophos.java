@@ -1,4 +1,4 @@
-package sample;
+package LeetCode_Daily_Practice.Collection.String;
 
 import io.cucumber.java.sl.In;
 import org.testng.Assert;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TestProgr {
+public class P_I_Sophos {
 /*
 
 Given comma seperated words you have to sort words based on frequency in descending ordeer,
@@ -73,7 +73,6 @@ Apple :1
 
     @Test
     public String examplePRogram(String str){
-
 
         StringBuilder sb = new StringBuilder();
 

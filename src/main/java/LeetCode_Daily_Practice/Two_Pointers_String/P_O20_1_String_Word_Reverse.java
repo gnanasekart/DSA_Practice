@@ -105,7 +105,7 @@ public void example6(){
              StringBuilder rw = new StringBuilder();
              for(int i = word.length()- 1; i >= 0; i--){
                  rs.append(w.charAt(i));
-                 }
+             }
              rs.append(rw).append(" ");
          }
          return rs.toString().trim();

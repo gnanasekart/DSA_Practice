@@ -65,7 +65,7 @@ public class sample {
 public void ex1(){
         String s = "PAYPALISHIRING";
         int row =3;
-        convert(s, row);
+    System.out.println(convert(s, row));
 }
 
     public String convert(String s, int nRows) {

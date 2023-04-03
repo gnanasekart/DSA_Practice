@@ -15,13 +15,12 @@ some (can be none) of the characters without disturbing the relative positions o
 Example 1:
 Input: s = "abc", t = "ahbgdc"
 Output: true
-     */
+*/
 
     @Test
     public void ex(){
         Assert.assertEquals(isSeq("abc", "ahbqdc"), true);
     }
-
 
     @Test
     public void ex1(){
@@ -35,11 +34,8 @@ Output: true
             if(s.charAt(i)==t.charAt(j)){
                 i++;
                 j++;
-            }else{
-                j++;
-            }
+            }else j++;
         }
         return i==s.length();
     }
-
 }
