@@ -16,7 +16,8 @@ public class P_M_O28_1_Longest_Nice_SubString {
         for (char c: chars)
             set.add(c);
         for (int i = 0; i < chars.length; i++) {
-            if (set.contains(Character.toUpperCase(chars[i])) && set.contains(Character.toLowerCase(chars[i]))) continue;
+            if (set.contains(Character.toUpperCase(chars[i])) && set.contains(Character.toLowerCase(chars[i])))
+                continue;
             String sub1 = longestNiceSubstring(s.substring(0, i));
             String sub2 = longestNiceSubstring(s.substring(i+1));
             return sub1.length() >= sub2.length() ? sub1 : sub2;

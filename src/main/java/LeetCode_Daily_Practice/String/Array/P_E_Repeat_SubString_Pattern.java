@@ -20,7 +20,6 @@ Constraints:
 1 <= s.length <= 10^4
 s consists of lowercase English letters.
 
-
 Approach :
 1. The substring that will be repeated should repeat at least 2 times
    otherwise every string will be considered as a repeated substring.
