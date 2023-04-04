@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 
 public class P_M_I_Coin_Change2 {
     /*
+
+    https://leetcode.com/problems/coin-change-ii/
+
     You are given an integer array coins representing coins of different denominations and
     an integer amount representing a total amount of money.
     Return the number of combinations that make up that amount. If that amount of money
@@ -33,6 +36,14 @@ Example 3:
 
 Input: amount = 10, coins = [10]
 Output: 1
+\
+
+Constraints:
+
+1 <= coins.length <= 300
+1 <= coins[i] <= 5000
+All the values of coins are unique.
+0 <= amount <= 5000
      */
 
     @Test
@@ -40,6 +51,20 @@ Output: 1
         int amount = 5;
         int[] coins = {1,2,5};
         Assert.assertEquals(coins(amount, coins), 4);
+    }
+
+    @Test
+    public void ex2(){
+        int amount = 10;
+        int[] coins = {10};
+        Assert.assertEquals(coins(amount, coins), 1);
+    }
+
+    @Test
+    public void ex3(){
+        int amount = 3;
+        int[] coins = {2};
+        Assert.assertEquals(coins(amount, coins), 0);
     }
 
     public static int coins(int amt, int[] coins){
