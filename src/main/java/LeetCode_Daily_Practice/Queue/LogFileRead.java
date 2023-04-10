@@ -54,23 +54,23 @@ public class LogFileRead {
             map.put(username, c);
             User user = new User(username, c);
             minHeap.offer(user);
-//            if (minHeap.size() < count) {
-//                minHeap.offer(user);
-//            } else if (minHeap.peek().wordcount < count) {
-//                minHeap.poll();
-//                minHeap.offer(user);
-//            }
+            if (minHeap.size() < count) {
+                minHeap.offer(user);
+            } else if (minHeap.peek().wordcount < count) {
+                minHeap.poll();
+                minHeap.offer(user);
+            }
         }
-        System.out.println(minHeap.peek().name+"-"+minHeap.peek().wordcount);
+        System.out.println(minHeap.peek().name + "-" + minHeap.peek().wordcount);
     }
-    }
+}
 
-class User{
+class User {
     String name;
     int wordcount;
 
-    User(String name, int wordcount){
-        this.wordcount=wordcount;
-        this.name=name;
+    User(String name, int wordcount) {
+        this.wordcount = wordcount;
+        this.name = name;
     }
 }

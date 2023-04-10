@@ -48,7 +48,6 @@ Each string pangram[i] (where 0 ≤ i < n) is composed of lowercase letters and 
         Assert.assertEquals(panagram(s), new int[]{1,0});
     }
 
-
     private int[] panagram(String[] s) {
     int i=0;
     int[] a = new int[s.length];
