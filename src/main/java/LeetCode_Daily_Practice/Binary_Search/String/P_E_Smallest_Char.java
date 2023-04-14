@@ -5,10 +5,6 @@ import org.testng.annotations.Test;
 
 public class P_E_Smallest_Char {
     /*
-     * PROBLEM STATEMENT
-     *
-     * Leetcode - 744
-     *
      * Given a character array letters that is sorted in non-decreasing order
      * and a target character target, return the smallest character in the array
      * that is larger than target.
@@ -16,9 +12,6 @@ public class P_E_Smallest_Char {
      * Note that letters wrap around
      *
      * For example, if target == 'z' and letters ==['a','b'], the answer is 'a'.
-     *
-     *
-     *
      */
     @Test
     public void example1() {

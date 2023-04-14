@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class sample {
+public class truck {
 /*
 { 3, 6, 2, 8, 7, 6, 5, 9 } and k = 2
 

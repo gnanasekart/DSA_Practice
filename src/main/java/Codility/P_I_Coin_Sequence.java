@@ -5,8 +5,8 @@ import org.testng.annotations.Test;
 
 public class P_I_Coin_Sequence {
     /*
-    There are N coins, each showing either heads or tails. We would like all the coins to form a sequence of alternating heads
-    and tails. What is the minimum number of coins that must be reversed to achieve this?
+    There are N coins, each showing either heads or tails. We would like all the coins to form a sequence of
+    alternating heads and tails. What is the minimum number of coins that must be reversed to achieve this?
 
 Write a function:
 Class Solution ( public int solution(int[] A);
@@ -17,7 +17,7 @@ contain either 0 (heads) or a 1 (tail),
 
 Examples:
 
-1. Given array A =[1,0,1,0,1, 1], the function should return 1. After reversing the sixth coin,
+1. Given array A =[1,0,1,0,1,1], the function should return 1. After reversing the sixth coin,
 we achieve an alternating sequence of coins 1,0,1,0,1,0].
 
 2. Given array A =[1,1,0,1,1], the function should return 2. After reversing the first and fifth coins,
@@ -79,5 +79,4 @@ In your solution, focus on correctness. The performance of your solution will no
         }
         return 0;
     }
-
 }

@@ -5,10 +5,10 @@ import org.testng.annotations.Test;
 
 public class P_I_Shuffle_digit {
     /*
-    There is a company that has a very creative way of managing its accounts. Every time they want to write down a number,
-    they shuffle its digits in the following way: they alternatively write one digit from the front of the number and
-     one digit from the back, then the second digit from the front and the second from the back,
-     and so on until the length of the shuffled number is the same as that of the original.
+    There is a company that has a very creative way of managing its accounts. Every time they want to
+    write down a number, they shuffle its digits in the following way: they alternatively write one digit
+    from the front of the number and one digit from the back, then the second digit from the front and the
+    second from the back, and so on until the length of the shuffled number is the same as that of the original.
 
 Write a function
 class Solution { public int solution (int A); }
@@ -53,7 +53,8 @@ In your solution, focus on correctness. The performance of your solution will no
         }
 
         char[] firstHalf = str.substring(0,str.length()/2).toCharArray();
-        char[] secondHalf = new StringBuilder(str.substring(str.length()/2)).reverse().toString().toCharArray();
+        char[] secondHalf = new StringBuilder(str.substring(str.length()/2))
+                                .reverse().toString().toCharArray();
         StringBuilder finalStr = new StringBuilder();
         for (int i=0;i<firstHalf.length;i++) {
             finalStr.append(firstHalf[i]);

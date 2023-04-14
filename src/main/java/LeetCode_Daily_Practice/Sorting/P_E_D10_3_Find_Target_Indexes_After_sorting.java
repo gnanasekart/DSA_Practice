@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class P_E_D10_3_Find_Target_Indexes_After_sorting {
-    /*
+/*
 https://leetcode.com/problems/find-target-indices-after-sorting-array/
 
 You are given a 0-indexed integer array nums and a target element target.
@@ -68,7 +68,6 @@ Constraints:
     public int[] people(int[] nums, int target){
         int temp=0, j=0, k=0;
         for(j=0; j<nums.length; j++){
-
             for(k=0; k<nums.length-1-j; k++){
                 if(nums[k]>nums[k+1]){
                     temp=nums[k];

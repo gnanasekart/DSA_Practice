@@ -41,19 +41,19 @@ Each character of words[i] is in the range ascii[a-z].
 
     @Test
     public void ex1() {
-        String[] s = {"add", "boook", "break" };
+        String[] s = {"add", "boook", "break"};
         Assert.assertEquals(adjancentChar(s), new int[]{1, 1, 0});
     }
 
     @Test
     public void ex2() {
-        String[] s = {"ab", "aa", "aaa", "aba" };
+        String[] s = {"ab", "aa", "aaa", "aba"};
         Assert.assertEquals(adjancentChar(s), new int[]{0, 1, 1, 0});
     }
 
     @Test
     public void ex3() {
-        String[] s = {"'aaaaaaaaa" };
+        String[] s = {"'aaaaaaaaa"};
         Assert.assertEquals(adjancentChar(s), new int[]{4});
     }
 
@@ -109,4 +109,4 @@ Each character of words[i] is in the range ascii[a-z].
         }
         return result;
     }
-    }
+}
