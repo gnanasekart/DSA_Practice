@@ -74,4 +74,53 @@ logic-
         }
         return false;
     }
+
+    /*
+    Js Script
+    solution 1
+
+    var getNoZeroIntegers = function(n) {
+
+    let int1 = n-1;
+    let int2 = 1;
+
+    const hasZero = int => int.toString().includes('0');
+
+    while(hasZero(int1) || hasZero(int2)){
+        int1=int1-1;
+        int2=int2+1;
+    }
+    return [int1, int2];
+    };
+
+    solution 2
+
+    var getNoZeroIntegers = function(n) {
+        let initcheck = n-1;
+
+        if(!initcheck.toString().includes('0')){
+            return [initcheck, 1];
+        }else{
+            let result=[n,0];
+            while(result[1] !== n){
+                result[0]--;
+                result[1]++;
+                if(!result[1].isString().includes('0') && !result[0].isString().includes('0')){
+                    return result;
+                }
+            }
+        }
+    }
+
+    solution 3
+
+    var getNoZeroIntegers = function(n) {
+    for(let i = 0; i < n; i++) {
+        if(!i.toString().includes('0') && !(n - i).toString().includes('0')) {
+            return [i, n - i];
+        }
+    }
+    return [];
+};
+     */
 }
