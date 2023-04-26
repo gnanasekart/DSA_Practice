@@ -67,7 +67,6 @@ In your solution, focus on correctness. The performance of your solution will no
                         count1++;
                     if (A[index] == 0)
                         count2++;
-
                 } else {
                     if (A[index] == 0)
                         count1++;

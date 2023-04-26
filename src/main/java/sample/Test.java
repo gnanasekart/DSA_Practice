@@ -43,23 +43,73 @@ public class Test {
 //        int[] arr = {1, 10};
 //        int k = 2;
 
+//
+//        int[] arr = {0,6};
+//        int k = 6;
+//        int sum = 0;
+//        for (int i = 0; i < arr.length; i++) {
+//            sum = 0;
+//            for (int j = i; j < arr.length && i!=j; j++) {
+//                sum += arr[j];
+//                if (sum % k == 0) {
+//                    System.out.println(true);
+//                    break;
+//                }
+//            }
+//        }
+//        System.out.println(false);
 
-        int[] arr = {0,6};
-        int k = 6;
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum = 0;
-            for (int j = i; j < arr.length && i!=j; j++) {
-                sum += arr[j];
-                if (sum % k == 0) {
-                    System.out.println(true);
-                    break;
-                }
-            }
+        int AA =5;
+        int AB = 0;
+        int BB = 2;
+        solution(AA, AB, BB);
+
+
+
+    }
+
+    public static String solution(int AA, int AB, int BB) {
+        StringBuilder s1 = new StringBuilder();
+        StringBuilder s2 = new StringBuilder();
+
+        for (int i = 0; i < AA; i++) {
+            s1.append("AA");
         }
-        System.out.println(false);
+        for (int i = 0; i < AB; i++) {
+            s1.append("AB");
+        }
+        for (int i = 0; i < BB; i++) {
+            s2.append("BB");
+        }
 
+        StringBuilder result = new StringBuilder();
 
+        while (s1.length() > 0 && s2.length() > 0) {
+            if (s1.length() > s2.length()) {
+                result.append(s1.substring(0, 2));
+                s1.delete(0, 2);
+            } else {
+                result.append(s2.substring(0, 2));
+                s2.delete(0, 2);
+            }
 
+//            if (result.length() >= 3) {
+//                if (result.substring(result.length() - 3).equals("AAA")) {
+//                    result.delete(result.length() - 2, result.length());
+//                    s1.insert(0, "AA");
+//                } else if (result.substring(result.length() - 3).equals("BBB")) {
+//                    result.delete(result.length() - 2, result.length());
+//                    s2.insert(0, "BB");
+//                }
+//            }
+        }
+
+        if (s1.length() > 0) {
+            result.append(s1);
+        } else if (s2.length() > 0) {
+            result.append(s2);
+        }
+
+        return result.toString();
     }
 }

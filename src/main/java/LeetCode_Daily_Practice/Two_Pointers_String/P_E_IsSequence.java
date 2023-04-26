@@ -24,7 +24,7 @@ Output: true
 
     @Test
     public void ex1(){
-        Assert.assertEquals(isSeq("abc", "ahbqdc"), true);
+        Assert.assertEquals(isSeq("abc", "ahbqdccaca"), true);
     }
 
     private boolean isSeq(String s, String t) {
