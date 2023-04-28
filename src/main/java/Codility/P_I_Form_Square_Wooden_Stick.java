@@ -31,4 +31,19 @@ Write an efficient algorithm for the following assumptions:
 
 A and B are integers within the range [1..1,000,000,000].
      */
+
+
+    public int solution(int A, int B) {
+        int totalSticks = A + B;
+        int maxLenghthTogether = totalSticks / 4;
+        while(maxLenghthTogether > 0) {
+            int maxLenghthA = A / maxLenghthTogether;
+            int maxLenghthB = B / maxLenghthTogether;
+            if(maxLenghthA + maxLenghthB >= 4) {
+                return maxLenghthTogether;
+            }
+            maxLenghthTogether--;
+        }
+        return 0;
+    }
 }
