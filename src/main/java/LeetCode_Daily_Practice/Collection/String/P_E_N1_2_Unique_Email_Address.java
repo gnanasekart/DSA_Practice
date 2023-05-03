@@ -37,7 +37,6 @@ public class P_E_N1_2_Unique_Email_Address {
     All local and domain names are non-empty.
     Local names do not start with a '+' character.
     Domain names end with the ".com" suffix.
-
 */
     @Test
     public void example1(){
@@ -87,5 +86,4 @@ Pseudo Code
         }
         return diffEmail.size();
     }
-
 }
