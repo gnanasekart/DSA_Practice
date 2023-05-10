@@ -70,11 +70,11 @@ brute force
         String str = "";
         List<Integer> list = new ArrayList<>();
         int i = 0;
-            for (int j = p.length() + i; j <= s.length(); j++, i++) {
-                str = s.substring(i, j);
-                if (isAnagram(str, p))
-                    list.add(i);
-                str="";
+        for (int j = p.length() + i; j <= s.length(); j++, i++) {
+            str = s.substring(i, j);
+            if (isAnagram(str, p))
+                list.add(i);
+            str="";
             }
         return list;
     }
