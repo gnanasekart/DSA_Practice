@@ -54,8 +54,7 @@ Apple :1
         List list = new LinkedList(map.entrySet());
         if(flag){
            Collections.sort(list, new Comparator<>() {
-               public int compare(Object o1, Object o2)
-               {
+               public int compare(Object o1, Object o2) {
                    return ((Comparable) ((Map.Entry) (o2)).getValue()).compareTo(((Map.Entry) (o1)).getValue());
                }
            });
@@ -67,12 +66,12 @@ Apple :1
     public void ex1(){
         String str = "aaaabbccdddddeeeaabb";
         String output = "4a2b2c5d3e2a2b";
-        Assert.assertEquals(examplePRogram(str), output);
+        Assert.assertEquals(exampleProgram(str), output);
     }
 
 
     @Test
-    public String examplePRogram(String str){
+    public String exampleProgram(String str){
 
         StringBuilder sb = new StringBuilder();
 
@@ -95,5 +94,4 @@ Apple :1
 
         return sb.toString();
     }
-
 }

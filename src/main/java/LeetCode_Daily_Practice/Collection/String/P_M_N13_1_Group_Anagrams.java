@@ -112,7 +112,7 @@ add the real string which matches with key
             list.add(str);
             map.put(hmap, list);
         }
-        System.out.println(map.values().stream().collect(Collectors.toList()));
+        //System.out.println(map.values().stream().collect(Collectors.toList()));
         return map.values().stream().collect(Collectors.toList());
     }
 }

@@ -26,7 +26,6 @@ public class P_I_Add_Space_to_Str {
         //Expected output - How are you today.
 
         StringBuffer sb = new StringBuffer();
-
         int left=0, right=0;
 
         while(right<str.length() && left<str.length()){
