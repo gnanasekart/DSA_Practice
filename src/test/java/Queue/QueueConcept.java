@@ -38,6 +38,6 @@ public class QueueConcept {
 		deque1.offer(13);
 		System.out.println(deque1);//10, 11, 12, 13
 		System.out.println(deque1.poll());//10
-		System.out.println(deque1.element());
+		System.out.println(deque1.element());//11
 	}
 }

@@ -26,7 +26,7 @@ public class Two_String_K_Anagram {
         int[] a = new int[26];
         int[] b = new int[26];
         for(int i=0; i<str1.length(); i++){
-            a[str1.charAt(i) - 'a']++;
+            a[str1.charAt(i)-'a']++;
             b[str2.charAt(i)-'a']++;
         }
         int count=0;

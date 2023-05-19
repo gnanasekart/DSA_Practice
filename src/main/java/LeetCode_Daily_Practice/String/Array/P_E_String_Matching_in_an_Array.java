@@ -80,7 +80,6 @@ All the strings of words are unique.
             if(first != end)
                 list.add(str);
         }
-
         return list;
     }
 }

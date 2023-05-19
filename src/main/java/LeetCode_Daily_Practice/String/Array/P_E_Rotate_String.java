@@ -25,7 +25,7 @@ abcde
      */
 
     @Test
-    public void ex1(){
+    public void ex1(){//abcdeabcde
         Assert.assertEquals(rotate("abcde", "bcdea"), true);
     }
 

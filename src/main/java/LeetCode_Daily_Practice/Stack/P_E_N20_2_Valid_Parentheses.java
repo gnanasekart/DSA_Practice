@@ -19,7 +19,6 @@ public class P_E_N20_2_Valid_Parentheses {
     Constraints:
     1 <= s.length <= 10^4
     s consists of parentheses only '()[]{}'.
-
      */
 
     @Test
