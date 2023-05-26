@@ -131,7 +131,6 @@ s consists of English letters, digits, symbols and spaces.
 
             len = right - left;
             max = len > max ? len : max;
-
         }
         return max;
     }
