@@ -63,14 +63,13 @@ public class P_M_LC_15_Find_First_Last_Position_Ele_On_Sorted_Arr {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             if (nums[i] == target) {
-                list.add(i); // * Add Index Into The List.
+                list.add(i);
             }
         }
 
         int[] res = new int[2];
 
         if (list.isEmpty()) {
-            // * No Occurence.
             res[0] = -1;
             res[1] = -1;
         } else {
