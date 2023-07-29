@@ -24,12 +24,13 @@ Millions of total users U. Find top N users with N ~100-1000.
 Write a method that takes a filename and the value of N and returns the top N users
 along with the word counts in descending order.
      */
+    public static String path = System.getProperty("user.dir")+"\\src\\main\\java\\LeetCode_Daily_Practice\\Queue\\logFile.txt";
 
     //O(n log n)
     @Test
     public void main1() throws IOException {
         Map<String, Integer> map = new HashMap<>();
-        BufferedReader br = new BufferedReader(new FileReader("C:\\studies and document\\automation learning repo\\Java repo\\Java repo\\DSA_Practice\\src\\main\\java\\LeetCode_Daily_Practice\\Queue\\logFile.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
         while ((line = br.readLine()) != null) {
             int first = line.indexOf('<') + 1;
@@ -48,7 +49,7 @@ along with the word counts in descending order.
                 return (o2.getValue()).compareTo(o1.getValue());
             }
         });
-        System.out.println(list.get(0));
+        System.out.println(list.get(0));//johndoe=6
     }
 
     //O(n)
@@ -57,10 +58,10 @@ along with the word counts in descending order.
 
         String line, name, l;
         int count = 0, first, second;
-        BufferedReader brr = new BufferedReader(new FileReader("C:\\studies and document\\automation learing repo\\Java repo\\Java repo\\DSA_Practice\\src\\main\\java\\LeetCode_Daily_Practice\\Queue\\logFile.txt"));
+        BufferedReader brr = new BufferedReader(new FileReader(path));
         while ((brr.readLine()) != null) count++;
 
-        BufferedReader br = new BufferedReader(new FileReader("C:\\studies and document\\automation learing repo\\Java repo\\Java repo\\DSA_Practice\\src\\main\\java\\LeetCode_Daily_Practice\\Queue\\logFile.txt"));
+        BufferedReader br = new BufferedReader(new FileReader(path));
         HashMap<String, Integer> map = new HashMap<>();
         PriorityQueue<User> minHeap = new PriorityQueue<>(count, (u1, u2) -> u2.wordcount - u1.wordcount);
         while ((line = br.readLine()) != null) {
